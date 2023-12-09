@@ -1,0 +1,1222 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Parallel Execution of FDS &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/02_hpc/03_parallel_fds';</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/03_parallel_fds.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Benchmarking" href="04_benchmarking.html" />
+    <link rel="prev" title="High Performance Computing" href="02_hpc.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/02_team.html">Team Fire Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/03_references.html">References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/01_general/00_overview.html">1. Modelling Fires</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/01_processes.html">1.1. Physical and Chemical Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/02_fse.html">1.2. Fire Safety Engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/03_approaches.html">1.3. Modelling Approaches</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">2.1. Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">2.2. Computational Fluid Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">2.3. Turbulence</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/03_compartments/00_overview.html">3. Compartment Fires</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">3.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">3.2. Example – Pool Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">3.3. Example - Steckler Compartment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">4. Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">4.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">4.2. Energy and Mass Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/05_combustion/00_overview.html">5. Combustion</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">5.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">5.2. Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">5.3. Example – Closed Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">5.4. Wolfhard-Parker Burner</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">6. Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">6.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">6.2. Example – Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">6.3. Validation – Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">6.4. Example – 3D Heat Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/07_particles/00_overview.html">7. Particles</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">7.1. Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">7.2. Example – Sprays</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">8. Pyrolysis</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">8.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">8.2. Example - Gasification of PMMA</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/01_basic/00_overview.html">Basic</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/01_basic_example_i.html">Basic FDS Example I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/02_basic_example_ii.html">Basic FDS Example II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/03_basic_example_iii.html">Basic Example III</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/04_basic_example_iv.html">Basic Example IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/05_basic_example_v.html">Basic Example V</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/02_intermediate/00_overview.html">Intermediate</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/01_data_analysis_01.html">Data Analysis I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/02_adjust_fds_input.html">Adjust FDS Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/03_work_flow.html">Work Flow Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/04_repeated_sim_exec.html">Repetitive Execution of Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/05_data_analysis_02.html">Data Analysis II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/06_build_fds_input.html">Build FDS Input Lines Using Python String Manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/03_advanced/00_overview.html">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/McCaffrey.html">McCaffrey Plumes</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/02_example_stecklercompartments.html">Steckler Compartments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/03_example_zukoskiplumes.html">Zukoski Plumes</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_fds_smv/00_overview.html">FDS and SMV</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_fds_smv/01_fds_intro.html">FDS Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_fds_smv/02_fds_tutorial.html">FDS Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_fds_smv/03_smv.html">Smokeview Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">HPC</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_linux.html">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_hpc.html">High Performance Computing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Parallel Execution of FDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_benchmarking.html">Benchmarking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_analysis/00_overview.html">Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_analysis/01_python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_analysis/03_example_mccaffreyplumes.html">Example: McCaffrey plume experiments</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_analysis/02_fdsreader.html">fdsreader Module</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">Fire Simulation Lecture @ BUW</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">Week 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">Week 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">CoBra Workshop</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">CoBra Workshop I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">CoBra Workshop II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">CoBra Workshop III</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/03_parallel_fds.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/03_parallel_fds.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/tools/02_hpc/03_parallel_fds.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Parallel Execution of FDS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-modules-lmod">Environment modules (Lmod)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slurm">SLURM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission">Job Submission</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-job">Single Job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-jobs">Chain Jobs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#some-pointers-and-best-practice">Some pointers and best practice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-jureca">Accessing JURECA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accounts-and-accounting">Accounts and Accounting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-modules-on-jureca">FDS Modules on JURECA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-pleiades-cluster-cobra">Accessing the Pleiades Cluster / CoBra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accounts">Accounts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-modules-on-the-pleiades-cluster">FDS Modules on the Pleiades Cluster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-decomposition">Mesh Decomposition</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="parallel-execution-of-fds">
+<h1>Parallel Execution of FDS<a class="headerlink" href="#parallel-execution-of-fds" title="Permalink to this heading">#</a></h1>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading">#</a></h2>
+<p>Below two different HPC clusters are discussed. Make sure to look into the system that you will be working on. The computer <a class="reference external" href="https://www.fz-juelich.de/en/ias/jsc/systems/supercomputers/jureca">JURECA</a> is located at the Forschungszentrum Jülich (FZJ) and <a class="reference external" href="https://pleiades.uni-wuppertal.de/en/">Pleiades</a> is located at the Bergische Universität Wuppertal (BUW), both in Germany.</p>
+<p>Follow the respective link to the documentation of <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/index.html">JURECA</a> or <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/">Pleiades</a>.</p>
+<section id="ssh">
+<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this heading">#</a></h3>
+<p>To reach the compute clusters you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>.</p>
+<p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> for the connection per terminal and <a class="reference external" href="https://winscp.net/eng/download.php">WinSCP</a> to copy files with a graphical user interface.</p>
+<p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
+<p>One of the safety measures on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">key restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
+<figure class="align-default" id="fig-hpc-ssh1">
+<a class="reference internal image-reference" href="../../../_images/ssh_connection_1.svg"><img alt="../../../_images/ssh_connection_1.svg" src="../../../_images/ssh_connection_1.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SSH connection scenario, where the user types in the password every time an SSH connection is established.</span><a class="headerlink" href="#fig-hpc-ssh1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-hpc-ssh2">
+<a class="reference internal image-reference" href="../../../_images/ssh_connection_2.svg"><img alt="../../../_images/ssh_connection_2.svg" src="../../../_images/ssh_connection_2.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">SSH connection scenario, which uses a public-private key pair for authentification. The passphrase for the private key needs to be manualy provided each time the key is accessed.</span><a class="headerlink" href="#fig-hpc-ssh2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-hpc-ssh3">
+<a class="reference internal image-reference" href="../../../_images/ssh_connection_3.svg"><img alt="../../../_images/ssh_connection_3.svg" src="../../../_images/ssh_connection_3.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">SSH connection scenario, including an SSH agent to manage the passphrases of the private keys located at the local machine. No manual input is needed to access the private keys.</span><a class="headerlink" href="#fig-hpc-ssh3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="environment-modules-lmod">
+<h3>Environment modules (Lmod)<a class="headerlink" href="#environment-modules-lmod" title="Permalink to this heading">#</a></h3>
+<p>With <a class="reference external" href="https://lmod.readthedocs.io/en/latest/">Lmod</a> the user is able to dynamically change the terminal environment. This is convenient for example when different simulation software versions are to be used. See below for guides of the modules on the systems JURECA and Pleiades.</p>
+<p>Documentation of Lmod can be found <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">here</a>. Some of the most important commands are reproduced here.</p>
+<p>To find out what modules are available to be loaded, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module avail
+</pre></div>
+</div>
+<p>An overview over already loaded modules is provided with the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module list
+</pre></div>
+</div>
+<p>Desired modules can simply loaded by typing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module load package1 package2 ...
+</pre></div>
+</div>
+<p>For unloading use the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module unload package1 package2 ...
+</pre></div>
+</div>
+<p>A user may wish to go back to an initial set of modules:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module reset
+</pre></div>
+</div>
+<p>Another way to search for modules is with the “<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>” command. This command searches the entire list of possible modules:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module spider
+</pre></div>
+</div>
+<p>What is now the difference between “<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>” and “<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>”? Lmod reports only the modules that are in the current MODULEPATH (<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>). Those are the only modules that the user can load. If there is a modulefile hierarchy, then a package the user wants may be available but not with the current compiler version (<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>).</p>
+<p>This is explained in the <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">“Module Hierarchy” and “Searching for Modules” sections</a>.</p>
+</section>
+<section id="slurm">
+<h3>SLURM<a class="headerlink" href="#slurm" title="Permalink to this heading">#</a></h3>
+<p>A computer cluster is often used by a lot of users. Therefore, executing a program which needs a lot of the resources could slow down the network or even the OS. To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is <a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM</a>, which is also used on JURECA and Pleiades.</p>
+<p>Some of the basic commands are reproduced here. Many parameters can be used to control the behaviour of the individual commands. Look into the <a class="reference external" href="https://slurm.schedmd.com/documentation.html">documentation</a> for a comprehensive overview.</p>
+<p>An overview over all jobs in the queue is provided with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; squeue
+</pre></div>
+</div>
+<p>More useful is to limit the output to the jobs of the user, which can be accomplished by adding the following parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; squeue -u $USER
+</pre></div>
+</div>
+<p>Look also to the “Aliases” section to set up the <code class="docutils literal notranslate"><span class="pre">myjobs</span></code> alias.</p>
+<p>To submit submit a job for execution or initiate job steps in real time use the following. A job can contain multiple job steps executing sequentially or in parallel on independent or shared resources within the job’s node allocation.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; srun
+</pre></div>
+</div>
+<p>Jobs can be canceled by using <code class="docutils literal notranslate"><span class="pre">scancel</span></code> and providing the job id number:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; scancel job_id_number
+</pre></div>
+</div>
+<p>Here, some parameters are handy. For example all jobs can be canceled that have the same name, thus one does not need to enter many job ids (see also job scripts for the names):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; scancel -n job_name
+</pre></div>
+</div>
+<p>One might want to further limit the command, by setting the focus on jobs with a specific name and also state. For example <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> or <code class="docutils literal notranslate"><span class="pre">RUNNING</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; scancel -n job_name --state=&quot;PENDING&quot;
+</pre></div>
+</div>
+<p>Often different queues exist on the computers. These can be defined by the maximum runtime of a job or the resources available, for example if the computer has also access to GPU clusters. For example <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/slurm">Pleiades provides</a> a couple different queues: “short” limited to 1 h for testing, “normal” a 3 day limit (default), “long” with a time limit of 7 days and “gpu” for access to the GPU cluster with a time limit of 3 days. Note: best practice is to use the shortest queue for your jobs! These queues are called “partition”, the respective parameter is <code class="docutils literal notranslate"><span class="pre">--partition</span></code> or short <code class="docutils literal notranslate"><span class="pre">-p</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; srun --partition=normal
+</pre></div>
+</div>
+<p>More information about the available queues and their time limits can be retrieved by the <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> command:</p>
+</section>
+<section id="job-submission">
+<h3>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this heading">#</a></h3>
+<p>After the brief overview over the different different commands above let’s go into a bit more detail now. Focus is on setting up scripts that define a job and send it to the scheduler. Generally, one would not run jobs manually since it somewhat defeats the purpose of a resource management system.</p>
+<p>Instead of running our simulation on the cluster we either submit our simulation file to the queuing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, threads and other important quantities.</p>
+<p>More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a> and <a class="reference external" href="http://www.pleiades.uni-wuppertal.de/index.php?id=slurm">Pleiades batch system</a>.</p>
+<section id="single-job">
+<h4>Single Job<a class="headerlink" href="#single-job" title="Permalink to this heading">#</a></h4>
+<p>The structure of a SLURM job script is basically that of a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for SLURM.</p>
+<p>A simple example for a SLURM job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) on JURECA is given below. An example for the Pleiades system (<a class="reference download internal" download="" href="../../../_downloads/4d3769ec94538d21c04509058f40ae13/fds-slurm-job-single_pleiades.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single_pleiades.sh</span></code></a>) follows a similar structure. Both execute FDS for a single FDS input file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
+
+##########   JURECA   ##########
+
+#SBATCH --job-name=my_FDS_simulation
+#SBATCH --account=ias-7
+#SBATCH --partition=dc-cpu
+#SBATCH --ntasks=128
+#SBATCH --cpus-per-task=1
+#SBATCH --output=stdout.%j
+#SBATCH --error=stderr.%j
+#SBATCH --time=00:30:00  # days-hours:minutes:seconds
+
+# Set the number of OMP threads
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+# Add firesim modules
+module use -a ~arnold1/modules_fire/
+
+# Load FDS in the version 6.7.5
+module load FDS/6.7.8-IntelCompiler_2021.4.0_IntelMPI_2021.4.0
+
+# Execute FDS, here it is assumed, that there is only one FDS input file
+# in the current directory. Additionally, srun uses implicitly the number
+# of tasks specified in the SLURM header
+srun fds ./*.fds
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
+
+<span class="c1">##########   PLEIADES   ##########</span>
+
+<span class="c1">#SBATCH --job-name=my_FDS_simulation</span>
+<span class="c1">#SBATCH --partition=normal</span>
+<span class="c1">#SBATCH --ntasks=16</span>
+<span class="c1">#SBATCH --output=stdout.%j</span>
+<span class="c1">#SBATCH --error=stderr.%j</span>
+<span class="c1">#SBATCH --time=00:30:00  # days-hours:minutes:seconds</span>
+
+<span class="c1"># Add firesim modules</span>
+<span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">larnold</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span>
+
+<span class="c1"># Load FDS in the version 6.8.0</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span><span class="o">/</span><span class="mf">6.8.0</span><span class="n">_IntelComp_IntelMPI</span><span class="mf">.2021.2</span><span class="n">_mkl</span>
+
+<span class="c1"># Execute FDS, here it is assumed, that there is only one FDS input file</span>
+<span class="c1"># in the current directory. Additionally, srun uses implicitly the number</span>
+<span class="c1"># of tasks specified in the SLURM header</span>
+<span class="n">mpiexec</span> <span class="n">fds</span> <span class="o">./*.</span><span class="n">fds</span>
+</pre></div>
+</div>
+<p>The SLURM keywords in the individual lines are described in more detail below.</p>
+<ul>
+<li><p><strong>Naming</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --job-name=my_FDS_simulation</span>
+</pre></div>
+</div>
+<p>You can name your job in order to find it quicker in the job lists. The name can also be used to selectively cancel job chains, since each repetition uses the same name. For example, the following would cancel all instances of a job that are waiting for resources, i.e. are not yet running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">scancel</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_FDS_simulation</span> <span class="o">--</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;PENDING&quot;</span>
+</pre></div>
+</div>
+<p>Thus, you may want to put some effort in naming your jobs.</p>
+</li>
+<li><p><strong>Accounting</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --account=ias-7</span>
+</pre></div>
+</div>
+<p>On JURECA, for example, you need to have a computing time project and your account needs to be assigned to it. This budget is used to “buy” a normal/high priority in the queuing system. Using <code class="docutils literal notranslate"><span class="pre">account</span></code> you specify which computing time budget will be debited for the specified job. Here <code class="docutils literal notranslate"><span class="pre">ias-7</span></code> is indicating the project we will use for this lecture. It is the budget of the IAS-7 at the Forschungszentrum Jülich.</p>
+</li>
+<li><p><strong>Partition</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --partition=dc-cpu</span>
+</pre></div>
+</div>
+<p>Typically, the resources of a computing cluster are organised in some fashion. For example, JURECA’s batch system is divided into multiple partitions, which represent different computing architectures. In our case we want to execute the simulation on common CPU cores and therefore we use the partition <code class="docutils literal notranslate"><span class="pre">dc-cpu</span></code> – more information on <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html#slurm-partitions">JURECA’s partitions</a>.</p>
+<p>Pleiades distinguishes also between CPU and GPU resources. Furthermore, it provides three queues with different durations for which the CPU resources can be booked, up to seven days, see <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/slurm">Pleiades partitions</a>.</p>
+</li>
+<li><p><strong>MPI Tasks</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --ntasks=128</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+</pre></div>
+</div>
+<p>There are different ways how to define the number of requested cores. It is possible to state how many MPI tasks (<code class="docutils literal notranslate"><span class="pre">ntasks</span></code>) are to be started and how many cores each of them (<code class="docutils literal notranslate"><span class="pre">cpus-per-task</span></code>) will get assigned. The product of these will lead to the number of physical cores and thus to the number of nodes to be allocated. In the current configuration of the <code class="docutils literal notranslate"><span class="pre">dc-cpu</span></code> partition, each node has 128 cores (JURECA). An alternative is to specify the number of nodes, which would lead to the number of MPI tasks to be started.</p>
+</li>
+<li><p><strong>Terminal Output</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --output=stdout.%j</span>
+<span class="c1">#SBATCH --error=stderr.%j</span>
+</pre></div>
+</div>
+<p>Here the file name for the standard output and error log are defined. <code class="docutils literal notranslate"><span class="pre">%j</span></code> will be replaced by the job id generated by SLURM.</p>
+</li>
+<li><p><strong>Wall Clock Time</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --time=00:30:00  # days-hours:minutes:seconds</span>
+</pre></div>
+</div>
+<p>This line specifies the maximum time the job can run on the requested resource. The maximal wall clock time is stated in the documentation for the individual partitions. The <code class="docutils literal notranslate"><span class="pre">cd-cpu</span></code> partition has a limit of 24 hours (JURECA). Different rules apply for Pleiades where multiple days can be requested. The general syntax is <code class="docutils literal notranslate"><span class="pre">days-hours:minutes:seconds</span></code>.</p>
+</li>
+<li><p><strong>Setting OpenMP Environment</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+</pre></div>
+</div>
+<p>As FDS can utilise OpenMP, the according environment variable (<code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code>) needs to be set. The above command sets it automatically to the number given by <code class="docutils literal notranslate"><span class="pre">cpus-per-task</span></code> in the SLURM section.</p>
+</li>
+<li><p><strong>Load FDS Modules</strong></p>
+<p>Available Lmod modules are stored in different locations on both computers. On JURECA use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span><span class="o">/</span><span class="mf">6.7.5</span><span class="o">-</span><span class="n">IntelComp2020</span><span class="mf">.2</span><span class="n">_ParaStationMPI_5</span><span class="mf">.4.7</span>
+</pre></div>
+</div>
+<p>On Pleiades use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">beegfs</span><span class="o">/</span><span class="n">larnold</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span>
+</pre></div>
+</div>
+<p>Here, first the module environment containing the FDS module is included, then the specified FDS module is loaded.</p>
+</li>
+<li><p><strong>Execute FDS</strong></p>
+<p>A MPI-parallel application is started with <code class="docutils literal notranslate"><span class="pre">srun</span></code> on JURECA:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="n">fds</span> <span class="o">./*.</span><span class="n">fds</span>
+</pre></div>
+</div>
+<p>This is different on Pleiades:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpiexec</span> <span class="n">fds</span> <span class="o">./*.</span><span class="n">fds</span>
+</pre></div>
+</div>
+<p>If not explicitly stated, like in the above line, the number of MPI tasks is specified by the SLURM environment, i.e. will follow some default setup.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to keep in mind, that JURECA’s usage concept is to assign compute nodes <strong>exclusively</strong> to a single job. Thus, the resources used are given by the number of nodes used and the wall clock time. In the current setup the <code class="docutils literal notranslate"><span class="pre">dc-cpu</span></code> partition has nodes with 128 cores, so even if jobs use just a few cores, the account is charged with 128 cores (a full node).</p>
+</div>
+<ul class="simple">
+<li><p><strong>Submit job script</strong></p></li>
+</ul>
+<p>A SLURM job can be submitted via</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sbatch</span> <span class="n">fds</span><span class="o">-</span><span class="n">slurm</span><span class="o">-</span><span class="n">job</span><span class="o">-</span><span class="n">single</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>The current status of a user’s queue can be listed with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; squeue -u $USER
+</pre></div>
+</div>
+</section>
+<section id="chain-jobs">
+<h4>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Permalink to this heading">#</a></h4>
+<p>As there are time limits of 24 hours on JURECA and up to seven days on Pleiades, each job that needs more time has to restart at some point. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the <code class="docutils literal notranslate"><span class="pre">RESTART</span></code> parameter is explicitly defined in the input file and set to <code class="docutils literal notranslate"><span class="pre">.FALSE.</span></code>. The script will look up this parameter in the input and replace it with <code class="docutils literal notranslate"><span class="pre">.TRUE.</span></code>.</p>
+<p>Also, it is in general useful to have FDS create intermediate restart files to prevent data loss when some crash happens - which happens more often than you might expect…</p>
+<p>The main idea is to invoke multiple jobs (<a class="reference download internal" download="" href="../../../_downloads/0d1c3cadb0cd08b5a4c8d8cdc927d199/fds-slurm-chain-starter.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-chain-starter.sh</span></code></a>) with a dependency, i.e. a chain is created, so that the jobs are consecutively executed. The two primary ways are <code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">afterok</span></code> to start the next job if the one before completed successfully or <code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">afternotok</span></code> to start it even if the one before crashed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
+# submit a chain of jobs with dependency
+
+# number of jobs to submit
+NO_OF_JOBS=5
+
+# define jobscript
+JOB_SCRIPT=fds-chain-part.job
+
+echo &quot;sbatch ${JOB_SCRIPT}&quot;
+JOBID=$(sbatch ${JOB_SCRIPT} 2&gt;&amp;1 | awk &#39;{print $(NF)}&#39;)
+
+I=0
+while [ ${I} -le ${NO_OF_JOBS} ]; do
+  echo &quot;sbatch -d afterok:${JOBID} ${JOB_SCRIPT}&quot;
+  JOBID=$(sbatch -d afterok:${JOBID} ${JOB_SCRIPT} 2&gt;&amp;1 | awk &#39;{print $(NF)}&#39;)
+  let I=${I}+1
+done
+</pre></div>
+</div>
+<p>The individual jobs (<a class="reference download internal" download="" href="../../../_downloads/723c173c95cf37d9543290b5c17c58ac/fds-slurm-chain-job.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-chain-job.sh</span></code></a>) are similar to the above simple setting. However, they add the functionality to create a <code class="docutils literal notranslate"><span class="pre">CHID.stop</span></code> file to stop FDS gracefully, before the requested wall clock time is reached. The parameter <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--signal=B:SIGUSR1&#64;600</span></code> will send a signal 600 seconds before the scheduled end of the job. This way restart files are written out by FDS, which can be used for the next chain element. The value of <code class="docutils literal notranslate"><span class="pre">RESTART</span></code> is automatically set to <code class="docutils literal notranslate"><span class="pre">.TRUE.</span></code> after the first execution of FDS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+
+#SBATCH --job-name=my_FDS_simulation
+#SBATCH --account=ias-7
+#SBATCH --partition=dc-cpu
+#SBATCH --ntasks=128
+#SBATCH --cpus-per-task=1
+#SBATCH --output=stdout.%j
+#SBATCH --error=stderr.%j
+#SBATCH --time=00:30:00
+#SBATCH --signal=B:SIGUSR1@600
+
+# define FDS input file
+FDSSTEM=./
+
+# grep the CHID (used for stop file)
+CHID=`sed -n &quot;s/^.*CHID=&#39;\([-0-9a-zA-Z_]*\)&#39;.*$/\1/p&quot; &lt; $FDSSTEM*.fds`
+
+# append the start time to file &#39;time_start&#39;
+echo &quot;$SLURM_JOB_ID -- `date`&quot; &gt;&gt; time_start
+
+# handle the signal sent before the end of the wall clock time
+function handler_sigusr1
+{
+  # protocol stopping time
+  echo &quot;$SLURM_JOB_ID -- `date`&quot; &gt;&gt; time_stop
+  echo &quot;`date` Shell received stop signal&quot;
+
+  # create FDS stop file
+  touch $CHID.stop
+  
+  # as manual stop was triggered, the end of simulation time was
+  # not reached, remove flag file &#39;simulation_time_end&#39;
+  rm simulation_time_end
+  wait
+}
+
+# register the function &#39;hander_sigusr1&#39; to handle the signal send out
+# just before the end of the wall clock time
+trap &quot;handler_sigusr1&quot; SIGUSR1
+
+# check for the simulation finished flag file &#39;simulation_time_end&#39;
+# if it is found, just quit
+if [ -e simulation_time_end ]; then
+
+    ## simulation has already finished, nothing left to do
+    echo &quot;FDS simulation already finished&quot;
+    exit 0
+fi
+
+# simulation not finished yet
+# create flag file to check for reaching simulation end time
+touch simulation_time_end
+
+# Add firesim modules
+module use -a ~arnold1/modules_fire/
+
+# Load FDS in the version 6.7.5
+module load FDS/6.7.5-IntelComp2020.2_ParaStationMPI_5.4.7
+
+# set the number of OMP threads
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+# run FDS executable
+srun fds $FDSSTEM*.fds &amp; wait
+
+# set RESTART to TRUE in FDS input file
+sed -i &#39;s/RESTART=.FALSE./RESTART=.TRUE./g&#39; $FDSSTEM*.fds
+
+# remove the stop file, otherwise the following chain parts
+# would not run
+rm $CHID.stop
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most of the above commands are very general, yet a few, like the modules to be loaded as well as the way to run a MPI application, i.e. using <code class="docutils literal notranslate"><span class="pre">srun</span></code> or <code class="docutils literal notranslate"><span class="pre">mpiexec</span></code>, may have to be adopted to the used system.</p>
+</div>
+</section>
+<section id="some-pointers-and-best-practice">
+<h4>Some pointers and best practice<a class="headerlink" href="#some-pointers-and-best-practice" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Be mindful of the structure of your job</strong></p></li>
+</ul>
+<p>When requesting resources think a bit how your job is structured and what your resource request means specifically. For example, assume you were to run a job that consists of 128 individual simulations. If you request all tasks on a single node(JURECA), SLURM needs to wait until a complete node is free. It may also need to block parts of it in the mean time, such that it will not constantly filled with jobs that use less cores. Depending on the load of the cluster this can lead to extended wait times. However, in the assumed setup it is not necessary that all jobs run on the same node. You where to set it up the other way around, with one task per node. Now, SLURM needs to only find small spaces and this might be easier accomplished, thus the job starts faster. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --tasks-per-node=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --nodes=128</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Be mindful of network traffic</strong></p></li>
+</ul>
+<p>When your jobs require a lot of read and write access to disk it might be beneficial to store the files on the worker node during execution. Specifically, when the job is large, like a smoke extraction simulation in a warehouse with many meshes. Because all these attempts to read and write would be sent through the network between worker and login nodes and might  slow down the whole system. This is bad for you because the simulation takes longer to complete and bad for everyone else for the same reason.</p>
+</section>
+</section>
+</section>
+<section id="accessing-jureca">
+<h2>Accessing JURECA<a class="headerlink" href="#accessing-jureca" title="Permalink to this heading">#</a></h2>
+<section id="accounts-and-accounting">
+<h3>Accounts and Accounting<a class="headerlink" href="#accounts-and-accounting" title="Permalink to this heading">#</a></h3>
+<p>You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys. Your account is managed via <a class="reference external" href="https://judoor.fz-juelich.de/login">JuDoor</a>.</p>
+<p>Furthermore, the account is connected one or more projects and thus some budget of computing time. The user needs to specify which budget to draw from, when setting up jobs. The resource management system SLURM has a parameter for this: <code class="docutils literal notranslate"><span class="pre">--account=budget_name</span></code>.</p>
+</section>
+<section id="login">
+<h3>Login<a class="headerlink" href="#login" title="Permalink to this heading">#</a></h3>
+<p>Connecting to JURECA is done via SSH. It is recommended to read the user documentation, which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
+<p>In order to login to JURECA on a Linux or MacOS you just need to execute</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ssh username1@jureca.fz-juelich.de
+</pre></div>
+</div>
+<p>Or you add a configuration to <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">jureca</span>
+     <span class="n">User</span> <span class="n">username1</span>
+     <span class="n">Hostname</span> <span class="n">jureca</span><span class="o">.</span><span class="n">fz</span><span class="o">-</span><span class="n">juelich</span><span class="o">.</span><span class="n">de</span>
+</pre></div>
+</div>
+<p>which allow a shorter command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ssh</span> <span class="n">jureca</span>
+</pre></div>
+</div>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p>Login to JURECA and check your username, the server you have logged in to and the path to your home directory. The result should look similar to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; whoami
+username1
+&gt; hostname
+jrlogin06.jureca
+&gt; echo $HOME
+/p/home/jusers/username1/jureca
+</pre></div>
+</div>
+</div>
+</section>
+<section id="fds-modules-on-jureca">
+<h3>FDS Modules on JURECA<a class="headerlink" href="#fds-modules-on-jureca" title="Permalink to this heading">#</a></h3>
+<p>Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html">Module usage on JURECA</a>.</p>
+<p>As the FDS (and some other) modules are not globally installed, they need to be added to the user’s environment. This can be done with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Thus, adding this line to your batch scripts and startup script (<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>) will automatically add the related modules to the module environment.</p>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> command to list all available modules. Make sure, you see also the FDS modules.</p></li>
+<li><p>Load a FSD module and invoke FDS with <code class="docutils literal notranslate"><span class="pre">fds</span></code>. Does the loaded version of FDS correspond to the one you expected?</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="accessing-the-pleiades-cluster-cobra">
+<h2>Accessing the Pleiades Cluster / CoBra<a class="headerlink" href="#accessing-the-pleiades-cluster-cobra" title="Permalink to this heading">#</a></h2>
+<section id="accounts">
+<h3>Accounts<a class="headerlink" href="#accounts" title="Permalink to this heading">#</a></h3>
+<p>Please contact Lukas for an account.</p>
+</section>
+<section id="id1">
+<h3>Login<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Connecting to Pleiades is done via SSH. Using the provided credentials, you can use SSH to login to the front-end <code class="docutils literal notranslate"><span class="pre">fugg1.pleiades.uni-wuppertal.de</span></code> from within the university’s network.</p>
+</section>
+<section id="fds-modules-on-the-pleiades-cluster">
+<h3>FDS Modules on the Pleiades Cluster<a class="headerlink" href="#fds-modules-on-the-pleiades-cluster" title="Permalink to this heading">#</a></h3>
+<p>On Pleiades, the modules need to be added to the user’s environment with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">beegfs</span><span class="o">/</span><span class="n">larnold</span><span class="o">/</span><span class="n">modules</span>
+</pre></div>
+</div>
+<p>The (default) FDS module can be loaded with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span>
+</pre></div>
+</div>
+<p>which sets up the environment to run FDS in parallel. The name of the FDS executable is <code class="docutils literal notranslate"><span class="pre">fds</span></code>.</p>
+</section>
+</section>
+<section id="mesh-decomposition">
+<h2>Mesh Decomposition<a class="headerlink" href="#mesh-decomposition" title="Permalink to this heading">#</a></h2>
+<p>Python scipt to automate decomposition of a single <code class="docutils literal notranslate"><span class="pre">MESH</span></code> statement: <a class="reference download internal" download="" href="../../../_downloads/4017b6458e61599216f92ef0948c18f7/decompose_fds_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">decompose_fds_mesh.py</span></code></a>.</p>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">decompose_fds_mesh.py</span> <span class="pre">MESH</span> <span class="pre">DECOMPOSITION</span></code></p>
+<p><strong>One mesh, i.e. no decompositon</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">decompose_fds_mesh</span><span class="o">.</span><span class="n">py</span> <span class="s2">&quot;&amp;MESH IJK=12,12,12 XB=0,12,0,12,0,12 /&quot;</span> <span class="s2">&quot;1,1,1&quot;</span>
+<span class="n">raw</span> <span class="nb">input</span> <span class="n">mesh</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span> <span class="o">/</span>
+<span class="n">raw</span> <span class="nb">input</span> <span class="n">decomposition</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">raw</span> <span class="n">ijk</span><span class="p">:</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span>
+<span class="n">i</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">raw</span> <span class="n">xb</span><span class="p">:</span> <span class="n">XB</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">decomposition</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">lx</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">dx</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">di</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">ly</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dy</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dj</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">lz</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dz</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dk</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">resulting</span> <span class="n">number</span> <span class="n">of</span> <span class="n">meshes</span><span class="p">:</span> <span class="mi">1</span>
+<span class="o">===========================</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;1&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>Four meshes in x-direction</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">decompose_fds_mesh</span><span class="o">.</span><span class="n">py</span> <span class="s2">&quot;&amp;MESH IJK=12,12,12 XB=0,12,0,12,0,12 /&quot;</span> <span class="s2">&quot;4,1,1&quot;</span>
+<span class="n">raw</span> <span class="nb">input</span> <span class="n">mesh</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span> <span class="o">/</span>
+<span class="n">raw</span> <span class="nb">input</span> <span class="n">decomposition</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">raw</span> <span class="n">ijk</span><span class="p">:</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span>
+<span class="n">i</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">raw</span> <span class="n">xb</span><span class="p">:</span> <span class="n">XB</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">decomposition</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">lx</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">dx</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">di</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">ly</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dy</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dj</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">lz</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dz</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dk</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">resulting</span> <span class="n">number</span> <span class="n">of</span> <span class="n">meshes</span><span class="p">:</span> <span class="mi">4</span>
+<span class="o">===========================</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;1&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">3.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;2&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mf">3.0000</span><span class="p">,</span><span class="mf">6.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;3&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mf">6.0000</span><span class="p">,</span><span class="mf">9.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;4&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mf">9.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>Nine meshes, three in each direction</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">decompose_fds_mesh</span><span class="o">.</span><span class="n">py</span> <span class="s2">&quot;&amp;MESH IJK=12,12,12 XB=0,12,0,12,0,12 /&quot;</span> <span class="s2">&quot;3,3,3&quot;</span>
+<span class="n">raw</span> <span class="nb">input</span> <span class="n">mesh</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span> <span class="n">XB</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span> <span class="o">/</span>
+<span class="n">raw</span> <span class="nb">input</span> <span class="n">decomposition</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
+<span class="n">raw</span> <span class="n">ijk</span><span class="p">:</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span>
+<span class="n">i</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">raw</span> <span class="n">xb</span><span class="p">:</span> <span class="n">XB</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="n">decomposition</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">lx</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span> <span class="n">dx</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">di</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">ly</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dy</span><span class="p">:</span> <span class="mf">4.0000</span><span class="p">,</span> <span class="n">dj</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">lz</span><span class="p">:</span> <span class="mf">12.0000</span><span class="p">,</span> <span class="n">dz</span><span class="p">:</span> <span class="mf">4.0000</span><span class="p">,</span> <span class="n">dk</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">resulting</span> <span class="n">number</span> <span class="n">of</span> <span class="n">meshes</span><span class="p">:</span> <span class="mi">27</span>
+<span class="o">===========================</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;1&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;2&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;3&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;4&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;5&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;6&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;7&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;8&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;9&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;10&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;11&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;12&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;13&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;14&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;15&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;16&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;17&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;18&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;19&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;20&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;21&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;22&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;23&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;24&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;25&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">0.0000</span><span class="p">,</span><span class="mf">4.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;26&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">4.0000</span><span class="p">,</span><span class="mf">8.0000</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;27&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/tools/02_hpc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_hpc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">High Performance Computing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_benchmarking.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Benchmarking</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-modules-lmod">Environment modules (Lmod)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slurm">SLURM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission">Job Submission</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-job">Single Job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-jobs">Chain Jobs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#some-pointers-and-best-practice">Some pointers and best practice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-jureca">Accessing JURECA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accounts-and-accounting">Accounts and Accounting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-modules-on-jureca">FDS Modules on JURECA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-pleiades-cluster-cobra">Accessing the Pleiades Cluster / CoBra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accounts">Accounts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-modules-on-the-pleiades-cluster">FDS Modules on the Pleiades Cluster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-decomposition">Mesh Decomposition</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
