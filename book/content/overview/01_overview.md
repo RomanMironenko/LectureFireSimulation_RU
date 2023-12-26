@@ -1,30 +1,30 @@
-# Overview
+# Обзор
 
-## General Information
+## Общая информация
 
-The lecture *Fire Simulations* at the University of Wuppertal is organised by the chair of [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/). The 2019 founded chair is mainly concerned with the research and development of new computer-based models. The focus of the application is the numerical simulation of fire and smoke propagation in buildings.  
+Лекция  *Моделирование пожара* в Университете Вупперталя организована кафедрой [вычислительного гражданского строительства (CCE)](https://cce.uni-wuppertal.de/). Основанная в 2019 году кафедра в основном занимается исследованиями и разработкой новых компьютерных моделей. В центре внимания приложения численное моделирование распространения огня и дыма в зданиях.
 
 ![topics](./figs/fire_banner.png)
 
-This is the first year that we offer this script. The motivation to create this script is on the one hand to give the participants of the lecture a possibility to read the contents. And on the other hand, to make this content freely available to external or former participants.
+Мы впервые предлагаем этот скрипт. Мотивация к созданию этого скрипта заключается, с одной стороны, в том, чтобы дать участникам лекции возможность ознакомиться с содержанием. И, с другой стороны, сделать этот контент свободно доступным для внешних или бывших участников.
 
-However, this script is very short and will remain so. Much of the content is already available in greater depth, so that reference is made to the relevant passages - instead of simply copying them.  
+Тем не менее, этот сценарий очень короткий и останется таким. Большая часть содержания уже доступна более подробно, так что ссылки даются на соответствующие отрывки, а не просто копируются.
 
-As the script is under development, we welcome constructive suggestions and your feedback. This way you can support our whole fire science community.
+Поскольку сценарий находится в стадии разработки, мы будем рады конструктивным предложениям и вашим отзывам. Таким образом, вы сможете поддержать все наше научное сообщество по пожаротушению.
 
-**For the University of Wuppertal students: All organisational information on the procedure can be found on the [CCE website on the fire simulations lecture](https://cce.uni-wuppertal.de/de/lehre/numerische-brandsimulationen.html).**
+**Для студентов Университета Вупперталя: Всю организационную информацию о процедуре можно найти на [веб-сайте CCE в разделе лекция по моделированию пожара](https://cce.uni-wuppertal.de/de/lehre/numerische-brandsimulationen.html).**
 
-## Contents of the Lecture Notes
+## Содержание конспектов лекций
 
-* It is planned, that this script will not only contain the contents of the lecture *Fire Simulations* but also other contents linked to this lecture, such as *FDS Data Analysis* and *Using High Performance Computers for Fire Simulations*. In the course of the lecture, we will announce the contents relevant for you accordingly.
-* The script also contains exercises for all topics, with and without solution paths, but always with a result or the possibility of validating your solution.
-* Do not print out the script or save it elsewhere. This way you have the latest version, which is continuously improved and supplemented with content.
-* The script will always remain freely accessible.
-* The lecture notes and exercises are designed for **FDS version 6.7.5**, and thus may not be valid / reproducible for other versions.
+* Планируется, что этот скрипт будет содержать не только содержание лекции о *моделировании пожара*, но и другое содержимое, связанное с этой лекцией, такое как *анализ данных FDS и использование высокопроизводительных компьютеров для моделирования пожара*. В ходе лекции мы соответствующим образом огласим содержание, имеющее отношение к вам.
+* Сценарий также содержит упражнения по всем темам, с путями решения и без них, но всегда с результатом или возможностью проверки вашего решения.
+* Не распечатывайте сценарий и не сохраняйте его в другом месте. Таким образом, у вас будет последняя версия, которая постоянно совершенствуется и дополняется контентом.
+* Сценарий всегда будет оставаться в свободном доступе.
+* Конспекты лекций и упражнения разработаны для **FDS версии 6.7.5** и, следовательно, могут быть недопустимы / воспроизводимы для других версий.
 
-## Contributors
+## Авторы
 
-Contributors to the development of the script and the exercises are (in alphabetical order):
+Авторы сценария и упражнений (в алфавитном порядке):
 
 * Lukas Arnold
 * Kristian Börger
@@ -37,34 +37,34 @@ Contributors to the development of the script and the exercises are (in alphabet
 * My Linh Würzburger
 
 
-## Theses
+## Тезисы
 
-We offer theses (BA, MA, PhD) on many different topics.
-* an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/en/theses/)
-* The [overview of our publications](https://cce.uni-wuppertal.de/en/research/) can also help you find
-* If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/team/) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
+Мы предлагаем дипломные работы (бакалаврские, магистерские, докторские) по многим различным темам.
+* обзор тем и ранее подготовленных тезисов можно найти на [веб-сайте thesis](https://cce.uni-wuppertal.de/en/theses/)
+* [Обзор наших публикаций](https://cce.uni-wuppertal.de/en/research/) также поможет вам найти
+* Если вы заинтересованы, пожалуйста, свяжитесь с Лукасом Арнольдом [@ Университет Вупперталя](https://cce.uni-wuppertal.de/en/team/) или [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
 
-## Acknowledgements
+## Благодарности
 
-The software tools used in the lecture and the creation of the materials are mostly freely available, open source and developed by volunteers. In particular, we would like to thank the following teams for their work
+Программные средства, использованные в лекции и при создании материалов, в основном находятся в свободном доступе, с открытым исходным кодом и разработаны добровольцами. В частности, мы хотели бы поблагодарить следующие команды за их работу
 
-* Team of [FDS](https://github.com/firemodels/fds)
-* Team of [Jupyter](https://github.com/jupyter/jupyter)
-* Team of [JupyterLab](https://github.com/jupyterlab)
-* Team of [Jupter Book](https://github.com/jupyter/jupyter-book)
-
-
-## Contact
-
-How to reach us:
-* As a participant of the lecture: best via the associated moodle course
-* External interested parties best used our <a href="mailto:cce@lists.uni-wuppertal.de">email list</a>.
-* Contact details for individuals can be found on the [staff website](https://cce.uni-wuppertal.de/en/team/)
+* Команда  [FDS](https://github.com/firemodels/fds)
+* Команда  [Jupyter](https://github.com/jupyter/jupyter)
+* Команда  [JupyterLab](https://github.com/jupyterlab)
+* Команда  [Jupter Book](https://github.com/jupyter/jupyter-book)
 
 
-## License
+## Контакт
 
-These lecture notes and tools are licensed under the
-[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Как с нами связаться:
+* Как участник лекции: лучше всего пройти соответствующий курс moodle
+* Внешним заинтересованным сторонам лучше всего использовать наш <a href="mailto:cce@lists.uni-wuppertal.de"> список электронной почты</a>.
+* Контактные данные отдельных лиц можно найти на веб-сайте [персонала](https://cce.uni-wuppertal.de/en/team/)
+
+
+## Лицензия
+
+Эти конспекты лекций и инструменты лицензированы по
+[международной лицензии Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
 
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' />
