@@ -1,14 +1,14 @@
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
-# Lecture Fire Simulation
-Lecture and exercise notes on fire simulations
+# Курс «Моделирование пожара»
+Лекции и упражнения по моделированию пожара
 
-## Webpage of the build script
-https://firedynamics.github.io/LectureFireSimulation
+## Веб-страница сборки
+https://romanmironenko.github.io/LectureFireSimulation_RU
 
-## Local Development
+## Местная разработка
 
-*Note: The following explicit commands are for bash / zsh on Linux / MacOS.*
+*Примечение: The following explicit commands are for bash / zsh on Linux / MacOS.*
 
 ### 1. Clone repository
 ```
