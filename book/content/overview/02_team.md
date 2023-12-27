@@ -24,7 +24,7 @@
 
 | <video controls width="100%"> <source src="https://uni-wuppertal.sciebo.de/s/muvLoJ1qgmJgBHT/download" type="video/mp4"> </video> |
 |:---------------------------------------------------------------------------------------------------------------------------------:|
-|     Моделирование возгорания жидкости с помощью программного обеспечения [OpenFoam](https://www.openfoam.com/)      |
+|        Моделирование возгорания горючей жидкости с помощью программного обеспечения [OpenFoam](https://www.openfoam.com/)         |
 
 |             <video controls width="100%"> <source src="https://uni-wuppertal.sciebo.de/s/mBzgUtDRcZfYJRb/download" type="video/mp4"> </video>             |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------:|
