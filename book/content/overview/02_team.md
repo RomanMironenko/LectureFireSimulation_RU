@@ -1,6 +1,6 @@
 # Team Fire Dynamics
 
-*Team Fire Dynamics* - это совместная команда сотрудников кафедры [Вычислительного гражданского строительства (CCE)](https://cce.uni-wuppertal.de/en.html) Университета Вупперталя (BUW) и отдела [Динамики пожара](https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html), который является частью [Института продвинутого моделирования (IAS-7)](https://www.fz-juelich.de/ias/ias-7) при [ Форшунгсцентре Юлих (FZJ)](https://www.fz-juelich.de).
+*Team Fire Dynamics* - это команда сотрудников кафедры [Вычислительного гражданского строительства (CCE)](https://cce.uni-wuppertal.de/en.html) Университета Вупперталя (BUW) и отдела [Динамики пожара](https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html), который является частью [Института продвинутого моделирования (IAS-7)](https://www.fz-juelich.de/ias/ias-7) при [ Форшунгсцентре Юлих (FZJ)](https://www.fz-juelich.de).
 
 Кафедра CCE в основном занимается исследованиями и разработкой новых компьютерных моделей. Основное внимание здесь уделяется распространению огня и дыма в зданиях. 
 
