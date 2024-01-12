@@ -1,8 +1,9 @@
-# Modelling Fires
+# 1. Моделирование пожаров
 
-The motivation for this chapter is to provide an overview of the involved phenomena and methods in the modelling of fires. In the first section a brief summary of the physical and chemical processes is given. As one of the application scenarios for fire simulations is fire safety engineering (FSE), the second section outlines some selected aspects of this field of engineering – especially for those who are not familiar with it. 
+Целью этой главы является предоставление обзора связанных явлений и методов моделирования пожаров. В первом разделе дается краткое изложение физических и химических процессов. Поскольку одним из сценариев применения моделирования пожара является инженерия пожарной безопасности (FSE), во втором разделе описываются некоторые избранные аспекты этой области техники – особенно для тех, кто с ней не знаком.
 
-There exist multiple ways to model fires, although this lecutre focuses on field models, i.e. computational fluid dynamics models. In the third section an overview of existing modelling approaches is briefly outlined.
+Существует множество способов моделирования пожаров, хотя эта лекция посвящена полевым моделям, то есть моделям вычислительной гидродинамики. В третьем разделе кратко изложен обзор существующих подходов к моделированию.
+
 
 <!-- TODO: Verification and validation
 TODO: Uncertainties -->
