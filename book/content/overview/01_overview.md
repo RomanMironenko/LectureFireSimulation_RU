@@ -68,3 +68,7 @@
 [международной лицензии Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
 
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' />
+
+**Перевод и адаптацию произвел Мироненко Роман Владимирович.**
+**Открыт для предложений по переводу и сотрудничеству.**
+**При использовании данного материала прошу давать ссылку на этот материал.**
