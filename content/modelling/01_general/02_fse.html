@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.2. 1.2. Инженерия пожарной безопасности &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>1.2. Проектирование пожарной безопасности &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
@@ -184,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">1. Моделирование пожаров</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_processes.html">1.1. Физические и химические процессы</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. 1.2. Инженерия пожарной безопасности</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Проектирование пожарной безопасности</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_approaches.html">1.3. Modelling Approaches</a></li>
 </ul>
 </li>
@@ -496,7 +496,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.2. Инженерия пожарной безопасности</h1>
+    <h1>Проектирование пожарной безопасности</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -508,7 +508,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Законодательство о пожарной безопасности</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Предписывающие проекты</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Проекты, основанные на производительности</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Проекты, ориентированные на эксплуатационные характеристики</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Сценарий пожара</a></li>
 </ul>
             </nav>
         </div>
@@ -521,14 +522,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1.2. </span>1.2. Инженерия пожарной безопасности<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<p>Моделирование пожаров является одним из аспектов широкого спектра инженерной деятельности в области пожарной безопасности (FSE). В то время как инженерные темы нацелены на практическое применение, модели пожаров используются для научных исследований в области пожарной безопасности (FSS).</p>
-<p>Следующие разделы дают лишь очень краткое введение в широкие темы, рассматриваемые здесь. Отправные пункты для дальнейшего чтения в этой области приведены в <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id18" title="vfdb. Leitfaden Ingenieurmethoden des Brandschutzes. Technical Report, vfdb e.V., 2020. URL: https://www.vfdb.de/fileadmin/download/vfdb-Leitfaden\_IngMethoden\_4Auflage\_2020-03-26.pdf.">vfdb20</a>]</span>, <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>, <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span> или, например, в главах 37, 38 и 39 <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id19" title="SFPE. SFPE Handbook of Fire Protection Engineering. Springer, 5th edition, 2016. ISBN 9781493925643. doi:10.1007/978-1-4939-2565-0.">SFPE16</a>]</span>.</p>
+<h1><span class="section-number">1.2. </span>Проектирование пожарной безопасности<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<p>Моделирование пожаров является одним из аспектов широкого спектра инженерной деятельности в области проектирования пожарной безопасности (FSE). В то время как инженерная деятельность нацелена на практическое применение, моделирование пожаров используются для научных исследований в области пожарной безопасности (FSS).</p>
+<p>Следующие разделы дают лишь очень краткое введение в широкие темы. Отправные пункты для дальнейшего чтения в этой области приведены в <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id18" title="vfdb. Leitfaden Ingenieurmethoden des Brandschutzes. Technical Report, vfdb e.V., 2020. URL: https://www.vfdb.de/fileadmin/download/vfdb-Leitfaden\_IngMethoden\_4Auflage\_2020-03-26.pdf.">vfdb20</a>]</span>, <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>, <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span> или, например, в главах 37, 38 и 39 <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id19" title="SFPE. SFPE Handbook of Fire Protection Engineering. Springer, 5th edition, 2016. ISBN 9781493925643. doi:10.1007/978-1-4939-2565-0.">SFPE16</a>]</span>.</p>
 <section id="id6">
 <h2>Законодательство о пожарной безопасности<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Basic_Law_for_the_Federal_Republic_of_Germany">Конституционный закон Германии (Grundgesetz)</a> гласит, что</p>
 <ul class="simple">
-<li><p>каждый человек имеет право на жизнь и физическую неприкосновенность, а также</p></li>
+<li><p>каждый человек имеет право на жизнь и физическую неприкосновенность</p></li>
 <li><p>собственность влечет за собой обязательства.</p></li>
 </ul>
 <p>На основе этого основного закона в  <a class="reference external" href="https://www.bauministerkonferenz.de/Dokumente/42323097.pdf">Типовом строительном кодексе (Musterbauordnung)</a> сформулированы четыре цели защиты, включая пожарную безопасность. Этот кодекс определен для каждой федеральной земли Германии как государственный индивидуальный строительный кодекс (Bauordnung). (Bauordnung).</p>
@@ -539,20 +540,20 @@ document.write(`
 <li><p>обеспечение эвакуации и принятие спасательных мер</p></li>
 <li><p>обеспечение эффективных мер пожаротушения</p></li>
 </ol>
-<p>Они предназначены для применения на протяжении всего жизненного цикла здания, т.е. во время строительства, обслуживания, модификации и техобслуживания.</p>
+<p>Они предназначены для применения на протяжении всего жизненного цикла здания, т.е. во время строительства, эксплуатации, реконструкции и ремонта.</p>
 </section>
 <section id="id7">
 <h2>Предписывающие проекты<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
-<p>При предписывающем проектировании меры пожарной безопасности выполняются на основе общих правил. Это приводит к таким преимуществам, как</p>
+<p>При предписывающем проектировании, меры пожарной безопасности выполняются на основе общих правил. Это приводит к таким преимуществам, как:</p>
 <ul class="simple">
-<li><p>правила и стандарты позволяют принимать <em>приемлемые</em> решения</p></li>
-<li><p>в основном это практически осуществимо и экономично</p></li>
-<li><p>проектирование пожарной безопасности может проводиться <em>высококвалифицированными</em> специалистами</p></li>
+<li><p>нормативные акты и стандарты позволяют создавать решения, которые считаются <em>удовлетворительными</em></p></li>
+<li><p>в основном это практично и экономически выгодно</p></li>
+<li><p>проектирование пожарной безопасности может выполняться <em>полуквалифицированным</em> специалистом</p></li>
 <li><p>юридическая определенность</p></li>
 </ul>
-<p>Однако этот подход к проектированию также имеет некоторые преимущества, такие как</p>
+<p>Однако такой подход к проектированию имеет и некоторые недостатки, например:</p>
 <ul class="simple">
-<li><p>описательные проекты отличаются индивидуальностью и сложностью</p></li>
+<li><p>описательные проекты склонны к индивидуальности и сложности</p></li>
 <li><p>применение  <em>считающихся удовлетворяющими</em> стратегий может быть неуместным, неэкономичным или даже невозможным</p></li>
 <li><p>при определенных обстоятельствах несоответствия применимым нормам и стандартам неизбежны</p></li>
 <li><p>ограничения для международной гармонизации и стандартизации</p></li>
@@ -560,10 +561,97 @@ document.write(`
 <p>Альтернативой предписывающим проектам является применение проектов, основанных на эксплуатационных характеристиках.</p>
 </section>
 <section id="id8">
-<h2>Проекты, основанные на производительности<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2>Проекты, ориентированные на эксплуатационные характеристики<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p><strong>Общий подход</strong></p>
-<p>В отличие от статичных и общих правил регламента, проектирование, основанное на характеристиках, следует идее создания эквивалентного уровня безопасности путем достижения целей защиты. Этот процесс позволяет инженерам использовать несколько подходов, которые также включают моделирование пожара, для итеративного проектирования концепции безопасности. Принципиальная схема показана на <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-performance-based-design</span></code>.</p>
-<p>В следующих таблицах представлены выбранные значения пожарной нагрузки и коэффициента интенсивности пожара, см. <span id="id9">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
+<p>В отличие от статичных и общих правил регламента, проектирование, основанное на характеристиках, следует идее создания эквивалентного уровня безопасности путем достижения целей защиты. Этот процесс позволяет инженерам использовать несколько подходов, которые также включают моделирование пожара, для итеративного проектирования концепции безопасности. Принципиальная схема показана на <a class="reference internal" href="#fig-performance-based-design"><span class="std std-numref">Fig. 1.11</span></a>.</p>
+<figure class="align-default" id="fig-performance-based-design">
+<a class="reference internal image-reference" href="../../../_images/performance_based_design.svg"><img alt="../../../_images/performance_based_design.svg" src="../../../_images/performance_based_design.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Упрощенная схема технологическая схема проектирования, оснванного на предписаниях и производительности.</span><a class="headerlink" href="#fig-performance-based-design" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Качественный анализ</strong></p>
+<p>Цели защиты должны быть определены для выполнения в широком диапазоне возможных сценариев. Эти определения должны учитывать:</p>
+<ul class="simple">
+<li><p>различные конструкции</p></li>
+<li><p>различные виды применения</p></li>
+<li><p>физика и поведение жильцов</p></li>
+</ul>
+<p>Объем качественного анализа охватывает следующие аспекты:</p>
+<ul class="simple">
+<li><p>концепция здания</p>
+<ul>
+<li><p>фундаментальная конструкция</p></li>
+<li><p>строительные материалы</p></li>
+<li><p>разделение огня и дыма</p></li>
+<li><p>топология и разделение путей эвакуации</p></li>
+</ul>
+</li>
+<li><p>концепция использования</p>
+<ul>
+<li><p>пожарные нагрузки</p></li>
+<li><p>жильцы</p></li>
+<li><p>сценарии использования</p></li>
+</ul>
+</li>
+<li><p>инфраструктура</p>
+<ul>
+<li><p>технические системы</p></li>
+<li><p>защитные меры противопожарной защиты</p></li>
+</ul>
+</li>
+<li><p>сценарии возникновения пожара</p>
+<ul>
+<li><p>места возникновения пожаров</p></li>
+<li><p>возможности распространения пламени и дыма</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Количественный анализ</strong></p>
+<p>Для количественного анализа используются модели или эмпирические данные для оценки:</p>
+<ul class="simple">
+<li><p>сценарии пожаров и проектные пожары</p></li>
+<li><p>эффекты пожара, распространение дыма и истощение</p></li>
+<li><p>строительные компоненты и несущая конструкция</p></li>
+<li><p>оценка технических и защитных мер</p></li>
+<li><p>безопасность жизнедеятельности при воздействии огня</p></li>
+<li><p>выход в случае чрезвычайной ситуации</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>Сценарий пожара<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p>Для оценки отдельного инцидента с пожаром должен быть определен четкий сценарий пожара. В целом необходимо учитывать:</p>
+<ul class="simple">
+<li><p>расположение очага пожара</p></li>
+<li><p>пожарная нагрузка</p></li>
+<li><p>развитие пожара</p></li>
+<li><p>условия вентиляции</p></li>
+<li><p>влияние технических мер</p></li>
+<li><p>влияние мер пожаротушения</p></li>
+</ul>
+<p>В сценарии пожара необходимо указать развитие пожара, особенно скорость, с которой он выделяет тепло. Общий подход заключается в определении скорости выделения тепла, зависящей от времени, <span class="math notranslate nohighlight">\(\mf HRR(t)\)</span>, которая основана на так называемом естественном пожаре. Кривая естественного пожара является эмпирическим приближением к реальным пожарам в жилых помещениях, см. <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, которая может быть представлена в трех фазах:</p>
+<ol class="arabic">
+<li><p><strong>Рост</strong>: после воспламенения огонь увеличивает скорость выделения тепла, пока не достигнет очага возгорания. На этом этапе скорость выделения тепла подчиняется квадратичной функции, т.е.</p>
+<div class="math notranslate nohighlight">
+\[\mf HRR(t) = \alpha\cdot t^2\quad,\]</div>
+<p>где  <span class="math notranslate nohighlight">\(\mf \alpha\)</span> коэффициент интенсивности пожара.</p>
+</li>
+<li><p><strong>Полностью разработано</strong>: После вспышки в огне участвует весь материал, который способен гореть. На этом этапе скорость тепловыделения достигает максимального значения <span class="math notranslate nohighlight">\(\mf HRR_{max}\)</span> and stays constant, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\mf HRR(t) = HRR_{max}\quad.\]</div>
+</li>
+<li><p><strong>Затухание</strong>: Когда расходуется около 70% пожарной нагрузки, начинается фаза затухания. Во время этой фазы скорость тепловыделения линейно уменьшается и достигает нулевого значения в определенный момент времени <span class="math notranslate nohighlight">\(\mf t_{end}\)</span>, т. е.</p>
+<div class="math notranslate nohighlight">
+\[\mf \frac{HRR(t)}{dt} = const \quad.\]</div>
+</li>
+</ol>
+<figure class="align-default" id="fig-natural-design-fire">
+<a class="reference internal image-reference" href="../../../_images/natural_design_fire.svg"><img alt="../../../_images/natural_design_fire.svg" src="../../../_images/natural_design_fire.svg" width="60%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Рис. 1.12 Кривая скорости тепловыделения, основанная на приближении естественного пожара.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>В следующих таблицах представлены выбранные значения пожарной нагрузки и коэффициента интенсивности пожара, см. <span id="id10">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
 <table class="table table-right" id="tab-alpha">
 <caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Коэффициенты интенсивности пожара</span><a class="headerlink" href="#tab-alpha" title="Permalink to this table">#</a></caption>
 <thead>
@@ -702,7 +790,8 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Законодательство о пожарной безопасности</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Предписывающие проекты</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Проекты, основанные на производительности</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Проекты, ориентированные на эксплуатационные характеристики</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Сценарий пожара</a></li>
 </ul>
   </nav></div>
 
