@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.3. 1.3. Подходы к моделированию &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>1.3. Подходы к моделированию &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">1. Моделирование пожаров</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_processes.html">1.1. Физические и химические процессы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_fse.html">1.2. Проектирование пожарной безопасности</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. 1.3. Подходы к моделированию</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Подходы к моделированию</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -496,7 +496,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.3. Подходы к моделированию</h1>
+    <h1>Подходы к моделированию</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -509,7 +509,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Эксперименты</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Аналитические модели</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном отсеке</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном помещении</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Модели зон</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Полевые модели</a></li>
 </ul>
@@ -524,13 +524,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1.3. </span>1.3. Подходы к моделированию<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.3. </span>Подходы к моделированию<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="id2">
 <h2>Обзор<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>Наука о пожарной безопасности (FSS) и инженерия пожарной безопасности (FSE) не ограничиваются описанием пожаров и их воздействия на строительные конструкции, однако другие темы, такие как эвакуация или анализ рисков, не являются частью этой лекции. Понимание и описание пожаров позволяют применять технические и организационные (активные и профилактические) меры для ограничения или даже предотвращения ущерба. В целом, эти описания приводят к разработке математических моделей, которые проверяются с помощью физических и химических экспериментов. С практической точки зрения эти модели применяются для разработки и оценки концепций безопасности.</p>
-<p>Разработка аналитических и численных моделей направлена на описание процессов и / или воздействий, связанных с пожарами. Это справедливо как для жилых помещений, так и для лесных пожаров и охватывает многие аспекты, такие как высота слоя горячего газа, скорость и направление распространения пламени, токсичность дыма или активация и эффективность технических мер.</p>
-<p>Модели варьируются от моделей с эмпирическими данными до моделей, основанных на первых принципах. Тем не менее, в основном эксперименты необходимы для корректировки неизвестных параметров модели и проверки прогностических возможностей модели.</p>
-<p>Краткий и далеко не полный или точный обзор исторических временных масштабов научного развития, на которых основаны современные подходы, приведен в следующей таблице.</p>
+<p>Исследования в области пожарной безопасности (FSS) и проектирования пожарной безопасности (FSE) не ограничиваются описанием пожаров и их воздействия на строительные конструкции, однако другие темы, такие как эвакуация или анализ рисков, не являются частью этой лекции. Понимание и описание пожаров позволяют применять технические и организационные (активные и профилактические) меры для ограничения или даже предотвращения ущерба. В целом, эти описания приводят к разработке математических моделей, которые проверяются с помощью физических и химических экспериментов. С практической точки зрения эти модели применяются для разработки и оценки концепций безопасности.</p>
+<p>Разработка аналитических и численных моделей направлена на описание процессов и/или воздействий, связанных с пожарами. Это справедливо как для жилых помещений, так и для лесных пожаров и охватывает многие аспекты, такие как толщина дымового слоя газа, скорость и направление распространения пламени, токсичность дыма или активация и эффективность технических мер.</p>
+<p>Модели варьируются от моделей с эмпирическими данными до моделей, основанных на общих принципах. Тем не менее, в основном эксперименты необходимы для корректировки неизвестных параметров модели и проверки прогностических возможностей модели.</p>
+<p>Краткий и далеко не полный или точный обзор исторических масштабов научного развития, на которых основаны современные подходы, приведен в следующей таблице.</p>
 <table class="table table-right" id="tab-history-overview">
 <caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Краткий исторический обзор научных разработок</span><a class="headerlink" href="#tab-history-overview" title="Permalink to this table">#</a></caption>
 <thead>
@@ -542,74 +542,74 @@ document.write(`
 <tbody>
 <tr class="row-even"><td><p>∼1650</p></td>
 <td><p>сохранение импульса</p></td>
-<td><p>Newton</p></td>
+<td><p>Ньютон</p></td>
 </tr>
 <tr class="row-odd"><td><p>1737</p></td>
 <td><p>соотношение давления и скорости в жидкости</p></td>
-<td><p>Bernoulli</p></td>
+<td><p>Бернулли</p></td>
 </tr>
 <tr class="row-even"><td><p>∼1750</p></td>
 <td><p>сохранение энергии</p></td>
-<td><p>Clausius</p></td>
+<td><p>Клаузиус</p></td>
 </tr>
 <tr class="row-odd"><td><p>1807</p></td>
 <td><p>уравнение теплопроводности</p></td>
-<td><p>Fourier</p></td>
+<td><p>Фурье</p></td>
 </tr>
-<tr class="row-even"><td><p>1827 / 1845</p></td>
+<tr class="row-even"><td><p>1827/1845</p></td>
 <td><p>вязкие уравнения движения жидкости</p></td>
-<td><p>Navier &amp; Stokes</p></td>
+<td><p>Навье и Стокс</p></td>
 </tr>
 <tr class="row-odd"><td><p>1855</p></td>
 <td><p>уравнение массовой диффузии</p></td>
-<td><p>Fick</p></td>
+<td><p>Фик</p></td>
 </tr>
 <tr class="row-even"><td><p>1884</p></td>
 <td><p>скорость химической реакции, зависящая от температуры</p></td>
-<td><p>Arrhenius</p></td>
+<td><p>Аррениус</p></td>
 </tr>
 <tr class="row-odd"><td><p>~1900</p></td>
 <td><p>тепловое излучение</p></td>
-<td><p>Planck</p></td>
+<td><p>Планк</p></td>
 </tr>
 <tr class="row-even"><td><p>1928</p></td>
 <td><p>решение проблемы диффузионного пламени в воздуховоде</p></td>
-<td><p>Burke &amp; Schumann</p></td>
+<td><p>Берк и Шуман</p></td>
 </tr>
 <tr class="row-odd"><td><p>∼1930</p></td>
 <td><p>уравнения горения с кинетикой</p></td>
-<td><p>Semenov</p></td>
+<td><p>Семенов</p></td>
 </tr>
 <tr class="row-even"><td><p>∼1950</p></td>
 <td><p>решения для конвективного горения</p></td>
-<td><p>Emmons &amp; Spalding</p></td>
+<td><p>Эммонс и Сполдинг</p></td>
 </tr>
 <tr class="row-odd"><td><p>∼1960</p></td>
 <td><p>различные способы решения проблем, связанных с пожарами</p></td>
-<td><p>Thomas</p></td>
+<td><p>Томас</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="id3">
 <h2>Эксперименты<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>Модели практически не имеют ценности, если они не подкреплены экспериментами. Таким образом, проектирование и проведение экспериментов в различных масштабах является основой науки и техники пожарной безопасности. Некоторые экспериментальные аспекты в контексте экспериментов следующие:</p>
+<p>Модели практически не имеют ценности, если они не подкреплены экспериментами. Таким образом, проектирование и проведение экспериментов в различных масштабах является основой исследований в области пожарной безопасности и проектирования пожарной безопасности. Некоторые экспериментальные аспекты в контексте экспериментов следующие:</p>
 <ul class="simple">
 <li><p>испытания материалов на огнестойкость</p></li>
 <li><p>измерение таких величин, как тепловыделение, температура конструкции, тепловое излучение, концентрация токсичных газов и т.д.</p></li>
 <li><p>стендовые эксперименты для оценки материалов или строительных элементов, потенциально с разделением эффектов</p></li>
-<li><p>Эксперименты в реальном масштабе направлены на полную интеграцию всех взаимодействий при пожаре</p></li>
+<li><p>эксперименты в реальном масштабе направлены на полную интеграцию всех взаимодействий при пожаре</p></li>
 </ul>
 <figure class="align-default" id="fig-exp-cone-calorimeter">
 <a class="reference internal image-reference" href="../../../_images/cone_calorimeter.png"><img alt="../../../_images/cone_calorimeter.png" src="../../../_images/cone_calorimeter.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Рис. 1.13 Пример для стендового эксперимента: конусный калориметр. Размер выборки составляет около <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Пример для стендового эксперимента: конусный калориметр. Размер образца составляет около <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-exp-orpheus">
 <a class="reference internal image-reference" href="../../../_images/orpheus.jpeg"><img alt="../../../_images/orpheus.jpeg" src="../../../_images/orpheus.jpeg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Рис. 1.14 Пример эксперимента реального масштаба: эксперименты с горячим газом на станции метро. Эти эксперименты были проведены I.F.I. Аахен, Германия, в рамках проекта <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a>.</span><a class="headerlink" href="#fig-exp-orpheus" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Пример эксперимента реального масштаба: эксперименты с горячим газом на станции метро. Эти эксперименты были проведены I.F.I. Аахен, Германия, в рамках проекта <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a>.</span><a class="headerlink" href="#fig-exp-orpheus" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Эксперименты отличаются от тестов. Хотя тест проверяет свойство или результат, нет явной цели получить из него научное представление. Результат эксперимента разрабатывается с открытым вопросом и направлен на расширение базы знаний новыми результатами.</p>
@@ -617,17 +617,17 @@ document.write(`
 <section id="id4">
 <h2>Аналитические модели<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>Модели первого типа - это аналитические модели. Они либо основаны на эмпирических данных и, таким образом, являются просто их математическим представлением. Либо они основаны на фундаментальных приближениях и симметриях, которые приводят к замкнутому аналитическому решению.</p>
-<p>Несмотря на их, иногда очень ограниченные, приближения, они предлагают инструмент для быстрой оценки интересующих величин. Кроме того, они могут быть напрямую интегрированы в другие, потенциально более сложные модели. Другим важным аспектом является то, что аналитические модели могут быть проверены читателем, поскольку в общем случае возможно записать все необходимые входные параметры.</p>
+<p>Несмотря на их, иногда очень ограниченные, приближения, они предлагают инструмент для быстрой оценки интересующих величин. Кроме того, они могут быть напрямую интегрированы в другие, потенциально более сложные модели. Другим важным аспектом является то, что аналитические модели могут быть проверены человеком, поскольку в общем случае возможно записать все необходимые входные параметры.</p>
 <p>Конечно, из-за лежащих в основе упрощений и допущений их применимость ограничена.</p>
-<p><strong>Пример – Температура факела</strong></p>
-<p>Измерение локальной температуры газа в факеле приводит к эмпирическому описанию усредненных по времени значений. На основе измерений, подобных показанным на <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, может быть получена математическая формулировка для описания наблюдений.</p>
+<p><strong>Пример – Температура конвективной колонки</strong></p>
+<p>Измерение локальной температуры газа в конвективной колонке приводит к эмпирическому описанию усредненных по времени значений. На основе измерений, подобных показанным на <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, может быть получена математическая формулировка для описания наблюдений.</p>
 <figure class="align-default" id="fig-exp-plume-profile">
 <a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Рис. 1.15 Пример экспериментально полученных нормализованных температурных профилей факела. Источник: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Sizuo Yokoi. Study on the prevention of fire-spread caused by hot upward current. BRI Report, 1960.">Yok60</a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Пример экспериментально полученных нормализованных температурных профилей конвективной колонки. Источник: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Sizuo Yokoi. Study on the prevention of fire-spread caused by hot upward current. BRI Report, 1960.">Yok60</a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Повышение температуры <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> в турбулентном шлейфе может быть в целом аппроксимировано:</p>
+<p>Повышение температуры <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> в турбулентном конвективной колонке может быть в целом аппроксимировано:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deltat-plume">
 <span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-deltat-plume" title="Permalink to this equation">#</a></span>\[
 \mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
@@ -635,15 +635,15 @@ document.write(`
 <p>где</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mf z,r\)</span>: высота над источником столба и расстояние от центральной линии</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mf b(z)\)</span>: радиус шлейфа</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf b(z)\)</span>: радиус конвективной колонки</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mf \beta\)</span>: эмпирическая константа ≈ 1</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mf T_m(z)\)</span>: температура на осевой линии (при z)</p></li>
 </ul>
 <p><strong>Пример – Массовый расход</strong></p>
-<p>Благодаря аналитическому описанию шлейфов и других явлений становится возможным исследовать воздействие и меры противопожарной защиты при пожарах в жилых помещениях. Примером этого является оценка массового расхода шлейфа <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> от пожара с заданным выделением тепла <span class="math notranslate nohighlight">\(\mf \dQ\)</span>. Таким образом, становится возможным, например, сформулировать требования к системе дымоудаления.</p>
+<p>Благодаря аналитическому описанию конвективной колонки и других явлений становится возможным исследовать воздействие и меры противопожарной защиты при пожарах в жилых помещениях. Примером этого является оценка массового расхода конвективной колонки <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> от пожара с заданным выделением тепла <span class="math notranslate nohighlight">\(\mf \dQ\)</span>. Таким образом, становится возможным, например, сформулировать требования к системе дымоудаления.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Производные</p>
-<p>В этом скрипте используются следующие краткие формы производных:</p>
+<p>В этом тексте используются следующие краткие формы производных:</p>
 <ul class="simple">
 <li><p>производная по времени:</p></li>
 </ul>
@@ -662,11 +662,11 @@ document.write(`
 <figure class="align-default" id="fig-exp-analytical-mass-flow">
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Рис. 1.16 Иллюстрация величин, участвующих в аналитической оценке массового расхода факела <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Иллюстрация величин, участвующих в аналитической оценке массового расхода конвективной колонки <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Следуя, например, <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span>, массовому расходу факела <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> может быть рассчитан непосредственно, тогда как два режима необходимо рассматривать отдельно. Они различаются отношением расстояния до очага пожара к слою дыма <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> и квадратный корень из площади пожара <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, т.е. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
-<p><strong>Режим формирования струи</strong></p>
+<p>Следуя, например, <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span>, массовому расходу конвективной колонки <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> может быть рассчитан непосредственно, тогда как два режима необходимо рассматривать отдельно. Они различаются отношением расстояния до очага пожара к слою дыма <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> и квадратный корень из площади пожара <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, т.е. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
+<p><strong>Режим формирования конвективной колонки</strong></p>
 <p>В случае</p>
 <div class="math notranslate nohighlight" id="equation-eq-za-ratio">
 <span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-za-ratio" title="Permalink to this equation">#</a></span>\[ 
@@ -680,14 +680,14 @@ document.write(`
 <p>Свободный параметр, здесь коэффициент индукции <span class="math notranslate nohighlight">\(\mf C_1\)</span>, принимает значение <span class="math notranslate nohighlight">\(\mf 0.19~kg\,m^{-5/2}\,s^{–1}\)</span>.</p>
 <p>Решение уравнения <a class="reference internal" href="#equation-eq-dmpl-jet">(1.3)</a> зависит только от геометрических величин, скорость тепловыделения здесь не влияет. Решение простое, но есть допущения, которым необходимо соответствовать. Вот некоторые из них:</p>
 <ul class="simple">
-<li><p>рассматриваемый отсек представляет собой одноэтажный резервуар для сбора дыма</p></li>
-<li><p>минимальная высота отсека составляет <span class="math notranslate nohighlight">\(\mf 4.0~m\)</span></p></li>
+<li><p>рассматриваемое помещение представляет собой одноэтажный дымовой резервуар</p></li>
+<li><p>минимальная высота помещения составляет <span class="math notranslate nohighlight">\(\mf 4.0~m\)</span></p></li>
 <li><p>температура в помещении ниже температуры дымовых газов</p></li>
-<li><p>это справедливо только для пожаров мощностью <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> до  <span class="math notranslate nohighlight">\(\mf 30~kW\)</span> с удельной скоростью тепловыделения на площадь <span class="math notranslate nohighlight">\(\mf 200~kW/m^2\)</span> до <span class="math notranslate nohighlight">\(\mf 1800~kW/m^2\)</span></p></li>
-<li><p>диаметр источника пожара <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span> находится между <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> и <span class="math notranslate nohighlight">\(\mf 9~m\)</span></p></li>
+<li><p>справедливо только для пожаров мощностью <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> до  <span class="math notranslate nohighlight">\(\mf 30~kW\)</span> с удельной скоростью тепловыделения на площадь <span class="math notranslate nohighlight">\(\mf 200~kW/m^2\)</span> до <span class="math notranslate nohighlight">\(\mf 1800~kW/m^2\)</span></p></li>
+<li><p>диаметр источника пожара <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span> от <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> до <span class="math notranslate nohighlight">\(\mf 9~m\)</span></p></li>
 </ul>
 <p><strong>Режим подобия</strong></p>
-<p>Если уравнение <a class="reference internal" href="#equation-eq-za-ratio">(1.2)</a> неверно, шлейф находится в так называемом режиме подобия. Здесь шлейф можно рассматривать как невозмущенный, поскольку расстояние до слоя дыма велико по сравнению с начальной шириной шлейфа. В данном случае существует несколько возможных подходов к описанию шлейфа. Один из них основан на модели шлейфа Хескестада и предсказывает массовый расход шлейфа как</p>
+<p>Если соотношение <a class="reference internal" href="#equation-eq-za-ratio">(1.2)</a> неверно, конвективная колонка находится в так называемом режиме подобия. Здесь конвективная колонка можно рассматривать как невозмущенная, поскольку расстояние до слоя дыма велико по сравнению с начальной шириной конвективной колонки. В данном случае существует несколько возможных подходов к описанию конвективной колонки. Один из них основан на модели Хескестада и предсказывает массовый расход конвективной колонки как</p>
 <div class="math notranslate nohighlight" id="equation-eq-dmpl-similarity">
 <span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-dmpl-similarity" title="Permalink to this equation">#</a></span>\[
 \mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
@@ -700,7 +700,7 @@ document.write(`
   \mf \dQ_{conv} = 0.7 \dQ \quad.
   \]</div>
 </li>
-<li><p>Виртуальное происхождение столба дыма, который находится на расстоянии <span class="math notranslate nohighlight">\(\mf z_0\)</span>. Существуют различные способы его вычисления, но один из них приведен</p>
+<li><p>Виртуальное начало конвективной колонки, которое находится на расстоянии <span class="math notranslate nohighlight">\(\mf z_0\)</span>. Существуют различные способы вычисления, но один из них приведен</p>
 <div class="math notranslate nohighlight">
 \[
   \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad,
@@ -712,24 +712,24 @@ document.write(`
 <p>Эта модель приводит к достоверным прогнозам, если выполняются следующие условия:</p>
 <ul class="simple">
 <li><p>площадь пожара компактна, то есть имеет форму, которую можно представить в виде круга или квадрата,</p></li>
-<li><p>температура окружающей среды в шлейфе постоянна, и</p></li>
-<li><p>окружающая среда не создает помех шлейфу.</p></li>
+<li><p>температура окружающей среды в конвективной колонки постоянна</p></li>
+<li><p>окружающая среда не создает помех конвективной колонки.</p></li>
 </ul>
 </section>
 <section id="id7">
-<h2>Пожар в одном отсеке<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
-<p>Для иллюстрации следующих моделей используется каноническая схема противопожарного отсека, см. <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a>. Она состоит из одного отсека с локализованным пожаром. Единственным выходом во внешнюю среду является дверь.</p>
+<h2>Пожар в одном помещении<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>Для иллюстрации следующих моделей используется каноническая схема пожара в помещении, см. <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a>. Она состоит из одного отсека с локальным пожаром. Единственным выходом во внешнюю среду является дверь.</p>
 <figure class="align-default" id="fig-compartment-flow-basic">
 <a class="reference internal image-reference" href="../../../_images/compartment_door_flow_labeled.svg"><img alt="../../../_images/compartment_door_flow_labeled.svg" src="../../../_images/compartment_door_flow_labeled.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Рис. 1.17 Течения и режимы при каноническом пожаре в отсеке с единственным отверстием, здесь дверью.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Потоки и режимы в каноническом пожаре в помещении с одним проемом, здесь дверью.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>В очень упрощенном представлении можно наблюдать следующие явления:</p>
 <ul class="simple">
-<li><p>Под потолком помещения скапливается слой дыма, который создает расслоение. Горячие продукты горения и сжатый воздух переносятся от очага к слою дыма благодаря плавучести – это шлейф.</p></li>
-<li><p>Слой горячего дыма растет вниз, пока не достигнет верхней части дверного проема, и горячий газ может выходить из отсека, образуя шлейф разлива.</p></li>
-<li><p>При открывании двери горячий газ выходит из отсека в верхней части отверстия, в то время как свежий холодный воздух поступает в отсек в нижней части.</p></li>
+<li><p>Под потолком помещения скапливается слой дыма, который создает расслоение.  Горячие продукты горения и втянутый воздух переносятся из огня в слой дыма благодаря плавучести – это конвектиная колонка.</p></li>
+<li><p>Слой горячего дыма опускается вниз, пока не достигнет верхней части дверного проема, и дым может выходить из помещения, образуя шлейф дыма.</p></li>
+<li><p>При открывании двери дым выходит из помещения в верхней части проема, в то время как свежий холодный воздух поступает в помещение в нижней части.</p></li>
 </ul>
 </section>
 <section id="id8">
@@ -865,7 +865,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Эксперименты</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Аналитические модели</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном отсеке</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном помещении</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Модели зон</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Полевые модели</a></li>
 </ul>
