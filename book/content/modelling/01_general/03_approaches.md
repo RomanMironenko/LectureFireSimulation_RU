@@ -1,141 +1,141 @@
-# Modelling Approaches
+# 1.3. Подходы к моделированию
 
-## Overview
+## Обзор
 
-Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allow for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts. 
+Наука о пожарной безопасности (FSS) и инженерия пожарной безопасности (FSE) не ограничиваются описанием пожаров и их воздействия на строительные конструкции, однако другие темы, такие как эвакуация или анализ рисков, не являются частью этой лекции. Понимание и описание пожаров позволяют применять технические и организационные (активные и профилактические) меры для ограничения или даже предотвращения ущерба. В целом, эти описания приводят к разработке математических моделей, которые проверяются с помощью физических и химических экспериментов. С практической точки зрения эти модели применяются для разработки и оценки концепций безопасности.
 
-The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers many aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures. 
+Разработка аналитических и численных моделей направлена на описание процессов и / или воздействий, связанных с пожарами. Это справедливо как для жилых помещений, так и для лесных пожаров и охватывает многие аспекты, такие как высота слоя горячего газа, скорость и направление распространения пламени, токсичность дыма или активация и эффективность технических мер.
 
-Models range from empirical data models to models based on first principles. Yet, mostly experiments are needed to adjust unknown model parameters and to validate the predictive capabilities of a model.
+Модели варьируются от моделей с эмпирическими данными до моделей, основанных на первых принципах. Тем не менее, в основном эксперименты необходимы для корректировки неизвестных параметров модели и проверки прогностических возможностей модели.
 
-A brief and by far not complete or accurate overview of the historical time scales of scientific development, which modern day approaches are based on, is given in the following table.
+Краткий и далеко не полный или точный обзор исторических временных масштабов научного развития, на которых основаны современные подходы, приведен в следующей таблице.
 
 
-```{list-table} Brief historic overview of scientific development
+```{list-table} Краткий исторический обзор научных разработок
 :header-rows: 1
 :name: tab-history-overview
 :widths: auto
 :align: right
 
-* - Time 
-   - Event
-   - Key Initiator
+* - Время 
+   - Мероприятие
+   - Ключевой инициатор
    
 * - ∼1650
-   - conservation of momentum
+   - сохранение импульса
    - Newton
 
 * - 1737 
-   - relationship pressure and velocity in a fluid
+   - соотношение давления и скорости в жидкости
    - Bernoulli
    
 * - ∼1750
-   - conservation of energy
+   - сохранение энергии
    - Clausius
    
 * - 1807
-   - heat conduction equation
+   - уравнение теплопроводности
    - Fourier
    
 * - 1827 / 1845
-   - viscous equations of fluid motion
+   - вязкие уравнения движения жидкости
    - Navier & Stokes
    
 * - 1855
-   - mass diffusion equation
+   - уравнение массовой диффузии
    - Fick
    
 * - 1884
-   - temperature dependent chemical reaction rate
+   - скорость химической реакции, зависящая от температуры
    - Arrhenius
 * - ~1900
-   - thermal radiation
+   - тепловое излучение
    - Planck
    
 * - 1928
-   - solution of diffusion flame in a duct
+   - решение проблемы диффузионного пламени в воздуховоде
    - Burke & Schumann
    
 * - ∼1930
-   - combustion equations with kinetics
+   - уравнения горения с кинетикой
    - Semenov
    
 * - ∼1950
-   - convective burning solutions
+   - решения для конвективного горения
    - Emmons & Spalding
    
 * - ∼1960
-   - diverse fire phenomena solutions
+   - различные способы решения проблем, связанных с пожарами
    - Thomas
 ```
 
-## Experiments
+## Эксперименты
 
-Models have little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are: 
-* material flamability tests
-* measurement of quantities like heat release, structural temperatures, heat radiation, toxic gas concentrations, etc.
-* bench-scale experiments for material or building element evaluation, potentially with a separation of effects
-* real-scale experiments aim for the full integration of all interactions in a fire
+Модели практически не имеют ценности, если они не подкреплены экспериментами. Таким образом, проектирование и проведение экспериментов в различных масштабах является основой науки и техники пожарной безопасности. Некоторые экспериментальные аспекты в контексте экспериментов следующие: 
+* испытания материалов на огнестойкость
+* измерение таких величин, как тепловыделение, температура конструкции, тепловое излучение, концентрация токсичных газов и т.д.
+* стендовые эксперименты для оценки материалов или строительных элементов, потенциально с разделением эффектов
+* Эксперименты в реальном масштабе направлены на полную интеграцию всех взаимодействий при пожаре
 
 :::{figure-md} fig-exp-cone-calorimeter
 
 <img src="./figs/cone_calorimeter.png" width="60%">
 
-Example for a bench-scale experiment: a cone calorimeter. The sample size is about $\sf\small 10~cm \times 10~cm$.
+Рис. 1.13 Пример для стендового эксперимента: конусный калориметр. Размер выборки составляет около $\sf\small 10~cm \times 10~cm$.
 :::
 
 :::{figure-md} fig-exp-orpheus
 
 <img src="./figs/orpheus.jpeg" width="60%">
 
-Example for a real-scale experiment: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the [ORPHEUS](http://www.orpheus-projekt.de) project.
+Рис. 1.14 Пример эксперимента реального масштаба: эксперименты с горячим газом на станции метро. Эти эксперименты были проведены I.F.I. Аахен, Германия, в рамках проекта [ORPHEUS](http://www.orpheus-projekt.de).
 :::
 
-Experiments differ from tests. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs. 
+Эксперименты отличаются от тестов. Хотя тест проверяет свойство или результат, нет явной цели получить из него научное представление. Результат эксперимента разрабатывается с открытым вопросом и направлен на расширение базы знаний новыми результатами. 
 
-## Analytical Models
+## Аналитические модели
 
-The first kind of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to a closed analytical solution. 
+Модели первого типа - это аналитические модели. Они либо основаны на эмпирических данных и, таким образом, являются просто их математическим представлением. Либо они основаны на фундаментальных приближениях и симметриях, которые приводят к замкнутому аналитическому решению.
 
-Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantities of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters. 
+Несмотря на их, иногда очень ограниченные, приближения, они предлагают инструмент для быстрой оценки интересующих величин. Кроме того, они могут быть напрямую интегрированы в другие, потенциально более сложные модели. Другим важным аспектом является то, что аналитические модели могут быть проверены читателем, поскольку в общем случае возможно записать все необходимые входные параметры.
 
-Of course, due to the underlying simplifications and assumptions, their applicability is limited.
+Конечно, из-за лежащих в основе упрощений и допущений их применимость ограничена.
 
-**Example – Plume Temperature**
+**Пример – Температура факела**
 
-The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in {numref}`fig-exp-plume-profile`, a mathematical formulation can be derived to describe the observations. 
+Измерение локальной температуры газа в факеле приводит к эмпирическому описанию усредненных по времени значений. На основе измерений, подобных показанным на {numref}`fig-exp-plume-profile`, может быть получена математическая формулировка для описания наблюдений.
 
 :::{figure-md} fig-exp-plume-profile
 
 <img src="./figs/plume-profile-yokoi.png" width="40%">
 
-Example for experimentally captured normalised temperature profiles of a plume. Source: {cite}`Yokoi.1960`.
+Рис. 1.15 Пример экспериментально полученных нормализованных температурных профилей факела. Источник: {cite}`Yokoi.1960`.
 :::
 
-The temperature rise $\mf \Delta T$ in a turbulent plume may be generally approximated by:
+Повышение температуры $\mf \Delta T$ в турбулентном шлейфе может быть в целом аппроксимировано:
 
 $$
 \mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
 $$ (eq-deltaT-plume)
 
-where
-* $\mf z,r$: height above plume source and distance from centerline
-* $\mf b(z)$: plume radius
-* $\mf \beta$: empirical constant ≈ 1
-* $\mf T_m(z)$: centerline temperature (at z)
+где
+* $\mf z,r$: высота над источником столба и расстояние от центральной линии
+* $\mf b(z)$: радиус шлейфа
+* $\mf \beta$: эмпирическая константа ≈ 1
+* $\mf T_m(z)$: температура на осевой линии (при z)
 
-**Example – Mass Flow**
+**Пример – Массовый расход**
 
-With analytical descriptions of plumes and other phenomena, it becomes possible to investigate the impact and fire protection measures in compartment fires. An example for this is the estimation of the plume mass flow $\mf \dm_{pl}$ from a fire with a given heat release $\mf \dQ$. This way it becomes possible, e.g., to pose requirements for a smoke extraction system.
+Благодаря аналитическому описанию шлейфов и других явлений становится возможным исследовать воздействие и меры противопожарной защиты при пожарах в жилых помещениях. Примером этого является оценка массового расхода шлейфа $\mf \dm_{pl}$ от пожара с заданным выделением тепла $\mf \dQ$. Таким образом, становится возможным, например, сформулировать требования к системе дымоудаления.
 
-```{margin} Derivates
-In this script the following short forms for derivatives are used:
+```{margin} Производные
+В этом скрипте используются следующие краткие формы производных:
 
-* time derivative:
+* производная по времени:
 
 $$\mf \dot{\phi} = \frac{d\phi}{dt}$$
 
-* spatial derivatives:
+* пространственные производные:
 
 $$\mf \phi' = \frac{d\phi}{dl}$$
 
@@ -148,127 +148,129 @@ $$\mf \phi''' = \frac{d\phi}{dV}$$
 
 <img src="./figs/compartment_flow_central_labeled.svg" width="80%">
 
-Illustration of the quantities involved in the analytical estimation of the plume mass flow $\mf \dm_{pl}$.
+Рис. 1.16 Иллюстрация величин, участвующих в аналитической оценке массового расхода факела $\mf \dm_{pl}$.
 :::
 
-Following, e.g. {cite}`VDI-6019-2`, the plume mass flow $\mf \dm_{pl}$ can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer $\mf z_{eff}$ and the square root of the fire area $\mf A_{fire}$, i.e. $\sf \sqrt{A_{fire}}$. 
+Следуя, например, {cite}`VDI-6019-2`, массовому расходу факела $\mf \dm_{pl}$ может быть рассчитан непосредственно, тогда как два режима необходимо рассматривать отдельно. Они различаются отношением расстояния до очага пожара к слою дыма $\mf z_{eff}$ и квадратный корень из площади пожара $\mf A_{fire}$, т.е. $\sf \sqrt{A_{fire}}$. 
 
-**Jet formation regime**
+**Режим формирования струи**
 
-In the case of 
+В случае 
 
 $$ 
 \mf \frac{z_{eff}}{\sqrt{A_{fire}}} \le 2 \quad ,
 $$ (eq-zA-ratio)
 
-the mass flow can be computed as
+массовый расход может быть рассчитан как
 
 $$
 \mf \dm_{pl} = C_1 \cdot z^{1.5}_{eff}\cdot \sqrt{4\pi A_{fire}}\quad .
 $$ (eq-dmpl-jet)
 
-The free parameter, here the induction coefficient $\mf C_1$, takes a value of $\mf 0.19~kg\,m^{-5/2}\,s^{–1}$.
+Свободный параметр, здесь коэффициент индукции $\mf C_1$, принимает значение $\mf 0.19~kg\,m^{-5/2}\,s^{–1}$.
 
-The solution in equation {eq}`eq-dmpl-jet` only depends on geometrical values, the heat release rate has no impact here. The solution is simple, yet there are a assumptions, which have to be satisfied. A few of them are:    
+Решение уравнения {eq}`eq-dmpl-jet` зависит только от геометрических величин, скорость тепловыделения здесь не влияет. Решение простое, но есть допущения, которым необходимо соответствовать. Вот некоторые из них:
 
-* the considered compartment is a single storey smoke reservoir
-* the minimum compartment height is $\mf 4.0~m$
-* the room temperature is lower than the smoke gas temperature
-* it is only valid for fires with a power of $\mf 8~kW$ to $\mf 30~kW$ with a specific heat release rate per area of $\mf 200~kW/m^2$ to $\mf 1800~kW/m^2$
-* the fire source diameter $\mf d_{fire}$ is between $\mf 0.4~m$ and $\mf 9~m$
+* рассматриваемый отсек представляет собой одноэтажный резервуар для сбора дыма
+* минимальная высота отсека составляет $\mf 4.0~m$
+* температура в помещении ниже температуры дымовых газов
+* это справедливо только для пожаров мощностью $\mf 8~kW$ до  $\mf 30~kW$ с удельной скоростью тепловыделения на площадь $\mf 200~kW/m^2$ до $\mf 1800~kW/m^2$
+* диаметр источника пожара $\mf d_{fire}$ находится между $\mf 0.4~m$ и $\mf 9~m$
 
-**Similarity regime**
+**Режим подобия**
 
-If the equation {eq}`eq-zA-ratio` is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is based on the Heskestad plume model and predicts the plume mass flow as
+Если уравнение {eq}`eq-zA-ratio` неверно, шлейф находится в так называемом режиме подобия. Здесь шлейф можно рассматривать как невозмущенный, поскольку расстояние до слоя дыма велико по сравнению с начальной шириной шлейфа. В данном случае существует несколько возможных подходов к описанию шлейфа. Один из них основан на модели шлейфа Хескестада и предсказывает массовый расход шлейфа как
 
 $$
 \mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
 $$ (eq-dmpl-similarity)
 
-The additional quantities needed for the evaluation are:
+Для оценки необходимы следующие дополнительные величины:
 
-* The convective part of the heat release rate $\mf \dQ_{conv}$, which can be estimated as 70% of the total heat release rate, i.e. 
+* Конвективная часть скорости тепловыделения $\mf \dQ_{conv}$, которые можно оценить как 70% от общей скорости тепловыделения, т.е.
+
 
   $$
   \mf \dQ_{conv} = 0.7 \dQ \quad.
   $$
 
-* A virtual origin of the plume, which is located at a distance $\mf z_0$. There exist various ways to compute it, yet one of them is given by
+* Виртуальное происхождение столба дыма, который находится на расстоянии $\mf z_0$. Существуют различные способы его вычисления, но один из них приведен
 
   $$
   \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad,
   $$
-  where the diameter of the fire is denoted as $\mf d_{fire}$.
+  где диаметр очага пожара обозначается как  $\mf d_{fire}$.
 
-* The value of the induction coefficient $\mf C_2$ is about $\mf 0.071~kg \left(kW\,s^3\,m^5\right)^{-1/3}$.
+* Значение коэффициента индукции $\mf C_2$ речь идет $\mf 0.071~kg \left(kW\,s^3\,m^5\right)^{-1/3}$.
 
-This model leads to valid predictions, if the following conditions are met:
+Эта модель приводит к достоверным прогнозам, если выполняются следующие условия:
 
-* the fire area is compact, i.e. of a shape that can be represented as a circle or  a square,
-* the ambient temperature of the plume is constant, and
-* the environment is not disturbing the plume. 
 
-## Single Compartment Fire
+* площадь пожара компактна, то есть имеет форму, которую можно представить в виде круга или квадрата,
+* температура окружающей среды в шлейфе постоянна, и
+* окружающая среда не создает помех шлейфу. 
 
-For illustrating the following models, a canonical compartment fire setup is used, see {numref}`fig-compartment-flow-basic`. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.
+## Пожар в одном отсеке
+
+Для иллюстрации следующих моделей используется каноническая схема противопожарного отсека, см. {numref}`fig-compartment-flow-basic`. Она состоит из одного отсека с локализованным пожаром. Единственным выходом во внешнюю среду является дверь.
 
 :::{figure-md} fig-compartment-flow-basic
 
 <img src="./figs/compartment_door_flow_labeled.svg" width="60%">
 
-Flows and regimes in a canonical compartment fire with a single opening, here a door.
+Рис. 1.17 Течения и режимы при каноническом пожаре в отсеке с единственным отверстием, здесь дверью.
 :::
 
-In a very simplified representation, the following phenomena can be observed:
+В очень упрощенном представлении можно наблюдать следующие явления:
 
-* A smoke layer builds up below the ceiling of the compartment, which creates a stratification. The hot combustion products and the entreined air are transported from the fire to the smoke layer due to buoyancy -- this is the plume.
-* The hot smoke layer grows downwards until it reaches the top of the door opening and hot gas can leave the compartment and forms a spill plume.
-* At the door opening, hot gas leaves the compartment in the top region of the opening, while fresh cold air enters the compartment in the lower region.
+* Под потолком помещения скапливается слой дыма, который создает расслоение. Горячие продукты горения и сжатый воздух переносятся от очага к слою дыма благодаря плавучести – это шлейф.
+* Слой горячего дыма растет вниз, пока не достигнет верхней части дверного проема, и горячий газ может выходить из отсека, образуя шлейф разлива.
+* При открывании двери горячий газ выходит из отсека в верхней части отверстия, в то время как свежий холодный воздух поступает в отсек в нижней части.
 
-## Zone Models
+## Модели зон
 
-The above figure {numref}`fig-compartment-flow-basic` indicates that the domain of interest can be separated into two zones: an upper and a lower layer, see {numref}`fig-two-zone-model`. Zone models use this separation to simplify the overall scenario and predict the physical (e.g. temperature) and geometrical (e.g. height) properties of the zones.
+Приведенный выше рисунок, {numref}`fig-compartment-flow-basic` показывает, что область интереса может быть разделена на две зоны: верхний и нижний слои, см.  {numref}`fig-two-zone-model`. Модели зон используют это разделение для упрощения общего сценария и прогнозирования физических (например, температуры) и геометрических (например, высоты) свойств зон.
 
 :::{figure-md} fig-two-zone-model
 
 <img src="./figs/compartment_zone_model.svg" width="60%">
 
-Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.
+Рис. 1.18 Иллюстрация простой модели с двумя зонами – верхним слоем горячего и нижним слоем холодного газа.
 :::
 
-```{margin} Note:
-The according fundamental thermodynamical relations will be introduced in following section of the lecture. This section is just meant to demonstrate the general approach of zone models.
+```{margin} Примечание:
+Соответствующие фундаментальные термодинамические соотношения будут представлены в следующем разделе лекции. Этот раздел предназначен только для демонстрации общего подхода к моделированию зон.
 ```
 
-In the following, the [Consolidated Fire And Smoke Transport (CFAST)](https://pages.nist.gov/cfast/index.html) model {cite}`CFAST7-TR.2021` is used to demonstrate the approach of zone models. Here, the physical quantities like temperature $\mf T_i$, volume $\mf V_i$, and pressure $\mf p$ for each layer, i.e. $\mf i\in [u,l]$, are computed. These are single values, which represent the whole zone. 
+Далее [консолидированная](https://pages.nist.gov/cfast/index.html) модель переноса огня и дыма (CFAST) {cite}`CFAST7-TR.2021` используется для демонстрации подхода к моделированию зон. Здесь физические величины, такие как температура $\mf T_i$, объем $\mf V_i$, и давление $\mf p$ для каждого слоя, т.е.  $\mf i\in [u,l]$, вычисляются. TЭто единичные значения, которые представляют всю зону. 
 
-Using the ideal gas law, equation {eq}`eq-zone-model-ideal-gas-law`, the mass $\mf m_i$ of a layer can be computed. 
+Используя закон идеального газа, уравнение {eq}`eq-zone-model-ideal-gas-law`, масса  $\mf m_i$ площадь слоя может быть вычислена. 
 
 $$
 \mf pV_i = m_i R T_i
 $$ (eq-zone-model-ideal-gas-law)
 
-Where $\mf R$ is the specific gas constant, here with a value of approximately $\mf 290~J\,kg^{-1}\,K^{-1}$ for air. The change of internal energy of a zone is described by the sum of all heat sources $\mf \dq_i$ and the work done by the change of the layer's volume, i.e. $\mf p\cdot dV_i/dt$:
+Где $\mf R$ это удельная газовая постоянная, здесь имеющая значение приблизительно $\mf 290~J\,kg^{-1}\,K^{-1}$ для воздуха. Изменение внутренней энергии зоны описывается суммой всех источников тепла $\mf \dq_i$ и работа, выполняемая за счет изменения объема слоя, т.е. $\mf p\cdot dV_i/dt$:
 
 $$
 \mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq_i - p\frac{dV_i}{dt}\quad,
 $$ (eq-zone-model-internal-energy)
 
-with the specific heat capacity at constant volume $\mf c_v$. 
+с удельной теплоемкостью при постоянном объеме $\mf c_v$. 
 
-Besides the handling of boundary conditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure 
+Помимо обработки граничных условий и других дополнительных процессов, выводится набор связанных обыкновенных дифференциальных уравнений, описывающих изменение давления
 
 $$
 \mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
 $$ (eq-zone-mode-pressure)
 
-the upper volume 
+верхний объем 
 
 $$
 \mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
 $$ (eq-zone-mode-vu)
 
-where the lower volume $\mf V_l$ can be computed with the given total volumen of the compartment $\mf V$ as $\mf V_l = V - V_u$. The temperature development in each layer is given by 
+где меньший объем $\mf V_l$ может быть рассчитан с учетом заданного общего объема помещения $\mf V$ как  $\mf V_l = V - V_u$. Изменение температуры в каждом слое задается 
 
 $$
 \mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
@@ -278,26 +280,26 @@ $$
 \mf \frac{dT_l}{dt} = \frac{1}{c_p m_l}\left( \dq_l - c_p \dm_l T_l + V_l \frac{dp}{dt}\right)\quad .
 $$ (eq-zone-mode-Tl)
 
-This set of equations can be numericaly solved and leads to a time-dependent solution for the four stated quantities.
+Этот набор уравнений может быть решен численно и приводит к зависящему от времени решению для четырех указанных величин.
 
-## Field Models
+## Полевые модели
 
-While zone models decompose the domain of interest into few regions, field models discretise the volume with a three-dimensional mesh, see {numref}`fig-field-model`. This discretisation is needed to numerically solve a set of partial differential equations for quantities like density, velocity, pressure and enthalpy in each node of the mesh. 
+В то время как зональные модели разбивают область интереса на несколько областей, полевые модели дискретизируют объем с помощью трехмерной сетки, см. {numref}`fig-field-model`. Эта дискретизация необходима для численного решения набора дифференциальных уравнений в частных производных для таких величин, как плотность, скорость, давление и энтальпия в каждом узле сетки.
 
 :::{figure-md} fig-field-model
 
 <img src="./figs/compartment_field_model.svg" width="60%">
 
-Illustration of the domain discretisation in a field model.
+Рис. 1.19 Иллюстрация дискретизации предметной области в полевой модели.
 :::
 
-The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, spatially and temporaly resolved values for the above mentioned quantities are computed. See {numref}`fig-field-model-temperatures` for an illustrative representation of a temperature field at one point in time.
+Твердые объекты в области должны быть представлены в сетке, и в этих положениях необходимо оценить граничные условия. В результате соответствующей процедуры численного решения вычисляются пространственно и временно разрешенные значения для вышеупомянутых величин. Смотрите {numref}`fig-field-model-temperatures` для наглядного представления температурного поля в определенный момент времени.
 
 :::{figure-md} fig-field-model-temperatures
 
 <img src="./figs/compartment_field_model_temperatures.svg" width="60%">
 
-Illustration of the temperature values in each element (cell) of the domain discretisation.
+Рис. 1.20 Иллюстрация значений температуры в каждом элементе (ячейке) дискретизации домена.
 :::
 
-The main content of this lecture are the numerical models and solution approaches applied in field models. This methodology is in general called computational fluid dynamics (CFD), where fire simulations are a specialised topic within a very broad range of applications. The simulation model described in this lecture is the [Fire Dynamics Simulator (FDS)](https://pages.nist.gov/fds-smv/index.html). 
+Основным содержанием этой лекции являются численные модели и подходы к решению, применяемые в полевых моделях. Эта методология в целом называется вычислительной гидродинамикой (CFD), где моделирование пожара является специализированной темой в очень широком диапазоне приложений. Имитационная модель, описанная в этой лекции, является [симулятором динамики пожара (FDS)](https://pages.nist.gov/fds-smv/index.html). 
