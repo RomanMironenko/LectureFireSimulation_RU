@@ -571,36 +571,36 @@ document.write(`
 </figcaption>
 </figure>
 <p><strong>Качественный анализ</strong></p>
-<p>Цели защиты должны быть определены для выполнения в широком диапазоне возможных сценариев. Эти определения должны учитывать:</p>
+<p>Цели защиты должны быть определены таким образом, чтобы их можно было реализовать в широком диапазоне возможных сценариев. Эти сценарии должны учитывать:</p>
 <ul class="simple">
 <li><p>различные конструкции</p></li>
 <li><p>различные виды применения</p></li>
-<li><p>физика и поведение жильцов</p></li>
+<li><p>группу мобильности и поведение людей</p></li>
 </ul>
-<p>Объем качественного анализа охватывает следующие аспекты:</p>
+<p>Качественного анализа охватывает следующие аспекты:</p>
 <ul class="simple">
 <li><p>концепция здания</p>
 <ul>
-<li><p>фундаментальная конструкция</p></li>
+<li><p>основные конструкции</p></li>
 <li><p>строительные материалы</p></li>
-<li><p>разделение огня и дыма</p></li>
+<li><p>секционирование при пожаре и задымлении</p></li>
 <li><p>топология и разделение путей эвакуации</p></li>
 </ul>
 </li>
 <li><p>концепция использования</p>
 <ul>
-<li><p>пожарные нагрузки</p></li>
-<li><p>жильцы</p></li>
+<li><p>пожарной нагрузки</p></li>
+<li><p>люди</p></li>
 <li><p>сценарии использования</p></li>
 </ul>
 </li>
 <li><p>инфраструктура</p>
 <ul>
 <li><p>технические системы</p></li>
-<li><p>защитные меры противопожарной защиты</p></li>
+<li><p>меры противопожарной защиты</p></li>
 </ul>
 </li>
-<li><p>сценарии возникновения пожара</p>
+<li><p>сценарии пожаров</p>
 <ul>
 <li><p>места возникновения пожаров</p></li>
 <li><p>возможности распространения пламени и дыма</p></li>
@@ -611,11 +611,11 @@ document.write(`
 <p>Для количественного анализа используются модели или эмпирические данные для оценки:</p>
 <ul class="simple">
 <li><p>сценарии пожаров и проектные пожары</p></li>
-<li><p>эффекты пожара, распространение дыма и истощение</p></li>
+<li><p>последствия пожара, распространение дыма и затухания</p></li>
 <li><p>строительные компоненты и несущая конструкция</p></li>
 <li><p>оценка технических и защитных мер</p></li>
-<li><p>безопасность жизнедеятельности при воздействии огня</p></li>
-<li><p>выход в случае чрезвычайной ситуации</p></li>
+<li><p>безопасность жизнедеятельности во время пожара</p></li>
+<li><p>эвакуация в случае чрезвычайной ситуации</p></li>
 </ul>
 </section>
 <section id="id9">
@@ -631,16 +631,16 @@ document.write(`
 </ul>
 <p>В сценарии пожара необходимо указать развитие пожара, особенно скорость, с которой он выделяет тепло. Общий подход заключается в определении скорости выделения тепла, зависящей от времени, <span class="math notranslate nohighlight">\(\mf HRR(t)\)</span>, которая основана на так называемом естественном пожаре. Кривая естественного пожара является эмпирическим приближением к реальным пожарам в жилых помещениях, см. <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, которая может быть представлена в трех фазах:</p>
 <ol class="arabic">
-<li><p><strong>Рост</strong>: после воспламенения огонь увеличивает скорость выделения тепла, пока не достигнет очага возгорания. На этом этапе скорость выделения тепла подчиняется квадратичной функции, т.е.</p>
+<li><p><strong>Стадия роста</strong>: После воспламенения огонь увеличивает скорость выделения тепла, пока не достигнет вспышки. В этой фазе скорость выделения тепла подчиняется квадратичной функции, т.е.</p>
 <div class="math notranslate nohighlight">
 \[\mf HRR(t) = \alpha\cdot t^2\quad,\]</div>
 <p>где  <span class="math notranslate nohighlight">\(\mf \alpha\)</span> коэффициент интенсивности пожара.</p>
 </li>
-<li><p><strong>Полностью разработано</strong>: После вспышки в огне участвует весь материал, который способен гореть. На этом этапе скорость тепловыделения достигает максимального значения <span class="math notranslate nohighlight">\(\mf HRR_{max}\)</span> and stays constant, i.e.</p>
+<li><p><strong>Полностью развитая стадия</strong>: После вспышки в пожаре участвует весь материал, который способен гореть. На этом этапе скорость тепловыделения достигает максимального значения <span class="math notranslate nohighlight">\(\mf HRR_{max}\)</span> и остается постоянной, т.е.</p>
 <div class="math notranslate nohighlight">
 \[\mf HRR(t) = HRR_{max}\quad.\]</div>
 </li>
-<li><p><strong>Затухание</strong>: Когда расходуется около 70% пожарной нагрузки, начинается фаза затухания. Во время этой фазы скорость тепловыделения линейно уменьшается и достигает нулевого значения в определенный момент времени <span class="math notranslate nohighlight">\(\mf t_{end}\)</span>, т. е.</p>
+<li><p><strong>Стадия затухания</strong>: Когда расходуется около 70% пожарной нагрузки, начинается фаза затухания. Во время этой фазы скорость тепловыделения линейно уменьшается и достигает нулевого значения в определенный момент времени <span class="math notranslate nohighlight">\(\mf t_{end}\)</span>, т. е.</p>
 <div class="math notranslate nohighlight">
 \[\mf \frac{HRR(t)}{dt} = const \quad.\]</div>
 </li>
@@ -648,10 +648,10 @@ document.write(`
 <figure class="align-default" id="fig-natural-design-fire">
 <a class="reference internal image-reference" href="../../../_images/natural_design_fire.svg"><img alt="../../../_images/natural_design_fire.svg" src="../../../_images/natural_design_fire.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Рис. 1.12 Кривая скорости тепловыделения, основанная на приближении естественного пожара.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Кривая скорости тепловыделения, основанная на приближении естественного пожара.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>В следующих таблицах представлены выбранные значения пожарной нагрузки и коэффициента интенсивности пожара, см. <span id="id10">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
+<p>В таблицах представлены значения пожарной нагрузки и коэффициента интенсивности пожара, см. <span id="id10">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
 <table class="table table-right" id="tab-alpha">
 <caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Коэффициенты интенсивности пожара</span><a class="headerlink" href="#tab-alpha" title="Permalink to this table">#</a></caption>
 <thead>
@@ -660,16 +660,16 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>медленно</p></td>
+<tr class="row-even"><td><p>медленная</p></td>
 <td><p>0.0029</p></td>
 </tr>
-<tr class="row-odd"><td><p>Средний</p></td>
+<tr class="row-odd"><td><p>средняя</p></td>
 <td><p>0.012</p></td>
 </tr>
-<tr class="row-even"><td><p>быстро</p></td>
+<tr class="row-even"><td><p>быстрая</p></td>
 <td><p>0.047</p></td>
 </tr>
-<tr class="row-odd"><td><p>очень быстро</p></td>
+<tr class="row-odd"><td><p>очень быстрая</p></td>
 <td><p>0.188</p></td>
 </tr>
 </tbody>
@@ -683,41 +683,41 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Офисы</p></td>
+<tr class="row-even"><td><p>офисы</p></td>
 <td><p>300</p></td>
-<td><p>Средний</p></td>
+<td><p>средняя</p></td>
 </tr>
 <tr class="row-odd"><td><p>гостиничные номера</p></td>
 <td><p>250</p></td>
-<td><p>Средний</p></td>
+<td><p>средний</p></td>
 </tr>
-<tr class="row-even"><td><p>торговые площади</p></td>
+<tr class="row-even"><td><p>торговые помещения</p></td>
 <td><p>500</p></td>
-<td><p>быстро</p></td>
+<td><p>быстрая</p></td>
 </tr>
 <tr class="row-odd"><td><p>выставки, театры, кинозалы, сцены</p></td>
 <td><p>500</p></td>
-<td><p>быстро</p></td>
+<td><p>быстая</p></td>
 </tr>
-<tr class="row-even"><td><p>резиденция</p></td>
+<tr class="row-even"><td><p>квартиры</p></td>
 <td><p>500</p></td>
-<td><p>Средний</p></td>
+<td><p>средняя</p></td>
 </tr>
 <tr class="row-odd"><td><p>музей</p></td>
 <td><p>300</p></td>
-<td><p>slow</p></td>
+<td><p>медленная</p></td>
 </tr>
 <tr class="row-even"><td><p>горящий полуприцеп</p></td>
 <td><p>400</p></td>
-<td><p>fast</p></td>
+<td><p>быстрая</p></td>
 </tr>
-<tr class="row-odd"><td><p>размер деревянных поддонов <br> : <span class="math notranslate nohighlight">\(\mf 1.2~m \times 1.2~m \times 0.14~m\)</span>,<br> влажность: от 6% до 12%, хранение штабелями / блоками, высота: <br> height: <span class="math notranslate nohighlight">\(\mf 0.5~m\)</span></p></td>
+<tr class="row-odd"><td><p>размер деревянных поддонов <br> : <span class="math notranslate nohighlight">\(\mf 1.2~м \times 1.2~м \times 0.14~м\)</span>,<br> влажность: от 6% до 12%, хранение штабелями / блоками, высота: <br> высота: <span class="math notranslate nohighlight">\(\mf 0.5~м\)</span></p></td>
 <td><p>1250</p></td>
-<td><p>от среднего до быстрого</p></td>
+<td><p>от средней до быстрой</p></td>
 </tr>
-<tr class="row-even"><td><p>почтовые пакеты, высота хранения <span class="math notranslate nohighlight">\(\mf 1.5~m\)</span></p></td>
+<tr class="row-even"><td><p>почтовые пакеты, высота хранения <span class="math notranslate nohighlight">\(\mf 1.5~м\)</span></p></td>
 <td><p>400</p></td>
-<td><p>быстро</p></td>
+<td><p>быстрая</p></td>
 </tr>
 </tbody>
 </table>
