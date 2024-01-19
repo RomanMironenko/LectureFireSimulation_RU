@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.3. Modelling Approaches &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>1.3. 1.3. Подходы к моделированию &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">1. Моделирование пожаров</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_processes.html">1.1. Физические и химические процессы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_fse.html">1.2. Проектирование пожарной безопасности</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Modelling Approaches</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. 1.3. Подходы к моделированию</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -496,7 +496,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modelling Approaches</h1>
+    <h1>1.3. Подходы к моделированию</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -506,12 +506,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-models">Analytical Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-compartment-fire">Single Compartment Fire</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-models">Zone Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-models">Field Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Эксперименты</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Аналитические модели</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном отсеке</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Модели зон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Полевые модели</a></li>
 </ul>
             </nav>
         </div>
@@ -523,134 +523,134 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling-approaches">
-<h1><span class="section-number">1.3. </span>Modelling Approaches<a class="headerlink" href="#modelling-approaches" title="Permalink to this heading">#</a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p>Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allow for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts.</p>
-<p>The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers many aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures.</p>
-<p>Models range from empirical data models to models based on first principles. Yet, mostly experiments are needed to adjust unknown model parameters and to validate the predictive capabilities of a model.</p>
-<p>A brief and by far not complete or accurate overview of the historical time scales of scientific development, which modern day approaches are based on, is given in the following table.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">1.3. </span>1.3. Подходы к моделированию<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="id2">
+<h2>Обзор<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>Наука о пожарной безопасности (FSS) и инженерия пожарной безопасности (FSE) не ограничиваются описанием пожаров и их воздействия на строительные конструкции, однако другие темы, такие как эвакуация или анализ рисков, не являются частью этой лекции. Понимание и описание пожаров позволяют применять технические и организационные (активные и профилактические) меры для ограничения или даже предотвращения ущерба. В целом, эти описания приводят к разработке математических моделей, которые проверяются с помощью физических и химических экспериментов. С практической точки зрения эти модели применяются для разработки и оценки концепций безопасности.</p>
+<p>Разработка аналитических и численных моделей направлена на описание процессов и / или воздействий, связанных с пожарами. Это справедливо как для жилых помещений, так и для лесных пожаров и охватывает многие аспекты, такие как высота слоя горячего газа, скорость и направление распространения пламени, токсичность дыма или активация и эффективность технических мер.</p>
+<p>Модели варьируются от моделей с эмпирическими данными до моделей, основанных на первых принципах. Тем не менее, в основном эксперименты необходимы для корректировки неизвестных параметров модели и проверки прогностических возможностей модели.</p>
+<p>Краткий и далеко не полный или точный обзор исторических временных масштабов научного развития, на которых основаны современные подходы, приведен в следующей таблице.</p>
 <table class="table table-right" id="tab-history-overview">
-<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Brief historic overview of scientific development</span><a class="headerlink" href="#tab-history-overview" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Краткий исторический обзор научных разработок</span><a class="headerlink" href="#tab-history-overview" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Time</p></th>
-<th class="head"><p>Event</p></th>
-<th class="head"><p>Key Initiator</p></th>
+<tr class="row-odd"><th class="head"><p>Время</p></th>
+<th class="head"><p>Мероприятие</p></th>
+<th class="head"><p>Ключевой инициатор</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>∼1650</p></td>
-<td><p>conservation of momentum</p></td>
+<td><p>сохранение импульса</p></td>
 <td><p>Newton</p></td>
 </tr>
 <tr class="row-odd"><td><p>1737</p></td>
-<td><p>relationship pressure and velocity in a fluid</p></td>
+<td><p>соотношение давления и скорости в жидкости</p></td>
 <td><p>Bernoulli</p></td>
 </tr>
 <tr class="row-even"><td><p>∼1750</p></td>
-<td><p>conservation of energy</p></td>
+<td><p>сохранение энергии</p></td>
 <td><p>Clausius</p></td>
 </tr>
 <tr class="row-odd"><td><p>1807</p></td>
-<td><p>heat conduction equation</p></td>
+<td><p>уравнение теплопроводности</p></td>
 <td><p>Fourier</p></td>
 </tr>
 <tr class="row-even"><td><p>1827 / 1845</p></td>
-<td><p>viscous equations of fluid motion</p></td>
+<td><p>вязкие уравнения движения жидкости</p></td>
 <td><p>Navier &amp; Stokes</p></td>
 </tr>
 <tr class="row-odd"><td><p>1855</p></td>
-<td><p>mass diffusion equation</p></td>
+<td><p>уравнение массовой диффузии</p></td>
 <td><p>Fick</p></td>
 </tr>
 <tr class="row-even"><td><p>1884</p></td>
-<td><p>temperature dependent chemical reaction rate</p></td>
+<td><p>скорость химической реакции, зависящая от температуры</p></td>
 <td><p>Arrhenius</p></td>
 </tr>
 <tr class="row-odd"><td><p>~1900</p></td>
-<td><p>thermal radiation</p></td>
+<td><p>тепловое излучение</p></td>
 <td><p>Planck</p></td>
 </tr>
 <tr class="row-even"><td><p>1928</p></td>
-<td><p>solution of diffusion flame in a duct</p></td>
+<td><p>решение проблемы диффузионного пламени в воздуховоде</p></td>
 <td><p>Burke &amp; Schumann</p></td>
 </tr>
 <tr class="row-odd"><td><p>∼1930</p></td>
-<td><p>combustion equations with kinetics</p></td>
+<td><p>уравнения горения с кинетикой</p></td>
 <td><p>Semenov</p></td>
 </tr>
 <tr class="row-even"><td><p>∼1950</p></td>
-<td><p>convective burning solutions</p></td>
+<td><p>решения для конвективного горения</p></td>
 <td><p>Emmons &amp; Spalding</p></td>
 </tr>
 <tr class="row-odd"><td><p>∼1960</p></td>
-<td><p>diverse fire phenomena solutions</p></td>
+<td><p>различные способы решения проблем, связанных с пожарами</p></td>
 <td><p>Thomas</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="experiments">
-<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this heading">#</a></h2>
-<p>Models have little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are:</p>
+<section id="id3">
+<h2>Эксперименты<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>Модели практически не имеют ценности, если они не подкреплены экспериментами. Таким образом, проектирование и проведение экспериментов в различных масштабах является основой науки и техники пожарной безопасности. Некоторые экспериментальные аспекты в контексте экспериментов следующие:</p>
 <ul class="simple">
-<li><p>material flamability tests</p></li>
-<li><p>measurement of quantities like heat release, structural temperatures, heat radiation, toxic gas concentrations, etc.</p></li>
-<li><p>bench-scale experiments for material or building element evaluation, potentially with a separation of effects</p></li>
-<li><p>real-scale experiments aim for the full integration of all interactions in a fire</p></li>
+<li><p>испытания материалов на огнестойкость</p></li>
+<li><p>измерение таких величин, как тепловыделение, температура конструкции, тепловое излучение, концентрация токсичных газов и т.д.</p></li>
+<li><p>стендовые эксперименты для оценки материалов или строительных элементов, потенциально с разделением эффектов</p></li>
+<li><p>Эксперименты в реальном масштабе направлены на полную интеграцию всех взаимодействий при пожаре</p></li>
 </ul>
 <figure class="align-default" id="fig-exp-cone-calorimeter">
 <a class="reference internal image-reference" href="../../../_images/cone_calorimeter.png"><img alt="../../../_images/cone_calorimeter.png" src="../../../_images/cone_calorimeter.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Example for a bench-scale experiment: a cone calorimeter. The sample size is about <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Рис. 1.13 Пример для стендового эксперимента: конусный калориметр. Размер выборки составляет около <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-exp-orpheus">
 <a class="reference internal image-reference" href="../../../_images/orpheus.jpeg"><img alt="../../../_images/orpheus.jpeg" src="../../../_images/orpheus.jpeg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Example for a real-scale experiment: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a> project.</span><a class="headerlink" href="#fig-exp-orpheus" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Рис. 1.14 Пример эксперимента реального масштаба: эксперименты с горячим газом на станции метро. Эти эксперименты были проведены I.F.I. Аахен, Германия, в рамках проекта <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a>.</span><a class="headerlink" href="#fig-exp-orpheus" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Experiments differ from tests. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs.</p>
+<p>Эксперименты отличаются от тестов. Хотя тест проверяет свойство или результат, нет явной цели получить из него научное представление. Результат эксперимента разрабатывается с открытым вопросом и направлен на расширение базы знаний новыми результатами.</p>
 </section>
-<section id="analytical-models">
-<h2>Analytical Models<a class="headerlink" href="#analytical-models" title="Permalink to this heading">#</a></h2>
-<p>The first kind of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to a closed analytical solution.</p>
-<p>Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantities of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters.</p>
-<p>Of course, due to the underlying simplifications and assumptions, their applicability is limited.</p>
-<p><strong>Example – Plume Temperature</strong></p>
-<p>The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, a mathematical formulation can be derived to describe the observations.</p>
+<section id="id4">
+<h2>Аналитические модели<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>Модели первого типа - это аналитические модели. Они либо основаны на эмпирических данных и, таким образом, являются просто их математическим представлением. Либо они основаны на фундаментальных приближениях и симметриях, которые приводят к замкнутому аналитическому решению.</p>
+<p>Несмотря на их, иногда очень ограниченные, приближения, они предлагают инструмент для быстрой оценки интересующих величин. Кроме того, они могут быть напрямую интегрированы в другие, потенциально более сложные модели. Другим важным аспектом является то, что аналитические модели могут быть проверены читателем, поскольку в общем случае возможно записать все необходимые входные параметры.</p>
+<p>Конечно, из-за лежащих в основе упрощений и допущений их применимость ограничена.</p>
+<p><strong>Пример – Температура факела</strong></p>
+<p>Измерение локальной температуры газа в факеле приводит к эмпирическому описанию усредненных по времени значений. На основе измерений, подобных показанным на <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, может быть получена математическая формулировка для описания наблюдений.</p>
 <figure class="align-default" id="fig-exp-plume-profile">
 <a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Sizuo Yokoi. Study on the prevention of fire-spread caused by hot upward current. BRI Report, 1960.">Yok60</a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Рис. 1.15 Пример экспериментально полученных нормализованных температурных профилей факела. Источник: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Sizuo Yokoi. Study on the prevention of fire-spread caused by hot upward current. BRI Report, 1960.">Yok60</a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be generally approximated by:</p>
+<p>Повышение температуры <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> в турбулентном шлейфе может быть в целом аппроксимировано:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deltat-plume">
 <span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-deltat-plume" title="Permalink to this equation">#</a></span>\[
 \mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
 \]</div>
-<p>where</p>
+<p>где</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mf z,r\)</span>: height above plume source and distance from centerline</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mf b(z)\)</span>: plume radius</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mf \beta\)</span>: empirical constant ≈ 1</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mf T_m(z)\)</span>: centerline temperature (at z)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf z,r\)</span>: высота над источником столба и расстояние от центральной линии</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf b(z)\)</span>: радиус шлейфа</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf \beta\)</span>: эмпирическая константа ≈ 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf T_m(z)\)</span>: температура на осевой линии (при z)</p></li>
 </ul>
-<p><strong>Example – Mass Flow</strong></p>
-<p>With analytical descriptions of plumes and other phenomena, it becomes possible to investigate the impact and fire protection measures in compartment fires. An example for this is the estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> from a fire with a given heat release <span class="math notranslate nohighlight">\(\mf \dQ\)</span>. This way it becomes possible, e.g., to pose requirements for a smoke extraction system.</p>
+<p><strong>Пример – Массовый расход</strong></p>
+<p>Благодаря аналитическому описанию шлейфов и других явлений становится возможным исследовать воздействие и меры противопожарной защиты при пожарах в жилых помещениях. Примером этого является оценка массового расхода шлейфа <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> от пожара с заданным выделением тепла <span class="math notranslate nohighlight">\(\mf \dQ\)</span>. Таким образом, становится возможным, например, сформулировать требования к системе дымоудаления.</p>
 <aside class="margin sidebar">
-<p class="sidebar-title">Derivates</p>
-<p>In this script the following short forms for derivatives are used:</p>
+<p class="sidebar-title">Производные</p>
+<p>В этом скрипте используются следующие краткие формы производных:</p>
 <ul class="simple">
-<li><p>time derivative:</p></li>
+<li><p>производная по времени:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\mf \dot{\phi} = \frac{d\phi}{dt}\]</div>
 <ul class="simple">
-<li><p>spatial derivatives:</p></li>
+<li><p>пространственные производные:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\mf \phi' = \frac{d\phi}{dl}\]</div>
@@ -662,112 +662,112 @@ document.write(`
 <figure class="align-default" id="fig-exp-analytical-mass-flow">
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Illustration of the quantities involved in the analytical estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Рис. 1.16 Иллюстрация величин, участвующих в аналитической оценке массового расхода факела <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
-<p><strong>Jet formation regime</strong></p>
-<p>In the case of</p>
+<p>Следуя, например, <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span>, массовому расходу факела <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> может быть рассчитан непосредственно, тогда как два режима необходимо рассматривать отдельно. Они различаются отношением расстояния до очага пожара к слою дыма <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> и квадратный корень из площади пожара <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, т.е. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
+<p><strong>Режим формирования струи</strong></p>
+<p>В случае</p>
 <div class="math notranslate nohighlight" id="equation-eq-za-ratio">
 <span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-za-ratio" title="Permalink to this equation">#</a></span>\[ 
 \mf \frac{z_{eff}}{\sqrt{A_{fire}}} \le 2 \quad ,
 \]</div>
-<p>the mass flow can be computed as</p>
+<p>массовый расход может быть рассчитан как</p>
 <div class="math notranslate nohighlight" id="equation-eq-dmpl-jet">
 <span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-dmpl-jet" title="Permalink to this equation">#</a></span>\[
 \mf \dm_{pl} = C_1 \cdot z^{1.5}_{eff}\cdot \sqrt{4\pi A_{fire}}\quad .
 \]</div>
-<p>The free parameter, here the induction coefficient <span class="math notranslate nohighlight">\(\mf C_1\)</span>, takes a value of <span class="math notranslate nohighlight">\(\mf 0.19~kg\,m^{-5/2}\,s^{–1}\)</span>.</p>
-<p>The solution in equation <a class="reference internal" href="#equation-eq-dmpl-jet">(1.3)</a> only depends on geometrical values, the heat release rate has no impact here. The solution is simple, yet there are a assumptions, which have to be satisfied. A few of them are:</p>
+<p>Свободный параметр, здесь коэффициент индукции <span class="math notranslate nohighlight">\(\mf C_1\)</span>, принимает значение <span class="math notranslate nohighlight">\(\mf 0.19~kg\,m^{-5/2}\,s^{–1}\)</span>.</p>
+<p>Решение уравнения <a class="reference internal" href="#equation-eq-dmpl-jet">(1.3)</a> зависит только от геометрических величин, скорость тепловыделения здесь не влияет. Решение простое, но есть допущения, которым необходимо соответствовать. Вот некоторые из них:</p>
 <ul class="simple">
-<li><p>the considered compartment is a single storey smoke reservoir</p></li>
-<li><p>the minimum compartment height is <span class="math notranslate nohighlight">\(\mf 4.0~m\)</span></p></li>
-<li><p>the room temperature is lower than the smoke gas temperature</p></li>
-<li><p>it is only valid for fires with a power of <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> to <span class="math notranslate nohighlight">\(\mf 30~kW\)</span> with a specific heat release rate per area of <span class="math notranslate nohighlight">\(\mf 200~kW/m^2\)</span> to <span class="math notranslate nohighlight">\(\mf 1800~kW/m^2\)</span></p></li>
-<li><p>the fire source diameter <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span> is between <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and <span class="math notranslate nohighlight">\(\mf 9~m\)</span></p></li>
+<li><p>рассматриваемый отсек представляет собой одноэтажный резервуар для сбора дыма</p></li>
+<li><p>минимальная высота отсека составляет <span class="math notranslate nohighlight">\(\mf 4.0~m\)</span></p></li>
+<li><p>температура в помещении ниже температуры дымовых газов</p></li>
+<li><p>это справедливо только для пожаров мощностью <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> до  <span class="math notranslate nohighlight">\(\mf 30~kW\)</span> с удельной скоростью тепловыделения на площадь <span class="math notranslate nohighlight">\(\mf 200~kW/m^2\)</span> до <span class="math notranslate nohighlight">\(\mf 1800~kW/m^2\)</span></p></li>
+<li><p>диаметр источника пожара <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span> находится между <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> и <span class="math notranslate nohighlight">\(\mf 9~m\)</span></p></li>
 </ul>
-<p><strong>Similarity regime</strong></p>
-<p>If the equation <a class="reference internal" href="#equation-eq-za-ratio">(1.2)</a> is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is based on the Heskestad plume model and predicts the plume mass flow as</p>
+<p><strong>Режим подобия</strong></p>
+<p>Если уравнение <a class="reference internal" href="#equation-eq-za-ratio">(1.2)</a> неверно, шлейф находится в так называемом режиме подобия. Здесь шлейф можно рассматривать как невозмущенный, поскольку расстояние до слоя дыма велико по сравнению с начальной шириной шлейфа. В данном случае существует несколько возможных подходов к описанию шлейфа. Один из них основан на модели шлейфа Хескестада и предсказывает массовый расход шлейфа как</p>
 <div class="math notranslate nohighlight" id="equation-eq-dmpl-similarity">
 <span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-dmpl-similarity" title="Permalink to this equation">#</a></span>\[
 \mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
 \]</div>
-<p>The additional quantities needed for the evaluation are:</p>
+<p>Для оценки необходимы следующие дополнительные величины:</p>
 <ul>
-<li><p>The convective part of the heat release rate <span class="math notranslate nohighlight">\(\mf \dQ_{conv}\)</span>, which can be estimated as 70% of the total heat release rate, i.e.</p>
+<li><p>Конвективная часть скорости тепловыделения <span class="math notranslate nohighlight">\(\mf \dQ_{conv}\)</span>, которые можно оценить как 70% от общей скорости тепловыделения, т.е.</p>
 <div class="math notranslate nohighlight">
 \[
   \mf \dQ_{conv} = 0.7 \dQ \quad.
   \]</div>
 </li>
-<li><p>A virtual origin of the plume, which is located at a distance <span class="math notranslate nohighlight">\(\mf z_0\)</span>. There exist various ways to compute it, yet one of them is given by</p>
+<li><p>Виртуальное происхождение столба дыма, который находится на расстоянии <span class="math notranslate nohighlight">\(\mf z_0\)</span>. Существуют различные способы его вычисления, но один из них приведен</p>
 <div class="math notranslate nohighlight">
 \[
   \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad,
   \]</div>
-<p>where the diameter of the fire is denoted as <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span>.</p>
+<p>где диаметр очага пожара обозначается как  <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span>.</p>
 </li>
-<li><p>The value of the induction coefficient <span class="math notranslate nohighlight">\(\mf C_2\)</span> is about <span class="math notranslate nohighlight">\(\mf 0.071~kg \left(kW\,s^3\,m^5\right)^{-1/3}\)</span>.</p></li>
+<li><p>Значение коэффициента индукции <span class="math notranslate nohighlight">\(\mf C_2\)</span> речь идет <span class="math notranslate nohighlight">\(\mf 0.071~kg \left(kW\,s^3\,m^5\right)^{-1/3}\)</span>.</p></li>
 </ul>
-<p>This model leads to valid predictions, if the following conditions are met:</p>
+<p>Эта модель приводит к достоверным прогнозам, если выполняются следующие условия:</p>
 <ul class="simple">
-<li><p>the fire area is compact, i.e. of a shape that can be represented as a circle or  a square,</p></li>
-<li><p>the ambient temperature of the plume is constant, and</p></li>
-<li><p>the environment is not disturbing the plume.</p></li>
+<li><p>площадь пожара компактна, то есть имеет форму, которую можно представить в виде круга или квадрата,</p></li>
+<li><p>температура окружающей среды в шлейфе постоянна, и</p></li>
+<li><p>окружающая среда не создает помех шлейфу.</p></li>
 </ul>
 </section>
-<section id="single-compartment-fire">
-<h2>Single Compartment Fire<a class="headerlink" href="#single-compartment-fire" title="Permalink to this heading">#</a></h2>
-<p>For illustrating the following models, a canonical compartment fire setup is used, see <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a>. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.</p>
+<section id="id7">
+<h2>Пожар в одном отсеке<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>Для иллюстрации следующих моделей используется каноническая схема противопожарного отсека, см. <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a>. Она состоит из одного отсека с локализованным пожаром. Единственным выходом во внешнюю среду является дверь.</p>
 <figure class="align-default" id="fig-compartment-flow-basic">
 <a class="reference internal image-reference" href="../../../_images/compartment_door_flow_labeled.svg"><img alt="../../../_images/compartment_door_flow_labeled.svg" src="../../../_images/compartment_door_flow_labeled.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Flows and regimes in a canonical compartment fire with a single opening, here a door.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Рис. 1.17 Течения и режимы при каноническом пожаре в отсеке с единственным отверстием, здесь дверью.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In a very simplified representation, the following phenomena can be observed:</p>
+<p>В очень упрощенном представлении можно наблюдать следующие явления:</p>
 <ul class="simple">
-<li><p>A smoke layer builds up below the ceiling of the compartment, which creates a stratification. The hot combustion products and the entreined air are transported from the fire to the smoke layer due to buoyancy – this is the plume.</p></li>
-<li><p>The hot smoke layer grows downwards until it reaches the top of the door opening and hot gas can leave the compartment and forms a spill plume.</p></li>
-<li><p>At the door opening, hot gas leaves the compartment in the top region of the opening, while fresh cold air enters the compartment in the lower region.</p></li>
+<li><p>Под потолком помещения скапливается слой дыма, который создает расслоение. Горячие продукты горения и сжатый воздух переносятся от очага к слою дыма благодаря плавучести – это шлейф.</p></li>
+<li><p>Слой горячего дыма растет вниз, пока не достигнет верхней части дверного проема, и горячий газ может выходить из отсека, образуя шлейф разлива.</p></li>
+<li><p>При открывании двери горячий газ выходит из отсека в верхней части отверстия, в то время как свежий холодный воздух поступает в отсек в нижней части.</p></li>
 </ul>
 </section>
-<section id="zone-models">
-<h2>Zone Models<a class="headerlink" href="#zone-models" title="Permalink to this heading">#</a></h2>
-<p>The above figure <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> indicates that the domain of interest can be separated into two zones: an upper and a lower layer, see <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Zone models use this separation to simplify the overall scenario and predict the physical (e.g. temperature) and geometrical (e.g. height) properties of the zones.</p>
+<section id="id8">
+<h2>Модели зон<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p>Приведенный выше рисунок, <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> показывает, что область интереса может быть разделена на две зоны: верхний и нижний слои, см.  <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Модели зон используют это разделение для упрощения общего сценария и прогнозирования физических (например, температуры) и геометрических (например, высоты) свойств зон.</p>
 <figure class="align-default" id="fig-two-zone-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_zone_model.svg"><img alt="../../../_images/compartment_zone_model.svg" src="../../../_images/compartment_zone_model.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Рис. 1.18 Иллюстрация простой модели с двумя зонами – верхним слоем горячего и нижним слоем холодного газа.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <aside class="margin sidebar">
-<p class="sidebar-title">Note:</p>
-<p>The according fundamental thermodynamical relations will be introduced in following section of the lecture. This section is just meant to demonstrate the general approach of zone models.</p>
+<p class="sidebar-title">Примечание:</p>
+<p>Соответствующие фундаментальные термодинамические соотношения будут представлены в следующем разделе лекции. Этот раздел предназначен только для демонстрации общего подхода к моделированию зон.</p>
 </aside>
-<p>In the following, the <a class="reference external" href="https://pages.nist.gov/cfast/index.html">Consolidated Fire And Smoke Transport (CFAST)</a> model <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id17" title="Richard D. Peacock, Kevin B. McGrattan, Glenn P. Forney, and Paul A. Reneke. CFAST–Consolidated Model of Fire Growth and Smoke Transport (Version 7) Volume 1: Technical Reference Guide. Technical Report, National Institute of Standards and Technology, 2021. URL: https://pages.nist.gov/cfast/manuals.html.">PMFR21</a>]</span> is used to demonstrate the approach of zone models. Here, the physical quantities like temperature <span class="math notranslate nohighlight">\(\mf T_i\)</span>, volume <span class="math notranslate nohighlight">\(\mf V_i\)</span>, and pressure <span class="math notranslate nohighlight">\(\mf p\)</span> for each layer, i.e. <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, are computed. These are single values, which represent the whole zone.</p>
-<p>Using the ideal gas law, equation <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, the mass <span class="math notranslate nohighlight">\(\mf m_i\)</span> of a layer can be computed.</p>
+<p>Далее <a class="reference external" href="https://pages.nist.gov/cfast/index.html">консолидированная</a> модель переноса огня и дыма (CFAST) <span id="id9">[<a class="reference internal" href="../../overview/03_references.html#id17" title="Richard D. Peacock, Kevin B. McGrattan, Glenn P. Forney, and Paul A. Reneke. CFAST–Consolidated Model of Fire Growth and Smoke Transport (Version 7) Volume 1: Technical Reference Guide. Technical Report, National Institute of Standards and Technology, 2021. URL: https://pages.nist.gov/cfast/manuals.html.">PMFR21</a>]</span> используется для демонстрации подхода к моделированию зон. Здесь физические величины, такие как температура <span class="math notranslate nohighlight">\(\mf T_i\)</span>, объем <span class="math notranslate nohighlight">\(\mf V_i\)</span>, и давление <span class="math notranslate nohighlight">\(\mf p\)</span> для каждого слоя, т.е.  <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, вычисляются. TЭто единичные значения, которые представляют всю зону.</p>
+<p>Используя закон идеального газа, уравнение <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, масса  <span class="math notranslate nohighlight">\(\mf m_i\)</span> площадь слоя может быть вычислена.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-ideal-gas-law">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Permalink to this equation">#</a></span>\[
 \mf pV_i = m_i R T_i
 \]</div>
-<p>Where <span class="math notranslate nohighlight">\(\mf R\)</span> is the specific gas constant, here with a value of approximately <span class="math notranslate nohighlight">\(\mf 290~J\,kg^{-1}\,K^{-1}\)</span> for air. The change of internal energy of a zone is described by the sum of all heat sources <span class="math notranslate nohighlight">\(\mf \dq_i\)</span> and the work done by the change of the layer’s volume, i.e. <span class="math notranslate nohighlight">\(\mf p\cdot dV_i/dt\)</span>:</p>
+<p>Где <span class="math notranslate nohighlight">\(\mf R\)</span> это удельная газовая постоянная, здесь имеющая значение приблизительно <span class="math notranslate nohighlight">\(\mf 290~J\,kg^{-1}\,K^{-1}\)</span> для воздуха. Изменение внутренней энергии зоны описывается суммой всех источников тепла <span class="math notranslate nohighlight">\(\mf \dq_i\)</span> и работа, выполняемая за счет изменения объема слоя, т.е. <span class="math notranslate nohighlight">\(\mf p\cdot dV_i/dt\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-internal-energy">
 <span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-zone-model-internal-energy" title="Permalink to this equation">#</a></span>\[
 \mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq_i - p\frac{dV_i}{dt}\quad,
 \]</div>
-<p>with the specific heat capacity at constant volume <span class="math notranslate nohighlight">\(\mf c_v\)</span>.</p>
-<p>Besides the handling of boundary conditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure</p>
+<p>с удельной теплоемкостью при постоянном объеме <span class="math notranslate nohighlight">\(\mf c_v\)</span>.</p>
+<p>Помимо обработки граничных условий и других дополнительных процессов, выводится набор связанных обыкновенных дифференциальных уравнений, описывающих изменение давления</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-pressure">
 <span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-zone-mode-pressure" title="Permalink to this equation">#</a></span>\[
 \mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
 \]</div>
-<p>the upper volume</p>
+<p>верхний объем</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-vu">
 <span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-zone-mode-vu" title="Permalink to this equation">#</a></span>\[
 \mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
 \]</div>
-<p>where the lower volume <span class="math notranslate nohighlight">\(\mf V_l\)</span> can be computed with the given total volumen of the compartment <span class="math notranslate nohighlight">\(\mf V\)</span> as <span class="math notranslate nohighlight">\(\mf V_l = V - V_u\)</span>. The temperature development in each layer is given by</p>
+<p>где меньший объем <span class="math notranslate nohighlight">\(\mf V_l\)</span> может быть рассчитан с учетом заданного общего объема помещения <span class="math notranslate nohighlight">\(\mf V\)</span> как  <span class="math notranslate nohighlight">\(\mf V_l = V - V_u\)</span>. Изменение температуры в каждом слое задается</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-tu">
 <span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-zone-mode-tu" title="Permalink to this equation">#</a></span>\[
 \mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
@@ -776,25 +776,25 @@ document.write(`
 <span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-zone-mode-tl" title="Permalink to this equation">#</a></span>\[
 \mf \frac{dT_l}{dt} = \frac{1}{c_p m_l}\left( \dq_l - c_p \dm_l T_l + V_l \frac{dp}{dt}\right)\quad .
 \]</div>
-<p>This set of equations can be numericaly solved and leads to a time-dependent solution for the four stated quantities.</p>
+<p>Этот набор уравнений может быть решен численно и приводит к зависящему от времени решению для четырех указанных величин.</p>
 </section>
-<section id="field-models">
-<h2>Field Models<a class="headerlink" href="#field-models" title="Permalink to this heading">#</a></h2>
-<p>While zone models decompose the domain of interest into few regions, field models discretise the volume with a three-dimensional mesh, see <a class="reference internal" href="#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. This discretisation is needed to numerically solve a set of partial differential equations for quantities like density, velocity, pressure and enthalpy in each node of the mesh.</p>
+<section id="id10">
+<h2>Полевые модели<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<p>В то время как зональные модели разбивают область интереса на несколько областей, полевые модели дискретизируют объем с помощью трехмерной сетки, см. <a class="reference internal" href="#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. Эта дискретизация необходима для численного решения набора дифференциальных уравнений в частных производных для таких величин, как плотность, скорость, давление и энтальпия в каждом узле сетки.</p>
 <figure class="align-default" id="fig-field-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model.svg"><img alt="../../../_images/compartment_field_model.svg" src="../../../_images/compartment_field_model.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Illustration of the domain discretisation in a field model.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Рис. 1.19 Иллюстрация дискретизации предметной области в полевой модели.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, spatially and temporaly resolved values for the above mentioned quantities are computed. See <a class="reference internal" href="#fig-field-model-temperatures"><span class="std std-numref">Fig. 1.20</span></a> for an illustrative representation of a temperature field at one point in time.</p>
+<p>Твердые объекты в области должны быть представлены в сетке, и в этих положениях необходимо оценить граничные условия. В результате соответствующей процедуры численного решения вычисляются пространственно и временно разрешенные значения для вышеупомянутых величин. Смотрите <a class="reference internal" href="#fig-field-model-temperatures"><span class="std std-numref">Fig. 1.20</span></a> для наглядного представления температурного поля в определенный момент времени.</p>
 <figure class="align-default" id="fig-field-model-temperatures">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model_temperatures.svg"><img alt="../../../_images/compartment_field_model_temperatures.svg" src="../../../_images/compartment_field_model_temperatures.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Illustration of the temperature values in each element (cell) of the domain discretisation.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Рис. 1.20 Иллюстрация значений температуры в каждом элементе (ячейке) дискретизации домена.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The main content of this lecture are the numerical models and solution approaches applied in field models. This methodology is in general called computational fluid dynamics (CFD), where fire simulations are a specialised topic within a very broad range of applications. The simulation model described in this lecture is the <a class="reference external" href="https://pages.nist.gov/fds-smv/index.html">Fire Dynamics Simulator (FDS)</a>.</p>
+<p>Основным содержанием этой лекции являются численные модели и подходы к решению, применяемые в полевых моделях. Эта методология в целом называется вычислительной гидродинамикой (CFD), где моделирование пожара является специализированной темой в очень широком диапазоне приложений. Имитационная модель, описанная в этой лекции, является <a class="reference external" href="https://pages.nist.gov/fds-smv/index.html">симулятором динамики пожара (FDS)</a>.</p>
 </section>
 </section>
 
@@ -862,12 +862,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-models">Analytical Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-compartment-fire">Single Compartment Fire</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-models">Zone Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-models">Field Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Эксперименты</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Аналитические модели</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном отсеке</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Модели зон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Полевые модели</a></li>
 </ul>
   </nav></div>
 
