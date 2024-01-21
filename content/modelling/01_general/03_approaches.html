@@ -510,7 +510,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Эксперименты</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Аналитические модели</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном помещении</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Модели зон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Зонные модели</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Полевые модели</a></li>
 </ul>
             </nav>
@@ -733,20 +733,20 @@ document.write(`
 </ul>
 </section>
 <section id="id8">
-<h2>Модели зон<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
-<p>Приведенный выше рисунок, <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> показывает, что область интереса может быть разделена на две зоны: верхний и нижний слои, см.  <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Модели зон используют это разделение для упрощения общего сценария и прогнозирования физических (например, температуры) и геометрических (например, высоты) свойств зон.</p>
+<h2>Зонные модели<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p>Приведенный выше рисунок, <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> показывает, что интересующая область может быть разделена на две зоны: верхний и нижний слои, см.  <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Модели зон используют это разделение для упрощения общего сценария и прогнозирования физических (например, температура) и геометрических (например, высота) свойств зон.</p>
 <figure class="align-default" id="fig-two-zone-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_zone_model.svg"><img alt="../../../_images/compartment_zone_model.svg" src="../../../_images/compartment_zone_model.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Рис. 1.18 Иллюстрация простой модели с двумя зонами – верхним слоем горячего и нижним слоем холодного газа.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Иллюстрация простой двухзонной модели – верхнего слоя горячего и нижнего слоя холодного газа.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <aside class="margin sidebar">
 <p class="sidebar-title">Примечание:</p>
 <p>Соответствующие фундаментальные термодинамические соотношения будут представлены в следующем разделе лекции. Этот раздел предназначен только для демонстрации общего подхода к моделированию зон.</p>
 </aside>
-<p>Далее <a class="reference external" href="https://pages.nist.gov/cfast/index.html">консолидированная</a> модель переноса огня и дыма (CFAST) <span id="id9">[<a class="reference internal" href="../../overview/03_references.html#id17" title="Richard D. Peacock, Kevin B. McGrattan, Glenn P. Forney, and Paul A. Reneke. CFAST–Consolidated Model of Fire Growth and Smoke Transport (Version 7) Volume 1: Technical Reference Guide. Technical Report, National Institute of Standards and Technology, 2021. URL: https://pages.nist.gov/cfast/manuals.html.">PMFR21</a>]</span> используется для демонстрации подхода к моделированию зон. Здесь физические величины, такие как температура <span class="math notranslate nohighlight">\(\mf T_i\)</span>, объем <span class="math notranslate nohighlight">\(\mf V_i\)</span>, и давление <span class="math notranslate nohighlight">\(\mf p\)</span> для каждого слоя, т.е.  <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, вычисляются. TЭто единичные значения, которые представляют всю зону.</p>
-<p>Используя закон идеального газа, уравнение <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, масса  <span class="math notranslate nohighlight">\(\mf m_i\)</span> площадь слоя может быть вычислена.</p>
+<p>Далее для демонстрации подхода к зонным моделям используется модель <a class="reference external" href="https://pages.nist.gov/cfast/index.html">Consolidated Fire And Smoke Transport (CFAST)</a> <span id="id9">[<a class="reference internal" href="../../overview/03_references.html#id17" title="Richard D. Peacock, Kevin B. McGrattan, Glenn P. Forney, and Paul A. Reneke. CFAST–Consolidated Model of Fire Growth and Smoke Transport (Version 7) Volume 1: Technical Reference Guide. Technical Report, National Institute of Standards and Technology, 2021. URL: https://pages.nist.gov/cfast/manuals.html.">PMFR21</a>]</span>. Здесь физические величины, такие как температура <span class="math notranslate nohighlight">\(\mf T_i\)</span>, объем <span class="math notranslate nohighlight">\(\mf V_i\)</span>, и давление <span class="math notranslate nohighlight">\(\mf p\)</span> для каждого слоя, т.е.  <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, вычисляются. Это единичные значения, которые представляют всю зону.</p>
+<p>Используя закон идеального газа, уравнение <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, массу <span class="math notranslate nohighlight">\(\mf m_i\)</span> слоя можно вычислить.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-ideal-gas-law">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Permalink to this equation">#</a></span>\[
 \mf pV_i = m_i R T_i
@@ -760,41 +760,41 @@ document.write(`
 <p>Помимо обработки граничных условий и других дополнительных процессов, выводится набор связанных обыкновенных дифференциальных уравнений, описывающих изменение давления</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-pressure">
 <span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-zone-mode-pressure" title="Permalink to this equation">#</a></span>\[
-\mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
+\mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, и
 \]</div>
-<p>верхний объем</p>
+<p>верхний слой</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-vu">
 <span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-zone-mode-vu" title="Permalink to this equation">#</a></span>\[
 \mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
 \]</div>
-<p>где меньший объем <span class="math notranslate nohighlight">\(\mf V_l\)</span> может быть рассчитан с учетом заданного общего объема помещения <span class="math notranslate nohighlight">\(\mf V\)</span> как  <span class="math notranslate nohighlight">\(\mf V_l = V - V_u\)</span>. Изменение температуры в каждом слое задается</p>
+<p>где меньший объем <span class="math notranslate nohighlight">\(\mf V_l\)</span> может быть рассчитан с учетом заданного общего объема помещения <span class="math notranslate nohighlight">\(\mf V\)</span> как  <span class="math notranslate nohighlight">\(\mf V_l = V - V_u\)</span>. Изменение температуры в каждом слое рассчитывает</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-tu">
 <span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-zone-mode-tu" title="Permalink to this equation">#</a></span>\[
-\mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
+\mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, и
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-tl">
 <span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-zone-mode-tl" title="Permalink to this equation">#</a></span>\[
 \mf \frac{dT_l}{dt} = \frac{1}{c_p m_l}\left( \dq_l - c_p \dm_l T_l + V_l \frac{dp}{dt}\right)\quad .
 \]</div>
-<p>Этот набор уравнений может быть решен численно и приводит к зависящему от времени решению для четырех указанных величин.</p>
+<p>Этот набор уравнений может быть решен численно и приводит к решению, зависящему от времени, для четырех указанных величин.</p>
 </section>
 <section id="id10">
 <h2>Полевые модели<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
-<p>В то время как зональные модели разбивают область интереса на несколько областей, полевые модели дискретизируют объем с помощью трехмерной сетки, см. <a class="reference internal" href="#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. Эта дискретизация необходима для численного решения набора дифференциальных уравнений в частных производных для таких величин, как плотность, скорость, давление и энтальпия в каждом узле сетки.</p>
+<p>В то время как зонные модели разбивают область расчета на несколько областей, полевые модели дискретизируют объем с помощью трехмерной сетки, см. <a class="reference internal" href="#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. Эта дискретизация необходима для численного решения набора дифференциальных уравнений в частных производных для таких величин, как плотность, скорость, давление и энтальпия в каждом узле сетки.</p>
 <figure class="align-default" id="fig-field-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model.svg"><img alt="../../../_images/compartment_field_model.svg" src="../../../_images/compartment_field_model.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Рис. 1.19 Иллюстрация дискретизации предметной области в полевой модели.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Иллюстрация дискретизации области в полевой модели.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Твердые объекты в области должны быть представлены в сетке, и в этих положениях необходимо оценить граничные условия. В результате соответствующей процедуры численного решения вычисляются пространственно и временно разрешенные значения для вышеупомянутых величин. Смотрите <a class="reference internal" href="#fig-field-model-temperatures"><span class="std std-numref">Fig. 1.20</span></a> для наглядного представления температурного поля в определенный момент времени.</p>
 <figure class="align-default" id="fig-field-model-temperatures">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model_temperatures.svg"><img alt="../../../_images/compartment_field_model_temperatures.svg" src="../../../_images/compartment_field_model_temperatures.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Рис. 1.20 Иллюстрация значений температуры в каждом элементе (ячейке) дискретизации домена.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Иллюстрация значений температуры в каждом элементе (ячейке) дискретизации области.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Основным содержанием этой лекции являются численные модели и подходы к решению, применяемые в полевых моделях. Эта методология в целом называется вычислительной гидродинамикой (CFD), где моделирование пожара является специализированной темой в очень широком диапазоне приложений. Имитационная модель, описанная в этой лекции, является <a class="reference external" href="https://pages.nist.gov/fds-smv/index.html">симулятором динамики пожара (FDS)</a>.</p>
+<p>Основным содержанием этой лекции являются численные модели и подходы к решению, применяемые в полевых моделях. Эта методология в целом называется вычислительной гидродинамикой (CFD), где моделирование пожара является специализированной темой в очень широком диапазоне приложений. Полевая модель, описанная в этой лекции, является <a class="reference external" href="https://pages.nist.gov/fds-smv/index.html">Fire Dynamics Simulator (FDS)</a>.</p>
 </section>
 </section>
 
@@ -866,7 +866,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Эксперименты</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Аналитические модели</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Пожар в одном помещении</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Модели зон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Зонные модели</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Полевые модели</a></li>
 </ul>
   </nav></div>
