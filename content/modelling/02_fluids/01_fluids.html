@@ -514,19 +514,19 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Основы</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Величины расхода</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Количественные показатели потока</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Скорость звука</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Уравнение состояния</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Характеристика потоков</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Описание потоков</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Сжимаемые потоки</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Турбулентные течения</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Параметры материала</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Свойства веществ</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Безразмерные числа</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Уравнения жидкости</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Уравнения движения жидкости</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Законы сохранения</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Дифференциальные уравнения в частных производных</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Уравнение непрерывности</a></li>
@@ -565,7 +565,7 @@ document.write(`
 <p><strong>Наука о пожарной безопасности</strong></p>
 <p>В науке о пожарной безопасности гидродинамика играет важную роль в понимании динамических явлений пожара. Гидродинамику необходимо учитывать, например, во время процессов смешивания, горения, конвективного теплообмена или распространения дыма в сложных зданиях.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/sKgP1Us-SF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-<p><strong>Технические приложения</strong></p>
+<p><strong>Технические применение</strong></p>
 <p>Классическим примером применения является оптимизация транспортных средств для уменьшения лобового сопротивления.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/E9ZSAX56m0E" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
@@ -575,11 +575,11 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Поток</strong> описывает движение среды. Это векторное поле описывает скорость жидкости в каждой точке пространства и времени: <span class="math notranslate nohighlight">\(\mf \vv = \vv(x,t)\)</span>. Компоненты скорости обозначаются как <span class="math notranslate nohighlight">\(\mf \vv = (v_x,v_y,v_z) = (u,v,w)\)</span>.</p></li>
 <li><p><strong>Конвекция</strong> это внутреннее движение жидкости, то есть обусловленное плавучестью.</p></li>
-<li><p><strong>Адвекция</strong> описывает перенос вещества или свойств (плотности, температуры, дыма) под действием потока. Конвекция - это адвекция скорости.</p></li>
-<li><p><strong>Диффузия</strong> это процесс, который управляет процессом балансировки для уравновешивания различий в свойствах потока (скорости, температуре, плотности дыма).</p></li>
+<li><p><strong>Адвекция</strong> описывает перенос вещества или свойств (плотность, температура, дым) под действием потока. Конвекция - это адвекция скорости.</p></li>
+<li><p><strong>Диффузия</strong> это процесс, который управляет процессом балансировки для уравновешивания различий в свойствах потока (скорость, температура, плотность дыма).</p></li>
 </ul>
 <section id="id4">
-<h3>Величины расхода<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3>Количественные показатели потока<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <table class="table" id="tab-flow-quantities">
 <caption><span class="caption-number">Table 2.1 </span><span class="caption-text">Flow quantities.</span><a class="headerlink" href="#tab-flow-quantities" title="Link to this table">#</a></caption>
 <thead>
@@ -592,7 +592,7 @@ document.write(`
 <tbody>
 <tr class="row-even"><td><p>плотность</p></td>
 <td><p><span class="math notranslate nohighlight">\(\mf \rho\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\mf kg/m\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf kg/m^3\)</span></p></td>
 <td><p>скалярное поле</p></td>
 </tr>
 <tr class="row-odd"><td><p>скорость</p></td>
@@ -600,7 +600,7 @@ document.write(`
 <td><p><span class="math notranslate nohighlight">\(\mf m/s\)</span></p></td>
 <td><p>векторное поле</p></td>
 </tr>
-<tr class="row-even"><td><p>завихренность</p></td>
+<tr class="row-even"><td><p>вихреобразование</p></td>
 <td><p><span class="math notranslate nohighlight">\(\mf \vec{\omega} = \nabla \times \vv\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\mf 1/s\)</span></p></td>
 <td><p>векторное поле</p></td>
@@ -627,21 +627,21 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>Где  <span class="math notranslate nohighlight">\(\mf c_p(T)\)</span> является ли теплоемкость при температуре <span class="math notranslate nohighlight">\(\mf T\)</span> и <span class="math notranslate nohighlight">\(\mf \Delta h_f^0\)</span> это теплота образования.</p>
+<p>Где  <span class="math notranslate nohighlight">\(\mf c_p(T)\)</span> это теплоемкость при температуре <span class="math notranslate nohighlight">\(\mf T\)</span> и <span class="math notranslate nohighlight">\(\mf \Delta h_f^0\)</span> это теплота образования.</p>
 </section>
 <section id="id5">
 <h3>Скорость звука<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>В жидкостях и твердых телах информация (изменения потока, возмущения) распространяется с конечной скоростью: скоростью звука. Звуковые волны представляют собой волны продольного сжатия. Типичные скорости распространения следующие <span class="math notranslate nohighlight">\(\mf 343~m/s\)</span> в воздухе, <span class="math notranslate nohighlight">\(\mf 1484~m/s\)</span> в воде и <span class="math notranslate nohighlight">\(\mf 5120~m/s\)</span> в стали. В целом скорость звука <span class="math notranslate nohighlight">\(\mf c_s\)</span> в идеальном газе дается:</p>
+<p>В жидкостях и твердых телах информация (изменения потока, возмущения) распространяется с конечной скоростью: скоростью звука. Звуковые волны представляют собой волны продольного сжатия. Типичные скорости распространения следующие <span class="math notranslate nohighlight">\(\mf 343~m/s\)</span> в воздухе, <span class="math notranslate nohighlight">\(\mf 1484~m/s\)</span> в воде и <span class="math notranslate nohighlight">\(\mf 5120~m/s\)</span> в стали. В целом скорость звука <span class="math notranslate nohighlight">\(\mf c_s\)</span> в идеальном газе опредлеляется:</p>
 <div class="math notranslate nohighlight" id="equation-eq-speed-of-sound">
 <span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-speed-of-sound" title="Link to this equation">#</a></span>\[
 \mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
 \]</div>
-<p>где  <span class="math notranslate nohighlight">\(\mf \gamma\)</span> коэффициент теплоемкости <span class="math notranslate nohighlight">\(\mf \gamma=c_P/c_V\)</span>, <span class="math notranslate nohighlight">\(\mf k_B\)</span> является ли постоянная Больцмана (<span class="math notranslate nohighlight">\(\mf \sim\!1.381\cdot 10^{−23}~J/K\)</span>), T температура газа и <span class="math notranslate nohighlight">\(\mf m\)</span> масса одной молекулы газа. В общем случае для данного вида газа скорость звука зависит только от температуры. Для сухого воздуха ее можно приблизительно определить как:</p>
+<p>где  <span class="math notranslate nohighlight">\(\mf \gamma\)</span> коэффициент теплоемкости <span class="math notranslate nohighlight">\(\mf \gamma=c_P/c_V\)</span>, <span class="math notranslate nohighlight">\(\mf k_B\)</span> постоянная Больцмана (<span class="math notranslate nohighlight">\(\mf \sim\!1.381\cdot 10^{−23}~J/K\)</span>), T температура газа и <span class="math notranslate nohighlight">\(\mf m\)</span> масса одной молекулы газа. В общем случае для данного вида газа скорость звука зависит только от температуры. Для сухого воздуха ее можно приблизительно определить как:</p>
 <div class="math notranslate nohighlight" id="equation-eq-c-in-air">
 <span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-c-in-air" title="Link to this equation">#</a></span>\[
 \mf c_{s, air} =(331.3+0.606\cdot \Theta) m/s 
 \]</div>
-<p>где  <span class="math notranslate nohighlight">\(\mf \Theta\)</span> является ли температура воздуха в  <span class="math notranslate nohighlight">\(\mf ^\circ C\)</span>.</p>
+<p>где  <span class="math notranslate nohighlight">\(\mf \Theta\)</span> температура воздуха при  <span class="math notranslate nohighlight">\(\mf ^\circ C\)</span>.</p>
 </section>
 <section id="id6">
 <h3>Уравнение состояния<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
@@ -650,7 +650,7 @@ document.write(`
 <span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-equation-of-state" title="Link to this equation">#</a></span>\[
 \mf pV = nRT
 \]</div>
-<p>где <span class="math notranslate nohighlight">\(\mf R = 8.314~J/(mol~K)\)</span> является ли универсальная газовая постоянная и <span class="math notranslate nohighlight">\(\mf n\)</span> количество частиц. Реактивные потоки в основном представляют собой соединения нескольких различных видов. Таким образом, уравнение состояния для системы, находящейся в равновесии с  <span class="math notranslate nohighlight">\(\mf N\)</span>  виды становятся</p>
+<p>где <span class="math notranslate nohighlight">\(\mf R = 8.314~J/(mol~K)\)</span> универсальная газовая постоянная и <span class="math notranslate nohighlight">\(\mf n\)</span> количество частиц. Реактивные потоки в основном представляют собой соединения нескольких различных видов. Таким образом, уравнение состояния для системы, находящейся в равновесии с  <span class="math notranslate nohighlight">\(\mf N\)</span>  виды становятся</p>
 <div class="math notranslate nohighlight">
 \[
 \mf p = f(V, T, n_1 , \dots , n_N)\quad .
@@ -663,34 +663,34 @@ document.write(`
 </section>
 </section>
 <section id="id7">
-<h2>Характеристика потоков<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<h2>Описание потоков<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Потоки текучих сред (жидкостей и газов) имеют одни и те же основные характеристики. Далее не будет различий в потоках жидкости или газа. Они будут отличаться только свойствами материала. Примеры для потока текучей среды:</p>
 <figure class="align-default" id="fig-fluid-vortex-island">
 <a class="rotate90 reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" class="rotate90" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Вихревая улица Фон Кармана, наблюдаемая в природе. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-island" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Вихревая дорожка Фон Кармана, наблюдаемая в природе. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-island" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-vortex-lab">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Вихревая улица Фон Кармана в лаборатории. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-lab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Вихревая дорожка Фон Кармана в лаборатории. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-lab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="id8">
 <h3>Сжимаемые потоки<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>Потоки со скоростями, значительно меньшими (<span class="math notranslate nohighlight">\(\mf \ll c_s\)</span>) ниже скорости звука являются несжимаемыми, т. Е. звуковые волны бесконечно быстры в масштабе задействованных процессов. Таким образом, все изменения плотности быстро уравновешиваются. Объекты, движущиеся со скоростью не менее <span class="math notranslate nohighlight">\(\mf 0.3c_s\)</span> начните вводить флуктуации плотности. Схемы течения сверхзвуковых явлений (взрыв, сверхзвуковые самолеты) и соответствующие инженерные подходы полностью отличаются от таковых в случае субзвуковых течений.</p>
+<p>Потоки со скоростями, значительно меньшими (<span class="math notranslate nohighlight">\(\mf \ll c_s\)</span>) ниже скорости звука являются несжимаемыми, т.е. звуковые волны бесконечно быстры в масштабе задействованных процессов. Таким образом, все изменения плотности быстро уравновешиваются. Объекты, движущиеся со скоростью не менее <span class="math notranslate nohighlight">\(\mf 0.3c_s\)</span> начните вносить флуктуации в плотность. Схемы течения сверхзвуковых явлений (взрыв, сверхзвуковые самолеты) и соответствующие инженерные подходы полностью отличаются от таковых в случае субзвуковых течений.</p>
 <p>Примечание: Изменения температуры, как и при пожаре, приводят к изменению плотности и, следовательно, к так называемым слабо сжимаемым потокам.</p>
 <figure class="align-default" id="fig-fluid-laminar">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Обтекание модели автомобиля несжимаемой жидкостью. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Несжимаемое течение вокруг модели автомобиля. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-supersonic">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" src="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Модель сверхзвукового самолета в туннеле с приблизительно <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Источник: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Модель сверхзвукового самолета в туннеле со скоростью около <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Источник: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -706,10 +706,10 @@ document.write(`
 <iframe width="60%" src="https://www.youtube.com/embed/QzuzbwJWlYs" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="id10">
-<h3>Параметры материала<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<p>Фундаментальный интерес представляют следующие свойства материала:</p>
+<h3>Свойства веществ<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>Фундаментальный интерес представляют следующие свойства веществ:</p>
 <ul class="simple">
-<li><p><strong>плотность</strong> <span class="math notranslate nohighlight">\(\mf\rho\)</span> это масса на данный объем</p>
+<li><p><strong>плотность</strong> <span class="math notranslate nohighlight">\(\mf\rho\)</span> это масса на объем</p>
 <ul>
 <li><p>воздух при <span class="math notranslate nohighlight">\(\mf 20~^\circ C\)</span> : <span class="math notranslate nohighlight">\(\mf\rho = 1.205~kg/m^3\)</span></p></li>
 <li><p>воздух при <span class="math notranslate nohighlight">\(\mf 200~^\circ C\)</span>: <span class="math notranslate nohighlight">\(\mf\rho = 0.746~kg/m^3\)</span></p></li>
@@ -734,8 +734,8 @@ document.write(`
 </ul>
 </li>
 </ul>
-<p>Дополнительные данные по многим свойствам воздуха (и других материалов) можно найти в <a class="reference external" href="https://www.engineeringtoolbox.com/air-properties-d_156.html">Engineering ToolBox (свойства воздуха)</a>.</p>
-<p><strong>Примерное количество: вязкость</strong></p>
+<p>Дополнительные данные по многим свойствам воздуха (и другим веществам) можно найти в <a class="reference external" href="https://www.engineeringtoolbox.com/air-properties-d_156.html">Engineering ToolBox (свойства воздуха)</a>.</p>
+<p><strong>Примерное величины: вязкость</strong></p>
 <p>Проще говоря, вязкость описывает, как движущиеся элементы жидкости, например слои, влияют на соседние элементы. Она описывает силы трения между относительно движущимися элементами жидкости.</p>
 <p>Например, мед обладает высокой вязкостью: он очень медленно стекает по ложке. Внешние “элементы меда” прочно связаны с внутренними – несвободными – элементами.</p>
 <figure class="align-default" id="fig-fluid-honey">
@@ -769,14 +769,14 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Mach_number">Число Маха</a> <span class="math notranslate nohighlight">\(\mf Ma\)</span></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Reynolds_number">Число Рейнольдса</a> <span class="math notranslate nohighlight">\(\mf Re\)</span></p></li>
-<li><p>Номер Грасхофа <span class="math notranslate nohighlight">\(\mf Gr\)</span></p></li>
+<li><p>Число Грасхофа <span class="math notranslate nohighlight">\(\mf Gr\)</span></p></li>
 <li><p>Число Прандтля <span class="math notranslate nohighlight">\(\mf Pr\)</span></p></li>
 <li><p>Число Архимеда <span class="math notranslate nohighlight">\(\mf Ar\)</span></p></li>
 <li><p>Число Ричардсона <span class="math notranslate nohighlight">\(\mf Ri\)</span></p></li>
-<li><p>Номер Нусселя <span class="math notranslate nohighlight">\(\mf Nu\)</span></p></li>
+<li><p>Число Нусселя <span class="math notranslate nohighlight">\(\mf Nu\)</span></p></li>
 </ul>
 <p><strong>Число Маха</strong></p>
-<p>Число Маха определяется как отношение скорости к скорости звука, т.е.</p>
+<p>Число Маха определяется как отношение скорости к скорости звука:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mach-number">
 <span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-mach-number" title="Link to this equation">#</a></span>\[
 \mf Ma = \frac{v}{c_s}
@@ -788,31 +788,30 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\mf Ma \gtrsim 0.3\)</span>: сжимаемые</p></li>
 </ul>
 <p>Предел  <span class="math notranslate nohighlight">\(\mf Ma \rightarrow 0\)</span> также могут быть истолкованы как <span class="math notranslate nohighlight">\(\mf c \rightarrow \infty\)</span>.</p>
-<p>**Число Рейнольдса</p>
-<p>**</p>
+<p><strong>Число Рейнольдса</strong></p>
 <p>Число Рейнольдса связывает конвекцию с диффузией:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf Re = \frac{\rho v L}{\mu}
 \]</div>
-<p>Здесь, <span class="math notranslate nohighlight">\(\mf L\)</span> обозначает характерную длину, в случае течения в трубе это будет диаметр трубы. Число Рейнольдса может использоваться для отличия ламинарных течений от турбулентных, т.е. очень высокая <span class="math notranslate nohighlight">\(\mf Re\)</span> представляет собой турбулентные потоки. В потоке по трубе характерный номер перехода равен примерно <span class="math notranslate nohighlight">\(\mf Re \approx 4000\)</span>. Это число является классическим примером масштабирования. Явления течения при одинаковом числе Рейнольдса будут вести себя одинаково; это может быть показано нормализацией уравнений течения.</p>
+<p>Здесь, <span class="math notranslate nohighlight">\(\mf L\)</span> обозначает характерную длину, в случае течения в трубе это будет диаметр трубы. Число Рейнольдса может использоваться для отличия ламинарных течений от турбулентных, т.е. очень высокое <span class="math notranslate nohighlight">\(\mf Re\)</span> представляет собой турбулентные потоки. В потоке по трубе характерным числом для перехода примерно <span class="math notranslate nohighlight">\(\mf Re \approx 4000\)</span>. Это число является классическим примером масштабирования. Явления текущие при одинаковом числе Рейнольдса будут вести себя одинаково; это может быть показано нормализацией уравнений течения.</p>
 <figure class="align-default" id="fig-fluid-re-table">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Скорость и числа Рейнольдса для некоторых летающих объектов (на немецком языке). (Staub: Пыль, Insekt: насекомое, Modellflugzeug/ Vogel: модель самолета / Птица, Windrad: Ветряная мельница, Drachenflieger: дельтаплан, Flugzeug: самолет, Luftschiff: дирижабль) Источник: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Скорость и числа Рейнольдса для некоторых летающих объектов (на немецком языке). (Staub: Пыль, Insekt: Насекомое, Modellflugzeug/Vogel: Модель самолета/Птица, Windrad: Ветряная мельница, Drachenflieger: Дельтаплан, Flugzeug: Самолет, Luftschiff: Дирижабль) Источник: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="id12">
-<h2>Уравнения жидкости<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<h2>Уравнения движения жидкости<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <section id="id13">
 <h3>Законы сохранения<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <p>Динамика жидкости основана на следующих трех физических законах сохранения:</p>
 <ul class="simple">
 <li><p>сохранение массы</p></li>
 <li><p>сохранение импульса</p></li>
-<li><p>энергосбережение</p></li>
+<li><p>сохранение энергии</p></li>
 </ul>
 <p>Из этих законов могут быть выведены основные уравнения течения жидкости:</p>
 <ul class="simple">
@@ -828,7 +827,7 @@ document.write(`
 <p>Импульс элемента жидкости изменяется только из-за:</p>
 <ul class="simple">
 <li><p>адвекция импульса</p></li>
-<li><p>градиенты давления</p></li>
+<li><p>градиент давления</p></li>
 <li><p>диффузия и напряжения, т.е. из-за конечной вязкости</p></li>
 <li><p>внешние силы, например, гравитация, капли воды</p></li>
 </ul>
@@ -853,7 +852,7 @@ document.write(`
 <li><p>взаимодействие двух видов (хищника и жертвы)</p></li>
 </ul>
 <p><strong>Типы PDE</strong></p>
-<p>Общая структура PDE для <span class="math notranslate nohighlight">\(\mf\phi = \phi(x,y)\)</span> дается</p>
+<p>Общая структура PDE для <span class="math notranslate nohighlight">\(\mf\phi = \phi(x,y)\)</span> дается:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf a\partial_{xx}\phi + b\partial_{xy}\phi + c\partial_{yy}\phi + d\partial_x\phi + e\partial_y\phi + f\phi = 0
@@ -869,13 +868,13 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\mf D = 0\)</span>: параболическое, например, уравнение теплопроводности</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mf D \lt 0\)</span>: гиперболическое, например, волновое уравнение</p></li>
 </ul>
-<p>Примечание: Тип может зависеть от различных параметров материала и / или положения, здесь <span class="math notranslate nohighlight">\(\mf (x,y)\)</span>.</p>
+<p>Примечание: Тип может зависеть от различных параметров материала и/или положения, здесь <span class="math notranslate nohighlight">\(\mf (x,y)\)</span>.</p>
 <p><strong>Полевые операторы</strong></p>
 <p>Двумя наиболее распространенными математическими операторами, используемыми в гидродинамике, являются частная производная и оператор Набла.</p>
 <p><strong>Частная производная</strong> описывает изменение поля в заданном направлении пространства или времени. Изменение поля скоростей <span class="math notranslate nohighlight">\(\mf \vv(x,y,z,t)\)</span> что касается времени, то:</p>
 <div class="math notranslate nohighlight">
 \[
-\mf \frac{\partial \vec{v}(x,y,z,t)}{\partial t} \quad \mbox{or short}\quad \partial_t \vec{v}(x,y,z,t)
+\mf \frac{\partial \vec{v}(x,y,z,t)}{\partial t} \quad \mbox{или короткий}\quad \partial_t \vec{v}(x,y,z,t)
 \]</div>
 <p><strong>Оператор Nabla</strong> <span class="math notranslate nohighlight">\(\mf \nabla\)</span> используется для представления операций Лапласа, градиента, расхождения и вращения.</p>
 <div class="math notranslate nohighlight">
@@ -894,11 +893,11 @@ document.write(`
 \[
 \mf \frac{d\phi}{dt} = \partial_t \phi + \vv\cdot(\nabla\phi)
 \]</div>
-<p>Первый семестр (<span class="math notranslate nohighlight">\(\mf \partial_t \phi\)</span>) представляет собой внутренние изменения, а второй (<span class="math notranslate nohighlight">\(\mf\vv\cdot(\nabla\phi)\)</span>) описывает изменения, вызванные адвекцией в поле скоростей <span class="math notranslate nohighlight">\(\mf\vv\)</span>.</p>
+<p>Первый член (<span class="math notranslate nohighlight">\(\mf \partial_t \phi\)</span>) представляет собой внутренние изменения, а второй (<span class="math notranslate nohighlight">\(\mf\vv\cdot(\nabla\phi)\)</span>) описывает изменения, вызванные адвекцией в поле скоростей <span class="math notranslate nohighlight">\(\mf\vv\)</span>.</p>
 </section>
 <section id="id15">
 <h3>Уравнение непрерывности<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
-<p>Уравнение непрерывности для потока одного вида имеет вид</p>
+<p>Уравнение непрерывности для потока одного вида имеет вид:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-cont">
 <span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-fluid-cont" title="Link to this equation">#</a></span>\[
 \mf \frac{d\rho}{dt} = \underbrace{-\rho\nabla\cdot\vec{v}}_{A}
@@ -906,7 +905,7 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mf A\)</span>: чистый расход массы</p></li>
 </ul>
-<p>Принимая во внимание конвективную производную, обычно используемая формулировка может быть получена следующим образом</p>
+<p>Принимая во внимание конвективную производную, обычно используемая формулировка может быть получена следующим образом:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-cont-conservative">
 <span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-fluid-cont-conservative" title="Link to this equation">#</a></span>\[
 \mf \partial_t \rho = -\nabla\cdot(\rho\vec{v})\quad .
@@ -989,19 +988,19 @@ document.write(`
 <li><p>отсутствие скольжения по сплошной стене</p>
 <div class="math notranslate nohighlight">
 \[
-  \mf u = v = w = 0 \quad \mbox{at the wall}
+  \mf u = v = w = 0 \quad \mbox{у стены}
   \]</div>
 </li>
 <li><p>вход для газа</p>
 <div class="math notranslate nohighlight">
 \[
-  \mf u = u_0\quad v=w=0 \quad \mbox{at the inflow}
+  \mf u = u_0\quad v=w=0 \quad \mbox{в притоке}
   \]</div>
 </li>
 <li><p>утечка газа</p>
 <div class="math notranslate nohighlight">
 \[
-  \mf \partial_n u = \partial_n v = \partial_n w = 0\quad \mbox{at the outflow}
+  \mf \partial_n u = \partial_n v = \partial_n w = 0\quad \mbox{на выходе}
   \]</div>
 </li>
 <li><p>постоянная температура стенок</p>
@@ -1013,20 +1012,20 @@ document.write(`
 <li><p>стена с изменяющейся температурой, но фиксированным тепловым потоком</p>
 <div class="math notranslate nohighlight">
 \[
-  \mf q_w = k \partial_n T\quad \mbox{at the wall}
+  \mf q_w = k \partial_n T\quad \mbox{у стены}
   \]</div>
 </li>
 <li><p>адиабатический</p>
 <div class="math notranslate nohighlight">
 \[
-  \mf k\partial_n T = 0 \quad \mbox{at the wall}
+  \mf k\partial_n T = 0 \quad \mbox{у стены}
   \]</div>
 </li>
 </ul>
 <figure class="align-default" id="fig-fluid-bnd-open">
 <a class="reference internal image-reference" href="../../../_images/boundaries_open_plume.svg"><img alt="../../../_images/boundaries_open_plume.svg" src="../../../_images/boundaries_open_plume.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Пример установки границы для открытого факела.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Пример установки границы для открытого горения.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-bnd-compartment">
@@ -1035,6 +1034,9 @@ document.write(`
 <p><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Пример установки границ для простого отсека.</span><a class="headerlink" href="#fig-fluid-bnd-compartment" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p><strong>Перевод и адаптацию произвел Мироненко Роман Владимирович.</strong><br />
+<strong>Открыт для предложений по переводу и сотрудничеству.</strong><br />
+<strong>При использовании данного материала прошу давать ссылку на этот материал.</strong></p>
 </section>
 </section>
 
@@ -1104,19 +1106,19 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Основы</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Величины расхода</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Количественные показатели потока</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Скорость звука</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Уравнение состояния</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Характеристика потоков</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Описание потоков</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Сжимаемые потоки</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Турбулентные течения</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Параметры материала</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Свойства веществ</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Безразмерные числа</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Уравнения жидкости</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Уравнения движения жидкости</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Законы сохранения</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Дифференциальные уравнения в частных производных</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Уравнение непрерывности</a></li>
