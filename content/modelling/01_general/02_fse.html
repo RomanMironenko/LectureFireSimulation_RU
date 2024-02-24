@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1.2. Проектирование пожарной безопасности &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -29,45 +28,41 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/01_general/02_fse';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/02_fse.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="1.3. Подходы к моделированию" href="03_approaches.html" />
@@ -165,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -188,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03_approaches.html">1.3. Подходы к моделированию</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Гидродинамика</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/01_fluids.html">2.1. Fluids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/02_cfd.html">2.2. Computational Fluid Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/03_turbulence.html">2.3. Turbulence</a></li>
@@ -522,11 +528,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1.2. </span>Проектирование пожарной безопасности<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.2. </span>Проектирование пожарной безопасности<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>Моделирование пожаров является одним из аспектов широкого спектра инженерной деятельности в области проектирования пожарной безопасности (FSE). В то время как инженерная деятельность нацелена на практическое применение, моделирование пожаров используются для научных исследований в области пожарной безопасности (FSS).</p>
 <p>Следующие разделы дают лишь очень краткое введение в широкие темы. Отправные пункты для дальнейшего чтения в этой области приведены в <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id18" title="vfdb. Leitfaden Ingenieurmethoden des Brandschutzes. Technical Report, vfdb e.V., 2020. URL: https://www.vfdb.de/fileadmin/download/vfdb-Leitfaden\_IngMethoden\_4Auflage\_2020-03-26.pdf.">vfdb20</a>]</span>, <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>, <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span> или, например, в главах 37, 38 и 39 <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id19" title="SFPE. SFPE Handbook of Fire Protection Engineering. Springer, 5th edition, 2016. ISBN 9781493925643. doi:10.1007/978-1-4939-2565-0.">SFPE16</a>]</span>.</p>
 <section id="id6">
-<h2>Законодательство о пожарной безопасности<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>Законодательство о пожарной безопасности<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Basic_Law_for_the_Federal_Republic_of_Germany">Конституционный закон Германии (Grundgesetz)</a> гласит, что</p>
 <ul class="simple">
 <li><p>каждый человек имеет право на жизнь и физическую неприкосновенность</p></li>
@@ -543,7 +549,7 @@ document.write(`
 <p>Они предназначены для применения на протяжении всего жизненного цикла здания, т.е. во время строительства, эксплуатации, реконструкции и ремонта.</p>
 </section>
 <section id="id7">
-<h2>Предписывающие проекты<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>Предписывающие проекты<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>При предписывающем проектировании, меры пожарной безопасности выполняются на основе общих правил. Это приводит к таким преимуществам, как:</p>
 <ul class="simple">
 <li><p>нормативные акты и стандарты позволяют создавать решения, которые считаются <em>удовлетворительными</em></p></li>
@@ -561,13 +567,13 @@ document.write(`
 <p>Альтернативой предписывающим проектам является применение проектов, основанных на эксплуатационных характеристиках.</p>
 </section>
 <section id="id8">
-<h2>Проекты, ориентированные на эксплуатационные характеристики<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2>Проекты, ориентированные на эксплуатационные характеристики<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p><strong>Общий подход</strong></p>
 <p>В отличие от статичных и общих правил регламента, проектирование, основанное на характеристиках, следует идее создания эквивалентного уровня безопасности путем достижения целей защиты. Этот процесс позволяет инженерам использовать несколько подходов, которые также включают моделирование пожара, для итеративного проектирования концепции безопасности. Принципиальная схема показана на <a class="reference internal" href="#fig-performance-based-design"><span class="std std-numref">Fig. 1.11</span></a>.</p>
 <figure class="align-default" id="fig-performance-based-design">
 <a class="reference internal image-reference" href="../../../_images/performance_based_design.svg"><img alt="../../../_images/performance_based_design.svg" src="../../../_images/performance_based_design.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Упрощенная блок-схема проектирования предписывающего и основанного на эксплутационных характеристиках проекта.</span><a class="headerlink" href="#fig-performance-based-design" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Упрощенная блок-схема проектирования предписывающего и основанного на эксплутационных характеристиках проекта.</span><a class="headerlink" href="#fig-performance-based-design" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Качественный анализ</strong></p>
@@ -619,7 +625,7 @@ document.write(`
 </ul>
 </section>
 <section id="id9">
-<h2>Сценарий пожара<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h2>Сценарий пожара<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>Для оценки отдельного инцидента с пожаром должен быть определен четкий сценарий пожара. В целом необходимо учитывать:</p>
 <ul class="simple">
 <li><p>расположение очага пожара</p></li>
@@ -648,12 +654,12 @@ document.write(`
 <figure class="align-default" id="fig-natural-design-fire">
 <a class="reference internal image-reference" href="../../../_images/natural_design_fire.svg"><img alt="../../../_images/natural_design_fire.svg" src="../../../_images/natural_design_fire.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Кривая скорости тепловыделения, основанная на приближении естественного пожара.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Кривая скорости тепловыделения, основанная на приближении естественного пожара.</span><a class="headerlink" href="#fig-natural-design-fire" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>В таблицах представлены значения пожарной нагрузки и коэффициента интенсивности пожара, см. <span id="id10">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
 <table class="table table-right" id="tab-alpha">
-<caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Коэффициенты интенсивности пожара</span><a class="headerlink" href="#tab-alpha" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Коэффициенты интенсивности пожара</span><a class="headerlink" href="#tab-alpha" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Скорость развития пожара</p></th>
 <th class="head"><p>Коэффициент интенсивности пожара, <br><span class="math notranslate nohighlight">\(\mf \alpha \ / \ kW/s^2\)</span></p></th>
@@ -675,7 +681,7 @@ document.write(`
 </tbody>
 </table>
 <table class="table table-right" id="tab-hrr-max">
-<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Удельные максимальные скорости тепловыделения</span><a class="headerlink" href="#tab-hrr-max" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Удельные максимальные скорости тепловыделения</span><a class="headerlink" href="#tab-hrr-max" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Здание или объект</p></th>
 <th class="head"><p>Удельная максимальная скорость тепловыделения, <br> <span class="math notranslate nohighlight">\(\mf HRR_{max}'' \ / \ kW/m^2\)</span></p></th>

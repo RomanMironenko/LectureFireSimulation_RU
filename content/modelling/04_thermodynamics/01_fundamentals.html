@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4.1. Fundamentals &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -29,45 +28,41 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/04_thermodynamics/01_fundamentals';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/04_thermodynamics/01_fundamentals.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="4.2. Energy and Mass Transfer" href="02_example_energy_mass_transfer.html" />
@@ -165,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -188,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../01_general/03_approaches.html">1.3. Подходы к моделированию</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Гидродинамика</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/01_fluids.html">2.1. Fluids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/02_cfd.html">2.2. Computational Fluid Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/03_turbulence.html">2.3. Turbulence</a></li>
@@ -555,10 +561,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
-<h1><span class="section-number">4.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h1>
 <p>Thermodynamics describes the macroscopic changes of a system of microscopic objects, i.e. particles. It is a statistical description for the e.g. sets of atoms or molecules in solids, liquids and gases. As an individual (quantuum-) mechanical description for large particle counts is not possible or even needed, thermodynamics reduces the description to a few (measurable) quantities in a defined system.</p>
 <section id="systems">
-<h2>Systems<a class="headerlink" href="#systems" title="Permalink to this heading">#</a></h2>
+<h2>Systems<a class="headerlink" href="#systems" title="Link to this heading">#</a></h2>
 <p>In a thermodynamic analysis it is essential to define the investigated system and its interaction with the ambient environment. A system is a volume containing a (fixed) number of particles.</p>
 <p>The interaction of systems can be described with the following three process quantities:</p>
 <ul class="simple">
@@ -575,7 +581,7 @@ document.write(`
 </ul>
 </section>
 <section id="state-quantities">
-<h2>State Quantities<a class="headerlink" href="#state-quantities" title="Permalink to this heading">#</a></h2>
+<h2>State Quantities<a class="headerlink" href="#state-quantities" title="Link to this heading">#</a></h2>
 <p>The state of a thermodynamic system can be expressed with these measurable quantities like</p>
 <ul class="simple">
 <li><p><strong>pressure</strong>, <span class="math notranslate nohighlight">\(\mf p\)</span>,</p></li>
@@ -599,7 +605,7 @@ document.write(`
 \]</div>
 </section>
 <section id="temperature">
-<h2>Temperature<a class="headerlink" href="#temperature" title="Permalink to this heading">#</a></h2>
+<h2>Temperature<a class="headerlink" href="#temperature" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Thermodynamic_temperature">Thermodynamic temperature</a> is an expression to characterise the random (thermal) motion of the particles. In general all interacting thermodynamic systems try to equal their temperatures by an energy flow, i.e. heat. This means, that if two systems with different temperatures are brought togehter, the induced heat flow will reduce the temperature of the warmer system and increase the temperature of the colder system. The heat flux is always from the higher to the lower temperature.</p>
 <p>In a thermodynamic equilibrium, there are no heat or mass flows between interacting systems, i.e. the state quatities do not change in time. This leads to a thermal equilibrium, where the systems have the same temperature. A single system is in thermal equilibrium if the temperature is homogenous and does not change with time.</p>
 <p>The SI-unit of temperature is Kelvin, where <span class="math notranslate nohighlight">\(\mf 0~K\)</span> is the absolute lowest temperature and <span class="math notranslate nohighlight">\(\mf 0~^\circ C\)</span> corresponds to <span class="math notranslate nohighlight">\(\mf 273.15~K\)</span>. Temperature differences have the same values in Kelvin as in Celsius.</p>
@@ -628,12 +634,12 @@ document.write(`
 <figure class="align-default" id="fig-thermo-maxwell">
 <a class="reference internal image-reference" href="../../../_images/maxwell.svg"><img alt="../../../_images/maxwell.svg" src="../../../_images/maxwell.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Maxwell’s velocity probability density function.</span><a class="headerlink" href="#fig-thermo-maxwell" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Maxwell’s velocity probability density function.</span><a class="headerlink" href="#fig-thermo-maxwell" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="ideal-gases">
-<h2>Ideal Gases<a class="headerlink" href="#ideal-gases" title="Permalink to this heading">#</a></h2>
+<h2>Ideal Gases<a class="headerlink" href="#ideal-gases" title="Link to this heading">#</a></h2>
 <p>Ideal gases represent the assumption that the particles have a very small volume, i.e. can be treated as point particles, and the gas volume contains a large number of same particles. Additionally, there are no forces interacting between the particles – but the idealised (elastic, instant) collisions with each other and the system boudaries.</p>
 <p>Equations of state relate various state quantities, as they are in general not independent. In the case of an ideal gas, the following equation of state – called (classical) ideal gas law – can be used:</p>
 <div class="math notranslate nohighlight">
@@ -643,7 +649,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(\mf n\)</span> respresents the number of moles in the system and <span class="math notranslate nohighlight">\(\mf R \approx 8.314~J/(mol~K)\)</span> is the universal gas constant. A mole is defined by the <a class="reference external" href="https://en.wikipedia.org/wiki/Avogadro_constant">Avogadro constant</a>, as <span class="math notranslate nohighlight">\(\sf N_A \approx 6.02\cdot 10^{23}~1/mol\)</span> being the number of particles in a mole.</p>
 </section>
 <section id="heat-capacity">
-<h2>Heat Capacity<a class="headerlink" href="#heat-capacity" title="Permalink to this heading">#</a></h2>
+<h2>Heat Capacity<a class="headerlink" href="#heat-capacity" title="Link to this heading">#</a></h2>
 <p>To (infinitesimally) increase the temperature of a system by <span class="math notranslate nohighlight">\(\mf dT\)</span>, the following amount of heat <span class="math notranslate nohighlight">\(\mf \Delta Q\)</span> is needed</p>
 <div class="math notranslate nohighlight">
 \[
@@ -677,7 +683,7 @@ document.write(`
 \]</div>
 </section>
 <section id="laws-of-thermodynamics">
-<h2>Laws of Thermodynamics<a class="headerlink" href="#laws-of-thermodynamics" title="Permalink to this heading">#</a></h2>
+<h2>Laws of Thermodynamics<a class="headerlink" href="#laws-of-thermodynamics" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Zeroth_law_of_thermodynamics">Zero-th law</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/First_law_of_thermodynamics">First law</a></p></li>

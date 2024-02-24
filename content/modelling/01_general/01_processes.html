@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1.1. Физические и химические процессы &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -29,43 +28,39 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/01_general/01_processes';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/01_processes.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="1.2. Проектирование пожарной безопасности" href="02_fse.html" />
@@ -163,7 +158,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -186,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03_approaches.html">1.3. Подходы к моделированию</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Гидродинамика</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/01_fluids.html">2.1. Fluids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/02_cfd.html">2.2. Computational Fluid Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/03_turbulence.html">2.3. Turbulence</a></li>
@@ -522,29 +528,29 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1.1. </span>Физические и химические процессы<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.1. </span>Физические и химические процессы<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2>Что такое пожар?<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Что такое пожар?<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>В общих чертах: пожар - это экзотермическая химическая реакция.</p>
 <p><strong>Техническое горение – Желаемые пожары</strong></p>
 <figure class="align-default" id="fig-wanted-fire">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gas_flame.jpg/858px-Gas_flame.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gas_flame.jpg/858px-Gas_flame.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gas_flame.jpg/858px-Gas_flame.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">В газовой плите для получения тепла используется горючий газ. Благодаря геометрии и свойствам потока газа плита обеспечивает управляемое пламя. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Gas_flame.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-wanted-fire" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">В газовой плите для получения тепла используется горючий газ. Благодаря геометрии и свойствам потока газа плита обеспечивает управляемое пламя. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Gas_flame.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-wanted-fire" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><em>Желаемые пожары</em>, то есть технические процессы горения, являются <strong>контролируемыми</strong> процессами, используемыми, например, для обогрева или приведения в движения. Хотя термин <em>желаемый</em> пожар немного вводит в заблуждение, пожары, как правило, неожиданные и связанные с несчастными случаями, костер - одно из основных желаемых применений огня.</p>
 <figure class="align-default" id="fig-bonfire">
 <a class="reference internal image-reference" href="../../../_images/bonfire.png"><img alt="../../../_images/bonfire.png" src="../../../_images/bonfire.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Разведение костров необходимо, например, для приготовления пищи.</span><a class="headerlink" href="#fig-bonfire" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Разведение костров необходимо, например, для приготовления пищи.</span><a class="headerlink" href="#fig-bonfire" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Нежелательные пожары</strong></p>
 <figure class="align-default" id="fig-unwanted-fire">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg/640px-Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg/640px-Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg/640px-Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Пожар в здании. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Fire_inside_an_abandoned_convent_in_Massueville,_Quebec,_Canada.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unwanted-fire" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Пожар в здании. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Fire_inside_an_abandoned_convent_in_Massueville,_Quebec,_Canada.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unwanted-fire" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Нежелательные пожары - это <strong>неконтролируемые и нежелательные</strong> процессы. В основном это инциденты внутри зданий, которые представляют опасность для дикой природы, людей и имущества.</p>
@@ -571,11 +577,11 @@ document.write(`
 </ul>
 </section>
 <section id="id3">
-<h2>Обзор процессов<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Обзор процессов<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <figure class="align-default" id="fig-fire-processes">
 <a class="reference internal image-reference" href="../../../_images/fire_processes.svg"><img alt="../../../_images/fire_processes.svg" src="../../../_images/fire_processes.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Визуализация основных процессов, связанных с пожарами.</span><a class="headerlink" href="#fig-fire-processes" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Визуализация основных процессов, связанных с пожарами.</span><a class="headerlink" href="#fig-fire-processes" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Пожары представляют собой сложное взаимодействие множества физических и химических процессов. Хотя большинство из них протекает в газовой фазе, например горение, пожары обычно включают также процессы в твердой или жидкой фазе, например пиролиз, при котором образуется топливо для горения. Следующие процессы охватывают основные явления.</p>
@@ -608,42 +614,42 @@ document.write(`
 </ol>
 </section>
 <section id="id4">
-<h2>Гидродинамика<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2>Гидродинамика<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>При пожаре выделяется тепло в газовой фазе, а плавучесть нагретого газа приводит к образованию конвективной колонки. Потоки в отсеках имеют сложную структуру и включают в себя множество отверстий в окружающую среду, а также препятствия, см. <a class="reference internal" href="#fig-compartment-flow"><span class="std std-numref">Fig. 1.5</span></a>. Механическая вентиляция, системы отопления, вентиляции и кондиционирования воздуха (HVAC), а также ветер могут быть включены в оценку динамики конвективной колонки.</p>
 <figure class="align-default" id="fig-compartment-flow">
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_labeled.svg"><img alt="../../../_images/compartment_flow_labeled.svg" src="../../../_images/compartment_flow_labeled.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Иллюстрация потенциального потока внутри здания, обусловленного выделением тепла при пожаре. Существует приток и отток, которые соединяют замкнутый поток с окружающей средой.</span><a class="headerlink" href="#fig-compartment-flow" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Иллюстрация потенциального потока внутри здания, обусловленного выделением тепла при пожаре. Существует приток и отток, которые соединяют замкнутый поток с окружающей средой.</span><a class="headerlink" href="#fig-compartment-flow" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Большинство огненных потоков, особенно в области пламени и факела, являются турбулентными. Турбулентный процесс смешивания во время горения имеет решающее значение, и поступление свежего холодного воздуха в конвективную колонку существенно определяет её динамику. Экспериментальный анализ, а также численные модели должны учитывать макроскопические эффекты турбулентности.</p>
 <figure class="align-default" id="fig-turbulence-transition-candle">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Laminar-turbulent_transition.jpg/466px-Laminar-turbulent_transition.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Laminar-turbulent_transition.jpg/466px-Laminar-turbulent_transition.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Laminar-turbulent_transition.jpg/466px-Laminar-turbulent_transition.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Переход от ламинарного течения к турбулентному в конвективной колонке горящей свечи. Изображение получено с помощью <a class="reference external" href="https://en.wikipedia.org/wiki/Schlieren_photography">фотографии шлирена</a>, которая визуализирует различия в показателе преломления. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar-turbulent_transition.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-transition-candle" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Переход от ламинарного течения к турбулентному в конвективной колонке горящей свечи. Изображение получено с помощью <a class="reference external" href="https://en.wikipedia.org/wiki/Schlieren_photography">фотографии шлирена</a>, которая визуализирует различия в показателе преломления. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar-turbulent_transition.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-transition-candle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id5">
-<h2>Реактивные потоки<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2>Реактивные потоки<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>Причиной возникновения пожаров является энергия, выделяемая при горении, которое является экзотермическим химическим процессом. В простейшем случае два вида газа, здесь кислород и топливо, вступают в реакцию и выделяют энергию. В реальных пожарах задействован целый зоопарк видов и реакций. В зависимости от концентрации отдельных видов и их локальных температур могут образовываться новые химические соединения. Таким образом, общий спектр продуктов, обусловленный химическими процессами во время пожара, редко бывает простым.</p>
 <p>В отличие от технического горения, при пожарах кислород и топливо обычно не смешиваются. Переход от сжигания без предварительной смеси к сжиганию с предварительной смесью можно хорошо наблюдать с помощью горелки Бунзена, см. <a class="reference internal" href="#fig-bunsen-burner"><span class="std std-numref">Fig. 1.7</span></a>.</p>
 <figure class="align-default" id="fig-bunsen-burner">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Переменные концентрации кислорода в выходящем потоке горелки Бунзена. Слева направо: воздушный клапан закрыт, почти полностью закрыт, клапан полуоткрыт и максимально открыт. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bunsen_burner_flame_types.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-bunsen-burner" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Переменные концентрации кислорода в выходящем потоке горелки Бунзена. Слева направо: воздушный клапан закрыт, почти полностью закрыт, клапан полуоткрыт и максимально открыт. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bunsen_burner_flame_types.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-bunsen-burner" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Временные рамки, в течение которых происходят химические реакции, охватывают несколько порядков величины, см. <a class="reference internal" href="#fig-chem-time-scales"><span class="std std-numref">Fig. 1.8</span></a>. Типичные процессы горения протекают намного быстрее, чем обычные процессы переноса массы при пожарах.</p>
 <figure class="align-default" id="fig-chem-time-scales">
 <a class="reference internal image-reference" href="../../../_images/chemical_timescales.svg"><img alt="../../../_images/chemical_timescales.svg" src="../../../_images/chemical_timescales.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.8 </span><span class="caption-text">(ОЧЕНЬ) Приблизительные временные рамки химических и физических процессов в реактивных потоках.</span><a class="headerlink" href="#fig-chem-time-scales" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.8 </span><span class="caption-text">(ОЧЕНЬ) Приблизительные временные рамки химических и физических процессов в реактивных потоках.</span><a class="headerlink" href="#fig-chem-time-scales" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id6">
-<h2>Теплопередача<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>Теплопередача<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Тепло может передаваться между помещениями и материалами различными способами. Поток тепла обусловлен различиями в температуре. Существует три режима передачи тепла, где фундаментальными являются только проводимость и излучение и не требуют наличия теплоносителя в гравитационном поле.</p>
 <p>Режимы теплопередачи следующие:</p>
 <ul class="simple">
@@ -654,19 +660,19 @@ document.write(`
 <figure class="align-default" id="fig-heat-transfer-overview">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.9 </span><span class="caption-text">Схематическая иллюстрация различных режимов теплопередачи. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.9 </span><span class="caption-text">Схематическая иллюстрация различных режимов теплопередачи. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Все три режима важны при пожарах. Выделяющаяся химическая энергия при горении локально нагревает газ, который изменяет свою плотность и, таким образом, влияет на плавучесть. Помимо локального нагрева, горячий газ испускает тепловое излучение во всех направлениях. Таким образом, в случае пожара в помещении тепло передается к стенам или другим конструкциям и, например, к твердому веществу, которое служит источником топлива для пожара. Таким образом, поверхность твердого тела нагревается, и теплопроводность распространяет поглощенную энергию по твердому телу.</p>
 </section>
 <section id="id7">
-<h2>Пиролиз<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>Пиролиз<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Пиролиз описывает выделение (потенциально горючих) газов из твердого материала. В целом, это зависит от температуры твердого вещества, поскольку реакции разложения требуют энергии. Для жидкостей может происходить дополнительное испарение.</p>
 <p>В случае горения древесины, например, спички на <a class="reference internal" href="#fig-burning-match"><span class="std std-numref">Fig. 1.10</span></a>, твердый материал сам по себе не участвует в горении, а обеспечивает только топливо для горения. Не все материалы газифицируются и образуют угольный остаткок.</p>
 <figure class="align-default" id="fig-burning-match">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/a/a3/Streichholz.JPG"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/a3/Streichholz.JPG" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Streichholz.JPG" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.10 </span><span class="caption-text">Горящая спичка, где топливо для горения выделяется древесиной в результате пиролиза. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Streichholz.JPG">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-burning-match" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.10 </span><span class="caption-text">Горящая спичка, где топливо для горения выделяется древесиной в результате пиролиза. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Streichholz.JPG">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-burning-match" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Перевод и адаптацию произвел Мироненко Роман Владимирович.</strong>
