@@ -1,128 +1,127 @@
-# Fluids
+# Жидкости и газы
 
-## Overview
-Fluid dynamics describes the movement of liquids or gases. The following aspects may be needed to be taken into account:
+## Обзор
+Гидродинамика описывает движение жидкостей или газов. Возможно, потребуется принять во внимание следующие аспекты:
 
-* compressibility
-* boundary conditions, e.g. walls
-* turbulence
-* heat conduction
-* chemical reactions
-* multiple species and states of matter
-* etc.
+* сжимаемость
+* граничные условия, например, стены
+* турбулентность
+* теплопроводность
+* химические реакции
+* различные виды и состояния вещества
+* и т.д.
 
-**Fire safety science**
+**Наука о пожарной безопасности**
 
-In fire safety science, fluid dynamics plays an important role in the understanding of dynamical fire phenomena. Fluid dynamics must be considered e.g. during mixing processes, combustion, convective heat transfer or smoke spread in complex buildings.
+В науке о пожарной безопасности гидродинамика играет важную роль в понимании динамических явлений пожара. Гидродинамику необходимо учитывать, например, во время процессов смешивания, горения, конвективного теплообмена или распространения дыма в сложных зданиях.
 
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/sKgP1Us-SF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 
 
-**Technical applications**
+**Технические приложения**
 
-A classical application example is the optimisation of transport vehicles to reduce the drag.
+Классическим примером применения является оптимизация транспортных средств для уменьшения лобового сопротивления.
 
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/E9ZSAX56m0E" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Fundamentals 
+## Основы 
 
-In fluid dynamics, the following processes represent the most fundamental ones:
+В гидродинамике наиболее фундаментальными являются следующие процессы:
 
-* **Flow** describes the movement of the medium. It is a vector field and describes the velocity of the fluid at every point in space and time: $\mf \vv = \vv(x,t)$. The velocity components are denoted as $\mf \vv = (v_x,v_y,v_z) = (u,v,w)$.
-* **Convection** is the fluid intrinsic movement, i.e. due to buoyancy.
-* **Advection** describes the transport of matter or properties (density, temperature,
-smoke) due to the flow. Convection is the advection of the velocity.
-* **Diffusion** is a process that drives a balancing process to equilibrate differences in flow properties (velocity, temperature, smoke density).
+* **Поток** описывает движение среды. Это векторное поле описывает скорость жидкости в каждой точке пространства и времени: $\mf \vv = \vv(x,t)$. Компоненты скорости обозначаются как $\mf \vv = (v_x,v_y,v_z) = (u,v,w)$.
+* **Конвекция** это внутреннее движение жидкости, то есть обусловленное плавучестью.
+* **Адвекция** описывает перенос вещества или свойств (плотности, температуры, дыма) под действием потока. Конвекция - это адвекция скорости.
+* **Диффузия** это процесс, который управляет процессом балансировки для уравновешивания различий в свойствах потока (скорости, температуре, плотности дыма).
 
-### Flow Quantities
+
+### Величины расхода
 
  ```{list-table} Flow quantities.
 :header-rows: 1
 :name: tab-flow-quantities
 :widths: auto
 
-* - Name
-   - Symbol
-   - Unit
-   - Type
-* - density 
+* - Имя
+   - Символ
+   - Блок
+   - Тип
+* - плотность 
    - $\mf \rho$
    - $\mf kg/m$
-   - scalar field
-* - velocity 
+   - скалярное поле
+* - скорость 
    - $\mf \vv$
    - $\mf m/s$
-   - vector field
-* - vorticity
+   - векторное поле
+* - завихренность
    - $\mf \vec{\omega} = \nabla \times \vv$
    - $\mf 1/s$
-   - vector field
-* - momentum density 
+   - векторное поле
+* - плотность импульса 
    - $\mf \vu = \rho\vv$
    - $\mf kg/(m^2~s)$
-   - vector field 
-* - pressure
+   - векторное поле 
+* - давление
    - $\mf p$
    - $\mf Pa = kg/(m~s^2)$
-   - scalar field 
-* - temperature
+   - скалярное поле 
+* - температура
    - $\mf T$
    - $\mf K$
-   - scalar field
-* - specific enthalpy
+   - скалярное поле
+* - удельная энтальпия
    - $\mf h = \int_{T_0}^T c_p(T')\ dT' + \Delta h_f^0$
    - $\mf J/kg = m^2/s^2$
-   - scalar field
+   - скалярное поле
 ```
 
-Where $\mf c_p(T)$ is the heat capacity at temperature $\mf T$ and $\mf \Delta h_f^0$ is the heat of formation.
+Где  $\mf c_p(T)$ является ли теплоемкость при температуре $\mf T$ и $\mf \Delta h_f^0$ это теплота образования.
 
-### Speed of Sound
+### Скорость звука
 
-In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are $\mf 343~m/s$ in air, $\mf 1484~m/s$ in water and $\mf 5120~m/s$ in steel.
-In general the speed of sound $\mf c_s$ in an ideal gas is given by:
+В жидкостях и твердых телах информация (изменения потока, возмущения) распространяется с конечной скоростью: скоростью звука. Звуковые волны представляют собой волны продольного сжатия. Типичные скорости распространения следующие $\mf 343~m/s$ в воздухе, $\mf 1484~m/s$ в воде и $\mf 5120~m/s$ в стали. В целом скорость звука $\mf c_s$ в идеальном газе дается:
 
 $$
 \mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
 $$(eq-speed-of-sound)
 
-where $\mf \gamma$ is the heat capacity ratio $\mf \gamma=c_P/c_V$, $\mf k_B$ is the Boltzmann constant ($\mf \sim\!1.381\cdot 10^{−23}~J/K$), T the gas temperature, and $\mf m$ the mass of a single gas molecule. In general, for a given gas species, the speed of sound depends only on the temperature. For dry air, it can be approximated as:
+где  $\mf \gamma$ коэффициент теплоемкости $\mf \gamma=c_P/c_V$, $\mf k_B$ является ли постоянная Больцмана ($\mf \sim\!1.381\cdot 10^{−23}~J/K$), T температура газа и $\mf m$ масса одной молекулы газа. В общем случае для данного вида газа скорость звука зависит только от температуры. Для сухого воздуха ее можно приблизительно определить как:
 
 $$
 \mf c_{s, air} =(331.3+0.606\cdot \Theta) m/s 
 $$(eq-c-in-air)
 
-where $\mf \Theta$ is the air temperature in $\mf ^\circ C$.
+где  $\mf \Theta$ является ли температура воздуха в  $\mf ^\circ C$.
 
-### Equation of State
+### Уравнение состояния
 
-For an ideal or perfect gas the state can usually be described in terms of two thermodynamic variables ($\mf n$, $\mf\rho$, $\mf p$, $\mf e$, $\mf T$, $\mf V$, $\mf m$, $\mf h$). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:
+Для идеального газа состояние обычно можно описать в терминах двух термодинамических переменных ($\mf n$, $\mf\rho$, $\mf p$, $\mf e$, $\mf T$, $\mf V$, $\mf m$, $\mf h$). Следуя комбинации законов Бойля и Чарльза в термодинамическом равновесии, уравнение состояния имеет вид:
 
 $$
 \mf pV = nRT
 $$(eq-equation-of-state)
 
-where $\mf R = 8.314~J/(mol~K)$ is the universal gas constant and $\mf n$ is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus the equation of state for a system in equilibrium with $\mf N$ species becomes
+где $\mf R = 8.314~J/(mol~K)$ является ли универсальная газовая постоянная и $\mf n$ количество частиц. Реактивные потоки в основном представляют собой соединения нескольких различных видов. Таким образом, уравнение состояния для системы, находящейся в равновесии с  $\mf N$  виды становятся
 
 $$
 \mf p = f(V, T, n_1 , \dots , n_N)\quad .
 $$
 
-Dalton’s law of partial pressures $\mf p_i$ allows to formulate the total pressure
+Закон парциальных давлений Дальтона $\mf p_i$ позволяет сформулировать общее давление
 
 $$
 \mf p = \sum_{i=1}^N p_i = \frac{1}{V} \sum_{i=1}^N n_i R T\quad .
 $$
 
-## Characterisation of Flows
-Flows of fluids (liquids and gases) follow the same principal characteristics. In the following there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:
+## Характеристика потоков
+Потоки текучих сред (жидкостей и газов) имеют одни и те же основные характеристики. Далее не будет различий в потоках жидкости или газа. Они будут отличаться только свойствами материала. Примеры для потока текучей среды:
 
 
 :::{figure-md} fig-fluid-vortex-island
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" width="40%" class="rotate90">
 
-Von Kármán vortex street observed in nature. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg).
+Вихревая улица Фон Кармана, наблюдаемая в природе. Источник: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg).
 :::
 
 
@@ -130,20 +129,20 @@ Von Kármán vortex street observed in nature. Soruce: [Wikkimedia Commons](http
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" width="80%">
 
-Von Kármán vortex street in a lab. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg).
+Вихревая улица Фон Кармана в лаборатории. Источник: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg).
 :::
 
-### Compressible Flows
+### Сжимаемые потоки
 
-Flows with velocities much slower ($\mf \ll c_s$) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least $\mf 0.3c_s$ start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.
+Потоки со скоростями, значительно меньшими ($\mf \ll c_s$) ниже скорости звука являются несжимаемыми, т. Е. звуковые волны бесконечно быстры в масштабе задействованных процессов. Таким образом, все изменения плотности быстро уравновешиваются. Объекты, движущиеся со скоростью не менее $\mf 0.3c_s$ начните вводить флуктуации плотности. Схемы течения сверхзвуковых явлений (взрыв, сверхзвуковые самолеты) и соответствующие инженерные подходы полностью отличаются от таковых в случае субзвуковых течений.
 
-Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.
+Примечание: Изменения температуры, как и при пожаре, приводят к изменению плотности и, следовательно, к так называемым слабо сжимаемым потокам.
 
 :::{figure-md} fig-fluid-laminar
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" width="60%">
 
-Incompressilbe flow around a model car. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg).
+Обтекание модели автомобиля несжимаемой жидкостью. Источник: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg).
 :::
 
 
@@ -151,58 +150,58 @@ Incompressilbe flow around a model car. Soruce: [Wikkimedia Commons](https://com
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" width="60%">
 
-Supersonic airplane model in a tunnel with at approximately $\mf 3.5 c$. Soruce: [Wikkimedia Commons](https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg).
+Модель сверхзвукового самолета в туннеле с приблизительно $\mf 3.5 c$. Источник: [Wikkimedia Commons](https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg).
 :::
 
-### Turbulent Flows
+### Турбулентные течения
 
-Depending on how smooth (continuous) a flow is, one can distinguish between laminar and turbulent flows. Flows related to fires are typically turbulent.
+В зависимости от того, насколько гладким (непрерывным) является поток, можно различать ламинарные и турбулентные потоки. Потоки, связанные с пожарами, обычно являются турбулентными.
 
 
 :::{figure-md} fig-fluid-turbulence-separation
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg" width="60%">
 
-Flow around an airfoil with a flow separation. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:1915ca_abger_fluegel.jpg).
+Обтекание профиля с отрывом потока. Материал: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:1915ca_abger_fluegel.jpg).
 :::
 
 <iframe width="60%" src="https://www.youtube.com/embed/QzuzbwJWlYs" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-### Material Parameters
+### Параметры материала
 
-The following material properties are of fundamental interest:
+Фундаментальный интерес представляют следующие свойства материала:
 
-* **density** $\mf\rho$ is the mass per given volume
-  * air at $\mf 20~^\circ C$ : $\mf\rho = 1.205~kg/m^3$
-  * air at $\mf 200~^\circ C$: $\mf\rho = 0.746~kg/m^3$
-* **dynamic viscosity** $\mf\mu$ characterises the capability of a flow to balance differences in velocity
-  * air at $\mf 20~^\circ C$ : $\mf\mu = 1.836\cdot 10^{-5}~kg\,m / s$
-  * air at $\mf 200~^\circ C$: $\mf\mu = 2.623\cdot 10^{-5}~kg\,m / s$
-* **thermal conductivity** $\mf k$ is equivalent to $\mf\mu$, but for the temperature of a fluid
-  * air at $\mf 20~^\circ C$ : $\mf k = 0.0257~W\,m / K$
-  * air at $\mf 200~^\circ C$: $\mf k = 0.0386~W\,m / K$
-* **heat capacity** $c_p$ describes the change in temperature, due to adding or extracting heat at a constant pressure
-  * air at $\mf 20~^\circ C$ : $\mf c_p = 1.005~kJ\,kg / K$
-  * air at $\mf 200~^\circ C$: $\mf c_p = 1.026~kJ\,kg / K$
+* **плотность** $\mf\rho$ это масса на данный объем
+  * воздух при $\mf 20~^\circ C$ : $\mf\rho = 1.205~kg/m^3$
+  * воздух при $\mf 200~^\circ C$: $\mf\rho = 0.746~kg/m^3$
+* **динамическая вязкость** $\mf\mu$ характеризует способность потока уравновешивать различия в скорости
+  * воздух при $\mf 20~^\circ C$ : $\mf\mu = 1.836\cdot 10^{-5}~kg\,m / s$
+  * воздух при $\mf 200~^\circ C$: $\mf\mu = 2.623\cdot 10^{-5}~kg\,m / s$
+* **теплопроводность** $\mf k$ эквивалентно  $\mf\mu$, но для температуры жидкости
+  * воздух при $\mf 20~^\circ C$ : $\mf k = 0.0257~W\,m / K$
+  * воздух при $\mf 200~^\circ C$: $\mf k = 0.0386~W\,m / K$
+* **теплоемкость** $c_p$ описывает изменение температуры вследствие добавления или отвода тепла при постоянном давлении
+  * воздух при $\mf 20~^\circ C$ : $\mf c_p = 1.005~kJ\,kg / K$
+  * воздух при $\mf 200~^\circ C$: $\mf c_p = 1.026~kJ\,kg / K$
 
 
-Further data for many properties of air (and other materials) can be found at [Engineering ToolBox (air properties)](https://www.engineeringtoolbox.com/air-properties-d_156.html).
+Дополнительные данные по многим свойствам воздуха (и других материалов) можно найти в [Engineering ToolBox (свойства воздуха)](https://www.engineeringtoolbox.com/air-properties-d_156.html).
 
-**Example quantity: viscosity**
+**Примерное количество: вязкость**
 
-Simply speaking, viscosity describes how moving fluid elements, e.g. layers, influence the neighbouring elements. It describes the friction forces between relatively moving fluid elements. 
+Проще говоря, вязкость описывает, как движущиеся элементы жидкости, например слои, влияют на соседние элементы. Она описывает силы трения между относительно движущимися элементами жидкости.
 
-For example, honey has a high viscosity: it flows only slowly down a spoon. The outer ”honey elements” are strongly coupled to the inner – not free – elements.
+Например, мед обладает высокой вязкостью: он очень медленно стекает по ложке. Внешние "элементы меда” прочно связаны с внутренними – несвободными – элементами.
 
 :::{figure-md} fig-fluid-honey
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg" width="40%">
 
-Honey running down a spoon. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg).
+Мед, стекающий по ложке. Источник: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg).
 :::
 
-In a simple two dimensional setup, with a stationary wall and a moving wall, see {numref}`fig-fluid-viscosity`, the dynamic viscosity describes the relation of the forces on the walls and the velocity gradient. If the velocity gradient $\mf u/y$ is constant, this results in the following friction force per area:
+В простой двумерной установке с неподвижной и движущейся стенками, см. {numref}`fig-fluid-viscosity`, динамическая вязкость описывает соотношение сил, действующих на стенки, и градиента скорости. Если градиент скорости $\mf u/y$ является постоянным, это приводит к следующей силе трения на площадь:
 
 $$
 \mf \frac{F}{A} = \mu \cdot \frac{u}{y} 
@@ -213,155 +212,159 @@ $$ (eq-dyn-vis)
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg" width="60%">
 
-Visualisation of the viscosity concepte. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Laminar_shear.svg).
+Визуализация концепции вязкости. Материал: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Laminar_shear.svg).
 :::
 
-Relation {eq}`eq-dyn-vis` is the definition of the *dynamic viscosity* $\mf \mu$. Yet, in some cases the *kinematic viscosity* $\mf \nu$ (or momentum diffusivity) is a more convenient quantity. It is given by the ratio of the dynamic viscosity and the density
+Соотношение  {eq}`eq-dyn-vis` является определением *динамической вязкости* $\mf \mu$. Тем не менее, в некоторых случаях *кинематическая вязкость* $\mf \nu$  (или коэффициент диффузии по импульсу) является более удобной величиной. Он определяется как отношение динамической вязкости к плотности
 
 $$
 \mf \nu = \frac{\mu}{\rho} \quad .
 $$ (eq-kin-vis)
 
 
-Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, all gases are Newtonian fluids. However, there exist also [non-Newtonian fluids](https://en.wikipedia.org/wiki/Non-Newtonian_fluid), like blood, tomato ketchup and water mixed with corn starch.
+Жидкости, вязкость которых не зависит от напряженного состояния, называются ньютоновскими жидкостями, все газы являются ньютоновскими жидкостями. Однако существуют также [неньютоновские жидкости](https://en.wikipedia.org/wiki/Non-Newtonian_fluid), такие как кровь, томатный кетчуп и вода, смешанная с кукурузным крахмалом.
 
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/B6h5pVETbd8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Dimensionless numbers
+### Безразмерные числа
 
-Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used dimensionless numbers are:
-* [Mach number](https://en.wikipedia.org/wiki/Mach_number) $\mf Ma$
-* [Reynolds number](https://en.wikipedia.org/wiki/Reynolds_number) $\mf Re$
-* Grashof number $\mf Gr$
-* Prandtl number $\mf Pr$
-* Archimedes number $\mf Ar$
-* Richardson number $\mf Ri$
-* Nussel number $\mf Nu$
+Многие явления и типы потоков могут характеризоваться безразмерными числами. Предполагается, что потоки с аналогичными характеристиками сопоставимы, хотя, например, пространственные масштабы различны. Некоторые из обычно используемых безразмерных чисел являются:
+* [Число Маха](https://en.wikipedia.org/wiki/Mach_number) $\mf Ma$
+* [Число Рейнольдса](https://en.wikipedia.org/wiki/Reynolds_number) $\mf Re$
+* Номер Грасхофа $\mf Gr$
+* Число Прандтля $\mf Pr$
+* Число Архимеда $\mf Ar$
+* Число Ричардсона $\mf Ri$
+* Номер Нусселя $\mf Nu$
 
 
-**Mach number**
+**Число Маха**
 
-The Mach number is defined as the relation of a velocity to the speed of sound, i.e.
+Число Маха определяется как отношение скорости к скорости звука, т.е.
 
 $$
 \mf Ma = \frac{v}{c_s}
 $$ (eq-mach-number)
 
-This number characterises the compressibility of a flow: 
-* $\mf Ma \rightarrow 0$: fully incompressible
-* $\mf Ma \lesssim 0.3$: incompressible
-* $\mf Ma \gtrsim 0.3$: compressible
+Это число характеризует сжимаемость потока: 
+* $\mf Ma \rightarrow 0$: полностью несжимаемые
+* $\mf Ma \lesssim 0.3$: несжимаемые
+* $\mf Ma \gtrsim 0.3$: сжимаемые
 
-The limit $\mf Ma \rightarrow 0$ may be also interpreted as $\mf c \rightarrow \infty$.
+Предел  $\mf Ma \rightarrow 0$ также могут быть истолкованы как $\mf c \rightarrow \infty$.
 
-**Reynolds number**
+**Число Рейнольдса
 
-The Reynolds number relates convection to diffusion: 
+**
+
+Число Рейнольдса связывает конвекцию с диффузией: 
 
 $$
 \mf Re = \frac{\rho v L}{\mu}
 $$
 
-Here, $\mf L$ denotes a characteristic length, in the case of a pipe flow, this would be the pipe diameter. The Reynolds number can be used to distinguish laminar from turbulent flows, i.e. a very high $\mf Re$ represents turbulent flows. In a pipe flow, the characteristic transition number is about $\mf Re \approx 4000$.
-This number is a classical example for scaling. Flow phenomena having the same Reynolds number will behave the same way; this can be shown by normalisation of the flow equations.
+Здесь, $\mf L$ обозначает характерную длину, в случае течения в трубе это будет диаметр трубы. Число Рейнольдса может использоваться для отличия ламинарных течений от турбулентных, т.е. очень высокая $\mf Re$ представляет собой турбулентные потоки. В потоке по трубе характерный номер перехода равен примерно $\mf Re \approx 4000$. Это число является классическим примером масштабирования. Явления течения при одинаковом числе Рейнольдса будут вести себя одинаково; это может быть показано нормализацией уравнений течения.
+
+
 
 :::{figure-md} fig-fluid-re-table
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" width="60%">
 
-Velocity and Reynolds numbers for some flying objects (in German). (Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship) Source: [Wikkimedia Commons](https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png).
+Скорость и числа Рейнольдса для некоторых летающих объектов (на немецком языке). (Staub: Пыль, Insekt: насекомое, Modellflugzeug/ Vogel: модель самолета / Птица, Windrad: Ветряная мельница, Drachenflieger: дельтаплан, Flugzeug: самолет, Luftschiff: дирижабль) Источник: [Wikkimedia Commons](https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png).
 :::
 
 
 
-## Fluid Equations
+## Уравнения жидкости
 
-### Conservation laws
+### Законы сохранения
 
-Fluid dynamics is based on the following three physical conservation laws: 
+Динамика жидкости основана на следующих трех физических законах сохранения: 
 
-* mass conservation
-* momentum conservation
-* energy conservation
+* сохранение массы
+* сохранение импульса
+* энергосбережение
 
-From these laws the basic fluid flow equations may be derived: 
+Из этих законов могут быть выведены основные уравнения течения жидкости: 
 
-* continuity equation
-* equation of motion
-* energy equation
+* уравнение непрерывности
+* уравнение движения
+* уравнение энергии
 
-In general, beside these equations a closure, e.g. via an equation of state, is needed. In many cases the ideal gas law can be used.
+В общем случае, помимо этих уравнений требуется замыкание, например, с помощью уравнения состояния. Во многих случаях можно использовать закон идеального газа.
 
-**Conservation of mass**
+**Сохранение массы**
 
-The conservation of mass predicts, that the total mass of a control volume only changes if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.
+Сохранение массы предсказывает, что общая масса контрольного объема изменяется только при наличии чистого расхода (неравновесного входного и выходного потоков) через границы. Несжимаемые потоки всегда имеют нулевой чистый расход.
 
-In fire simulations, multiple species have to be considered (e.g. oxygen, fuel and carbon dioxide). Their masses are individually conserved. However, they are strongly coupled to each other via source terms. E.g. during combustion, oxygen and fuel are consumed to produce carbon dioxide.
+При моделировании пожара необходимо учитывать несколько компонентов (например, кислород, топливо и углекислый газ). Их масса сохраняется индивидуально. Однако они тесно связаны друг с другом через термины "источник". Например, во время горения кислород и топливо расходуются для получения углекислого газа.
 
-**Conservation of momentum**
+**Сохранение импульса**
 
-The momentum of a fluid element changes only due to: 
+Импульс элемента жидкости изменяется только из-за: 
 
-* momentum advection
-* gradients of pressure
-* diffusion and stresses, i.e. due to finite viscosity
-* external forces, e.g. gravitation, water droplets
+* адвекция импульса
+* градиенты давления
+* диффузия и напряжения, т.е. из-за конечной вязкости
+* внешние силы, например, гравитация, капли воды
 
-In turbulent simulations, the diffusion is of special interest. This is the phenomenon that must be covered by turbulence models.
+При моделировании турбулентности особый интерес представляет диффузия. Это явление должно быть охвачено моделями турбулентности.
 
-**Conservation of energy**
+**Сохранение энергии**
 
-Changes in energy of a control volume are due to:
+Изменения энергии контрольного объема обусловлены:
 
-* energy advection
-* heat conduction
-* heating and cooling processes, e.g. radiation, friction, combustion
+* адвекция энергии
+* теплопроводность
+* процессы нагрева и охлаждения, например излучение, трение, горение
 
-In combination with the conservation of energy, an equation of state is needed to determine the gas temperature.
+В сочетании с принципом сохранения энергии для определения температуры газа необходимо уравнение состояния.
 
-### Partial Differential Equations
+### Дифференциальные уравнения в частных производных
 
-Partial differential equations (PDE) are one of the most powerful tools in science and engineering. Most technical, mathematical, physical, chemical and even biological models are based on differential equations. The solutions of differential equations may describe: 
+Дифференциальные уравнения в частных производных (PDE) являются одним из самых мощных инструментов в науке и технике. Большинство технических, математических, физических, химических и даже биологических моделей основаны на дифференциальных уравнениях. Решения дифференциальных уравнений могут описывать:
 
-* gas flows and combustion processes
-* heat distribution in solids
-* oscillation of a pendulum
-* propagation of light or water waves
-* interaction of two species (predator and pray)
+* потоки газа и процессы горения
+* распределение тепла в твердых телах
+* колебания маятника
+* распространение волн света или воды
+* взаимодействие двух видов (хищника и жертвы)
 
-**Types of PDEs**
+**Типы PDE**
 
-The general structure of a PDE for $\mf\phi = \phi(x,y)$ is given by
+Общая структура PDE для $\mf\phi = \phi(x,y)$ дается
 
 $$
 \mf a\partial_{xx}\phi + b\partial_{xy}\phi + c\partial_{yy}\phi + d\partial_x\phi + e\partial_y\phi + f\phi = 0
 $$
 
-where all coefficients ($\mf a,\dots,f$) are dependent on $\mf x$ and $\mf y$, e.g. $\mf a = a(x,y)$.
+где все коэффициенты ($\mf a,\dots,f$) зависят от $\mf x$ и $\mf y$, например  $\mf a = a(x,y)$.
 
-The coefficients determine the character of the PDE:
+Коэффициенты определяют характер PDE:
 
 $$
 \mf D(x,y) = a(x,y)\cdot c(x,y) - \left(\frac{b(x,y)}{2}\right)^2
 $$
 
-* $\mf D \gt 0$: elliptic, e.g. Laplace equation
-* $\mf D = 0$: parabolic, e.g. heat equation
-* $\mf D \lt 0$: hyperbolic, e.g. wave equation
+* $\mf D \gt 0$: эллиптическое, например, уравнение Лапласа
+* $\mf D = 0$: параболическое, например, уравнение теплопроводности
+* $\mf D \lt 0$: гиперболическое, например, волновое уравнение
 
-Note: The type may dependent on varying material parameters or/and the position, here $\mf (x,y)$.
+Примечание: Тип может зависеть от различных параметров материала и / или положения, здесь $\mf (x,y)$.
 
-**Field Operators**
+**Полевые операторы**
 
-The two most common mathematical operators used in fluid dynamics are the partial derivative and the Nabla operator.
+Двумя наиболее распространенными математическими операторами, используемыми в гидродинамике, являются частная производная и оператор Набла.
 
-The **partial derivative** describes the change of a field in a given space or time direction. The change of a velocity field $\mf \vv(x,y,z,t)$ with respect to the time is:
+**Частная производная** описывает изменение поля в заданном направлении пространства или времени. Изменение поля скоростей $\mf \vv(x,y,z,t)$ что касается времени, то:
 
 $$
 \mf \frac{\partial \vec{v}(x,y,z,t)}{\partial t} \quad \mbox{or short}\quad \partial_t \vec{v}(x,y,z,t)
 $$
 
-The **Nabla operator** $\mf \nabla$ is used to represent the Laplace, gradient, divergence and rotation operations.
+**Оператор Nabla** $\mf \nabla$ используется для представления операций Лапласа, градиента, расхождения и вращения.
+
 
 $$
 \mf \nabla = \left( \partial_x,  \partial_y,  \partial_z \right)
@@ -374,135 +377,140 @@ $$
 \mf rot(\vv) = \nabla\times\vv
 $$
 
-The **convective derivative** combines both operators. It represents the total change of a value due to local intrinsic changes and due to advection. The change in a scalar value $\mf \phi(x,y,z,t)$ may therefore be written as
+**Конвективная производная** объединяет оба оператора. Она представляет полное изменение значения из-за локальных внутренних изменений и из-за адвекции. Изменение скалярного значения $\mf \phi(x,y,z,t)$ поэтому могут быть записаны следующим образом
+
 
 $$
 \mf \frac{d\phi}{dt} = \partial_t \phi + \vv\cdot(\nabla\phi)
 $$
 
-The first term ($\mf \partial_t \phi$) represents intrinsic changes and the second one ($\mf\vv\cdot(\nabla\phi)$) describes the changes due to the advection in the velocity field $\mf\vv$.
+Первый семестр ($\mf \partial_t \phi$) представляет собой внутренние изменения, а второй ($\mf\vv\cdot(\nabla\phi)$) описывает изменения, вызванные адвекцией в поле скоростей $\mf\vv$.
 
-### Continuity Equation
+### Уравнение непрерывности
 
-The continuity equation for a single species flow is
+Уравнение непрерывности для потока одного вида имеет вид
 
 $$
 \mf \frac{d\rho}{dt} = \underbrace{-\rho\nabla\cdot\vec{v}}_{A}
 $$ (eq-fluid-cont)
 
-* $\mf A$: net flow flux of mass
+* $\mf A$: чистый расход массы
 
-Taking into account the convective derivative, the commonly used formulation may be derived as
+Принимая во внимание конвективную производную, обычно используемая формулировка может быть получена следующим образом
 
 $$
 \mf \partial_t \rho = -\nabla\cdot(\rho\vec{v})\quad .
 $$ (eq-fluid-cont-conservative)
 
-### Equation of motion
+### Уравнение движения
 
-Taking into account the conservation of momentum, the following simple form of the equation of motion may be formulated
+Принимая во внимание сохранение импульса, можно сформулировать следующую простую форму уравнения движения
 
 $$
 \mf \partial_t \rho\vec{v} + \nabla\cdot(\rho\vec{v}\vec{v}) = \underbrace{-\nabla p}_{A} + \underbrace{\mu\nabla^2\vec{v}}_{B} + \underbrace{\vec{f}}_{C}
 $$ (eq-fluid-momentum)
 
-* $\mf A$: force due to pressure gradients
-* $\mf B$: molecular diffusion
-* $\mf C$: external forces, e.g. gravity
+* $\mf A$: усилие, обусловленное перепадами давления
+* $\mf B$: молекулярная диффузия
+* $\mf C$: внешние силы, например, гравитация
 
-These equation is commonly known as the Navier-Stokes equation.
+Это уравнение широко известно как уравнение Навье-Стокса.
 
-### Energy equation
 
-The equation for the energy $E = e + \frac{1}{2}\vv^2$ is given by
+### Уравнение энергии
+
+Уравнение для энергии $E = e + \frac{1}{2}\vv^2$ дается
 
 $$
 \mf \partial_t (\rho E) + \nabla\cdot(\vec{v}\rho E) = \underbrace{-\nabla\cdot(\vec{v}p)}_{A} + \underbrace{\nabla\cdot(\mu\vec{v}\nabla\vec{v})}_{B} + \underbrace{\nabla\cdot(k\nabla T)}_{C}+ \underbrace{\vec{v}\cdot\vec{f}}_{D}+\underbrace{\dot{Q_s}}_{E}
 $$ (eq-fluid-energy)
 
-* $\mf A$: work done on the fluid due to pressure gradients
-* $\mf B$: work done by viscosity
-* $\mf C$: heat conduction
-* $\mf D$: work done by external forces
-* $\mf E$: heat sources and sinks
+* $\mf A$: работа, выполняемая с жидкостью из-за перепадов давления
+* $\mf B$: работа, выполняемая с помощью вязкости
+* $\mf C$: теплопроводность
+* $\mf D$: работа, выполняемая внешними силами
+* $\mf E$: источники и поглотители тепла
 
-Note: Sometimes a formulation in terms of enthalpy is preferred. This is the case for the equations solved by FDS.
 
-### Incompressible equations
+Примечание: Иногда предпочтительнее формулировка в терминах энтальпии. Это относится к уравнениям, решаемым с помощью FDS.
 
-If the flow is incompressible and assumed to be isothermal, the remaining equations to be solved are:
+### Уравнения несжимаемости
+
+Если поток несжимаемый и предполагается, что он изотермический, то остальные уравнения, которые необходимо решить, следующие:
+
+
 
 $$
 \mf \partial_t \rho\vec{v} + \nabla\cdot(\rho\vec{v}\vec{v}) = -\nabla p + \mu\nabla^2\vec{v} + \vec{f} \\
 \mf \nabla^2 p = - \nabla\cdot\left(\nabla\cdot(\rho\vec{v}\vec{v})\right) + \nabla \cdot \vec{f}
 $$
 
-### Weakly compressible regime
+### Режим слабого сжатия
 
-In fully *incompressible* flows the pressure instantly balances all divergences and keeps therefore the density constant.
+В полностью *несжимаемых* потоках давление мгновенно уравновешивает все расхождения и, следовательно, поддерживает плотность постоянной.
 
-In the *compressible* regime, the ideal gas law provides the linkage between the energy conservation and the conservation of mass and momentum.
+В режиме *сжимаемости* закон идеального газа обеспечивает связь между сохранением энергии и массы и импульса.
 
-For low speed flows, like in fires, but with substantial temperature variations the density may change. This is not due to pressure variations, as the pressure remains relatively unperturbed. This is the so called *weakly compressible* regime.
+Для потоков с низкой скоростью, как при пожарах, но при значительных колебаниях температуры плотность может изменяться. Это не связано с колебаниями давления, поскольку давление остается относительно неизменным. Это так называемый *слабо сжимаемый* режим.
 
-Here the equation of state is used with a fixed ambient pressure $\mf p_0$ to determine the density:
+Здесь используется уравнение состояния при фиксированном давлении окружающей среды $\mf p_0$ для определения плотности:
 
 $$
 \mf \rho = \frac{p_0 M}{R T}
 $$
 
-with $\mf M$ being the molecular mass of the volume of interest.
+с $\mf M$ представляет собой молекулярную массу интересующего объема.
 
-## Boundary Conditions
+## Граничные условия
 
-Besides the fluid equations, the boundary conditions are an other important aspect. In many applications, the impact of boundary conditions is crucial and a proper treatment of those essential.
+Помимо уравнений жидкости, другим важным аспектом являются граничные условия. Во многих приложениях влияние граничных условий имеет решающее значение, и их надлежащая обработка необходима.
 
-In general there exist a few types of boundary conditions:
+В общем случае существует несколько типов граничных условий:
 
-* Dirichlet: explicit values are prescribed
+* Дирихле: заданы явные значения
 
   $$
   \mf u=u_0\quad v=w=0
   $$
 
-* Neumann: normal derivative is prescribed
+* Нейман: предписывается нормальная производная
 
   $$
   \mf \partial_n u = n_0\quad \partial_n v = \partial_n w = 0
   $$
 
-* symmetric: derivatives are adopted to preserve a prescribed symmetry
-* periodic: values at the facing boundaries are kept equal
+* симметричные: производные используются для сохранения предписанной симметрии
+* периодические: значения на границах облицовки поддерживаются равными
 
 
-Some explicit examples for boundary conditions used commonly in fluid dynamics: 
+Некоторые явные примеры граничных условий, обычно используемых в гидродинамике: 
 
-* no-slip at solid wall
+* отсутствие скольжения по сплошной стене
   
   $$
   \mf u = v = w = 0 \quad \mbox{at the wall}
   $$
-* gas inlet
+* вход для газа
   
   $$
   \mf u = u_0\quad v=w=0 \quad \mbox{at the inflow}
   $$
-* gas outflow
+* утечка газа
 
   $$
   \mf \partial_n u = \partial_n v = \partial_n w = 0\quad \mbox{at the outflow}
   $$
-* constant wall temperature
+* постоянная температура стенок
 
   $$
   \mf T = T_w
   $$
-* wall with changing temperature, but fixed wall heat flux
+* стена с изменяющейся температурой, но фиксированным тепловым потоком
 
   $$
   \mf q_w = k \partial_n T\quad \mbox{at the wall}
   $$
-* adiabatic
+* адиабатический
 
   $$
   \mf k\partial_n T = 0 \quad \mbox{at the wall}
@@ -512,7 +520,7 @@ Some explicit examples for boundary conditions used commonly in fluid dynamics:
 
 <img src="./figs/boundaries_open_plume.svg" width="60%">
 
-Example for a boundary setup for a open plume.
+Пример установки границы для открытого факела.
 :::
 
 
@@ -521,5 +529,5 @@ Example for a boundary setup for a open plume.
 
 <img src="./figs/boundaries_compartment.svg" width="60%">
 
-Example for a boundary setup for a simple compartment.
+Пример установки границ для простого отсека.
 :::
