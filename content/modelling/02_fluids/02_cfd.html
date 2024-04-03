@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.2. Computational Fluid Dynamics &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>2.2. Вычислительная гидродинамика &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
@@ -196,7 +196,7 @@
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">2. Гидродинамика</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_fluids.html">2.1. Жидкости и газы</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Computational Fluid Dynamics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Вычислительная гидродинамика</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_turbulence.html">2.3. Turbulence</a></li>
 </ul>
 </li>
@@ -533,7 +533,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Computational Fluid Dynamics</h1>
+    <h1>Вычислительная гидродинамика</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -543,31 +543,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-derivatives">Approximation of Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">Taylor Series</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">Derivatives</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation">Discretisation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-derivatives">Discrete Derivatives</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-error">Approximation Error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Аппроксимация производных</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Дискретизация</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретные производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Ошибка аппроксимации</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-integration">Time Integration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trajectories">Trajectories</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler-method">Explicit Euler Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler-method">Implicit Euler Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-heun-method">Euler-Heun Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kutta-method-s">Runge-Kutta method(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Интегрирование по времени</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Траектории</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Явный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Неявный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Метод Эйлера-Хойна</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Методы Рунге-Кутты</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-method">Finite Difference Method</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-approach">Solution Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Метод конечных разностей</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Подход к решению</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">Stability</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#information-propagation">Information Propagation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#courant-friedrichs-lewy-cfl-condition">Courant-Friedrichs-Lewy (CFL) condition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#side-note-on-how-computation-was-performed-in-the-past">Side note on how computation was performed in the past</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Устойчивость</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Распространение информации</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cfl">Условие Куранта-Фридрихса-Леви (CFL)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Дополнительная заметка о том, как выполнялись вычисления в прошлом</a></li>
 </ul>
 </li>
 </ul>
@@ -591,12 +590,12 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># Set the matplotlib output to svg</span>
-<span class="c1"># from IPython.display import set_matplotlib_formats</span>
+<span class="c1"># Установите вывод matplotlib в формат svg</span>
+<span class="c1"># из IPython.display импортируйте set_matplotlib_formats</span>
 <span class="c1"># set_matplotlib_formats(&#39;svg&#39;)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="c1"># check for set environment variable JB_NOSHOW</span>
+<span class="c1"># проверьте, установлена ли переменная среды JB_NOSHOW</span>
 <span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="s1">&#39;JB_NOSHOW&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
@@ -605,30 +604,29 @@ document.write(`
 </div>
 </details>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="computational-fluid-dynamics">
-<h1><span class="section-number">2.2. </span>Computational Fluid Dynamics<a class="headerlink" href="#computational-fluid-dynamics" title="Link to this heading">#</a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The very general approach to numericaly solve a set of coupled PDEs is outlined in <a class="reference internal" href="#fig-cfd-overview"><span class="std std-numref">Fig. 2.11</span></a>. In case of fluid dynamics, these are the equations introduced earlier. The numerical solution of those is called computational fluid dynamics (CFD).</p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">2.2. </span>Вычислительная гидродинамика<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>Обзор<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Самый общий подход к численному решению набора связанных PDE описан на Fig. 2.11. В случае гидродинамики это уравнения, введенные ранее. Численное решение этих задач называется вычислительной гидродинамикой (CFD).</p>
 <figure class="align-default" id="fig-cfd-overview">
 <a class="reference internal image-reference" href="../../../_images/numerical_solution_overview.svg"><img alt="../../../_images/numerical_solution_overview.svg" src="../../../_images/numerical_solution_overview.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Overview of the general approach in computational fluid dynamics.</span><a class="headerlink" href="#fig-cfd-overview" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Обзор общего подхода в вычислительной гидродинамике.</span><a class="headerlink" href="#fig-cfd-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The main aspect in solving PDEs is to approximate the involved derivatives. This approximation is carried out in a discretised domain and leads to a set of algebraic equations, eventually a system of linear equations. There exist multiple approximation approaches with different specialisations and properties, where these three are the most prominent ones:</p>
+<p>Основным аспектом решения PDE является аппроксимация производных. Эта аппроксимация выполняется в дискретизированной области и приводит к набору алгебраических уравнений, в конечном счете к системе линейных уравнений. Существует множество подходов к аппроксимации с различными особенностями и свойствами, среди которых наиболее заметными являются три:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">Finite element method (FEM)</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_volume_method">Finite volume method (FVM)</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">Finite difference method (FDM)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">Метод конечных элементов (МКЭ)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_volume_method">Метод конечных объемов (FVM)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">Метод конечных разностей (FDM)</a></p></li>
 </ul>
-<p>As FDS is a FDM based solver, the main focus of this section is on the finite difference method. Yet, there will be also a few selected FVM aspects outlined.</p>
+<p>Поскольку FDS является решателем на основе FDM, основное внимание в этом разделе уделяется методу конечных разностей. Тем не менее, будет также рассмотрено несколько отдельных аспектов FVM.</p>
 </section>
-<section id="approximation-of-derivatives">
-<h2>Approximation of Derivatives<a class="headerlink" href="#approximation-of-derivatives" title="Link to this heading">#</a></h2>
-<section id="taylor-series">
-<h3>Taylor Series<a class="headerlink" href="#taylor-series" title="Link to this heading">#</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> can approximate any <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> function at an expansion point <span class="math notranslate nohighlight">\(\mf x_0\)</span>. The approximation of <span class="math notranslate nohighlight">\(\mf f(x)\)</span> is given in terms of <span class="math notranslate nohighlight">\(\mf h\)</span>, being the coordinate variable in the vicinity of <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
+<section id="id3">
+<h2>Аппроксимация производных<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>###Ряд Тейлораs
+<a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Ряд Тейлора</a>может аппроксимировать любую <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> функция в точке разложения <span class="math notranslate nohighlight">\(\mf x_0\)</span>.Аппроксимация f <span class="math notranslate nohighlight">\(\mf f(x)\)</span> изложена в терминах <span class="math notranslate nohighlight">\(\mf h\)</span>,являющейся переменной координатой в окрестности  <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-taylor-series" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
@@ -636,27 +634,27 @@ document.write(`
 \mf &amp;=\mf f(x_0) + f'(x_0)\cdot h + \frac{1}{2} f''(x_0)\cdot h^2 + \frac{1}{6}f'''(x_0)\cdot h^3 + \cdots
 \end{align}
 \end{split}\]</div>
-<aside class="margin sidebar">
-<p class="sidebar-title">Big O notation</p>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big O notation</a> <span class="math notranslate nohighlight">\(\mf \mathcal{O}\)</span> indicates the asymptotical behaviour of a function. In the approximation of derivatives, shown in this section, it indicates the functional reduction of the approximation error for <span class="math notranslate nohighlight">\(\mf h \rightarrow 0\)</span>.</p>
-</aside>
-<p>In practice, the expansion is aborted at a given order <span class="math notranslate nohighlight">\(\mf \mathcal{O}(h^n)\)</span>, where <span class="math notranslate nohighlight">\(\mf n\)</span> indicates the number of Taylor terms considered, i.e.</p>
+<div class="highlight-{margin}Обозначение notranslate"><div class="highlight"><pre><span></span>Обозначение [big O](https://en.wikipedia.org/wiki/Big_O_notation) $\mf \mathcal{O}$ указывает на асимптотическое поведение функции. В аппроксимации производных, показанной в этом разделе, она указывает на функциональное уменьшение ошибки аппроксимации для $\mf h \rightarrow 0$.
+</pre></div>
+</div>
+<p>На практике расширение прерывается в заданном порядке <span class="math notranslate nohighlight">\(\mf \mathcal{O}(h^n)\)</span>,где <span class="math notranslate nohighlight">\(\mf n\)</span> обозначает количество рассматриваемых членов Тейлора, т.е.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series-n">
 <span class="eqno">(2.12)<a class="headerlink" href="#equation-eq-taylor-series-n" title="Link to this equation">#</a></span>\[
 \mf f(x_0 + h) =\sum_{i=0}^{n-1}\left(\frac{1}{i!}\left.\frac{d^if}{dx^i}\right|_{x_0}\cdot h^i\right) +  \mathcal{O}(h^n)\quad .
 \]</div>
-<p>The expansion up to order three <span class="math notranslate nohighlight">\(\mf \mathcal{O}(h^3)\)</span> takes following form</p>
+<p>Разложение до третьего порядка <span class="math notranslate nohighlight">\(\mf \mathcal{O}(h^3)\)</span> принимает следующий вид</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-3rd">
 <span class="eqno">(2.13)<a class="headerlink" href="#equation-eq-taylor-3rd" title="Link to this equation">#</a></span>\[
 \mf f(x_0 + h) = f(x_0) + f'(x_0)\cdot h + \frac{1}{2} f''(x_0)\cdot h^2 + \mathcal{O}(h^3)\quad .
 \]</div>
-<p><strong>Example of a Taylor expansion</strong></p>
-<p>As an example, the approximation of the function</p>
+<p><strong>Пример разложения ряда Тейлора</strong></p>
+<p>В качестве примера приведена аппроксимация функции
+on</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-example-fnk">
 <span class="eqno">(2.14)<a class="headerlink" href="#equation-eq-cfd-example-fnk" title="Link to this equation">#</a></span>\[
 \mf f(x) = \frac{x}{10} + \frac{1}{1+x^2}
 \]</div>
-<p>at the evaluation point <span class="math notranslate nohighlight">\(\mf x_0 = 2.0\)</span>.</p>
+<p>в точке оценивания <span class="math notranslate nohighlight">\(\mf x_0 = 2.0\)</span>.</p>
 <div class="cell tag_hide_cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -664,7 +662,7 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definition of the example function and its analytical derivatives</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># определение функции примера и ее аналитических производных</span>
 <span class="k">def</span> <span class="nf">fnk</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">derivative</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
@@ -687,29 +685,29 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set interval for x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># установите интервал для x</span>
 <span class="n">xb</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">xe</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="c1"># range of x values</span>
+<span class="c1"># диапазон значений x</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">xe</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c1"># evaluation point</span>
+<span class="c1"># точка оценивания</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="mf">2.0</span>
 
-<span class="c1"># derivative values at x0</span>
+<span class="c1"># производные значения при x0</span>
 <span class="n">f0p0</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">f0p1</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">f0p2</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">f0p3</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="c1"># Taylor series for different orders</span>
+<span class="c1"># ряды Тейлора для различных порядков</span>
 <span class="n">ts0</span> <span class="o">=</span>             <span class="n">f0p0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">0</span>
 <span class="n">ts1</span> <span class="o">=</span> <span class="n">ts0</span> <span class="o">+</span>       <span class="n">f0p1</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">1</span>
 <span class="n">ts2</span> <span class="o">=</span> <span class="n">ts1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">f0p2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 <span class="n">ts3</span> <span class="o">=</span> <span class="n">ts2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span> <span class="o">*</span> <span class="n">f0p3</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
 
-<span class="c1"># plot generation</span>
+<span class="c1"># построение графика</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">ylim</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]</span>
 
@@ -796,7 +794,7 @@ document.write(`
 </div>
 </details>
 </div>
-<p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
+<p>Следующие рисунки иллюстрируют соответствующие аппроксимации Тейлора для <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -829,21 +827,20 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <img src="./figs/taylor_all.svg" width="90%">
 </div>
 </div>
-</section>
-<section id="derivatives">
-<h3>Derivatives<a class="headerlink" href="#derivatives" title="Link to this heading">#</a></h3>
-<p>To approximate the first derivative of a function <span class="math notranslate nohighlight">\(\mf f(x)\)</span> at <span class="math notranslate nohighlight">\(\mf x=x_0\)</span>, i.e. <span class="math notranslate nohighlight">\(\mf f'(x_0)\)</span>, the Taylor expansion up to <span class="math notranslate nohighlight">\(\mf n=2\)</span> can be used</p>
+<section id="id4">
+<h3>Производные<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Для аппроксимации первой производной функции <span class="math notranslate nohighlight">\(\mf f(x)\)</span> на <span class="math notranslate nohighlight">\(\mf x=x_0\)</span>, т.е. <span class="math notranslate nohighlight">\(\mf f'(x_0)\)</span>, разложение Тейлора вплоть до <span class="math notranslate nohighlight">\(\mf n=2\)</span> могут быть использованы</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdm-taylor-n2">
 <span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-fdm-taylor-n2" title="Link to this equation">#</a></span>\[
 \mf f(x_0 + h) = f(x_0) + f'(x_0)h + \mathcal{O}(h^2)\quad .
 \]</div>
-<p>After rearrangemet, this results in the forward differentiation of first order</p>
+<p>После перегруппировки это приводит к прямой дифференциации первого порядка</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdm-fwd-frst">
 <span class="eqno">(2.16)<a class="headerlink" href="#equation-eq-fdm-fwd-frst" title="Link to this equation">#</a></span>\[
 \mf f'(x_0) = \frac{f(x_0 + h) - f(x_0)}{h} + \mathcal{O}(h)\quad .
 \]</div>
-<p>Thus with this formula, it becomes possible to approximate the value of the derivative based on two values of the function, here at <span class="math notranslate nohighlight">\(\mf x_0\)</span> and <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span>.</p>
-<p>A graphical representation of equation <a class="reference internal" href="#equation-eq-fdm-fwd-frst">(2.16)</a> is shown below. It demonstrates the formula for <span class="math notranslate nohighlight">\(\mf h=1\)</span>.</p>
+<p>Таким образом, с помощью этой формулы становится возможным аппроксимировать значение производной на основе двух значений функции, приведенных здесь в <span class="math notranslate nohighlight">\(\mf x_0\)</span> and <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span>.</p>
+<p>Графическое представление уравнения <a class="reference internal" href="#equation-eq-fdm-fwd-frst">(2.16)</a> показано ниже. Оно демонстрирует формулу для <span class="math notranslate nohighlight">\(\mf h=1\)</span>.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -851,32 +848,32 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix value of h</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># зафиксировать значение h</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1"># compute exact tangent function at x0</span>
+<span class="c1"># вычислить точную касательную функцию при x0</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="n">f0p0</span> <span class="o">+</span> <span class="n">f0p1</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span>
 
-<span class="c1"># function value at x0+h</span>
+<span class="c1"># значение функции при x0+h</span>
 <span class="n">f_ph</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
 
-<span class="c1"># compute difference in function values</span>
-<span class="c1"># f0p0 is the function (p0) value at x0 (f0)</span>
+<span class="c1"># вычислить разницу в значениях функций</span>
+<span class="c1"># # f0 p0 - это значение функции (p0) при x0 (f0)</span>
 <span class="n">df_fwd</span> <span class="o">=</span> <span class="n">f_ph</span> <span class="o">-</span> <span class="n">f0p0</span>
 
-<span class="c1"># compute line at (x0, f0) with approximated slope</span>
+<span class="c1"># вычислить линию в точке (x0, f0) с приблизительным наклоном</span>
 <span class="n">fp_fwd</span> <span class="o">=</span> <span class="n">f0p0</span> <span class="o">+</span> <span class="n">df_fwd</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span>
 
-<span class="c1"># plot function f(x)</span>
+<span class="c1"># функция построения графика f(x)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\sf f(x)$&#39;</span><span class="p">)</span>
 
-<span class="c1"># plot tangent of f(x) at x0</span>
+<span class="c1"># построить касательную к f(x) в точке x0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 
-<span class="c1"># plot line at x0, f(x0) with slope computed by forward difference</span>
+<span class="c1"># постройте линию в точке x0, f(x0) с наклоном, вычисленным по прямой разности</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_fwd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;forward difference $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 
-<span class="c1"># indicate function evaluation points</span>
+<span class="c1"># указать точки оценки функции</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">h</span><span class="p">],</span> <span class="p">[</span><span class="n">f0p0</span><span class="p">,</span> <span class="n">f_ph</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f0p0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -899,10 +896,10 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-fwd-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_forward.svg"><img alt="../../../_images/derivative_forward.svg" src="../../../_images/derivative_forward.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.12 </span><span class="caption-text">First order forward difference formula.</span><a class="headerlink" href="#fig-fwd-difference" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.12 </span><span class="caption-text">Формула прямой разности первого порядка</span><a class="headerlink" href="#fig-fwd-difference" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>While the above formula used the value at <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span> and is thus called a forward differences formula, it is possible to use the function’s value at <span class="math notranslate nohighlight">\(\mf x_0 - h\)</span>. This results in the backward differences formula</p>
+<p>Хотя в приведенной выше формуле использовалось значение при <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span> и, таким образом, называется формулой прямых различий, значение функции можно использовать при <span class="math notranslate nohighlight">\(\mf x_0 - h\)</span>. Это приводит к формуле обратных различий</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdm-backward-frst">
 <span class="eqno">(2.17)<a class="headerlink" href="#equation-eq-fdm-backward-frst" title="Link to this equation">#</a></span>\[
 \mf f'(x_0) = \frac{f(x_0) - f(x_0 - h)}{h} + \mathcal{O}(h)\quad .
@@ -914,26 +911,26 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function value at x0-h</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># значение функции при x0-h</span>
 <span class="n">f_nh</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span>
 
-<span class="c1"># compite difference in function values</span>
-<span class="c1"># f0p0 is the function (p0) value at x0 (f0)</span>
+<span class="c1"># # вычислить разницу в значениях функций</span>
+<span class="c1"># # f0 p0 - это значение функции (p0) при x0 (f0)</span>
 <span class="n">df_bck</span> <span class="o">=</span> <span class="n">f0p0</span> <span class="o">-</span> <span class="n">f_nh</span> 
 
-<span class="c1"># compute line at (x0, f0) with approximated slope</span>
+<span class="c1"># вычислить линию в точке (x0, f0) с приблизительным наклоном</span>
 <span class="n">fp_bck</span> <span class="o">=</span> <span class="n">f0p0</span> <span class="o">+</span> <span class="n">df_bck</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span>
 
-<span class="c1"># plot function f(x)</span>
+<span class="c1"># функция построения графика f(x)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\sf f(x)$&#39;</span><span class="p">)</span>
 
-<span class="c1"># plot tangent of f(x) at x0</span>
+<span class="c1"># построить касательную к f(x) в точке x0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 
-<span class="c1"># plot line at x0, f(x0) with slope computed by back difference</span>
+<span class="c1"># построить линию в x0, f(x0) с наклоном, вычисленным по обратной разности</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_bck</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;backward difference $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 
-<span class="c1"># indicate function evaluation points</span>
+<span class="c1"># указать точки оценки функции</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="o">-</span><span class="n">h</span><span class="p">],</span> <span class="p">[</span><span class="n">f0p0</span><span class="p">,</span> <span class="n">f_nh</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f0p0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -956,29 +953,26 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-bck-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_backward.svg"><img alt="../../../_images/derivative_backward.svg" src="../../../_images/derivative_backward.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.13 </span><span class="caption-text">First order backward difference formula.</span><a class="headerlink" href="#fig-bck-difference" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.13 </span><span class="caption-text">Формула обратной разности первого порядка.</span><a class="headerlink" href="#fig-bck-difference" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>First order approximations are mostly not sufficient and higher order approximations are needed. Using more values of the function, i.e. the combination of multiple Taylor series, higher order formula may be derived, like for the second order central differences formula.</p>
-<p>The following two Taylor series are used as starting point</p>
-<div class="math notranslate nohighlight" id="equation-eq-fdm-central-start">
-<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-fdm-central-start" title="Link to this equation">#</a></span>\[\begin{split}
+<p>Приближений первого порядка в большинстве случаев недостаточно, и необходимы приближения более высокого порядка. Используя большее количество значений функции, т. е. комбинацию нескольких рядов Тейлора, можно вывести формулу более высокого порядка, например, для формулы центральных различий второго порядка.</p>
+<p>В качестве отправной точки используются следующие два ряда Тейлора</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align} 
 \mf f(x_0+h) &amp;\mf= f(x_0) + f'(x_0)\cdot h + \frac{1}{2}f''(x_0)\cdot h^2 + \mathcal{O}(h^3) \\ 
 \mf f(x_0-h) &amp;\mf= f(x_0) - f'(x_0)\cdot h + \frac{1}{2}f''(x_0)\cdot h^2 + \mathcal{O}(h^3) 
 \end{align}
-\end{split}\]</div>
-<p>Subtracting the first equation from the second</p>
-<div class="math notranslate nohighlight" id="equation-eq-fdm-central-intermediate">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-fdm-central-intermediate" title="Link to this equation">#</a></span>\[
-\mf f(x_0+h) - f(x_0-h) = 2f'(x_0)\cdot h + \mathcal{O}(h^3)
-\]</div>
-<p>results in the central difference formula for the first derivative</p>
+$$ (eq-fdm-central-start)Вычитание первого уравнения из второго
+nd\end{split}\]</div>
+<p>\mf f(x_0+h) - f(x_0-h) = 2f’(x_0)\cdot h + \mathcal{O}(h^3)
+$$ (eq-fdm-central-intermediatрезультаты в формуле центральной разности для первой производнойtive</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-central-derivative-snd">
-<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-central-derivative-snd" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-cfd-central-derivative-snd" title="Link to this equation">#</a></span>\[
 \mf f'(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
 \]</div>
-<p>The central differences formula is graphicaly represented in the following figure.</p>
+<p>Формула центральных различий графически представлена на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -986,26 +980,26 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compite difference in function values</span>
-<span class="c1"># f0p0 is the function (p0) value at x0 (f0)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># вычислить разницу в значениях функций</span>
+<span class="c1"># f0p0 - это значение функции (p0) при x0 (f0)</span>
 <span class="n">df_cnt</span> <span class="o">=</span> <span class="n">f_ph</span> <span class="o">-</span> <span class="n">f_nh</span>
 
-<span class="c1"># compute line at (x0, f0) with approximated slope</span>
+<span class="c1"># вычислить линию в точке (x0, f0) с приблизительным наклоном</span>
 <span class="n">fp_cnt</span> <span class="o">=</span> <span class="n">f0p0</span> <span class="o">+</span> <span class="n">df_cnt</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span>
-<span class="c1"># compute line at (x0+h, f(x0+h)) with approximated slope for illustration</span>
+<span class="c1"># вычислить линию в точке (x0+h, f(x0+h)) с приблизительным наклоном для иллюстрации</span>
 <span class="n">fp_cnt_tmp</span> <span class="o">=</span> <span class="n">f_ph</span> <span class="o">+</span> <span class="n">df_cnt</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="o">-</span><span class="n">h</span><span class="p">)</span>
 
-<span class="c1"># plot function f(x)</span>
+<span class="c1"># функция построения графика f(x)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\sf f(x)$&#39;</span><span class="p">)</span>
 
-<span class="c1"># plot tangent of f(x) at x0</span>
+<span class="c1"># построить касательную к f(x) в точке x0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 
-<span class="c1"># plot line at x0, f(x0) with slope computed by central difference</span>
+<span class="c1"># постройте линию в точке x0, f(x0) с наклоном, вычисленным по центральной разности</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_cnt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;central difference $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_cnt_tmp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="c1"># indicate function evaluation points</span>
+<span class="c1"># указать точки оценки функции</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">x0</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">h</span><span class="p">],</span> <span class="p">[</span><span class="n">f_nh</span><span class="p">,</span> <span class="n">f0p0</span><span class="p">,</span> <span class="n">f_ph</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f0p0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -1028,10 +1022,10 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-cnt-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_central.svg"><img alt="../../../_images/derivative_central.svg" src="../../../_images/derivative_central.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.14 </span><span class="caption-text">Second order central difference formula.</span><a class="headerlink" href="#fig-cnt-difference" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.14 </span><span class="caption-text">Формула центральной разности второго порядка.</span><a class="headerlink" href="#fig-cnt-difference" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>All three presented methods are shown in a joint illustration in the next figure.</p>
+<p>Все три представленных метода показаны на совместной иллюстрации на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1039,19 +1033,19 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot function f(x)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># функция построения графика f(x)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\sf f(x)$&#39;</span><span class="p">)</span>
 
-<span class="c1"># plot tangent of f(x) at x0</span>
+<span class="c1"># построить касательную к f(x) в точке x0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 
-<span class="c1"># lines indicating the slope approximations</span>
+<span class="c1"># линии, указывающие приближения наклона</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_fwd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;forward difference $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_bck</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;backward difference $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_cnt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;central difference $\sf f&#39;(x_0)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_cnt_tmp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="c1"># indicate function evaluation points</span>
+<span class="c1"># указать точки оценки функции</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">x0</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="n">h</span><span class="p">],</span> <span class="p">[</span><span class="n">f_nh</span><span class="p">,</span> <span class="n">f0p0</span><span class="p">,</span> <span class="n">f_ph</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f0p0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -1074,57 +1068,49 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-all-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_all.svg"><img alt="../../../_images/derivative_all.svg" src="../../../_images/derivative_all.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.15 </span><span class="caption-text">Comparison of all above presented difference formula.</span><a class="headerlink" href="#fig-all-difference" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.15 </span><span class="caption-text">Сравнение всех приведенных выше разностных формул.</span><a class="headerlink" href="#fig-all-difference" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>It is also possible to derive directional (forward, backwards) formulas second order. The calculus leads to the follwoing formulas</p>
+<p>Также возможно вывести формулы направления (прямого, обратного) второго порядка. Вычисление приводит к следующим формулам</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-directional-derivative-snd">
-<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
 \mf f'(x_0) &amp;\mf= \frac{-3f(x_0) + 4f(x_0+h) - f(x_0+2h)}{2h} + \mathcal{O}(h^2) \\
 \mf f'(x_0) &amp;\mf= \frac{ 3f(x_0) - 4f(x_0-h) + f(x_0-2h)}{2h} + \mathcal{O}(h^2) \quad .
 \end{align}
 \end{split}\]</div>
-<div class="admonition-task admonition">
-<p class="admonition-title">Task</p>
-<p>Derive the discretisation formula for the second derivative</p>
+<div class="admonition- admonition">
+<p class="admonition-title">Задание</p>
+<p>Выведите формулу дискретизации для второй производной</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-central-sndderivative-snd">
-<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Link to this equation">#</a></span>\[
 \mf f''(x_0) = \frac{f(x_0-h) - 2f(x_0) + f(x_0+h)}{h^2} + \mathcal{O}(h^2)
 \]</div>
 </div>
 </section>
-<section id="discretisation">
-<h3>Discretisation<a class="headerlink" href="#discretisation" title="Link to this heading">#</a></h3>
-<p>In the above section, the derivative of a function was approximated at a single point, here <span class="math notranslate nohighlight">\(\mf x_0\)</span>. In order to compute the derivative of a function in a given interval <span class="math notranslate nohighlight">\(\mf x \in [x_b, x_e]\)</span>, a common approach is to discretise the interval. This means, that it is represented by a finite number of points. Given <span class="math notranslate nohighlight">\(\mf n_x\)</span> as the number of representing points, the interval becomes the following finite set:</p>
+<section id="id5">
+<h3>Дискретизация<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>В приведенном выше разделе производная функции была аппроксимирована в одной точке, здесь <span class="math notranslate nohighlight">\(\mf x_0\)</span>. Для того, чтобы вычислить производную функции в заданном интервале <span class="math notranslate nohighlight">\(\mf x \in [x_b, x_e]\)</span>, общий подход заключается в дискретизации интервала. Это означает, что он представлен конечным числом точек. Учитывая <span class="math notranslate nohighlight">\(\mf n_x\)</span> по мере увеличения количества представляющих точек интервал становится следующим конечным множеством:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf x \in [x_0, \dots, x_i, \dots, x_{n_x-1}]
-\]</div>
-<p>with</p>
-<div class="math notranslate nohighlight">
-\[ 
-\mf x_0 = x_b; \quad x_{n_x-1} = x_e
-\]</div>
-<p>If the representing points are equally spaced, then the distance <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> is</p>
+$$сth\]</div>
+<p>\mf x_0 = x_b; \quad x_{n_x-1} = x_e
+$$</p>
+<p>Если представляющие точки расположены на равном расстоянии друг от друга, то расстояние ce $\mf \Delta является is</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \Delta x = \frac{x_e - x_b}{n_x-1}\quad
-\]</div>
-<p>and the value of <span class="math notranslate nohighlight">\(\mf x_i\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-\mf x_i = x_b + i\cdot \Delta x \quad .
-\]</div>
-<p>In two and three dimensional cases, this discretisation can be represented as a mesh or grid, see <a class="reference internal" href="../01_general/03_approaches.html#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. Thus <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> is often called grid spacing.</p>
-<p>A common indexing for spatially discretised functions is</p>
-<div class="math notranslate nohighlight">
-\[
+$и значение of $\mf x_дается by\]</div>
+<p>\mf x_i = x_b + i\cdot \Delta x \quad .
+<span class="math notranslate nohighlight">\(В двух- и трехмерных случаях эта дискретизация может быть представлена в виде сетки, см.see {numref}`fig-field-modelТаким образомhus \)</span>\mf \Delta часто называется интервалом между сетками.ngОбщим индексированием для пространственно дискретизированных функций является is</p>
+<p>$<span class="math notranslate nohighlight">\(
 \mf f(x_i) = f_i\quad ,
-\]</div>
-<p>where the index indicating the position on the spatial mesh is placed as a subscript.</p>
-<p>The above definitions and the following examples are for a one-dimensional setup. In general, fire simulations are solved on a three-dimensional domain, with the according quantities for the y- and z-direction, i.e. <span class="math notranslate nohighlight">\(\mf \Delta y, \Delta z\)</span>.</p>
-<p><strong>Example of a discretisation:</strong> Given <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, the function in equation <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> takes the following discrete representation.</p>
+\)</span>где индекс, указывающий положение на пространственной сетке, помещается в виде нижнего индекса.</p>
+<p>Приведенные выше определения и следующие примеры предназначены для одномерной установки. В общем случае моделирование пожара решается в трехмерной области с соответствующими величинами для y- и z-направлений, т.е
+.e. <span class="math notranslate nohighlight">\(\mf \Delta y, \Delta z\)</span>.</p>
+<p><strong>Пример дискретизации:</strong> приведен  <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, функция в уравнении <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> принимает следующее дискретное представление
+.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1142,7 +1128,7 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">xi</span><span class="p">,</span> <span class="n">fi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;discretised $\sf f(x_i)$&#39;</span><span class="p">)</span>
 <span class="c1"># plt.vlines( xi, [0] * len(xi), fi, color=&#39;grey&#39;, alpha=0.3)</span>
 
-<span class="c1"># line at y=0</span>
+<span class="c1"># строка при y=0</span>
 <span class="c1"># plt.axhline(0, color=&#39;black&#39;)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -1166,14 +1152,14 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-cfd-discretisation">
 <a class="reference internal image-reference" href="../../../_images/discretisation.svg"><img alt="../../../_images/discretisation.svg" src="../../../_images/discretisation.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.16 </span><span class="caption-text">One dimensional discretisation.</span><a class="headerlink" href="#fig-cfd-discretisation" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.16 </span><span class="caption-text">Одномерная дискретизация.</span><a class="headerlink" href="#fig-cfd-discretisation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="discrete-derivatives">
-<h3>Discrete Derivatives<a class="headerlink" href="#discrete-derivatives" title="Link to this heading">#</a></h3>
-<p>Given the approximation formulas and a discretised function, it becomes possible to compute the function’s derivative only with the usage of its values. The approximation formulas are evaluated with <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
-<p>For the function shown above and using the central differences second order <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a>, plus the directional derivatives <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.21)</a> at the boundaries, the approximated derivative is shown in the following figure.</p>
+<section id="id6">
+<h3>Дискретные производные<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Учитывая формулы аппроксимации и дискретизированную функцию, становится возможным вычислить производную функции только с использованием ее значений. Формулы аппроксимации оцениваются с помощью <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
+<p>Для функции, показанной выше, и использующей центральные разности второго порядка <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.18)</a>, плюс производные по направлению <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.19)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1181,16 +1167,16 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to compute the first derivative with the </span>
-<span class="c1"># central differencing scheme</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># функция для вычисления первой производной с помощью</span>
+<span class="c1"># центральная схема разграничения</span>
 <span class="k">def</span> <span class="nf">central</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="c1"># central discretisation scheme</span>
+        <span class="c1"># центральная схема дискретизации</span>
         <span class="n">yp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
        
-    <span class="c1"># use of directional derivatives at the boundary</span>
+   <span class="c1"># использование производных по направлению на границе</span>
     <span class="n">yp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">[</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span><span class="p">])</span>
     <span class="n">yp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
     
@@ -1207,17 +1193,17 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># analytical solution of the derivative for comparison</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># аналитическое решение производной для сравнения</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># approximation of the derivative</span>
+<span class="c1"># аппроксимация производной</span>
 <span class="n">fpi</span> <span class="o">=</span> <span class="n">central</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">fi</span><span class="p">)</span>
 
-<span class="c1"># plot of the function</span>
+<span class="c1"># график функции</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact $\sf f(x)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">xi</span><span class="p">,</span> <span class="n">fi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;discretised $\sf f(x_i)$&#39;</span><span class="p">)</span>
 
-<span class="c1"># plot of the derivative</span>
+<span class="c1"># график производной</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact $\sf f&#39;(x)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">xi</span><span class="p">,</span> <span class="n">fpi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;approximation $\sf f&#39;(x_i)$&quot;</span><span class="p">)</span>
 
@@ -1242,36 +1228,36 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-cfd-discrete-derivative">
 <a class="reference internal image-reference" href="../../../_images/discrete-derivative.svg"><img alt="../../../_images/discrete-derivative.svg" src="../../../_images/discrete-derivative.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Approximation of the first derivative.</span><a class="headerlink" href="#fig-cfd-discrete-derivative" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Аппроксимация первой производной.</span><a class="headerlink" href="#fig-cfd-discrete-derivative" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="admonition-task admonition">
-<p class="admonition-title">Task</p>
-<p>Create a plot similar to <a class="reference internal" href="#fig-cfd-discrete-derivative"><span class="std std-numref">Fig. 2.17</span></a> for the function</p>
+<div class="admonition- admonition">
+<p class="admonition-title">Задание</p>
+<p>Создайте график, аналогичный <a class="reference internal" href="#fig-cfd-discrete-derivative"><span class="std std-numref">Fig. 2.17</span></a> для функции</p>
 <div class="math notranslate nohighlight">
 \[
 \mf f(x) = x^4 + 3x^3 + 2 \quad .
 \]</div>
 <ol class="arabic simple">
-<li><p>Discretise the function with <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span> between -2 and 4 and plot the continouos and discrete representation.</p></li>
-<li><p>Use this discretasition to approximate the first derivative. Plot the exact and approximated derivative.</p></li>
-<li><p>Do the same for the second derivative.</p></li>
+<li><p>Дискретизируйте функцию с помощью <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span> между -2 и 4 и постройте график непрерывного и дискретного представления..
+1Используйте эту дискретизацию для аппроксимации первой производной. Постройте точную и аппроксимированную производнуюve.
+1Проделайте то же самое для второй производной.e.</p></li>
 </ol>
 </div>
 </section>
-<section id="approximation-error">
-<h3>Approximation Error<a class="headerlink" href="#approximation-error" title="Link to this heading">#</a></h3>
-<p>If the exact derivative is known, then the exact deviation of the numerical approximation to the exact values can be computed. A common approach to compute the difference between two data sets is the L2-norm or the root mean square error (RMSE). Given the difference of the function values <span class="math notranslate nohighlight">\(\mf \Delta f\)</span>, here</p>
+<section id="id7">
+<h3>Ошибка аппроксимации<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Если известна точная производная, то можно вычислить точное отклонение численного приближения от точных значений. Общим подходом к вычислению разницы между двумя наборами данных является L2-норма или среднеквадратичная ошибка (RMSE). Учитывая разницу значений функции <span class="math notranslate nohighlight">\(\mf \Delta f\)</span>, здесь</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \Delta f_i = f'_{numeric,i} - f'_{exact,i}
 \]</div>
-<p>at the same locations <span class="math notranslate nohighlight">\(\mf x_i\)</span> with <span class="math notranslate nohighlight">\(\mf i \in [0, \dots, n_x-1]\)</span>, the RMSE value is</p>
+<p>в тех же местах <span class="math notranslate nohighlight">\(\mf x_i\)</span> with <span class="math notranslate nohighlight">\(\mf i \in [0, \dots, n_x-1]\)</span>, значение RMSE равно</p>
 <div class="math notranslate nohighlight">
 \[
 \mf RMSE(\Delta f) = \sqrt{\frac{1}{n_x}\sum_{i=0}^{n_x-1}\left(\Delta f_i\right)^2}\quad .
 \]</div>
-<p>For the example function of the previous section, the approximation error can be computed for various values of <span class="math notranslate nohighlight">\(\mf \Delta x\)</span>, as shown in the following figure. As expected for the second order approximation scheme, the error behaves similar to a quadratic function. However, due to the finite representation of floating point numbers, the convergence stops, when round-off error start to dominate.</p>
+<p>Для примера функции из предыдущего раздела ошибка аппроксимации может быть вычислена для различных значений <span class="math notranslate nohighlight">\(\mf \Delta x\)</span>, как показано на следующем рисунке. Как и ожидалось для схемы аппроксимации второго порядка, ошибка ведет себя аналогично квадратичной функции. Однако из-за конечного представления чисел с плавающей запятой сходимость прекращается, когда начинает преобладать ошибка округления.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1364,92 +1350,83 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-cfd-approximation-error">
 <a class="reference internal image-reference" href="../../../_images/approximation_error.svg"><img alt="../../../_images/approximation_error.svg" src="../../../_images/approximation_error.svg" width="90%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Approximation error as a function of the mesh spacing.</span><a class="headerlink" href="#fig-cfd-approximation-error" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Погрешность аппроксимации в зависимости от расстояния между ячейками.</span><a class="headerlink" href="#fig-cfd-approximation-error" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="admonition-task admonition">
-<p class="admonition-title">Task</p>
-<p>Why does the approximation error not reduce further for <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Take into account equation <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a> and the round off error for 64-bit floating point numbers.</p>
+<div class="admonition- admonition">
+<p class="admonition-title">Задание</p>
+<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.18)</a> и ошибку округления для 64-разрядных чисел с плавающей запятой..</p>
 </div>
 </section>
 </section>
-<section id="time-integration">
-<h2>Time Integration<a class="headerlink" href="#time-integration" title="Link to this heading">#</a></h2>
-<section id="trajectories">
-<h3>Trajectories<a class="headerlink" href="#trajectories" title="Link to this heading">#</a></h3>
-<p>As the PDEs that are considered in fluid dynamics often contain the time as one dimension, time integration is another aspect besides the spatial derivatives.</p>
-<p>In a similar fashion as the spatial discretisation, the time dimension is discretised. Thus, the time interval <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]\)</span> is split into <span class="math notranslate nohighlight">\(\mf n_t\)</span> time steps:</p>
+<section id="id8">
+<h2>Интегрирование по времени<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Траектории<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>Поскольку PDE, рассматриваемые в гидродинамике, часто содержат время как одно измерение, интеграция по времени является другим аспектом, помимо пространственных производных.</p>
+<p>Аналогично пространственной дискретизации дискретизируется измерение времени. Таким образом, временной интервал <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]разделен наto \)</span>\mf n_tвременные этапыps:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf t_n = n\cdot\Delta t\quad with \quad \Delta t = \frac{t_e}{n_t-1} \quad and \quad n \in [0, n_t-1]\quad .
-\]</div>
-<p>In order to distinguish the time index from the spatial index, it is placed as a superscript and is not to be mixed with powers:</p>
-<div class="math notranslate nohighlight">
-\[
-\mf u(t_n) = u^n\quad .
-\]</div>
-<p>Given the time derivative of a function, i.e. the right hand side (rhs),</p>
+$$Для того, чтобы отличать временной индекс от пространственного, он помещается как надстрочный индекс и не должен быть смешан со степенямиrs:\]</div>
+<p>\mf u(t_n) = u^n\quad .
+$$</p>
+<p>Дана производная функции по времени, т.е. правая часть (rhs),</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \partial_t u = \du = rhs(u, t)
 \]</div>
-<p>and an initial value for <span class="math notranslate nohighlight">\(\mf u\)</span> at <span class="math notranslate nohighlight">\(\mf t=0\)</span>, the temporal evolution, also called trajectory, needs to be computed. Time integration aims to approximate the next value of the solution <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span>.</p>
-<p>In the following the evaluation point of rhs is shortened to</p>
+<p>и начальное значение для <span class="math notranslate nohighlight">\(\mf u\)</span> на  <span class="math notranslate nohighlight">\(\mf t=0\)</span>, необходимо вычислить временную эволюцию, также называемую траекторией. Интегрирование по времени направлено на аппроксимацию следующего значения решения <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span>.</p>
+<p>Ниже пункт оценки rhs сокращен до</p>
 <div class="math notranslate nohighlight">
 \[
 \mf rhs(u(t_n), t_n) = rhs^n \quad .
 \]</div>
-<figure class="align-default" id="fig-fluid-time-setup">
-<a class="reference internal image-reference" href="../../../_images/time_integration_1_setup.svg"><img alt="../../../_images/time_integration_1_setup.svg" src="../../../_images/time_integration_1_setup.svg" width="80%" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Time Integration.</span><a class="headerlink" href="#fig-fluid-time-setup" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 </section>
-<section id="explicit-euler-method">
-<h3>Explicit Euler Method<a class="headerlink" href="#explicit-euler-method" title="Link to this heading">#</a></h3>
-<p>Based, again on the Tayor series, a direct approximation of the solution’s next value is based on</p>
+<section id="id10">
+<h3>Явный метод Эйлера<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>На основе, опять же, ряда Тейора, прямое приближение следующего значения решения основано на</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \frac{u^{n+1} - u^n}{\Delta t} = rhs^n + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>It leads directly to</p>
+<p>Это ведет непосредственно к</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-forward-euler">
-<span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^n + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> is the explicit / forward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.20</span></a>.</p>
+<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.21)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.19</span></a>.</p>
 <figure class="align-default" id="fig-fluid-time-explicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_2_explicit.svg"><img alt="../../../_images/time_integration_2_explicit.svg" src="../../../_images/time_integration_2_explicit.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Time integration – explicit Euler scheme.</span><a class="headerlink" href="#fig-fluid-time-explicit" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Интегрирование по времени – явная схема Эйлера.</span><a class="headerlink" href="#fig-fluid-time-explicit" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="implicit-euler-method">
-<h3>Implicit Euler Method<a class="headerlink" href="#implicit-euler-method" title="Link to this heading">#</a></h3>
-<p>The evaluation of the derivative in <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> at <span class="math notranslate nohighlight">\(\mf t_n\)</span> is just one possibility. In the same mannor as the directional spatial derivatives, the evaluation can be done at <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> and leads to the folowing iteration formula:</p>
+<section id="id11">
+<h3>Неявный метод Эйлера<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.21)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
-<span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> is the implicit / backward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.21</span></a>. It is an implicit approach, in contrast to the explcit Euler scheme, which does not allow to directly compute the next iteration step based only on the solution of the current values <span class="math notranslate nohighlight">\(\mf u^n\)</span>. However, as the <span class="math notranslate nohighlight">\(\mf rhs\)</span> can be computed for any value of <span class="math notranslate nohighlight">\(\mf u\)</span>, a matching value of <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> can be found to satisfy equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
+<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.22)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, что они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.22)</a>.</p>
 <figure class="align-default" id="fig-fluid-time-implicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Time integration – implicit Euler scheme.</span><a class="headerlink" href="#fig-fluid-time-implicit" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Интегрирование по времени – неявная схема Эйлера.</span><a class="headerlink" href="#fig-fluid-time-implicit" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="euler-heun-method">
-<h3>Euler-Heun Method<a class="headerlink" href="#euler-heun-method" title="Link to this heading">#</a></h3>
-<p>The Euler-Heun method illustrates a second order time integration scheme.</p>
-<p>First, an explicit prediciton is done</p>
+<section id="id12">
+<h3>Метод Эйлера-Хойна<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>Метод Эйлера-Хойна иллюстрирует схему интегрирования по времени второго порядка.</p>
+<p>Сначала выполняется явное предсказание</p>
 <div class="math notranslate nohighlight">
 \[
 \mf u_p^{n+1} = u^n + \Delta t\cdot rhs^n\quad .
 \]</div>
-<p>This intermediate solution is used for a corrected approximation</p>
+<p>Это промежуточное решение используется для скорректированной аппроксимации</p>
 <div class="math notranslate nohighlight">
 \[
 \mf u^{n+1} = u^n + \frac{1}{2} \Delta t\cdot \left(rhs^n + rhs(u_p^{n+1}) \right) + \mathcal{O}(\Delta t^2)\quad .
@@ -1457,13 +1434,13 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fluid-time-predictorcorrector">
 <a class="reference internal image-reference" href="../../../_images/time_integration_5_predictorcorrector.svg"><img alt="../../../_images/time_integration_5_predictorcorrector.svg" src="../../../_images/time_integration_5_predictorcorrector.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Time integration – Euler-Heun predictor-corrector scheme.</span><a class="headerlink" href="#fig-fluid-time-predictorcorrector" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Интегрирование по времени – схема предсказателя-корректора Эйлера-Хойна.</span><a class="headerlink" href="#fig-fluid-time-predictorcorrector" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="runge-kutta-method-s">
-<h3>Runge-Kutta method(s)<a class="headerlink" href="#runge-kutta-method-s" title="Link to this heading">#</a></h3>
-<p>There exists a wide range of time integration schemes. One class of them are the <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta methods</a>. The classical scheme is the following fourth order method:</p>
+<section id="id13">
+<h3>Методы Рунге-Кутты<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>Существует широкий спектр схем интегрирования по времени. Одним из классов из них являются <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">методы Рунге-Кутты</a>. Классической схемой является следующий метод четвертого порядка:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align} 
@@ -1475,16 +1452,16 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 \end{split}\]</div>
 </section>
 </section>
-<section id="finite-difference-method">
-<h2>Finite Difference Method<a class="headerlink" href="#finite-difference-method" title="Link to this heading">#</a></h2>
-<section id="solution-approach">
-<h3>Solution Approach<a class="headerlink" href="#solution-approach" title="Link to this heading">#</a></h3>
-<p>Consider a simple diffusion equation:</p>
+<section id="id14">
+<h2>Метод конечных разностей<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<section id="id15">
+<h3>Подход к решению<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>Рассмотрим простое уравнение диффузии:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \partial_t \phi = \lambda\partial_{xx} \phi
 \]</div>
-<p><strong>Forward Euler:</strong> This scheme can be directly – explicitly – evaluated.</p>
+<p><strong>Форвард Эйлер:</strong> Эта схема может быть оценена непосредственно – явно.</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \frac{\phi^{n+1}_i - \phi^n_i}{\Delta t} = \lambda\frac{\phi^n_{i-1} - 2\phi_i^n + \phi_{i+1}^n}{\Delta x^2}
@@ -1496,10 +1473,10 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fdm-explicit-euler">
 <a class="reference internal image-reference" href="../../../_images/fdm_explicit_euler.png"><img alt="../../../_images/fdm_explicit_euler.png" src="../../../_images/fdm_explicit_euler.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Explicit Euler scheme.</span><a class="headerlink" href="#fig-fdm-explicit-euler" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Явная схема Эйлера.</span><a class="headerlink" href="#fig-fdm-explicit-euler" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>Backward Euler:</strong> Here a linear equation system must be solved for <span class="math notranslate nohighlight">\(\phi^{n+1}\)</span>.”</p>
+<p><strong>Обратный Эйлер:</strong> здесь система линейных уравнений должна быть решена для <span class="math notranslate nohighlight">\(\phi^{n+1}\)</span>.”</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \frac{\phi^{n+1}_i - \phi^n_i}{\Delta t} = \lambda \frac{\phi^{n+1}_{i-1} - 2\phi_i^{n+1} + \phi_{i+1}^{n+1}}{\Delta x^2}
@@ -1515,96 +1492,57 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fdm-implicit-euler">
 <a class="reference internal image-reference" href="../../../_images/fdm_implicit_euler.png"><img alt="../../../_images/fdm_implicit_euler.png" src="../../../_images/fdm_implicit_euler.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Implicit Euler scheme.</span><a class="headerlink" href="#fig-fdm-implicit-euler" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Неявная схема Эйлера.</span><a class="headerlink" href="#fig-fdm-implicit-euler" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
-<section id="stability">
-<h2>Stability<a class="headerlink" href="#stability" title="Link to this heading">#</a></h2>
-<section id="information-propagation">
-<h3>Information Propagation<a class="headerlink" href="#information-propagation" title="Link to this heading">#</a></h3>
-<p>An important property of a time integrator is its stability. Given a PDE to be solved and a time integrator, a simple (linear) stability analysis can be conducted, e.g. von Neuman stability analysis. The outcome is the growth factor, which indicates the growth rate of small disturbances. If this factor is larger then 1, then the scheme is unstable, as fluctuations will infinitely rise.</p>
+<section id="id16">
+<h2>Устойчивость<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<section id="id17">
+<h3>Распространение информации<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>Важным свойством временного интегратора является его стабильность. Учитывая решаемую PDE и временной интегратор, можно провести простой (линейный) анализ устойчивости, например анализ устойчивости по фон Нейману. Результатом является коэффициент роста, который указывает на скорость роста малых возмущений. Если этот коэффициент больше 1, то схема нестабильна, поскольку колебания будут бесконечно возрастать.</p>
 <ul class="simple">
-<li><p>Explicit schemes tend to be unstable or conditionally stable, i.e. if a condition for the time step is met</p></li>
-<li><p>Implicit schemes tend to be unconditionally stable, however they tend to damp the solution</p></li>
+<li><p>Явные схемы, как правило, нестабильны или условно устойчивы, т.е. если выполняется условие для временного шага</p></li>
+<li><p>Неявные схемы, как правило, безусловно стабильны, однако они имеют тенденцию ослаблять решение
+Задача адвекции с постоянной скоростью демонстрирует условие устойчивостиon.</p></li>
 </ul>
-<p>A constant velocity advection problem demonstrates the stability condition.</p>
-<p><strong>Slow propagation speed</strong></p>
-<ul>
-<li><p>Model equation</p>
+<p>Низкая скорость распространенияed**</p>
+<p>Модельное уравнение
+on</p>
 <div class="math notranslate nohighlight">
 \[
   \mf \partial_t \phi + \partial_x(v_0\phi) = 0
+  $Небольшой mall $\mf \Delta t$Пройденное расстояние за 
+per $\mf \Delta t$:
+  
   \]</div>
-</li>
-<li><p>Small <span class="math notranslate nohighlight">\(\mf \Delta t\)</span></p></li>
-<li><p>Distance traveled per <span class="math notranslate nohighlight">\(\mf \Delta t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-  \mf \delta x = v_0 \Delta t \lt \Delta x
-  \]</div>
-</li>
-<li><p>The information moves less then <span class="math notranslate nohighlight">\(\mf\Delta x\)</span> in a time step <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> and is captured by the neighbouring grid point</p></li>
-<li><p>No solution information is lost during time integration</p></li>
-</ul>
-<figure class="align-default" id="fig-fdm-cfl-dtsmall">
-<a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtsmall.png"><img alt="../../../_images/fdm_cfl_dtsmall.png" src="../../../_images/fdm_cfl_dtsmall.png" style="width: 80%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Slow information propagation.</span><a class="headerlink" href="#fig-fdm-cfl-dtsmall" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>Fast propagation speed</strong></p>
-<ul>
-<li><p>Large <span class="math notranslate nohighlight">\(\mf\Delta t\)</span></p></li>
-<li><p>Distance traveled per <span class="math notranslate nohighlight">\(\mf\Delta t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-  \mf \delta x = v_0 \Delta t \gt \Delta x
-  \]</div>
-</li>
-<li><p>The information moves more then <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> in a time step <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> and can therefore not be captured anymore</p></li>
-<li><p>Information is lost during time integration</p></li>
-</ul>
-<figure class="align-default" id="fig-fdm-cfl-dtlarge">
-<a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtlarge.png"><img alt="../../../_images/fdm_cfl_dtlarge.png" src="../../../_images/fdm_cfl_dtlarge.png" style="width: 80%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Fast information propagation.</span><a class="headerlink" href="#fig-fdm-cfl-dtlarge" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+<p>\mf \delta x = v_0 \Delta t \lt \Delta x
+Информация перемещается меньше, чем then <span class="math notranslate nohighlight">\(\mf\Deltс шагом по времени step \)</span>\mf\Deltи фиксируется соседней точкой сетки
+pИнформация о решении не теряется во время интегрирования по времениgration</p>
 </section>
-<section id="courant-friedrichs-lewy-cfl-condition">
-<h3>Courant-Friedrichs-Lewy (CFL) condition<a class="headerlink" href="#courant-friedrichs-lewy-cfl-condition" title="Link to this heading">#</a></h3>
-<p>In general, there exist stability conditions for explicit schemes, which relates the maximal information travel speed <span class="math notranslate nohighlight">\(\mf v_{max}\)</span> and the grid velocity <span class="math notranslate nohighlight">\(\mf v_g = \Delta x / \Delta t\)</span>:</p>
+<section id="cfl">
+<h3>Условие Куранта-Фридрихса-Леви (CFL)<a class="headerlink" href="#cfl" title="Link to this heading">#</a></h3>
+<p>В общем случае существуют условия устойчивости для явных схем, которые соотносят максимальную скорость распространения информации <span class="math notranslate nohighlight">\(\mf v_{max}\)</span> и скорость сетки <span class="math notranslate nohighlight">\(\mf v_g = \Delta x / \Delta t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf v_{max} \lt CFL\cdot v_{g}\quad .
 \]</div>
-<p>Given a mesh resolution <span class="math notranslate nohighlight">\(\mf\Delta x\)</span> and maximal velocities, the above condition limits the time step:</p>
+<p>Учитывая сетчатое разрешение <span class="math notranslate nohighlight">\(\mf\Delta x\)</span> вышеуказанное условие ограничивает временной шаг при максимальных скоростях:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \Delta t \lt CFL\cdot \frac{\Delta x}{v_{max}}
-\]</div>
-<p>Notes:</p>
-<ul class="simple">
-<li><p>The flow velocity may be computed in various ways (<span class="math notranslate nohighlight">\(\mf L_\infty\)</span>, <span class="math notranslate nohighlight">\(L_1\)</span>, <span class="math notranslate nohighlight">\(L_2\)</span> norms), diffusion velocity <span class="math notranslate nohighlight">\(\mf \propto 1/\Delta x\)</span></p></li>
-<li><p>There also exist other constrains on <span class="math notranslate nohighlight">\(\mf Delta t\)</span>: mass density constraint and volume constraint.</p></li>
-<li><p>The value of the CFL number depends on the time integration scheme.</p></li>
-</ul>
-<p>Implications of the CFL condition in FDS:</p>
-<p>The condition for <span class="math notranslate nohighlight">\(\mf \Delta t\)</span> used in FDS is</p>
-<div class="math notranslate nohighlight">
-\[
-\mf 0.8 \leq CFL = \Delta t \left(\frac{\|\vec{v}\|}{\Delta x} + |\nabla \cdot \vec{v}|\right) \leq 1.0
-\]</div>
-<ul class="simple">
-<li><p>If the CFL number grows above the upper limit, the time step is set to 90% of the allowed, if it falls below the lower limit, then it is increased by 10%.</p></li>
-<li><p>In general, the time step is reduced by a factor of 2 when the mesh spacing is reduced by a factor of 2, i.e. the total computational effort increases by a factor of 16.</p></li>
-</ul>
+$$Примечанияes:
+Скорость потока может быть вычислена различными способамиys ($\mf L_\infty$, $L_1$, $L_2нормыms)скорость диффузииty $\mf \propto 1/\Delta x$
+Существуют и другие ограничения наon $\mf Delta t$ограничение массовой плотности и объемаnt.
+Значение числа CFL зависит от схемы интегрирования по времениme.Последствия состояния CFL в FDS:
+Условие для   for $\mf \Deltв FDS используетсяDS is\]</div>
+<p>\mf 0.8 \leq CFL = \Delta t \left(\frac{|\vec{v}|}{\Delta x} + |\nabla \cdot \vec{v}|\right) \leq 1.0
+$Если число CFL растет выше верхнего предела, временной шаг устанавливается равным 90% от допустимого, если оно падает ниже нижнего предела, то его увеличивают на 10%. 10Как правило, временной шаг сокращается в 2 раза, когда расстояние между ячейками уменьшается в 2 раза, т. е. общая вычислительная нагрузка увеличивается в 16 раз.f 16.</p>
 </section>
-<section id="side-note-on-how-computation-was-performed-in-the-past">
-<h3>Side note on how computation was performed in the past<a class="headerlink" href="#side-note-on-how-computation-was-performed-in-the-past" title="Link to this heading">#</a></h3>
-<p>Short section from Richard Feynmans presentation “Los Alamos from Below”. He describes how numerical calculations were performed by individual people per grid node and type of computation.</p>
+<section id="id18">
+<h3>Дополнительная заметка о том, как выполнялись вычисления в прошлом<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>Краткий раздел из презентации Ричарда Фейнмана “Лос-Аламос снизу”. Он описывает, как отдельные люди выполняли численные вычисления для каждого узла сетки и типа вычислений.</p>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uY-u1qyRM5w?start=2804" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
 </section>
 </section>
@@ -1673,31 +1611,30 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-derivatives">Approximation of Derivatives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">Taylor Series</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">Derivatives</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretisation">Discretisation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-derivatives">Discrete Derivatives</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-error">Approximation Error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Аппроксимация производных</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Дискретизация</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретные производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Ошибка аппроксимации</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-integration">Time Integration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trajectories">Trajectories</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler-method">Explicit Euler Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler-method">Implicit Euler Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-heun-method">Euler-Heun Method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runge-kutta-method-s">Runge-Kutta method(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Интегрирование по времени</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Траектории</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Явный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Неявный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Метод Эйлера-Хойна</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Методы Рунге-Кутты</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-method">Finite Difference Method</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-approach">Solution Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Метод конечных разностей</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Подход к решению</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">Stability</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#information-propagation">Information Propagation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#courant-friedrichs-lewy-cfl-condition">Courant-Friedrichs-Lewy (CFL) condition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#side-note-on-how-computation-was-performed-in-the-past">Side note on how computation was performed in the past</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Устойчивость</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Распространение информации</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cfl">Условие Куранта-Фридрихса-Леви (CFL)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Дополнительная заметка о том, как выполнялись вычисления в прошлом</a></li>
 </ul>
 </li>
 </ul>
