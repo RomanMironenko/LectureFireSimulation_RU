@@ -677,18 +677,18 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 <p>DNS does not model any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
 <p>The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-filter">
-<span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-les-filter" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-les-filter" title="Link to this equation">#</a></span>\[
 \mf \langle\phi\rangle = \bar{\phi} = \frac{1}{V}\int_V \phi\ dV 
 \]</div>
 <p>for any field quantity <span class="math notranslate nohighlight">\(\mf \phi = \phi(x,y,z,t)\)</span>.</p>
 <p>For simplicity, the LES equations for the spatially filtered velocity <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> of an incompressible isothermal flow are given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-eom">
-<span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-les-eom" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.25)<a class="headerlink" href="#equation-eq-les-eom" title="Link to this equation">#</a></span>\[
 \mf \partial_t(\rho \langle\vec{v}\rangle) + \nabla\cdot(\rho \langle\vec{v}\rangle \langle\vec{v}\rangle) = -\nabla \langle p\rangle + \mu\nabla^2 \langle\vec{v}\rangle - \nabla\cdot(\underbrace{\langle\rho\vec{v}\vec{v}\rangle - \rho \langle\vec{v}\rangle \langle\vec{v}\rangle}_{\tau_{sgs}})
 \]</div>
 <div class="admonition-task admonition">
 <p class="admonition-title">Task</p>
-<p>Derive the above formula by applying the filter <a class="reference internal" href="#equation-eq-les-filter">(2.23)</a> to the equation of motion <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> with <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
+<p>Derive the above formula by applying the filter <a class="reference internal" href="#equation-eq-les-filter">(2.24)</a> to the equation of motion <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> with <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
 </div>
 <p>The residual stress tensor <span class="math notranslate nohighlight">\(\mf \tau_{sgs}\)</span> must be modelled to represent the scale interaction. Here, the Boussinesq hypothesis is applied:</p>
 <div class="math notranslate nohighlight">
@@ -701,7 +701,7 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \[
 \mf \mu_{eff} = \mu_{mol} + \mu_t\quad .
 \]</div>
-<p>As the filtered equation of motion <a class="reference internal" href="#equation-eq-les-eom">(2.24)</a> is nearly equal to the unfiltered version, in the follwoing the filtering brackets are omitted.</p>
+<p>As the filtered equation of motion <a class="reference internal" href="#equation-eq-les-eom">(2.25)</a> is nearly equal to the unfiltered version, in the follwoing the filtering brackets are omitted.</p>
 <p><strong>Constant Smagorinsky</strong></p>
 <p>The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width <span class="math notranslate nohighlight">\(\Delta\)</span>, here we focus on implicit LES with <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, may be described with</p>
 <div class="math notranslate nohighlight">

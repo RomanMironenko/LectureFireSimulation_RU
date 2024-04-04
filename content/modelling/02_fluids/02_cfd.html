@@ -545,6 +545,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Аппроксимация производных</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">Ряд Тейлораs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Производные</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Дискретизация</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретные производные</a></li>
@@ -625,8 +626,9 @@ document.write(`
 </section>
 <section id="id3">
 <h2>Аппроксимация производных<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>###Ряд Тейлораs
-<a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Ряд Тейлора</a>может аппроксимировать любую <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> функция в точке разложения <span class="math notranslate nohighlight">\(\mf x_0\)</span>.Аппроксимация f <span class="math notranslate nohighlight">\(\mf f(x)\)</span> изложена в терминах <span class="math notranslate nohighlight">\(\mf h\)</span>,являющейся переменной координатой в окрестности  <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
+<section id="s">
+<h3>Ряд Тейлораs<a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Ряд Тейлора</a> может аппроксимировать любую <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> функция в точке разложения <span class="math notranslate nohighlight">\(\mf x_0\)</span>. Аппроксимация f <span class="math notranslate nohighlight">\(\mf f(x)\)</span> изложена в терминах <span class="math notranslate nohighlight">\(\mf h\)</span>,являющейся переменной координатой в окрестности  <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-taylor-series" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
@@ -649,8 +651,7 @@ document.write(`
 \mf f(x_0 + h) = f(x_0) + f'(x_0)\cdot h + \frac{1}{2} f''(x_0)\cdot h^2 + \mathcal{O}(h^3)\quad .
 \]</div>
 <p><strong>Пример разложения ряда Тейлора</strong></p>
-<p>В качестве примера приведена аппроксимация функции
-on</p>
+<p>В качестве примера приведена аппроксимация функции</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-example-fnk">
 <span class="eqno">(2.14)<a class="headerlink" href="#equation-eq-cfd-example-fnk" title="Link to this equation">#</a></span>\[
 \mf f(x) = \frac{x}{10} + \frac{1}{1+x^2}
@@ -828,6 +829,7 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <img src="./figs/taylor_all.svg" width="90%">
 </div>
 </div>
+</section>
 <section id="id4">
 <h3>Производные<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Для аппроксимации первой производной функции <span class="math notranslate nohighlight">\(\mf f(x)\)</span> на <span class="math notranslate nohighlight">\(\mf x=x_0\)</span>, т.е. <span class="math notranslate nohighlight">\(\mf f'(x_0)\)</span>, разложение Тейлора вплоть до <span class="math notranslate nohighlight">\(\mf n=2\)</span> могут быть использованы</p>
@@ -835,12 +837,12 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-fdm-taylor-n2" title="Link to this equation">#</a></span>\[
 \mf f(x_0 + h) = f(x_0) + f'(x_0)h + \mathcal{O}(h^2)\quad .
 \]</div>
-<p>После перегруппировки это приводит к прямой дифференциации первого порядка</p>
+<p>После перестановки это приводит к прямому дифференцированию первого порядка</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdm-fwd-frst">
 <span class="eqno">(2.16)<a class="headerlink" href="#equation-eq-fdm-fwd-frst" title="Link to this equation">#</a></span>\[
 \mf f'(x_0) = \frac{f(x_0 + h) - f(x_0)}{h} + \mathcal{O}(h)\quad .
 \]</div>
-<p>Таким образом, с помощью этой формулы становится возможным аппроксимировать значение производной на основе двух значений функции, приведенных здесь в <span class="math notranslate nohighlight">\(\mf x_0\)</span> and <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span>.</p>
+<p>Таким образом, с помощью этой формулы можно приближенно определить значение производной по двум значениям функции, в <span class="math notranslate nohighlight">\(\mf x_0\)</span> и <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span>.</p>
 <p>Графическое представление уравнения <a class="reference internal" href="#equation-eq-fdm-fwd-frst">(2.16)</a> показано ниже. Оно демонстрирует формулу для <span class="math notranslate nohighlight">\(\mf h=1\)</span>.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -859,7 +861,7 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="n">f_ph</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
 
 <span class="c1"># вычислить разницу в значениях функций</span>
-<span class="c1"># # f0 p0 - это значение функции (p0) при x0 (f0)</span>
+<span class="c1"># f0p0 - это значение функции (p0) при x0 (f0)</span>
 <span class="n">df_fwd</span> <span class="o">=</span> <span class="n">f_ph</span> <span class="o">-</span> <span class="n">f0p0</span>
 
 <span class="c1"># вычислить линию в точке (x0, f0) с приблизительным наклоном</span>
@@ -915,8 +917,8 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># значение функции при x0-h</span>
 <span class="n">f_nh</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span>
 
-<span class="c1"># # вычислить разницу в значениях функций</span>
-<span class="c1"># # f0 p0 - это значение функции (p0) при x0 (f0)</span>
+<span class="c1"># вычислить разницу в значениях функций</span>
+<span class="c1"># f0p0 - это значение функции (p0) при x0 (f0)</span>
 <span class="n">df_bck</span> <span class="o">=</span> <span class="n">f0p0</span> <span class="o">-</span> <span class="n">f_nh</span> 
 
 <span class="c1"># вычислить линию в точке (x0, f0) с приблизительным наклоном</span>
@@ -959,20 +961,22 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 </figure>
 <p>Приближений первого порядка в большинстве случаев недостаточно, и необходимы приближения более высокого порядка. Используя большее количество значений функции, т. е. комбинацию нескольких рядов Тейлора, можно вывести формулу более высокого порядка, например, для формулы центральных различий второго порядка.</p>
 <p>В качестве отправной точки используются следующие два ряда Тейлора</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eq-fdm-central-start">
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-fdm-central-start" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align} 
 \mf f(x_0+h) &amp;\mf= f(x_0) + f'(x_0)\cdot h + \frac{1}{2}f''(x_0)\cdot h^2 + \mathcal{O}(h^3) \\ 
 \mf f(x_0-h) &amp;\mf= f(x_0) - f'(x_0)\cdot h + \frac{1}{2}f''(x_0)\cdot h^2 + \mathcal{O}(h^3) 
 \end{align}
-$$ (eq-fdm-central-start)Вычитание первого уравнения из второго
-nd\end{split}\]</div>
-<p>\mf f(x_0+h) - f(x_0-h) = 2f’(x_0)\cdot h + \mathcal{O}(h^3)
-$$ (eq-fdm-central-intermediatрезультаты в формуле центральной разности для первой производнойtive</p>
-<div class="math notranslate nohighlight" id="equation-eq-cfd-central-derivative-snd">
-<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-cfd-central-derivative-snd" title="Link to this equation">#</a></span>\[
-\mf f'(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
+\end{split}\]</div>
+<p>Вычитание первого уравнения из второго</p>
+<div class="math notranslate nohighlight" id="equation-eq-fdm-central-intermediate">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-fdm-central-intermediate" title="Link to this equation">#</a></span>\[
+\mf f(x_0+h) - f(x_0-h) = 2f'(x_0)\cdot h + \mathcal{O}(h^3)
 \]</div>
+<p>результаты в формуле центральной разности для первой производной
+$<span class="math notranslate nohighlight">\(
+\mf f'(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
+\)</span>$ (eq-cfd-central-derivative-snd)</p>
 <p>Формула центральных различий графически представлена на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1074,7 +1078,7 @@ $$ (eq-fdm-central-intermediatрезультаты в формуле центр�
 </figure>
 <p>Также возможно вывести формулы направления (прямого, обратного) второго порядка. Вычисление приводит к следующим формулам</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-directional-derivative-snd">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
 \mf f'(x_0) &amp;\mf= \frac{-3f(x_0) + 4f(x_0+h) - f(x_0+2h)}{2h} + \mathcal{O}(h^2) \\
 \mf f'(x_0) &amp;\mf= \frac{ 3f(x_0) - 4f(x_0-h) + f(x_0-2h)}{2h} + \mathcal{O}(h^2) \quad .
@@ -1084,7 +1088,7 @@ $$ (eq-fdm-central-intermediatрезультаты в формуле центр�
 <p class="admonition-title">Задание</p>
 <p>Выведите формулу дискретизации для второй производной</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-central-sndderivative-snd">
-<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Link to this equation">#</a></span>\[
 \mf f''(x_0) = \frac{f(x_0-h) - 2f(x_0) + f(x_0+h)}{h^2} + \mathcal{O}(h^2)
 \]</div>
 </div>
@@ -1160,7 +1164,7 @@ $и значение of $\mf x_дается by\]</div>
 <section id="id6">
 <h3>Дискретные производные<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>Учитывая формулы аппроксимации и дискретизированную функцию, становится возможным вычислить производную функции только с использованием ее значений. Формулы аппроксимации оцениваются с помощью <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
-<p>Для функции, показанной выше, и использующей центральные разности второго порядка <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.18)</a>, плюс производные по направлению <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.19)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
+<p>Для функции, показанной выше, и использующей центральные разности второго порядка <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code>, плюс производные по направлению <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.20)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1356,7 +1360,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 </figure>
 <div class="admonition- admonition">
 <p class="admonition-title">Задание</p>
-<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.18)</a> и ошибку округления для 64-разрядных чисел с плавающей запятой..</p>
+<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code> и ошибку округления для 64-разрядных чисел с плавающей запятой..</p>
 </div>
 </section>
 </section>
@@ -1393,10 +1397,10 @@ $$</p>
 \]</div>
 <p>Это ведет непосредственно к</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-forward-euler">
-<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^n + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.21)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.19</span></a>.</p>
+<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.22)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.19</span></a>.</p>
 <figure class="align-default" id="fig-fluid-time-explicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_2_explicit.svg"><img alt="../../../_images/time_integration_2_explicit.svg" src="../../../_images/time_integration_2_explicit.svg" width="80%" /></a>
 <figcaption>
@@ -1406,12 +1410,12 @@ $$</p>
 </section>
 <section id="id11">
 <h3>Неявный метод Эйлера<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.21)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
+<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.22)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
-<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.22)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, что они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.22)</a>.</p>
+<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.23)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, что они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.23)</a>.</p>
 <figure class="align-default" id="fig-fluid-time-implicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
 <figcaption>
@@ -1614,6 +1618,7 @@ $Если число CFL растет выше верхнего предела, 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Аппроксимация производных</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">Ряд Тейлораs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Производные</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Дискретизация</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретные производные</a></li>
