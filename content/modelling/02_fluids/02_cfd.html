@@ -545,29 +545,29 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Аппроксимация производных</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">Ряд Тейлораs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Производные</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Дискретизация</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретные производные</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Ошибка аппроксимации</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ряд Тейлора</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретизация</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Дискретные производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Ошибка аппроксимации</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Интегрирование по времени</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Траектории</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Явный метод Эйлера</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Неявный метод Эйлера</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Метод Эйлера-Хойна</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Методы Рунге-Кутты</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Интегрирование по времени</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Траектории</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Явный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Неявный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Метод Эйлера-Хойна</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Методы Рунге-Кутты</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Метод конечных разностей</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Подход к решению</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Метод конечных разностей</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Подход к решению</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Устойчивость</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Распространение информации</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Устойчивость</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Распространение информации</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cfl">Условие Куранта-Фридрихса-Леви (CFL)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Дополнительная заметка о том, как выполнялись вычисления в прошлом</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Дополнительная заметка о том, как выполнялись вычисления в прошлом</a></li>
 </ul>
 </li>
 </ul>
@@ -626,8 +626,8 @@ document.write(`
 </section>
 <section id="id3">
 <h2>Аппроксимация производных<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<section id="s">
-<h3>Ряд Тейлораs<a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Ряд Тейлора<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Ряд Тейлора</a> может аппроксимировать любую <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> функция в точке разложения <span class="math notranslate nohighlight">\(\mf x_0\)</span>. Аппроксимация f <span class="math notranslate nohighlight">\(\mf f(x)\)</span> изложена в терминах <span class="math notranslate nohighlight">\(\mf h\)</span>,являющейся переменной координатой в окрестности  <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-taylor-series" title="Link to this equation">#</a></span>\[\begin{split}
@@ -830,8 +830,8 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
-<section id="id4">
-<h3>Производные<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Производные<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Для аппроксимации первой производной функции <span class="math notranslate nohighlight">\(\mf f(x)\)</span> на <span class="math notranslate nohighlight">\(\mf x=x_0\)</span>, т.е. <span class="math notranslate nohighlight">\(\mf f'(x_0)\)</span>, разложение Тейлора вплоть до <span class="math notranslate nohighlight">\(\mf n=2\)</span> могут быть использованы</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdm-taylor-n2">
 <span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-fdm-taylor-n2" title="Link to this equation">#</a></span>\[
@@ -1093,8 +1093,8 @@ $<span class="math notranslate nohighlight">\(
 \]</div>
 </div>
 </section>
-<section id="id5">
-<h3>Дискретизация<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Дискретизация<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>В приведенном выше разделе производная функции была аппроксимирована в одной точке, здесь <span class="math notranslate nohighlight">\(\mf x_0\)</span>. Для того, чтобы вычислить производную функции в заданном интервале <span class="math notranslate nohighlight">\(\mf x \in [x_b, x_e]\)</span>, общий подход заключается в дискретизации интервала. Это означает, что он представлен конечным числом точек. Учитывая <span class="math notranslate nohighlight">\(\mf n_x\)</span> по мере увеличения количества представляющих точек интервал становится следующим конечным множеством:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1161,8 +1161,8 @@ $и значение of $\mf x_дается by\]</div>
 </figcaption>
 </figure>
 </section>
-<section id="id6">
-<h3>Дискретные производные<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>Дискретные производные<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>Учитывая формулы аппроксимации и дискретизированную функцию, становится возможным вычислить производную функции только с использованием ее значений. Формулы аппроксимации оцениваются с помощью <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
 <p>Для функции, показанной выше, и использующей центральные разности второго порядка <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code>, плюс производные по направлению <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.20)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1250,8 +1250,8 @@ $и значение of $\mf x_дается by\]</div>
 </ol>
 </div>
 </section>
-<section id="id7">
-<h3>Ошибка аппроксимации<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>Ошибка аппроксимации<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Если известна точная производная, то можно вычислить точное отклонение численного приближения от точных значений. Общим подходом к вычислению разницы между двумя наборами данных является L2-норма или среднеквадратичная ошибка (RMSE). Учитывая разницу значений функции <span class="math notranslate nohighlight">\(\mf \Delta f\)</span>, здесь</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1364,10 +1364,10 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 </div>
 </section>
 </section>
-<section id="id8">
-<h2>Интегрирование по времени<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <section id="id9">
-<h3>Траектории<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h2>Интегрирование по времени<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3>Траектории<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>Поскольку PDE, рассматриваемые в гидродинамике, часто содержат время как одно измерение, интеграция по времени является другим аспектом, помимо пространственных производных.</p>
 <p>Аналогично пространственной дискретизации дискретизируется измерение времени. Таким образом, временной интервал <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]разделен наto \)</span>\mf n_tвременные этапыps:</p>
 <div class="math notranslate nohighlight">
@@ -1388,8 +1388,8 @@ $$</p>
 \mf rhs(u(t_n), t_n) = rhs^n \quad .
 \]</div>
 </section>
-<section id="id10">
-<h3>Явный метод Эйлера<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>Явный метод Эйлера<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>На основе, опять же, ряда Тейора, прямое приближение следующего значения решения основано на</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1408,8 +1408,8 @@ $$</p>
 </figcaption>
 </figure>
 </section>
-<section id="id11">
-<h3>Неявный метод Эйлера<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>Неявный метод Эйлера<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.22)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
 <span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
@@ -1423,8 +1423,8 @@ $$</p>
 </figcaption>
 </figure>
 </section>
-<section id="id12">
-<h3>Метод Эйлера-Хойна<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>Метод Эйлера-Хойна<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <p>Метод Эйлера-Хойна иллюстрирует схему интегрирования по времени второго порядка.</p>
 <p>Сначала выполняется явное предсказание</p>
 <div class="math notranslate nohighlight">
@@ -1443,8 +1443,8 @@ $$</p>
 </figcaption>
 </figure>
 </section>
-<section id="id13">
-<h3>Методы Рунге-Кутты<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<section id="id14">
+<h3>Методы Рунге-Кутты<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <p>Существует широкий спектр схем интегрирования по времени. Одним из классов из них являются <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">методы Рунге-Кутты</a>. Классической схемой является следующий метод четвертого порядка:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1457,10 +1457,10 @@ $$</p>
 \end{split}\]</div>
 </section>
 </section>
-<section id="id14">
-<h2>Метод конечных разностей<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <section id="id15">
-<h3>Подход к решению<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<h2>Метод конечных разностей<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<section id="id16">
+<h3>Подход к решению<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <p>Рассмотрим простое уравнение диффузии:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1502,10 +1502,10 @@ $$</p>
 </figure>
 </section>
 </section>
-<section id="id16">
-<h2>Устойчивость<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
 <section id="id17">
-<h3>Распространение информации<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<h2>Устойчивость<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<section id="id18">
+<h3>Распространение информации<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <p>Важным свойством временного интегратора является его стабильность. Учитывая решаемую PDE и временной интегратор, можно провести простой (линейный) анализ устойчивости, например анализ устойчивости по фон Нейману. Результатом является коэффициент роста, который указывает на скорость роста малых возмущений. Если этот коэффициент больше 1, то схема нестабильна, поскольку колебания будут бесконечно возрастать.</p>
 <ul class="simple">
 <li><p>Явные схемы, как правило, нестабильны или условно устойчивы, т.е. если выполняется условие для временного шага</p></li>
@@ -1545,8 +1545,8 @@ $$Примечанияes:
 <p>\mf 0.8 \leq CFL = \Delta t \left(\frac{|\vec{v}|}{\Delta x} + |\nabla \cdot \vec{v}|\right) \leq 1.0
 $Если число CFL растет выше верхнего предела, временной шаг устанавливается равным 90% от допустимого, если оно падает ниже нижнего предела, то его увеличивают на 10%. 10Как правило, временной шаг сокращается в 2 раза, когда расстояние между ячейками уменьшается в 2 раза, т. е. общая вычислительная нагрузка увеличивается в 16 раз.f 16.</p>
 </section>
-<section id="id18">
-<h3>Дополнительная заметка о том, как выполнялись вычисления в прошлом<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3>Дополнительная заметка о том, как выполнялись вычисления в прошлом<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <p>Краткий раздел из презентации Ричарда Фейнмана “Лос-Аламос снизу”. Он описывает, как отдельные люди выполняли численные вычисления для каждого узла сетки и типа вычислений.</p>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uY-u1qyRM5w?start=2804" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
 </section>
@@ -1618,29 +1618,29 @@ $Если число CFL растет выше верхнего предела, 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Обзор</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Аппроксимация производных</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">Ряд Тейлораs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Производные</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Дискретизация</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретные производные</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Ошибка аппроксимации</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ряд Тейлора</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Дискретизация</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Дискретные производные</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Ошибка аппроксимации</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Интегрирование по времени</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Траектории</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Явный метод Эйлера</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Неявный метод Эйлера</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Метод Эйлера-Хойна</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Методы Рунге-Кутты</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Интегрирование по времени</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Траектории</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Явный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Неявный метод Эйлера</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Метод Эйлера-Хойна</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Методы Рунге-Кутты</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Метод конечных разностей</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Подход к решению</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Метод конечных разностей</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Подход к решению</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Устойчивость</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Распространение информации</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Устойчивость</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Распространение информации</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cfl">Условие Куранта-Фридрихса-Леви (CFL)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Дополнительная заметка о том, как выполнялись вычисления в прошлом</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Дополнительная заметка о том, как выполнялись вычисления в прошлом</a></li>
 </ul>
 </li>
 </ul>
