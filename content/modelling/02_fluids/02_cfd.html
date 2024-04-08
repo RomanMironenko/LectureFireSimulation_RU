@@ -973,10 +973,11 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-fdm-central-intermediate" title="Link to this equation">#</a></span>\[
 \mf f(x_0+h) - f(x_0-h) = 2f'(x_0)\cdot h + \mathcal{O}(h^3)
 \]</div>
-<p>результаты в формуле центральной разности для первой производной
-$<span class="math notranslate nohighlight">\(
+<p>приводит к формуле центральной разности для первой производной</p>
+<div class="math notranslate nohighlight" id="equation-eq-cfd-central-derivative-snd">
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-central-derivative-snd" title="Link to this equation">#</a></span>\[
 \mf f'(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
-\)</span>$ (eq-cfd-central-derivative-snd)</p>
+\]</div>
 <p>Формула центральных различий графически представлена на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1078,7 +1079,7 @@ $<span class="math notranslate nohighlight">\(
 </figure>
 <p>Также возможно вывести формулы направления (прямого, обратного) второго порядка. Вычисление приводит к следующим формулам</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-directional-derivative-snd">
-<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
 \mf f'(x_0) &amp;\mf= \frac{-3f(x_0) + 4f(x_0+h) - f(x_0+2h)}{2h} + \mathcal{O}(h^2) \\
 \mf f'(x_0) &amp;\mf= \frac{ 3f(x_0) - 4f(x_0-h) + f(x_0-2h)}{2h} + \mathcal{O}(h^2) \quad .
@@ -1088,7 +1089,7 @@ $<span class="math notranslate nohighlight">\(
 <p class="admonition-title">Задание</p>
 <p>Выведите формулу дискретизации для второй производной</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-central-sndderivative-snd">
-<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Link to this equation">#</a></span>\[
 \mf f''(x_0) = \frac{f(x_0-h) - 2f(x_0) + f(x_0+h)}{h^2} + \mathcal{O}(h^2)
 \]</div>
 </div>
@@ -1172,7 +1173,7 @@ $<span class="math notranslate nohighlight">\(
 <section id="id7">
 <h3>Дискретные производные<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>Учитывая формулы аппроксимации и дискретизированную функцию, вычислить ее производную можно только с использованием ее значений. Формулы аппроксимации оцениваются с помощью <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
-<p>Для функции, показанной выше, и использующей центральные разности второго порядка <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code>, плюс направленные производные <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.20)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
+<p>Для функции, показанной выше, и использующей центральные разности второго порядка <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a>, плюс направленные производные <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.21)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1253,8 +1254,8 @@ $<span class="math notranslate nohighlight">\(
 \]</div>
 <ol class="arabic simple">
 <li><p>Дискретизируйте функцию с <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span> между -2 и 4 и постройте график непрерывного и дискретного представления.</p></li>
-<li><p>Используйте эту дискретизацию для аппроксимации первой производной. Постройте точную и аппроксимированную производнуюve.
-1Проделайте то же самое для второй производной.e.</p></li>
+<li><p>Используйте эту дискретизацию для аппроксимации первой производной. Постройте точную и аппроксимированную производнуюve.</p></li>
+<li><p>Проделайте то же самое для второй производной.</p></li>
 </ol>
 </div>
 </section>
@@ -1368,7 +1369,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 </figure>
 <div class="admonition- admonition">
 <p class="admonition-title">Задание</p>
-<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code> и ошибку округления для 64-разрядных чисел с плавающей запятой..</p>
+<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a> и ошибку округления для 64-разрядных чисел с плавающей запятой..</p>
 </div>
 </section>
 </section>
@@ -1405,10 +1406,10 @@ $$</p>
 \]</div>
 <p>Это ведет непосредственно к</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-forward-euler">
-<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^n + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.22)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.19</span></a>.</p>
+<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.19</span></a>.</p>
 <figure class="align-default" id="fig-fluid-time-explicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_2_explicit.svg"><img alt="../../../_images/time_integration_2_explicit.svg" src="../../../_images/time_integration_2_explicit.svg" width="80%" /></a>
 <figcaption>
@@ -1418,12 +1419,12 @@ $$</p>
 </section>
 <section id="id12">
 <h3>Неявный метод Эйлера<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.22)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
+<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
-<span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.23)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, что они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.23)</a>.</p>
+<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, что они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
 <figure class="align-default" id="fig-fluid-time-implicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
 <figcaption>
