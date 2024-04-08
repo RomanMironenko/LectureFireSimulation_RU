@@ -1110,7 +1110,7 @@ $<span class="math notranslate nohighlight">\(
 \[
 \mf \Delta x = \frac{x_e - x_b}{n_x-1}\quad
 \]</div>
-<p>и значение of $\mf x_дается by</p>
+<p>и значение <span class="math notranslate nohighlight">\(\mf x_i\)</span> определяется следующим образом</p>
 <div class="math notranslate nohighlight">
 \[
 \mf x_i = x_b + i\cdot \Delta x \quad .
@@ -1123,8 +1123,7 @@ $<span class="math notranslate nohighlight">\(
 \]</div>
 <p>где индекс, указывающий положение на пространственной сетке, помещается в виде нижнего индекса.</p>
 <p>Приведенные выше определения и следующие примеры относятся к одномерной системе. В общем случае моделирование пожара решается в трехмерной области с соответствующими величинами для y- и z-направлений, т.е. <span class="math notranslate nohighlight">\(\mf \Delta y, \Delta z\)</span>.</p>
-<p><strong>Пример дискретизации:</strong> приведен  <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, функция в уравнении <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> принимает следующее дискретное представление
-.</p>
+<p><strong>Пример дискретизации:</strong> приведен  <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, функция в уравнении <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> принимает следующее дискретное представление.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1172,8 +1171,8 @@ $<span class="math notranslate nohighlight">\(
 </section>
 <section id="id7">
 <h3>Дискретные производные<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>Учитывая формулы аппроксимации и дискретизированную функцию, становится возможным вычислить производную функции только с использованием ее значений. Формулы аппроксимации оцениваются с помощью <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
-<p>Для функции, показанной выше, и использующей центральные разности второго порядка <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code>, плюс производные по направлению <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.20)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
+<p>Учитывая формулы аппроксимации и дискретизированную функцию, вычислить ее производную можно только с использованием ее значений. Формулы аппроксимации оцениваются с помощью <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
+<p>Для функции, показанной выше, и использующей центральные разности второго порядка <code class="xref eq docutils literal notranslate"><span class="pre">eq-cfd-central-derivative-snd</span></code>, плюс направленные производные <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.20)</a> на границах, аппроксимированная производная показана на следующем рисунке.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1182,7 +1181,7 @@ $<span class="math notranslate nohighlight">\(
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># функция для вычисления первой производной с помощью</span>
-<span class="c1"># центральная схема разграничения</span>
+<span class="c1"># с помощью схемы центрального дифференцирования</span>
 <span class="k">def</span> <span class="nf">central</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     
@@ -1190,7 +1189,7 @@ $<span class="math notranslate nohighlight">\(
         <span class="c1"># центральная схема дискретизации</span>
         <span class="n">yp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
        
-   <span class="c1"># использование производных по направлению на границе</span>
+   <span class="c1"># использование направленных производных на границе</span>
     <span class="n">yp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">[</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span><span class="p">])</span>
     <span class="n">yp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
     
@@ -1253,8 +1252,8 @@ $<span class="math notranslate nohighlight">\(
 \mf f(x) = x^4 + 3x^3 + 2 \quad .
 \]</div>
 <ol class="arabic simple">
-<li><p>Дискретизируйте функцию с помощью <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span> между -2 и 4 и постройте график непрерывного и дискретного представления..
-1Используйте эту дискретизацию для аппроксимации первой производной. Постройте точную и аппроксимированную производнуюve.
+<li><p>Дискретизируйте функцию с <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span> между -2 и 4 и постройте график непрерывного и дискретного представления.</p></li>
+<li><p>Используйте эту дискретизацию для аппроксимации первой производной. Постройте точную и аппроксимированную производнуюve.
 1Проделайте то же самое для второй производной.e.</p></li>
 </ol>
 </div>
