@@ -1266,7 +1266,7 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 \[
 \mf \Delta f_i = f'_{numeric,i} - f'_{exact,i}
 \]</div>
-<p>в тех же местах <span class="math notranslate nohighlight">\(\mf x_i\)</span> with <span class="math notranslate nohighlight">\(\mf i \in [0, \dots, n_x-1]\)</span>, значение RMSE равно</p>
+<p>в одних и тех же местах <span class="math notranslate nohighlight">\(\mf x_i\)</span> с <span class="math notranslate nohighlight">\(\mf i \in [0, \dots, n_x-1]\)</span>, значение RMSE составляет</p>
 <div class="math notranslate nohighlight">
 \[
 \mf RMSE(\Delta f) = \sqrt{\frac{1}{n_x}\sum_{i=0}^{n_x-1}\left(\Delta f_i\right)^2}\quad .
@@ -1369,7 +1369,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 </figure>
 <div class="admonition- admonition">
 <p class="admonition-title">Задание</p>
-<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a> и ошибку округления для 64-разрядных чисел с плавающей запятой..</p>
+<p>Почему ошибка аппроксимации не уменьшается в дальнейшем для <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Примите во внимание уравнение <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a> и ошибку округления для 64-разрядных чисел с плавающей запятой.</p>
 </div>
 </section>
 </section>
@@ -1378,20 +1378,23 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <section id="id10">
 <h3>Траектории<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>Поскольку PDE, рассматриваемые в гидродинамике, часто содержат время как одно измерение, интеграция по времени является другим аспектом, помимо пространственных производных.</p>
-<p>Аналогично пространственной дискретизации дискретизируется измерение времени. Таким образом, временной интервал <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]разделен наto \)</span>\mf n_tвременные этапыps:</p>
+<p>Аналогично пространственной дискретизации, дискретизируется и временное измерение. Так, временной интервал <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]\)</span> разбивается на <span class="math notranslate nohighlight">\(\mf n_t\)</span> временных шагов:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf t_n = n\cdot\Delta t\quad with \quad \Delta t = \frac{t_e}{n_t-1} \quad and \quad n \in [0, n_t-1]\quad .
-$$Для того, чтобы отличать временной индекс от пространственного, он помещается как надстрочный индекс и не должен быть смешан со степенямиrs:\]</div>
-<p>\mf u(t_n) = u^n\quad .
-$$</p>
+\]</div>
+<p>Для того, чтобы отличать временной индекс от пространственного, он помещается как надстрочный индекс и не должен быть смешан со степенями:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf u(t_n) = u^n\quad .
+\]</div>
 <p>Дана производная функции по времени, т.е. правая часть (rhs),</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \partial_t u = \du = rhs(u, t)
 \]</div>
 <p>и начальное значение для <span class="math notranslate nohighlight">\(\mf u\)</span> на  <span class="math notranslate nohighlight">\(\mf t=0\)</span>, необходимо вычислить временную эволюцию, также называемую траекторией. Интегрирование по времени направлено на аппроксимацию следующего значения решения <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span>.</p>
-<p>Ниже пункт оценки rhs сокращен до</p>
+<p>В дальнейшем точка оценки rhs сокращается до</p>
 <div class="math notranslate nohighlight">
 \[
 \mf rhs(u(t_n), t_n) = rhs^n \quad .
