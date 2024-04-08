@@ -1381,7 +1381,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <p>Аналогично пространственной дискретизации, дискретизируется и временное измерение. Так, временной интервал <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]\)</span> разбивается на <span class="math notranslate nohighlight">\(\mf n_t\)</span> временных шагов:</p>
 <div class="math notranslate nohighlight">
 \[
-\mf t_n = n\cdot\Delta t\quad with \quad \Delta t = \frac{t_e}{n_t-1} \quad and \quad n \in [0, n_t-1]\quad .
+\mf t_n = n\cdot\Delta t\quad с \quad \Delta t = \frac{t_e}{n_t-1} \quad и \quad n \in [0, n_t-1]\quad .
 \]</div>
 <p>Для того, чтобы отличать временной индекс от пространственного, он помещается как надстрочный индекс и не должен быть смешан со степенями:</p>
 <div class="math notranslate nohighlight">
@@ -1402,7 +1402,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 </section>
 <section id="id11">
 <h3>Явный метод Эйлера<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>На основе, опять же, ряда Тейора, прямое приближение следующего значения решения основано на</p>
+<p>На основе, опять же, ряда Тейора, прямая аппроксимация следующего значения решения основана на</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \frac{u^{n+1} - u^n}{\Delta t} = rhs^n + \mathcal{O}(\Delta t)\quad .
@@ -1422,12 +1422,12 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 </section>
 <section id="id12">
 <h3>Неявный метод Эйлера<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> то только одна из возможностей. Тем же способом, что и пространственные производные по направлению, оценка может быть выполнена на <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
+<p>Оценка производной в  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> при <span class="math notranslate nohighlight">\(\mf t_n\)</span> лишь одна из возможностей. Таким же образом, как и для направленных пространственных производных, оценка может быть выполнена при <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> и приводит к следующей итерационной формуле:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
 <span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, что они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
+<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, чтобы они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
 <figure class="align-default" id="fig-fluid-time-implicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
 <figcaption>
@@ -1443,7 +1443,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 \[
 \mf u_p^{n+1} = u^n + \Delta t\cdot rhs^n\quad .
 \]</div>
-<p>Это промежуточное решение используется для скорректированной аппроксимации</p>
+<p>Это промежуточное решение используется для корректирующего приближения</p>
 <div class="math notranslate nohighlight">
 \[
 \mf u^{n+1} = u^n + \frac{1}{2} \Delta t\cdot \left(rhs^n + rhs(u_p^{n+1}) \right) + \mathcal{O}(\Delta t^2)\quad .
@@ -1518,25 +1518,54 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <h2>Устойчивость<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <section id="id18">
 <h3>Распространение информации<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
-<p>Важным свойством временного интегратора является его стабильность. Учитывая решаемую PDE и временной интегратор, можно провести простой (линейный) анализ устойчивости, например анализ устойчивости по фон Нейману. Результатом является коэффициент роста, который указывает на скорость роста малых возмущений. Если этот коэффициент больше 1, то схема нестабильна, поскольку колебания будут бесконечно возрастать.</p>
+<p>Важным свойством временного интегратора является его устойчивость. Учитывая решаемую PDE и временной интегратор, можно провести простой (линейный) анализ устойчивости, например анализ устойчивости по фон Нейману. Результатом является коэффициент роста, который указывает на скорость роста малых возмущений. Если этот коэффициент больше 1, то схема нестабильна, поскольку колебания будут бесконечно возрастать.</p>
 <ul class="simple">
 <li><p>Явные схемы, как правило, нестабильны или условно устойчивы, т.е. если выполняется условие для временного шага</p></li>
-<li><p>Неявные схемы, как правило, безусловно стабильны, однако они имеют тенденцию ослаблять решение
-Задача адвекции с постоянной скоростью демонстрирует условие устойчивостиon.</p></li>
+<li><p>Неявные схемы, как правило, безусловно стабильны, однако они имеют тенденцию к затуханию решения</p></li>
 </ul>
-<p>Низкая скорость распространенияed**</p>
-<p>Модельное уравнение
-on</p>
+<p>Задача адвекции с постоянной скоростью демонстрирует условие устойчивости.</p>
+<p><strong>Низкая скорость распространения</strong></p>
+<ul>
+<li><p>Уравнение модели</p>
 <div class="math notranslate nohighlight">
 \[
   \mf \partial_t \phi + \partial_x(v_0\phi) = 0
-  $Небольшой mall $\mf \Delta t$Пройденное расстояние за 
-per $\mf \Delta t$:
-  
   \]</div>
-<p>\mf \delta x = v_0 \Delta t \lt \Delta x
-Информация перемещается меньше, чем then <span class="math notranslate nohighlight">\(\mf\Deltс шагом по времени step \)</span>\mf\Deltи фиксируется соседней точкой сетки
-pИнформация о решении не теряется во время интегрирования по времениgration</p>
+</li>
+<li><p>Небольшой <span class="math notranslate nohighlight">\(\mf \Delta t\)</span></p></li>
+<li><p>Пройденное расстояние за <span class="math notranslate nohighlight">\(\mf \Delta t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \delta x = v_0 \Delta t \lt \Delta x
+  \]</div>
+</li>
+<li><p>Информация перемещается меньше, чем <span class="math notranslate nohighlight">\(\mf\Delta x\)</span> за шаг времени <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> и захватывается соседней точкой сетки</p></li>
+<li><p>Информация о решении не теряется при интеграции во времени</p></li>
+</ul>
+<figure class="align-default" id="fig-fdm-cfl-dtsmall">
+<a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtsmall.png"><img alt="../../../_images/fdm_cfl_dtsmall.png" src="../../../_images/fdm_cfl_dtsmall.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Медленное распространение информации.</span><a class="headerlink" href="#fig-fdm-cfl-dtsmall" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Быстрая скорость распространения</strong>.</p>
+<ul>
+<li><p>Большое <span class="math notranslate nohighlight">\(\mf\Delta t\)</span></p></li>
+<li><p>Расстояние, пройденное за <span class="math notranslate nohighlight">\(\mf\Delta t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \delta x = v_0 \Delta t \gt \Delta x
+  \]</div>
+</li>
+<li><p>Информация перемещается быстрее, чем <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> с шагом по времени <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> и поэтому больше не могут быть зафиксированы</p></li>
+<li><p>Информация теряется во время интегрирования по времени</p></li>
+</ul>
+<figure class="align-default" id="fig-fdm-cfl-dtlarge">
+<a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtlarge.png"><img alt="../../../_images/fdm_cfl_dtlarge.png" src="../../../_images/fdm_cfl_dtlarge.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Быстрое распространение информации.</span><a class="headerlink" href="#fig-fdm-cfl-dtlarge" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="cfl">
 <h3>Условие Куранта-Фридрихса-Леви (CFL)<a class="headerlink" href="#cfl" title="Link to this heading">#</a></h3>
