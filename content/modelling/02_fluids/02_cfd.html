@@ -618,7 +618,7 @@ document.write(`
 </figure>
 <p>Основным аспектом решения PDE является аппроксимация производных. Эта аппроксимация выполняется в дискретизированной области и приводит к набору алгебраических уравнений, в конечном счете к системе линейных уравнений. Существует множество подходов к аппроксимации с различными особенностями и свойствами, среди которых наиболее заметными являются три:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">Метод конечных элементов (МКЭ)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">Метод конечных элементов (FEM)</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_volume_method">Метод конечных объемов (FVM)</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">Метод конечных разностей (FDM)</a></p></li>
 </ul>
@@ -628,7 +628,7 @@ document.write(`
 <h2>Аппроксимация производных<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <section id="id4">
 <h3>Ряд Тейлора<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Ряд Тейлора</a> может аппроксимировать любую <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> функция в точке разложения <span class="math notranslate nohighlight">\(\mf x_0\)</span>. Аппроксимация f <span class="math notranslate nohighlight">\(\mf f(x)\)</span> изложена в терминах <span class="math notranslate nohighlight">\(\mf h\)</span>,являющейся переменной координатой в окрестности  <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Ряд Тейлора</a> может аппроксимировать любую <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> функция в точке разложения <span class="math notranslate nohighlight">\(\mf x_0\)</span>. Аппроксимация <span class="math notranslate nohighlight">\(\mf f(x)\)</span> изложена в терминах <span class="math notranslate nohighlight">\(\mf h\)</span>,являющейся переменной координатой в окрестности  <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-taylor-series" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
@@ -640,7 +640,7 @@ document.write(`
 <p class="sidebar-title">Big O нотация</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">Big O нотация</a> <span class="math notranslate nohighlight">\(\mf \mathcal{O}\)</span> указывает на асимптотическое поведение функции. При аппроксимации производных, показанной в этом разделе, она указывает на функциональное уменьшение ошибки аппроксимации для <span class="math notranslate nohighlight">\(\mf h \rightarrow 0\)</span>.</p>
 </aside>
-<p>На практике расширение прерывается в заданном порядке <span class="math notranslate nohighlight">\(\mf \mathcal{O}(h^n)\)</span>,где <span class="math notranslate nohighlight">\(\mf n\)</span> обозначает количество рассматриваемых членов Тейлора, т.е.</p>
+<p>На практике разложение прерывается в заданном порядке <span class="math notranslate nohighlight">\(\mf \mathcal{O}(h^n)\)</span>,где <span class="math notranslate nohighlight">\(\mf n\)</span> обозначает количество рассматриваемых членов Тейлора, т.е.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series-n">
 <span class="eqno">(2.12)<a class="headerlink" href="#equation-eq-taylor-series-n" title="Link to this equation">#</a></span>\[
 \mf f(x_0 + h) =\sum_{i=0}^{n-1}\left(\frac{1}{i!}\left.\frac{d^if}{dx^i}\right|_{x_0}\cdot h^i\right) +  \mathcal{O}(h^n)\quad .
@@ -1181,7 +1181,7 @@ n in [0,…,3]</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># функция для вычисления первой производной с помощью</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># функция для вычисления первой производной </span>
 <span class="c1"># с помощью схемы центрального дифференцирования</span>
 <span class="k">def</span> <span class="nf">central</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -1377,7 +1377,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <h2>Интегрирование по времени<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <section id="id10">
 <h3>Траектории<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<p>Поскольку PDE, рассматриваемые в гидродинамике, часто содержат время как одно измерение, интеграция по времени является другим аспектом, помимо пространственных производных.</p>
+<p>Поскольку PDE, рассматриваемые в гидродинамике, часто содержат время как одно измерение, интегрирование по времени является другим аспектом, помимо пространственных производных.</p>
 <p>Аналогично пространственной дискретизации, дискретизируется и временное измерение. Так, временной интервал <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]\)</span> разбивается на <span class="math notranslate nohighlight">\(\mf n_t\)</span> временных шагов:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1585,7 +1585,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <li><p>Существуют и другие ограничения на <span class="math notranslate nohighlight">\(\mf Delta t\)</span>: ограничение на плотность массы и ограничение на объем.</p></li>
 <li><p>Значение числа CFL зависит от схемы интегрирования по времени.</p></li>
 </ul>
-<p>Последствия состояния CFL в FDS:
+<p>Последствия состояния CFL в FDS:<br />
 Условие для <span class="math notranslate nohighlight">\(\mf \Delta t\)</span> используется в FDS:</p>
 <div class="math notranslate nohighlight">
 \[
