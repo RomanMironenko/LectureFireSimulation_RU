@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.3. Turbulence &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>2.3. Турбулентность &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
@@ -197,7 +197,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">2. Гидродинамика</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_fluids.html">2.1. Жидкости и газы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_cfd.html">2.2. Вычислительная гидродинамика</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Turbulence</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Турбулентность</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03_compartments/00_overview.html">3. Compartment Fires</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -502,7 +502,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Turbulence</h1>
+    <h1>Турбулентность</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -512,9 +512,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation">Characterisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scales">Scales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Характеристика</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Шкалы</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Моделирование</a></li>
 </ul>
             </nav>
         </div>
@@ -526,114 +526,113 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="turbulence">
-<h1><span class="section-number">2.3. </span>Turbulence<a class="headerlink" href="#turbulence" title="Link to this heading">#</a></h1>
-<p>Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics are known and available for over one hundred years.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">2.3. </span>Турбулентность<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Турбулентность является одной из основных научных проблем. Математическое описание и экспериментальные данные, относящиеся к гидродинамике, известны и доступны уже более ста лет.</p>
 <blockquote>
-<div><p>“Turbulence is the most important unsolved problem of classical physics.”<br>
-— Richard Feynman</p>
+<div><p>“Турбулентность - важнейшая нерешенная проблема классической физики”.
+— Ричард Фейнман</p>
 </div></blockquote>
 <blockquote>
-<div><p>”When I meet God, I am going to ask him two questions: Why relativity, and why turbulence?
-I really believe he will have an answer for the first.”<br>
-— Werner Heisenberg</p>
+<div><p>”Когда я встречусь с Богом, я задам ему два вопроса: Почему теория относительности и почему турбулентность? Я действительно верю, что у него будет ответ на первый вопрос ”.
+— Вернер Гейзенберг</p>
 </div></blockquote>
-<p>Understanding the nature of turbulence is one of the <a class="reference external" href="https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation">Millennium Problems</a>.</p>
+<p>Понимание природы турбулентности является одной из <a class="reference external" href="https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation">проблем тысячелетия</a>.</p>
 <figure class="align-default" id="fig-turbulence-great-wave">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Great wave off Kanagawa. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-great-wave" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Большая волна у берегов Канагавы. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-great-wave" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-kh-waves">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.27 </span><span class="caption-text"><a class="reference external" href="https://en.wikipedia.org/wiki/Kelvin%E2%80%93Helmholtz_instability">Kelvin–Helmholtz instability</a> in a cloud formation. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-kh-waves" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.27 </span><span class="caption-text"><a class="reference external" href="https://en.wikipedia.org/wiki/Kelvin%E2%80%93Helmholtz_instability">Неустойчивость Кельвина–Гельмгольца</a> в облачном образовании. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-kh-waves" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>On of the reference books for turbulence is <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id12" title="Stephen B Pope. Turbulent Flows. Cambridge University Press, 2000. ISBN 9780521598866. doi:10.1017/cbo9780511840531.">Pop00</a>]</span> and further interesting LES reading: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Stephen B Pope. Ten questions concerning the large-eddy simulation of turbulent flows. New Journal of Physics, 6(1):35, 2004. doi:10.1088/1367-2630/6/1/035.">Pop04</a>]</span>.</p>
-<section id="characterisation">
-<h2>Characterisation<a class="headerlink" href="#characterisation" title="Link to this heading">#</a></h2>
-<p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id15" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.28</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.29</span></a>.</p>
+<p>Одним из справочников по турбулентности является <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id12" title="Stephen B Pope. Turbulent Flows. Cambridge University Press, 2000. ISBN 9780521598866. doi:10.1017/cbo9780511840531.">Pop00</a>]</span> и другие интересные файлы для чтения: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Stephen B Pope. Ten questions concerning the large-eddy simulation of turbulent flows. New Journal of Physics, 6(1):35, 2004. doi:10.1088/1367-2630/6/1/035.">Pop04</a>]</span>.</p>
+<section id="id4">
+<h2>Характеристика<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Среди первых научных экспериментов по описанию и анализу турбулентных течений - работа <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Осборна Рейнольдса</a>. Он изучал условия, при которых поток претерпевает переход из упорядоченного состояния в хаотическое. Одно из этих исследований опубликовано в  <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id15" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>, см. <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.28</span></a> и <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.29</span></a>.</p>
 <figure class="align-default" id="fig-turbulence-reynolds-experiment">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.28 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.28 </span><span class="caption-text">Эксперимент Рейнольдса в 1883 году. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-reynolds-results">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.29 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id15" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.29 </span><span class="caption-text">Наблюдения течения в эксперименте Рейнольдса, см. Также оригинальную статью <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id15" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>. Источник: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.30</span></a>. The full experimental setup and results are given in <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span>.</p>
+<p>С помощью этих экспериментов можно исследовать переход потока в зависимости от числа Рейнольдса. Другой пример для определения перехода из ламинарного состояния в турбулентное для буйного столба показан на <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.30</span></a>. Полная экспериментальная установка и результаты приведены в <span id="id7">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span>.</p>
 <figure class="align-default" id="fig-turbulence-plume-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-setup.jpg"><img alt="../../../_images/turbulence-plume-setup.jpg" src="../../../_images/turbulence-plume-setup.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Экспериментальная установка плавучего шлейфа, более подробную информацию см. в <span id="id8">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span> Здесь мощность нагрева медного блока определяет скорость потока.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-plume-quiver">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_quiver.png"><img alt="../../../_images/turbulence-plume-velocity_quiver.png" src="../../../_images/turbulence-plume-velocity_quiver.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Example of instanteneous velocity fields for different heating rates. The velocity field is captured with a <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry">particle imaging velocimetry (PIV)</a> technique.</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Пример мгновенных полей скоростей для различных скоростей нагрева. Поле скоростей регистрируется с помощью <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry"> метода велосиметрии изображений </a> частиц (PIV).</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-plume-time-series">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_time_series.png"><img alt="../../../_images/turbulence-plume-velocity_time_series.png" src="../../../_images/turbulence-plume-velocity_time_series.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.32 </span><span class="caption-text">Time series of velocity components at selected locations (blue circles in <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.31</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.32 </span><span class="caption-text">Временные ряды составляющих скорости в выбранных точках (синие кружочки на <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.31</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-plume-fluctuations">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_fluctuations.png"><img alt="../../../_images/turbulence-plume-velocity_fluctuations.png" src="../../../_images/turbulence-plume-velocity_fluctuations.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.33 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.33 </span><span class="caption-text">Статистика колебаний скорости.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.34</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelerated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.35</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.36</span></a>.</p>
+<p>Канонической установкой для перехода от ламинарного течения к турбулентному является течение в трубе, как показано на <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.34</span></a>. Начиная с равномерного потока на входе, поток в резервуарах замедляется и развивается соответствующая картина течения. В зависимости от числа Рейнольдса профили средних скоростей существенно различаются. В то время как в ламинарном случае развивается параболический профиль, для турбулентного потока характерен уплощенный профиль, см. <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.35</span></a>. Другое наблюдение заключается в том, что эффективная вязкость отличается в обоих случаях. Хотя в ламинарном случае наблюдаемое значение является свойством материала и, следовательно, постоянным, в турбулентном случае оно показывает более высокое и динамичное значение, см. <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.36</span></a>.</p>
 <figure class="align-default" id="fig-turbulence-pipe-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-sketch-labeled.svg"><img alt="../../../_images/turbulence-pipe-sketch-labeled.svg" src="../../../_images/turbulence-pipe-sketch-labeled.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.34 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.34 </span><span class="caption-text">Схема течения в трубе. Стрелками показана усредненная по времени скорость.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-pipe-velocity">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-velocity.svg"><img alt="../../../_images/turbulence-pipe-velocity.svg" src="../../../_images/turbulence-pipe-velocity.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.35 </span><span class="caption-text">Schematics mean flow in a pipe.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.35 </span><span class="caption-text">Схемы означают течение в трубе.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-pipe-viscosity">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-viscosity.svg"><img alt="../../../_images/turbulence-pipe-viscosity.svg" src="../../../_images/turbulence-pipe-viscosity.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.36 </span><span class="caption-text">Schematics of the effective viscosity in a pipe flow.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.36 </span><span class="caption-text">Схемы эффективной вязкости в потоке в трубе.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The following video shows a few simple experiments, including the one performed by Reynolds, that might help to understand some of the fundamental concepts of fluid flow and turbulence.</p>
+<p>В следующем видео показано несколько простых экспериментов, включая тот, который провел Рейнольдс, которые могут помочь понять некоторые фундаментальные концепции течения жидкости и турбулентности.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/LTHIGdIEKJI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 </section>
-<section id="scales">
-<h2>Scales<a class="headerlink" href="#scales" title="Link to this heading">#</a></h2>
-<p>Turbulence is dominated by the interaction of large and small scales, which are very different:</p>
+<section id="id9">
+<h2>Шкалы<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>В турбулентности преобладает взаимодействие больших и малых масштабов, которые очень различны:</p>
 <ul class="simple">
-<li><p>production of kinetic energy, e.g. a fire at a scale of <span class="math notranslate nohighlight">\(\mf 1~m\)</span></p></li>
-<li><p>dissipation of kinetic energy into heat, in air with a velocity of <span class="math notranslate nohighlight">\(\mf 1~m/s\)</span> the dissipation scale (<a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov_microscales">Kolmogorov scale</a>) is about <span class="math notranslate nohighlight">\(\mf 25~\mu m\)</span></p></li>
+<li><p>производство кинетической энергии, например, пожар в масштабе <span class="math notranslate nohighlight">\(\mf 1~m\)</span></p></li>
+<li><p>диссипация кинетической энергии в тепло в воздухе со скоростью <span class="math notranslate nohighlight">\(\mf 1~m/s\)</span> шкала рассеяния (<a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov_microscales">шкала Колмогорова</a>) составляет примерно <span class="math notranslate nohighlight">\(\mf 25~\mu m\)</span></p></li>
 </ul>
 <figure class="align-default" id="fig-turbulence-energy-cascade">
 <a class="reference internal image-reference" href="../../../_images/energy-cascade.svg"><img alt="../../../_images/energy-cascade.svg" src="../../../_images/energy-cascade.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.37 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.37 </span><span class="caption-text">Масштабы, участвующие в турбулентном потоке.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The integral scale, at which the flow structures break into smaller structures, connects both above scales.</p>
-<p>In turbulence literature the structures are often represented by wavenumbers <span class="math notranslate nohighlight">\(\mf k\)</span>:</p>
+<p>Интегральный масштаб, на котором структуры потока распадаются на более мелкие структуры, соединяет оба вышеуказанных масштаба.</p>
+<p>В литературе по турбулентности структуры часто представляются волновыми числами <span class="math notranslate nohighlight">\(\mf k\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf k = \frac{2\pi}{L}\quad .
 \]</div>
-<p>Thus, the smallest resolvable eddy <span class="math notranslate nohighlight">\(\mf L=2\Delta x\)</span> has a wavenumber of</p>
+<p>Таким образом, наименьший разрешимый вихрь <span class="math notranslate nohighlight">\(\mf L=2\Delta x\)</span> имеет волновое число</p>
 <div class="math notranslate nohighlight">
 \[
 \mf k_0 = \frac{\pi}{\Delta x}\quad .
@@ -641,74 +640,74 @@ I really believe he will have an answer for the first.”<br>
 <figure class="align-default" id="fig-turbulence-subgridscale">
 <a class="reference internal image-reference" href="../../../_images/subgridscale.svg"><img alt="../../../_images/subgridscale.svg" src="../../../_images/subgridscale.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.38 </span><span class="caption-text">Scales and resolution on a numerical grid.</span><a class="headerlink" href="#fig-turbulence-subgridscale" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.38 </span><span class="caption-text">Масштабы и разрешение на числовой сетке.</span><a class="headerlink" href="#fig-turbulence-subgridscale" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Often, the kinetic energy spectrum is considered in turbulence. It can be divided into (at least) three sections, as outlined in <a class="reference internal" href="#fig-turbulence-energy-spectrum-physical"><span class="std std-numref">Fig. 2.39</span></a>.</p>
+<p>Часто при турбулентности рассматривается спектр кинетической энергии. Его можно разделить (по крайней мере) на три секции, как показано на <a class="reference internal" href="#fig-turbulence-energy-spectrum-physical"><span class="std std-numref">Fig. 2.39</span></a>.</p>
 <figure class="align-default" id="fig-turbulence-energy-spectrum-physical">
 <a class="reference internal image-reference" href="../../../_images/energy-spectrum-physical.svg"><img alt="../../../_images/energy-spectrum-physical.svg" src="../../../_images/energy-spectrum-physical.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.39 </span><span class="caption-text">Energy spectrum for a homogeneous isotropic turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-physical" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.39 </span><span class="caption-text">Энергетический спектр для однородного изотропного турбулентного потока.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-physical" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Given a finite value of the grid resolution, thus also the minimal wavenumber, the energy spectrum can not be fully resolved and the unresolved parts must be modelled with a sub-grid scale (SGS) model.</p>
-<p>To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spatial or a temporal means.</p>
+<p>Учитывая конечное значение разрешения сетки, а следовательно, и минимального волнового числа, энергетический спектр не может быть полностью разрешен, и неразрешенные части должны быть смоделированы с помощью модели подсеточного масштаба (SGS).</p>
+<p>Для моделирования турбулентности необходимо аппроксимировать влияние малых масштабов на большие. Два основных подхода основаны либо на пространственных, либо на временных методах.</p>
 <!-- :::{figure-md} fig-turbulence-energy-spectrum
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png" width="60%">
 
 Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png).
 ::: -->
 </section>
-<section id="modelling">
-<h2>Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h2>
-<p>In fire simulations, two classes of turbulence models are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable.</p>
+<section id="id10">
+<h2>Моделирование<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>При моделировании пожара распространены два класса моделей турбулентности: прямое численное моделирование (DNS) и моделирование больших вихрей (LES). Хотя для практических приложений подходит только класс LES.</p>
 <figure class="align-default" id="fig-turbulence-modelling-overview">
 <a class="reference internal image-reference" href="../../../_images/turbulence-modelling-overview.svg"><img alt="../../../_images/turbulence-modelling-overview.svg" src="../../../_images/turbulence-modelling-overview.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.40 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.40 </span><span class="caption-text">Обзор разрешенных и смоделированных масштабов в DNS и LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-energy-spectrum-modelling">
 <a class="reference internal image-reference" href="../../../_images/energy-spectrum-modelling.svg"><img alt="../../../_images/energy-spectrum-modelling.svg" src="../../../_images/energy-spectrum-modelling.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.41 </span><span class="caption-text">Resolved scales of various modelling approaches.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-modelling" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.41 </span><span class="caption-text">Разрешенные масштабы различных подходов к моделированию.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-modelling" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>DNS does not model any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
-<p>The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by</p>
+<p>DNS не моделирует какие-либо масштабы, а скорее разрешает их все. Таким образом, эта модель может быть применена только в том случае, если шкала Колмогорова разрешена численно.</p>
+<p>Общая идея LES заключается в формулировании уравнений для пространственно отфильтрованных величин. В случае LES этот фильтр задается</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-filter">
 <span class="eqno">(2.25)<a class="headerlink" href="#equation-eq-les-filter" title="Link to this equation">#</a></span>\[
 \mf \langle\phi\rangle = \bar{\phi} = \frac{1}{V}\int_V \phi\ dV 
 \]</div>
-<p>for any field quantity <span class="math notranslate nohighlight">\(\mf \phi = \phi(x,y,z,t)\)</span>.</p>
-<p>For simplicity, the LES equations for the spatially filtered velocity <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> of an incompressible isothermal flow are given by</p>
+<p>для любого количества полей <span class="math notranslate nohighlight">\(\mf \phi = \phi(x,y,z,t)\)</span>.</p>
+<p>Для простоты в LES приведены уравнения для пространственно отфильтрованной скорости <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> для несжимаемого изотермического потока приведены</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-eom">
 <span class="eqno">(2.26)<a class="headerlink" href="#equation-eq-les-eom" title="Link to this equation">#</a></span>\[
 \mf \partial_t(\rho \langle\vec{v}\rangle) + \nabla\cdot(\rho \langle\vec{v}\rangle \langle\vec{v}\rangle) = -\nabla \langle p\rangle + \mu\nabla^2 \langle\vec{v}\rangle - \nabla\cdot(\underbrace{\langle\rho\vec{v}\vec{v}\rangle - \rho \langle\vec{v}\rangle \langle\vec{v}\rangle}_{\tau_{sgs}})
 \]</div>
-<div class="admonition-task admonition">
-<p class="admonition-title">Task</p>
-<p>Derive the above formula by applying the filter <a class="reference internal" href="#equation-eq-les-filter">(2.25)</a> to the equation of motion <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> with <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
+<div class="admonition- admonition">
+<p class="admonition-title">Задание</p>
+<p>Выведите приведенную выше формулу, применив фильтр <a class="reference internal" href="#equation-eq-les-filter">(2.25)</a> к уравнению движения <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> с <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
 </div>
-<p>The residual stress tensor <span class="math notranslate nohighlight">\(\mf \tau_{sgs}\)</span> must be modelled to represent the scale interaction. Here, the Boussinesq hypothesis is applied:</p>
+<p>Тензор остаточных напряжений <span class="math notranslate nohighlight">\(\mf \tau_{sgs}\)</span> необходимо смоделировать взаимодействие масштабов. Здесь применяется гипотеза Буссинеска:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \tau_{sgs} - \frac{1}{3}tr(\tau_{sgs})I = -2\mu_t \langle \mathbf{S}\rangle
 \]</div>
-<p><span class="math notranslate nohighlight">\(\mf\langle \textbf{S}\rangle\)</span> is the filtered stress tensor and <span class="math notranslate nohighlight">\(\mu_t\)</span> the turbulent viscosity, which needs to be determined.</p>
-<p>Thus, the LES equations for <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> are identical to the Navier-Stokes equations for <span class="math notranslate nohighlight">\(\mf \vv\)</span>, but with an effective viscosity of</p>
+<p><span class="math notranslate nohighlight">\(\mf\langle \textbf{S}\rangle\)</span> является ли отфильтрованный тензор напряжений и <span class="math notranslate nohighlight">\(\mu_t\)</span> турбулентная вязкость, которую необходимо определить.</p>
+<p>Таким образом, уравнения LES для <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> идентичны уравнениям Навье-Стокса для <span class="math notranslate nohighlight">\(\mf \vv\)</span>, но с эффективной вязкостью</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \mu_{eff} = \mu_{mol} + \mu_t\quad .
 \]</div>
-<p>As the filtered equation of motion <a class="reference internal" href="#equation-eq-les-eom">(2.26)</a> is nearly equal to the unfiltered version, in the follwoing the filtering brackets are omitted.</p>
-<p><strong>Constant Smagorinsky</strong></p>
-<p>The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width <span class="math notranslate nohighlight">\(\Delta\)</span>, here we focus on implicit LES with <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, may be described with</p>
+<p>Поскольку отфильтрованное уравнение движения <a class="reference internal" href="#equation-eq-les-eom">(2.26)</a> почти равно нефильтрованному варианту, ниже скобки для фильтрации опущены.</p>
+<p><strong>Констант Смагоринский</strong></p>
+<p>Модель Смагоринского-Лилли основана на предположении, что турбулентная вязкость ниже ширины фильтра <span class="math notranslate nohighlight">\(\Delta\)</span>, здесь мы сосредоточимся на неявных ФАЙЛАХ с <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, могут быть описаны с помощью</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\textbf{S}\|
 \]</div>
-<p>and</p>
+<p>и</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Note:</p>
 <p>A common representation of operations involving vectors and tensors is the (Einstein) summation convention. It states, that a sum is computet over all indices which appear twice. For example:</p>
@@ -721,30 +720,29 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \[
 \mf \|\textbf{S}\| = \sqrt{S_{ij}S_{ij} - \frac{2}{3}\left(\nabla\cdot\vv\right)^2} \quad .
 \]</div>
-<p>Here, <span class="math notranslate nohighlight">\(\mf C_S\)</span> is the Smagorinsky constant. The choice of <span class="math notranslate nohighlight">\(\mf C_S\)</span> may have a significant impact on the simulation results. A commonly used value is <span class="math notranslate nohighlight">\(\mf C_S=0.2\)</span>, which does not depend on position or time.
-Beside this static model, there exist also a dynamic model, where the value of <span class="math notranslate nohighlight">\(\mf C_S\)</span> depends on flow properties.</p>
-<p><strong>Deardorff Model</strong></p>
-<p>Another approach is given by Deardorff, which is the current default model in FDS. It uses average cell values (<span class="math notranslate nohighlight">\(\mf \bar{v}\)</span>) and weighted averages (<span class="math notranslate nohighlight">\(\mf \hat{v}\)</span>) of the velocity to conclude the turbulent viscosity:</p>
+<p>Здесь, <span class="math notranslate nohighlight">\(\mf C_S\)</span> является постоянной Смагоринского. Выбор <span class="math notranslate nohighlight">\(\mf C_S\)</span> может оказать существенное влияние на результаты моделирования. Обычно используется значение <span class="math notranslate nohighlight">\(\mf C_S=0.2\)</span>, которая не зависит от положения или времени. Помимо этой статической модели, существует также динамическая модель, где значение <span class="math notranslate nohighlight">\(\mf C_S\)</span> зависит от свойств потока.</p>
+<p><strong>Модель Дирдорфа</strong></p>
+<p>Другой подход предложен Deardorff, который является текущей моделью по умолчанию в FDS. Он использует средние значения ячеек (<span class="math notranslate nohighlight">\(\mf \bar{v}\)</span>) и средневзвешенные значения (<span class="math notranslate nohighlight">\(\mf \hat{v}\)</span>) скорости для определения турбулентной вязкости:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \mu_t = \rho C_V\Delta \sqrt{k_{sgs}}
 \]</div>
-<p>with</p>
+<p>с</p>
 <div class="math notranslate nohighlight">
 \[
 \mf k_{sgs} = \frac{1}{2}\left(\bar{v} - \hat{v}\right)^2\quad .
 \]</div>
-<p>The literature value of the constant is <span class="math notranslate nohighlight">\(\mf C_V=0.1\)</span>.</p>
-<p><strong>Implementation in FDS</strong></p>
-<p>FDS offers different simulation modes, see section 7.2 in <span id="id7">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.</p>
-<p>The following models for the tubulent viscosity are currently available, see section 7.5 in <span id="id8">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>:</p>
+<p>Значение константы в литературе равно <span class="math notranslate nohighlight">\(\mf C_V=0.1\)</span>.</p>
+<p><strong>Реализация в FDS</strong></p>
+<p>FDS предлагает различные режимы моделирования, см. Раздел 7.2 в <span id="id11">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>: DNS (направленное численное моделирование), LES (моделирование больших вихрей), VLES (моделирование очень больших вихрей) и SVLES (простое моделирование очень больших вихрей — VLES с упрощенной физикой). Режим по умолчанию - VLES.</p>
+<p>В настоящее время доступны следующие модели вязкости в канальцах, см. Раздел 7.5 в <span id="id12">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>:</p>
 <ul class="simple">
-<li><p>Constant-coefficient Smagorinsky</p></li>
-<li><p>Dynamic Smagorinsky</p></li>
-<li><p>Deardorff</p></li>
-<li><p>Vreman’s Eddy Viscosity</p></li>
-<li><p>Renormalization Group Eddy Viscosity</p></li>
-<li><p>Wall-Adapting Local Eddy-viscosity</p></li>
+<li><p>Постоянный коэффициент Смагоринского</p></li>
+<li><p>Динамика Смагоринского</p></li>
+<li><p>Дирдорф</p></li>
+<li><p>Вихревая вязкость Времана</p></li>
+<li><p>Группа перенормировки Вихревой вязкости</p></li>
+<li><p>Локальная вихревая вязкость, Адаптируемая к стенкам</p></li>
 </ul>
 </section>
 </section>
@@ -813,9 +811,9 @@ Beside this static model, there exist also a dynamic model, where the value of <
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characterisation">Characterisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scales">Scales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Характеристика</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Шкалы</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Моделирование</a></li>
 </ul>
   </nav></div>
 
