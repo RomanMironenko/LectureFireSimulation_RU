@@ -52,7 +52,7 @@
 :::{figure-md} fig-turbulence-plume-quiver
 <img src="./figs/turbulence-plume-velocity_quiver.png" width="80%">
 
-Пример мгновенных полей скоростей для различных скоростей нагрева. Поле скоростей регистрируется с помощью [ метода велосиметрии изображений ](https://en.wikipedia.org/wiki/Particle_image_velocimetry) частиц (PIV).
+Пример мгновенных полей скоростей для различных скоростей нагрева. Поле скоростей регистрируется с помощью [ измерения скорости ](https://en.wikipedia.org/wiki/Particle_image_velocimetry) частиц (PIV).
 :::
 
 :::{figure-md} fig-turbulence-plume-time-series
