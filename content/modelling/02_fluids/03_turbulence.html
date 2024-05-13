@@ -660,11 +660,11 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 </section>
 <section id="id10">
 <h2>Моделирование<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-<p>При моделировании пожара распространены два класса моделей турбулентности: прямое численное моделирование (DNS) и моделирование больших вихрей (LES). Хотя для практических приложений подходит только класс LES.</p>
+<p>При моделировании пожара распространены два класса моделей турбулентности: прямое численное моделирование (DNS) и моделирование больших вихрей (LES). Хотя для практических приложений подходит только LES.</p>
 <figure class="align-default" id="fig-turbulence-modelling-overview">
 <a class="reference internal image-reference" href="../../../_images/turbulence-modelling-overview.svg"><img alt="../../../_images/turbulence-modelling-overview.svg" src="../../../_images/turbulence-modelling-overview.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.40 </span><span class="caption-text">Обзор разрешенных и смоделированных масштабов в DNS и LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.40 </span><span class="caption-text">Обзор разрешенных и смоделированных масштабов в моделировании DNS и LES.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-turbulence-energy-spectrum-modelling">
@@ -702,15 +702,15 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \]</div>
 <p>Поскольку отфильтрованное уравнение движения <a class="reference internal" href="#equation-eq-les-eom">(2.26)</a> почти равно нефильтрованному варианту, ниже скобки для фильтрации опущены.</p>
 <p><strong>Констант Смагоринский</strong></p>
-<p>Модель Смагоринского-Лилли основана на предположении, что турбулентная вязкость ниже ширины фильтра <span class="math notranslate nohighlight">\(\Delta\)</span>, здесь мы сосредоточимся на неявных ФАЙЛАХ с <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, могут быть описаны с помощью</p>
+<p>Модель Смагоринского-Лилли основана на предположении, что турбулентная вязкость ниже ширины фильтра <span class="math notranslate nohighlight">\(\Delta\)</span>, здесь мы рассматриваем неявный LES с <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, могут быть описаны с помощью</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\textbf{S}\|
 \]</div>
 <p>и</p>
 <aside class="margin sidebar">
-<p class="sidebar-title">Note:</p>
-<p>A common representation of operations involving vectors and tensors is the (Einstein) summation convention. It states, that a sum is computet over all indices which appear twice. For example:</p>
+<p class="sidebar-title">Примечание:</p>
+<p>Общим представлением операций с векторами и тензорами является соглашение (Эйнштейна) о суммировании. Она гласит, что сумма вычисляется по всем индексам, которые встречаются дважды. Например:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \vec{a} \cdot \vec{b} = \sum_i a_i b_i = a_i b_i \quad .
@@ -722,7 +722,7 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \]</div>
 <p>Здесь, <span class="math notranslate nohighlight">\(\mf C_S\)</span> является постоянной Смагоринского. Выбор <span class="math notranslate nohighlight">\(\mf C_S\)</span> может оказать существенное влияние на результаты моделирования. Обычно используется значение <span class="math notranslate nohighlight">\(\mf C_S=0.2\)</span>, которая не зависит от положения или времени. Помимо этой статической модели, существует также динамическая модель, где значение <span class="math notranslate nohighlight">\(\mf C_S\)</span> зависит от свойств потока.</p>
 <p><strong>Модель Дирдорфа</strong></p>
-<p>Другой подход предложен Deardorff, который является текущей моделью по умолчанию в FDS. Он использует средние значения ячеек (<span class="math notranslate nohighlight">\(\mf \bar{v}\)</span>) и средневзвешенные значения (<span class="math notranslate nohighlight">\(\mf \hat{v}\)</span>) скорости для определения турбулентной вязкости:</p>
+<p>Другой подход предложен Дирдорфом, который является текущей моделью по умолчанию в FDS. Он использует средние значения ячеек (<span class="math notranslate nohighlight">\(\mf \bar{v}\)</span>) и средневзвешенные значения (<span class="math notranslate nohighlight">\(\mf \hat{v}\)</span>) скорости для определения турбулентной вязкости:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \mu_t = \rho C_V\Delta \sqrt{k_{sgs}}
@@ -734,16 +734,19 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \]</div>
 <p>Значение константы в литературе равно <span class="math notranslate nohighlight">\(\mf C_V=0.1\)</span>.</p>
 <p><strong>Реализация в FDS</strong></p>
-<p>FDS предлагает различные режимы моделирования, см. Раздел 7.2 в <span id="id11">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>: DNS (направленное численное моделирование), LES (моделирование больших вихрей), VLES (моделирование очень больших вихрей) и SVLES (простое моделирование очень больших вихрей — VLES с упрощенной физикой). Режим по умолчанию - VLES.</p>
-<p>В настоящее время доступны следующие модели вязкости в канальцах, см. Раздел 7.5 в <span id="id12">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>:</p>
+<p>FDS предлагает различные режимы моделирования, см. Раздел 7.2 в <span id="id11">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>: DNS (направленное численное моделирование), LES (моделирование больших вихрей), VLES (моделирование очень больших вихрей) и SVLES (простое моделирование очень больших вихрей VLES — с упрощенной физикой). Режим по умолчанию - VLES.</p>
+<p>В настоящее время доступны следующие модели вязкости для турбулентной вязкости, см. Раздел 7.5 в <span id="id12">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>:</p>
 <ul class="simple">
 <li><p>Постоянный коэффициент Смагоринского</p></li>
 <li><p>Динамика Смагоринского</p></li>
 <li><p>Дирдорф</p></li>
 <li><p>Вихревая вязкость Времана</p></li>
 <li><p>Группа перенормировки Вихревой вязкости</p></li>
-<li><p>Локальная вихревая вязкость, Адаптируемая к стенкам</p></li>
+<li><p>Локальная вихревая вязкость, адаптируемая к стенкам</p></li>
 </ul>
+<p><strong>Перевод и адаптацию произвел Мироненко Роман Владимирович.</strong><br />
+<strong>Открыт для предложений по переводу и сотрудничеству.</strong><br />
+<strong>При использовании данного материала прошу давать ссылку на этот материал.</strong></p>
 </section>
 </section>
 
