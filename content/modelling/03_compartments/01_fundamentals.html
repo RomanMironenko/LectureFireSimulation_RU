@@ -543,10 +543,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure">Pressure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow">Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-quantities">Other Quantities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Давление</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поток</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Другие величины</a></li>
 </ul>
             </nav>
         </div>
@@ -560,50 +560,50 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
 <h1><span class="section-number">3.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h1>
-<p>In fire safety engineering compartment fires are an important topic. The development of a fire in a compartment determines the energy release and the spread of smoke through a building.   This has direct on the safety of the occupants and how effective the fire brigade can deal with the fire. A good overview on modelling principles of compartment fires is given in the book “Enclosure Fire Dynamics” by Karlsson and Quinitere <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>. We take some of the aspect described in this book and discuss them here in context of the lecture. The simulations themselves are built around some experiments that are fundamental to the field of fire safety engineering.</p>
-<p>At first, we look into plume models and experiment data from McCaffrey <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id26" title="Bernard J. McCaffrey. Purely Buoyant Diffusion Flames. Technical Report, NIST, 1979. URL: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf.">McC79</a>]</span>, which are described in the report about <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">“Purely Buoyant Diffusion Flames”</a>. These plume experiments and respective models are a good starting point to modelling compartment fires. Using gas burners at different locations, Steckler et al. performed a number of experiments in a regular-sized compartment  <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span> (<span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>). The results are provided in the report <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir82-2520.pdf">“Flow Induced by Fire in a Compartment”</a>.</p>
-<p>This brief introduction into the fluid dynamics in a compartment fire is based on a characteristic setup and simulations carried out.</p>
+<p>Пожары в помещениях являются важной темой в области пожарной безопасности. Развитие пожара в помещении определяет выделение энергии и распространение дыма по зданию. Это напрямую влияет на безопасность людей, находящихся в здании, и на то, насколько эффективно команда пожарных сможет справиться с огнем. Хороший обзор принципов моделирования пожаров в помещениях приведен в книге Карлссона и Квинитера “Динамика пожаров в помещениях” <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>. Мы берем некоторые моменты, описанные в этой книге, и обсуждаем их здесь в контексте лекции. Само моделирование построено на основе некоторых экспериментов, которые являются фундаментальными для области пожарной безопасности.</p>
+<p>Сначала мы рассмотрим модели шлейфов и данные экспериментов МакКаффри <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id26" title="Bernard J. McCaffrey. Purely Buoyant Diffusion Flames. Technical Report, NIST, 1979. URL: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf.">McC79</a>]</span>, которые описаны в докладе <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">“Пламя с чисто плавучей диффузией”</a>. Эти эксперименты со конвективной колонкой и соответствующие модели являются хорошей отправной точкой для моделирования пожаров в помещениях. Используя газовые горелки в разных местах, Стеклер и др. провели ряд экспериментов в отсеке обычного размера  <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span> (<span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>). Результаты представлены в отчете <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir82-2520.pdf">“Истечение дыма, вызванное пожаром в помещении”</a>.</p>
+<p>Это краткое введение в гидродинамику при пожаре в помещении основано на характерной установке и проведенном моделировании.</p>
 <figure class="align-default" id="fig-steckler02">
 <a class="reference internal image-reference" href="../../../_images/Steckler02.png"><img alt="../../../_images/Steckler02.png" src="../../../_images/Steckler02.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Overview over the experimental setup used by Steckler et al. <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Обзор экспериментальной установки, использованной Стеклером и другими. <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-steckler01">
 <a class="reference internal image-reference" href="../../../_images/Steckler01.png"><img alt="../../../_images/Steckler01.png" src="../../../_images/Steckler01.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Overview over the experimental setup used by Steckler et al. <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Обзор экспериментальной установки, использованной в работе Стеклером и другими. <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
-<p>The compartment has an extension of</p>
+<section id="id6">
+<h2>Настройка<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Помещение имеет следующие размеры</p>
 <div class="math notranslate nohighlight">
 \[
 \mf I_{compartment} = [0.20~m, 2.70~m] \times [-1.40~m, 1.40~m] \times [0.05~m, 2.00~m]
 \]</div>
-<p>and is embeded in a computational domain of</p>
+<p>и вложена в вычислительную область</p>
 <div class="math notranslate nohighlight">
 \[
 \mf I_{domain} = [0.00~m, 4.80~m] \times [-1.80~m, 1.80~m] \times [0.00~m, 3.00~m] \quad .
 \]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>See the <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html"><span class="doc std std-doc">FDS introduction section</span></a> for a quick introduction on how to define a computational domain and obstacles.</p>
+<p>Смотреть раздел <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html"><span class="doc std std-doc">Введение в FDS</span></a> для краткого ознакомления с тем, как определить вычислительную область и препятствия.</p>
 </aside>
-<p>The compartment is build out of individual obstacles, creating the walls, the floor and the ceiling. One of the walls contains an opening, see <a class="reference internal" href="#fig-compartment-setup"><span class="std std-numref">Fig. 3.3</span></a>. The domain boundaries are defined as open boundaries.</p>
+<p>Помещение строится из отдельных препятствий, образуя стены, пол и потолок. Одна из стен содержит отверстие, см <a class="reference internal" href="#fig-compartment-setup"><span class="std std-numref">Fig. 3.3</span></a>. Границы домена определены как открытые границы.</p>
 <figure class="align-default" id="fig-compartment-setup">
 <a class="reference internal image-reference" href="../../../_images/compartment_fire_setup_01.png"><img alt="../../../_images/compartment_fire_setup_01.png" src="../../../_images/compartment_fire_setup_01.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Setup for the compartment fire example. There is only a single opening, i.e. the door. The surface with a predefined heat release rate is indicated in red.</span><a class="headerlink" href="#fig-compartment-setup" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Установка для примера пожара в помещении. Имеется только одно отверстие, т. е. дверь. Поверхность с заданной скоростью выделения тепла обозначена красным цветом.</span><a class="headerlink" href="#fig-compartment-setup" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The heat release rate is defined as a constant value of <span class="math notranslate nohighlight">\(\mf 10~kW\)</span> and the patch emitting the fuel has a surface temperature of <span class="math notranslate nohighlight">\(\mf 100~^\circ C\)</span>.</p>
-<p>For demonstration purposes, all quantities are visualised in the symmetry plane at <span class="math notranslate nohighlight">\(\mf y=0\)</span>, see <a class="reference internal" href="#fig-compartment-slcf-temp"><span class="std std-numref">Fig. 3.4</span></a>.</p>
+<p>Скорость тепловыделения определена как постоянная величина <span class="math notranslate nohighlight">\(\mf 10~kW\)</span> а поверхность, выбрасывающая топливо, имеет температуру <span class="math notranslate nohighlight">\(\mf 100~^\circ C\)</span>.</p>
+<p>Для демонстрации все величины представлены в плоскости симметрии при <span class="math notranslate nohighlight">\(\mf y=0\)</span>, см. <a class="reference internal" href="#fig-compartment-slcf-temp"><span class="std std-numref">Fig. 3.4</span></a>.</p>
 <figure class="align-default" id="fig-compartment-slcf-temp">
 <a class="reference internal image-reference" href="../../../_images/compartment_fire_slcf_temp_01.png"><img alt="../../../_images/compartment_fire_slcf_temp_01.png" src="../../../_images/compartment_fire_slcf_temp_01.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Temperature field in the <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> plane.</span><a class="headerlink" href="#fig-compartment-slcf-temp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Температурное поле в плоскости <span class="math notranslate nohighlight">\(\mf y=0~m\)</span>.</span><a class="headerlink" href="#fig-compartment-slcf-temp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="dropdown admonition">
@@ -673,30 +673,30 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="pressure">
-<h2>Pressure<a class="headerlink" href="#pressure" title="Link to this heading">#</a></h2>
-<p>Thermal expansion and differences in gas densities lead to pressure differences. These in turn are driving the gas flow in and out of the compartment. One can compare the pressuere differences inside and outside of a compartment, as well as changes with height. During different phases of a developing fire the pressure profiles change. In the very early phase it is considerd that there is mostly overpressure inside the room with respect to outside.</p>
+<section id="id7">
+<h2>Давление<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>Тепловое расширение и разница в плотности газов приводят к разнице давлений. Они, в свою очередь, определяют поток газа внутри и снаружи помещения. Можно сравнить разницу давлений внутри и снаружи отсека, а также изменения с высотой. На разных стадиях развития пожара профили давления меняются. Считается, что на самой ранней стадии внутри помещения существует избыточное давление по отношению к внешнему.</p>
 <figure class="align-default" id="fig-initial-fire-pressure-profile">
 <a class="reference internal image-reference" href="../../../_images/InitialFire.png"><img alt="../../../_images/InitialFire.png" src="../../../_images/InitialFire.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Pressure profile in a compartment during the initial stage of a fire.</span><a class="headerlink" href="#fig-initial-fire-pressure-profile" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Профиль давления в помещении на начальной стадии пожара.</span><a class="headerlink" href="#fig-initial-fire-pressure-profile" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>When the fire developes a bit further a more pronounced pressure profile is generated. The height where the two graphs cross is considered the location of the “neutral plane” that spans the compartment. This is also highlighted in the plots further down, with the pressure slices. In the figure shown, it can be seen that the pressure inside the room starts out lower than outside. They run parallel for some distance and then the pressure inside increases notably. Around the bend, below the neutral plane, is typically the height of a relatively stable interface between the cold and hot gas layers. These observations form the basis for the zone models.</p>
+<p>Когда огонь развивается немного дальше, возникает более выраженный профиль давления. Высота, на которой пересекаются два графика, считается местом расположения “нейтральной плоскости”, охватывающей помещение. Это также отмечено на графиках, расположенных ниже, с помощью срезов давления. На представленном рисунке видно, что давление внутри помещения вначале ниже, чем снаружи. На некотором расстоянии они идут параллельно, а затем давление внутри заметно возрастает. За изгибом, ниже нейтральной плоскости, обычно находится относительно стабильная граница раздела между холодным и горячим газовыми слоями. Эти наблюдения легли в основу зонных моделей.</p>
 <figure class="align-default" id="fig-intermediate-fire-pressure-profile">
 <a class="reference internal image-reference" href="../../../_images/IntermediateFire.png"><img alt="../../../_images/IntermediateFire.png" src="../../../_images/IntermediateFire.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Pressure profile in a compartment in an intermediate stage of a fire.</span><a class="headerlink" href="#fig-intermediate-fire-pressure-profile" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Профиль давления в отсеке на промежуточной стадии пожара.</span><a class="headerlink" href="#fig-intermediate-fire-pressure-profile" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The further the fire in a compartment can develop, the further the height of the cold gas layer drops. At some point there are no gas layers left to speak of and the room is considered fully envolved in the fire. Furthermore, it is visible that parts of the smoke get mixed into the air that flows into the compartment. Thus, over time the relatively smoke free lower layer get more and more enriched with smoke.</p>
+<p>Чем дальше развивается пожар в помещении, тем больше снижается высота слоя холодного газа. В какой-то момент газовых слоев не остается, и помещение считается полностью охваченным огнем. Кроме того, видно, что часть дыма смешивается с воздухом, поступающим в помещение. Таким образом, со временем относительно свободный от дыма нижний слой все больше и больше обогащается дымом.</p>
 <figure class="align-default" id="fig-developed-fire-pressure-profile">
 <a class="reference internal image-reference" href="../../../_images/DevelopedFire.png"><img alt="../../../_images/DevelopedFire.png" src="../../../_images/DevelopedFire.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Pressure profile in a compartment a a developed stage of a fire.</span><a class="headerlink" href="#fig-developed-fire-pressure-profile" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Профиль давления в помещении на развитой стадии пожара.</span><a class="headerlink" href="#fig-developed-fire-pressure-profile" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="cell tag_hide_input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRESSURE&#39;</span><span class="p">,</span> <span class="s1">&#39;BACKGROUND PRESSURE&#39;</span><span class="p">]</span>
 
@@ -707,7 +707,7 @@ document.write(`
     
 <span class="c1">#     print(slice)</span>
     <span class="c1">### fds / fdsreader BUG workaround BEGIN</span>
-    <span class="c1">### Issue due to SLCF located at MESH boundary</span>
+    <span class="c1">### Проблема связана с тем, что SLCF находится на границе MESH</span>
     <span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">slice</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">_extents</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -742,26 +742,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRESSURE&#39;</span><span class="p">,</span> <span class="s1">&#39;BACKGROUND PRESSURE&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">it</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">list_q</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">filter_by_quantity</span><span class="p">(</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;sim&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </section>
-<section id="flow">
-<h2>Flow<a class="headerlink" href="#flow" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>Поток<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>See <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html"><span class="doc std std-doc">introduction to the fdsreader module section</span></a> for a quick introduction on how to read in FDS data in Python.</p>
+<p>Смотреть раздел <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html"><span class="doc std std-doc">введение в модуль fdsreader</span></a> для краткого ознакомления с тем, как читать данные FDS в Python.</p>
 </aside>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -792,7 +779,7 @@ document.write(`
     
     <span class="nb">print</span><span class="p">(</span><span class="nb">slice</span><span class="p">)</span>
     <span class="c1">### fds / fdsreader BUG workaround BEGIN</span>
-    <span class="c1">### Issue due to SLCF located at MESH boundary</span>
+    <span class="c1">### Проблема связана с тем, что SLCF находится на границе MESH</span>
     <span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">slice</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">_extents</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -887,7 +874,7 @@ Index in z-direction next to z=1.5 is 35.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_max</span> <span class="o">=</span> <span class="mf">2.0</span>
 <span class="n">iz_max</span> <span class="o">=</span> <span class="n">u_slice</span><span class="o">.</span><span class="n">get_nearest_index</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">z_max</span><span class="p">)</span> 
 
-<span class="c1">### TODO: quick solution, needs fix</span>
+<span class="c1">### TODO: быстрое решение, нужно исправить</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">z_max</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 
 <span class="n">list_t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">]</span>
@@ -911,8 +898,8 @@ Index in z-direction next to z=1.5 is 35.
 </div>
 </div>
 </section>
-<section id="other-quantities">
-<h2>Other Quantities<a class="headerlink" href="#other-quantities" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>Другие величины<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="s1">&#39;DENSITY&#39;</span><span class="p">,</span> <span class="s1">&#39;KOLMOGOROV LENGTH SCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SUBGRID KINETIC ENERGY&#39;</span><span class="p">,</span> <span class="s1">&#39;VORTICITY Y&#39;</span><span class="p">]</span>
@@ -922,7 +909,7 @@ Index in z-direction next to z=1.5 is 35.
     
 <span class="c1">#     print(slice)</span>
     <span class="c1">### fds / fdsreader BUG workaround BEGIN</span>
-    <span class="c1">### Issue due to SLCF located at MESH boundary</span>
+    <span class="c1">### Проблема связана с тем, что SLCF находится на границе MESH</span>
     <span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">slice</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">_extents</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -1034,10 +1021,10 @@ Index in z-direction next to z=1.5 is 35.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure">Pressure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow">Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-quantities">Other Quantities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Давление</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поток</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Другие величины</a></li>
 </ul>
   </nav></div>
 
