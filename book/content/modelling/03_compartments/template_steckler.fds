@@ -1,6 +1,6 @@
 &HEAD CHID='Steckler_012', TITLE='Steckler Compartment, Test 012'/
 
-## Computational domain, simulation time and ambient values
+## Область вычислений, время моделирования и значения окружающей среды
 &MESH IJK=18,14,11, XB=0.00,3.60,-1.40,1.40,0.00,2.20 /
 &TIME T_END=1800.0, TIME_SHRINK_FACTOR=10./
 &MISC TMPA=20.0 /
@@ -9,14 +9,14 @@
 &REAC FUEL='METHANE', SOOT_YIELD=0. /
 &SURF ID='BURNER', HRRPUA=100.0, TMP_FRONT=100.0, COLOR='ORANGE' /
 
-## Geometry, here a wall with a hole
+## Геометрия, здесь стена с отверстием
 &OBST XB = 2.80, 2.90, -1.40, 1.40, 0.00, 2.20 / Wall with door
 &HOLE XB = 2.75, 2.95, -0.50, 0.50, 0.00, 1.83 / Door opening
 
-## Burner surface
+## Поверхность горения
 &VENT XB=1.30,1.50, -0.10, 0.10, 0.00,0.00, SURF_ID='BURNER' /
 
-## Domain boundary conditions, here open, but in the compartment
+## Условия границы домена, здесь открытые, но в помещении
 &VENT MB='XMAX',SURF_ID='OPEN'/
 &VENT XB= 2.90, 3.60, -1.40,-1.40, 0.00, 2.20, SURF_ID='OPEN'/
 &VENT XB= 2.90, 3.60,  1.40, 1.40, 0.00, 2.20, SURF_ID='OPEN'/
@@ -29,7 +29,7 @@
       CONDUCTIVITY  = 0.1
       SPECIFIC_HEAT = 1. /
 
-## Output definition
+## Определение выходных данных
 &SLCF PBY=0.0, QUANTITY='TEMPERATURE', VECTOR=.TRUE., CELL_CENTERED=.TRUE./
 &SLCF PBY=0.0, QUANTITY='PRESSURE', VECTOR=.TRUE., CELL_CENTERED=.TRUE./
 
