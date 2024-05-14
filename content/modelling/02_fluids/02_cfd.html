@@ -1399,6 +1399,12 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 \[
 \mf rhs(u(t_n), t_n) = rhs^n \quad .
 \]</div>
+<figure class="align-default" id="fig-fluid-time-setup">
+<a class="reference internal image-reference" href="../../../_images/time_integration_1_setup.svg"><img alt="../../../_images/time_integration_1_setup.svg" src="../../../_images/time_integration_1_setup.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Time Integration.</span><a class="headerlink" href="#fig-fluid-time-setup" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="id11">
 <h3>Явный метод Эйлера<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
@@ -1412,11 +1418,11 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^n + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.19</span></a>.</p>
+<p>Уравнение  <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> является явным / прямым методом Эйлера. Графически это продемонстрировано на  <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.20</span></a>.</p>
 <figure class="align-default" id="fig-fluid-time-explicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_2_explicit.svg"><img alt="../../../_images/time_integration_2_explicit.svg" src="../../../_images/time_integration_2_explicit.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Интегрирование по времени – явная схема Эйлера.</span><a class="headerlink" href="#fig-fluid-time-explicit" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Интегрирование по времени – явная схема Эйлера.</span><a class="headerlink" href="#fig-fluid-time-explicit" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1427,11 +1433,11 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Link to this equation">#</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.20</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, чтобы они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
+<p>Уравнение <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> является неявным / обратным методом Эйлера. Графически это продемонстрировано на <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.21</span></a>. Это неявный подход, в отличие от явной схемы Эйлера, который не позволяет напрямую вычислять следующий шаг итерации, основываясь только на решении текущих значений <span class="math notranslate nohighlight">\(\mf u^n\)</span>. Однако, поскольку <span class="math notranslate nohighlight">\(\mf rhs\)</span> может быть вычислен для любого значения <span class="math notranslate nohighlight">\(\mf u\)</span>, соответствующее значение <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> можно найти, чтобы они удовлетворяют уравнению  <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
 <figure class="align-default" id="fig-fluid-time-implicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Интегрирование по времени – неявная схема Эйлера.</span><a class="headerlink" href="#fig-fluid-time-implicit" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Интегрирование по времени – неявная схема Эйлера.</span><a class="headerlink" href="#fig-fluid-time-implicit" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1451,7 +1457,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fluid-time-predictorcorrector">
 <a class="reference internal image-reference" href="../../../_images/time_integration_5_predictorcorrector.svg"><img alt="../../../_images/time_integration_5_predictorcorrector.svg" src="../../../_images/time_integration_5_predictorcorrector.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Интегрирование по времени – схема предсказателя-корректора Эйлера-Хойна.</span><a class="headerlink" href="#fig-fluid-time-predictorcorrector" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Интегрирование по времени – схема предсказателя-корректора Эйлера-Хойна.</span><a class="headerlink" href="#fig-fluid-time-predictorcorrector" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1490,7 +1496,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fdm-explicit-euler">
 <a class="reference internal image-reference" href="../../../_images/fdm_explicit_euler.png"><img alt="../../../_images/fdm_explicit_euler.png" src="../../../_images/fdm_explicit_euler.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Явная схема Эйлера.</span><a class="headerlink" href="#fig-fdm-explicit-euler" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Явная схема Эйлера.</span><a class="headerlink" href="#fig-fdm-explicit-euler" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Обратный Эйлер:</strong> здесь система линейных уравнений должна быть решена для <span class="math notranslate nohighlight">\(\phi^{n+1}\)</span>.”</p>
@@ -1509,7 +1515,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fdm-implicit-euler">
 <a class="reference internal image-reference" href="../../../_images/fdm_implicit_euler.png"><img alt="../../../_images/fdm_implicit_euler.png" src="../../../_images/fdm_implicit_euler.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Неявная схема Эйлера.</span><a class="headerlink" href="#fig-fdm-implicit-euler" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Неявная схема Эйлера.</span><a class="headerlink" href="#fig-fdm-implicit-euler" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1545,7 +1551,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fdm-cfl-dtsmall">
 <a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtsmall.png"><img alt="../../../_images/fdm_cfl_dtsmall.png" src="../../../_images/fdm_cfl_dtsmall.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Медленное распространение информации.</span><a class="headerlink" href="#fig-fdm-cfl-dtsmall" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Медленное распространение информации.</span><a class="headerlink" href="#fig-fdm-cfl-dtsmall" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Быстрая скорость распространения</strong>.</p>
@@ -1563,7 +1569,7 @@ dx=3.58e-07 --&gt; rmse=8.91e-11
 <figure class="align-default" id="fig-fdm-cfl-dtlarge">
 <a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtlarge.png"><img alt="../../../_images/fdm_cfl_dtlarge.png" src="../../../_images/fdm_cfl_dtlarge.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Быстрое распространение информации.</span><a class="headerlink" href="#fig-fdm-cfl-dtlarge" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Быстрое распространение информации.</span><a class="headerlink" href="#fig-fdm-cfl-dtlarge" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
