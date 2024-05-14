@@ -200,7 +200,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/03_turbulence.html">2.3. Турбулентность</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">3. Compartment Fires</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">3. Пожары в помещениях</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_fundamentals.html">3.1. Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pool_example.html">3.2. Example – Pool Fire</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.3. Example - Steckler Compartment</a></li>
@@ -582,7 +582,7 @@ document.write(`
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span><span class="o">=</span><span class="s1">&#39;Steckler_012&#39;</span><span class="p">,</span> <span class="n">TITLE</span><span class="o">=</span><span class="s1">&#39;Steckler Compartment, Test 012&#39;</span><span class="o">/</span>
 
-<span class="c1">## Computational domain, simulation time and ambient values</span>
+<span class="c1">## Область вычислений, время моделирования и значения окружающей среды</span>
 <span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="n">XB</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">3.60</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
 <span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span><span class="o">=</span><span class="mf">1800.0</span><span class="p">,</span> <span class="n">TIME_SHRINK_FACTOR</span><span class="o">=</span><span class="mf">10.</span><span class="o">/</span>
 <span class="o">&amp;</span><span class="n">MISC</span> <span class="n">TMPA</span><span class="o">=</span><span class="mf">20.0</span> <span class="o">/</span>
@@ -591,14 +591,14 @@ document.write(`
 <span class="o">&amp;</span><span class="n">REAC</span> <span class="n">FUEL</span><span class="o">=</span><span class="s1">&#39;METHANE&#39;</span><span class="p">,</span> <span class="n">SOOT_YIELD</span><span class="o">=</span><span class="mf">0.</span> <span class="o">/</span>
 <span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;BURNER&#39;</span><span class="p">,</span> <span class="n">HRRPUA</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">TMP_FRONT</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">COLOR</span><span class="o">=</span><span class="s1">&#39;ORANGE&#39;</span> <span class="o">/</span>
 
-<span class="c1">## Geometry, here a wall with a hole</span>
+<span class="c1">## Геометрия, здесь стена с отверстием</span>
 <span class="o">&amp;</span><span class="n">OBST</span> <span class="n">XB</span> <span class="o">=</span> <span class="mf">2.80</span><span class="p">,</span> <span class="mf">2.90</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.40</span><span class="p">,</span> <span class="mf">1.40</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">2.20</span> <span class="o">/</span> <span class="n">Wall</span> <span class="k">with</span> <span class="n">door</span>
 <span class="o">&amp;</span><span class="n">HOLE</span> <span class="n">XB</span> <span class="o">=</span> <span class="mf">2.75</span><span class="p">,</span> <span class="mf">2.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">1.83</span> <span class="o">/</span> <span class="n">Door</span> <span class="n">opening</span>
 
-<span class="c1">## Burner surface</span>
+<span class="c1">## Поверхность горения</span>
 <span class="o">&amp;</span><span class="n">VENT</span> <span class="n">XB</span><span class="o">=</span><span class="mf">1.30</span><span class="p">,</span><span class="mf">1.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;BURNER&#39;</span> <span class="o">/</span>
 
-<span class="c1">## Domain boundary conditions, here open, but in the compartment</span>
+<span class="c1">## Условия границы домена, здесь открытые, но в помещении</span>
 <span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;XMAX&#39;</span><span class="p">,</span><span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span><span class="o">/</span>
 <span class="o">&amp;</span><span class="n">VENT</span> <span class="n">XB</span><span class="o">=</span> <span class="mf">2.90</span><span class="p">,</span> <span class="mf">3.60</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">2.20</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span><span class="o">/</span>
 <span class="o">&amp;</span><span class="n">VENT</span> <span class="n">XB</span><span class="o">=</span> <span class="mf">2.90</span><span class="p">,</span> <span class="mf">3.60</span><span class="p">,</span>  <span class="mf">1.40</span><span class="p">,</span> <span class="mf">1.40</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">2.20</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span><span class="o">/</span>
@@ -611,7 +611,7 @@ document.write(`
       <span class="n">CONDUCTIVITY</span>  <span class="o">=</span> <span class="mf">0.1</span>
       <span class="n">SPECIFIC_HEAT</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span>
 
-<span class="c1">## Output definition</span>
+<span class="c1">## Определение выходных данных</span>
 <span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBY</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="n">VECTOR</span><span class="o">=.</span><span class="n">TRUE</span><span class="o">.</span><span class="p">,</span> <span class="n">CELL_CENTERED</span><span class="o">=.</span><span class="n">TRUE</span><span class="o">./</span>
 <span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBY</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;PRESSURE&#39;</span><span class="p">,</span> <span class="n">VECTOR</span><span class="o">=.</span><span class="n">TRUE</span><span class="o">.</span><span class="p">,</span> <span class="n">CELL_CENTERED</span><span class="o">=.</span><span class="n">TRUE</span><span class="o">./</span>
 
