@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1. Fundamentals &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>3.1. Основы &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
@@ -201,7 +201,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">3. Пожары в помещениях</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Fundamentals</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Основы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pool_example.html">3.2. Example – Pool Fire</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_steckler_example.html">3.3. Example - Steckler Compartment</a></li>
 </ul>
@@ -533,7 +533,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fundamentals</h1>
+    <h1>Основы</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -543,10 +543,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Давление</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поток</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Другие величины</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Давление</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Поток</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Другие величины</a></li>
 </ul>
             </nav>
         </div>
@@ -558,25 +558,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
-<h1><span class="section-number">3.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h1>
-<p>Пожары в помещениях являются важной темой в области пожарной безопасности. Развитие пожара в помещении определяет выделение энергии и распространение дыма по зданию. Это напрямую влияет на безопасность людей, находящихся в здании, и на то, насколько эффективно команда пожарных сможет справиться с огнем. Хороший обзор принципов моделирования пожаров в помещениях приведен в книге Карлссона и Квинитера “Динамика пожаров в помещениях” <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>. Мы берем некоторые моменты, описанные в этой книге, и обсуждаем их здесь в контексте лекции. Само моделирование построено на основе некоторых экспериментов, которые являются фундаментальными для области пожарной безопасности.</p>
-<p>Сначала мы рассмотрим модели шлейфов и данные экспериментов МакКаффри <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id26" title="Bernard J. McCaffrey. Purely Buoyant Diffusion Flames. Technical Report, NIST, 1979. URL: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf.">McC79</a>]</span>, которые описаны в докладе <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">“Пламя с чисто плавучей диффузией”</a>. Эти эксперименты со конвективной колонкой и соответствующие модели являются хорошей отправной точкой для моделирования пожаров в помещениях. Используя газовые горелки в разных местах, Стеклер и др. провели ряд экспериментов в отсеке обычного размера  <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span> (<span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>). Результаты представлены в отчете <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir82-2520.pdf">“Истечение дыма, вызванное пожаром в помещении”</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">3.1. </span>Основы<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Пожары в помещениях являются важной темой в области пожарной безопасности. Развитие пожара в помещении определяет выделение энергии и распространение дыма по зданию. Это напрямую влияет на безопасность людей, находящихся в здании, и на то, насколько эффективно команда пожарных сможет справиться с огнем. Хороший обзор принципов моделирования пожаров в помещениях приведен в книге Карлссона и Квинитера “Динамика пожаров в помещениях” <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>. Мы берем некоторые моменты, описанные в этой книге, и обсуждаем их здесь в контексте лекции. Само моделирование построено на основе некоторых экспериментов, которые являются фундаментальными для области пожарной безопасности.</p>
+<p>Сначала мы рассмотрим модели шлейфов и данные экспериментов МакКаффри <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id26" title="Bernard J. McCaffrey. Purely Buoyant Diffusion Flames. Technical Report, NIST, 1979. URL: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf.">McC79</a>]</span>, которые описаны в докладе <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">“Пламя с чисто плавучей диффузией”</a>. Эти эксперименты со конвективной колонкой и соответствующие модели являются хорошей отправной точкой для моделирования пожаров в помещениях. Используя газовые горелки в разных местах, Стеклер и др. провели ряд экспериментов в отсеке обычного размера  <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span> (<span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>). Результаты представлены в отчете <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir82-2520.pdf">“Истечение дыма, вызванное пожаром в помещении”</a>.</p>
 <p>Это краткое введение в гидродинамику при пожаре в помещении основано на характерной установке и проведенном моделировании.</p>
 <figure class="align-default" id="fig-steckler02">
 <a class="reference internal image-reference" href="../../../_images/Steckler02.png"><img alt="../../../_images/Steckler02.png" src="../../../_images/Steckler02.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Обзор экспериментальной установки, использованной Стеклером и другими. <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Обзор экспериментальной установки, использованной Стеклером и другими. <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-steckler01">
 <a class="reference internal image-reference" href="../../../_images/Steckler01.png"><img alt="../../../_images/Steckler01.png" src="../../../_images/Steckler01.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Обзор экспериментальной установки, использованной в работе Стеклером и другими. <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Обзор экспериментальной установки, использованной в работе Стеклером и другими. <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="id6">
-<h2>Настройка<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>Настройка<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Помещение имеет следующие размеры</p>
 <div class="math notranslate nohighlight">
 \[
@@ -673,8 +673,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id7">
-<h2>Давление<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>Давление<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>Тепловое расширение и разница в плотности газов приводят к разнице давлений. Они, в свою очередь, определяют поток газа внутри и снаружи помещения. Можно сравнить разницу давлений внутри и снаружи отсека, а также изменения с высотой. На разных стадиях развития пожара профили давления меняются. Считается, что на самой ранней стадии внутри помещения существует избыточное давление по отношению к внешнему.</p>
 <figure class="align-default" id="fig-initial-fire-pressure-profile">
 <a class="reference internal image-reference" href="../../../_images/InitialFire.png"><img alt="../../../_images/InitialFire.png" src="../../../_images/InitialFire.png" style="width: 60%;" /></a>
@@ -744,8 +744,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id8">
-<h2>Поток<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>Поток<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Смотреть раздел <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html"><span class="doc std std-doc">введение в модуль fdsreader</span></a> для краткого ознакомления с тем, как читать данные FDS в Python.</p>
@@ -898,8 +898,8 @@ Index in z-direction next to z=1.5 is 35.
 </div>
 </div>
 </section>
-<section id="id9">
-<h2>Другие величины<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>Другие величины<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="s1">&#39;DENSITY&#39;</span><span class="p">,</span> <span class="s1">&#39;KOLMOGOROV LENGTH SCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SUBGRID KINETIC ENERGY&#39;</span><span class="p">,</span> <span class="s1">&#39;VORTICITY Y&#39;</span><span class="p">]</span>
@@ -1021,10 +1021,10 @@ Index in z-direction next to z=1.5 is 35.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Давление</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поток</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Другие величины</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Давление</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Поток</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Другие величины</a></li>
 </ul>
   </nav></div>
 
