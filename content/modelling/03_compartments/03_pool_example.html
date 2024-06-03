@@ -547,7 +547,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Введение</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds">Входной файл FDS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv">Визуализация SMV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv">Визуализация в SMV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Анализ</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i">Задание I – Основы</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-task">Дополнительная задача: Моделирование чисто плавучего диффузионного пламени</a></li>
@@ -627,71 +627,70 @@ document.write(`
 </section>
 <section id="id3">
 <h2>Настройка<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>Сценарий пожара в бассейне рассматривается как пример моделирования FDS. Площадь поверхности бассейна равна <span class="math notranslate nohighlight">\(\mf 1~m^2\)</span> и он находится по адресу <span class="math notranslate nohighlight">\(\mf z = 0\)</span>. Скорость выделения тепла при пожаре равна   <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>.Боковые и верхние границы области моделирования закрыты, а расширение вычислительной области ограничено .
-s</p>
-<p>$<span class="math notranslate nohighlight">\(\mf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\)</span><span class="math notranslate nohighlight">\(с разрешением сетки of \)</span>\mf 0.2~m$.</p>
+<p>Сценарий пожара пролива рассматривается, как пример моделирования FDS. Площадь поверхности бассейна равна <span class="math notranslate nohighlight">\(\mf 1~m^2\)</span> и он находится <span class="math notranslate nohighlight">\(\mf z = 0\)</span>. Скорость выделения тепла при пожаре равна   <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>. Боковые и верхние границы области моделирования закрыты, а расширение вычислительной области ограничено .</p>
+<div class="math notranslate nohighlight">
+\[\mf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\]</div>
+<p>с разрешением сетки <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>.</p>
 </section>
 <section id="fds">
 <h2>Входной файл FDS<a class="headerlink" href="#fds" title="Link to this heading">#</a></h2>
 <p>Параметры во входном файле FDS задаются с помощью записей в формате списка имен. Каждая запись в списке имен начинается с символа амперсанда “&amp;”, за которым следует название группы списков имен, затем список входных параметров, разделенных запятыми, и, наконец, косая черта “/”.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>В таблице 21.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">Руководства пользователя FDS</a> приведена сводка часто используемых выходных величин.</p>
-<div class="highlight-Простой notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
+<p>В таблице 21.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">Руководства пользователя FDS</a> содержит краткое описание часто используемых записей.</p>
 </div>
-</div>
+<p>Простой входной файл с комментариями, который может послужить отправной точкой для следующего упражнения, выглядит следующим образом:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;Output files will be tagged with &#39;pool_fire&#39;, &#39;TITLE&#39; is just an description&quot;</span>
+<span class="s2">&quot;Выходные файлы будут помечены тегами &#39;pool_fire&#39;, &#39;TITLE&#39; это просто описание&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span> <span class="o">=</span> <span class="s1">&#39;pool_fire&#39;</span><span class="p">,</span> <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Example of a pool fire&#39;</span>  <span class="o">/</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;Mesh with 25/25/50 cells in X/Y/Z axes that extends from X/Y/Z = -2.5/-2.5/0 to 2.5/2.5/10 m&quot;</span>
+<span class="s2">&quot;Сетка с количеством ячеек 25/25/50 по осям X/Y/Z которая растянута X/Y/Z = -2.5/-2.5/0 to 2.5/2.5/10 m&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span> <span class="n">XB</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mi">10</span> <span class="o">/</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;End of simulation time is 30 s&quot;</span>
+<span class="s2">&quot;Время окончания моделирования - 30 с&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span> <span class="o">=</span> <span class="mf">30.0</span> <span class="o">/</span> <span class="n">End</span> <span class="n">of</span> <span class="n">simulation</span> <span class="n">time</span> <span class="ow">is</span> <span class="mi">30</span> <span class="n">s</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;Specifying FDS default fuel &#39;METHANE&#39; for the reaction&quot;</span>
+<span class="s2">&quot;Указание топлива FDS по умолчанию &#39;METHANE&#39; для реакции&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">REAC</span> <span class="n">FUEL</span> <span class="o">=</span> <span class="s1">&#39;METHANE&#39;</span> <span class="o">/</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;Surface &#39;BURNER&#39; with a heat release rate of 1000 kW/m^2&quot;</span>
+<span class="s2">&quot;Поверхность «BURNER» со скоростью выделения тепла 1000 кВт/м^2&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span> <span class="o">=</span> <span class="s1">&#39;BURNER&#39;</span><span class="p">,</span> <span class="n">HRRPUA</span> <span class="o">=</span> <span class="mf">1000.</span><span class="p">,</span> <span class="n">COLOR</span> <span class="o">=</span> <span class="s1">&#39;RASPBERRY&#39;</span> <span class="o">/</span> <span class="n">Surface</span> <span class="k">with</span> <span class="n">ID</span> <span class="o">/</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;Vent in the X-Y plane at Z = 0 that extends from X/Y = -0.5/-0.5 to 0.5/0.5&quot;</span>
-<span class="s2">&quot;Surface &#39;BURNER&#39; is assigned to the vent&quot;</span>
+<span class="s2">&quot;Вент в плоскости X-Y при Z = 0, который простирается от X/Y = -0,5/-0,5 до 0,5/0,5&quot;</span>
+<span class="s2">&quot;Поверхность &#39;BURNER&#39; назначена для вентиляционного отверстия&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">VENT</span> <span class="n">XB</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;BURNER&#39;</span><span class="o">/</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;Slice file in the Y-Z plane at X = 0 with quantity &#39;temperature&#39;&quot;</span>
-<span class="s2">&quot;CELL_CENTERED prevents FDS from interpolating the results to the cell corners&quot;</span>
+<span class="s2">&quot;Файл среза в плоскости Y-Z при X = 0 с величиной &#39;температура&#39;&quot;</span>
+<span class="s2">&quot;CELL_CENTERED предотвращает интерполяцию результатов FDS по углам ячеек.&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
 
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
-<span class="s2">&quot;FDS does not look after this line&quot;</span>
+<span class="s2">&quot;FDS не следит за этой линией&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="o">&amp;</span><span class="n">TAIL</span> <span class="o">/</span>
 </pre></div>
 </div>
 </section>
 <section id="smv">
-<h2>Визуализация SMV<a class="headerlink" href="#smv" title="Link to this heading">#</a></h2>
-<p>Область вычислений, включая граничные условия, препятствия и результаты для соответствующих выходных переменных моделирования FDS, может быть отображена с помощью постпроцессора Smokeview..</p>
+<h2>Визуализация в SMV<a class="headerlink" href="#smv" title="Link to this heading">#</a></h2>
+<p>Область вычислений, включая граничные условия, препятствия и результаты для соответствующих выходных переменных моделирования FDS, может быть отображена с помощью постпроцессора Smokeview.</p>
 <figure class="align-default" id="fig-pool-fire-smv-plain">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_all.png"><img alt="../../../_images/pool_fire_all.png" src="../../../_images/pool_fire_all.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV-визуализация геометрии / сетки-grid в плоскости y-z / значений температуры в y-z-срезе при  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>).Участок поверхности,h <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>,который имеетa <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code>очертания, окрашен в красноватый цветh.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV-визуализация геометрии / сетки в y-z-плоскости / значений температуры в y-z-срезе при <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>). Поверхностный участок <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, на котором определена <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code>, окрашен в красноватый цвет.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -700,7 +699,7 @@ s</p>
 <p>Следующие задания предназначены для обеспечения общего понимания того, как использовать FDS и SmokeView. Они охватывают основные функции и анализ результатов моделирования. Пример ввода FDS, описанный выше, может служить отправной точкой.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Прочитайте всю задачу целиком перед началом моделирования, чтобы зафиксировать несколько выходных параметров за один запуск.</p>
+<p>Прочитайте всю задачу перед началом моделирования, чтобы получить несколько выходных параметров за один прогон.</p>
 </div>
 </section>
 <section id="i">
@@ -1594,7 +1593,7 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Введение</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds">Входной файл FDS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv">Визуализация SMV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv">Визуализация в SMV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Анализ</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i">Задание I – Основы</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-task">Дополнительная задача: Моделирование чисто плавучего диффузионного пламени</a></li>
