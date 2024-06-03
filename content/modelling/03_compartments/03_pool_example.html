@@ -8,25 +8,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.2. Example – Pool Fire &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>3.2. Пример – Пожар пролива &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -34,13 +34,13 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -53,7 +53,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -76,27 +76,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +114,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -188,65 +189,65 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01_general/00_overview.html">1. Моделирование пожаров</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_general/00_overview.html">1. Моделирование пожаров</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01_general/01_processes.html">1.1. Физические и химические процессы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01_general/02_fse.html">1.2. Проектирование пожарной безопасности</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01_general/03_approaches.html">1.3. Подходы к моделированию</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Гидродинамика</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_fluids/00_overview.html">2. Гидродинамика</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/01_fluids.html">2.1. Жидкости и газы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/02_cfd.html">2.2. Вычислительная гидродинамика</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_fluids/03_turbulence.html">2.3. Турбулентность</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">3. Пожары в помещениях</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">3. Пожары в помещениях</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_fundamentals.html">3.1. Основы</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Example – Pool Fire</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Пример – Пожар пролива</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_steckler_example.html">3.3. Example - Steckler Compartment</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../04_thermodynamics/00_overview.html">4. Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_thermodynamics/00_overview.html">4. Thermodynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../04_thermodynamics/01_fundamentals.html">4.1. Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04_thermodynamics/02_example_energy_mass_transfer.html">4.2. Energy and Mass Transfer</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../05_combustion/00_overview.html">5. Combustion</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05_combustion/00_overview.html">5. Combustion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05_combustion/01_fundamentals.html">5.1. Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05_combustion/02_modelling.html">5.2. Modelling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05_combustion/03_closed_volume_example.html">5.3. Example – Closed Volume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05_combustion/04_burner_example.html">5.4. Wolfhard-Parker Burner</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../06_heat_transfer/00_overview.html">6. Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06_heat_transfer/00_overview.html">6. Heat Transfer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../06_heat_transfer/01_fundamentals.html">6.1. Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06_heat_transfer/02_heat_transfer_example.html">6.2. Example – Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06_heat_transfer/03_validation_example.html">6.3. Validation – Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06_heat_transfer/04_ht3d_example.html">6.4. Example – 3D Heat Transfer</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../07_particles/00_overview.html">7. Particles</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07_particles/00_overview.html">7. Particles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../07_particles/01_fundamentals.html">7.1. Modelling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07_particles/02_example_spray.html">7.2. Example – Sprays</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../09_pyrolysis/00_overview.html">8. Pyrolysis</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09_pyrolysis/00_overview.html">8. Pyrolysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../09_pyrolysis/01_fundamentals.html">8.1. Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../09_pyrolysis/02_example.html">8.2. Example - Gasification of PMMA</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/01_basic/00_overview.html">Basic</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/01_basic/00_overview.html">Basic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/01_basic_example_i.html">Basic FDS Example I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/02_basic_example_ii.html">Basic FDS Example II</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/03_basic_example_iii.html">Basic Example III</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/04_basic_example_iv.html">Basic Example IV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/05_basic_example_v.html">Basic Example V</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/02_intermediate/00_overview.html">Intermediate</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/02_intermediate/00_overview.html">Intermediate</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/01_data_analysis_01.html">Data Analysis I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/02_adjust_fds_input.html">Adjust FDS Input Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/03_work_flow.html">Work Flow Proposal</a></li>
@@ -254,52 +255,52 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/05_data_analysis_02.html">Data Analysis II</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/06_build_fds_input.html">Build FDS Input Lines Using Python String Manipulation</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/03_advanced/00_overview.html">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/03_advanced/00_overview.html">Advanced</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/McCaffrey.html">McCaffrey Plumes</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/02_example_stecklercompartments.html">Steckler Compartments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/03_example_zukoskiplumes.html">Zukoski Plumes</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">FDS and SMV</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">FDS and SMV</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">FDS Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">FDS Basic Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">Smokeview Basics</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/02_hpc/00_overview.html">HPC</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/02_hpc/00_overview.html">HPC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/01_linux.html">Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/02_hpc.html">High Performance Computing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">Parallel Execution of FDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/04_benchmarking.html">Benchmarking</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/03_analysis/00_overview.html">Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/03_analysis/00_overview.html">Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/03_analysis/01_python.html">Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/03_analysis/03_example_mccaffreyplumes.html">Example: McCaffrey plume experiments</a></li>
 
 
 <li class="toctree-l2"><a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html">fdsreader Module</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">Fire Simulation Lecture @ BUW</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">Fire Simulation Lecture @ BUW</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">Week 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">Week 2</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">CoBra Workshop</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">CoBra Workshop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">CoBra Workshop I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">CoBra Workshop II</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">CoBra Workshop III</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -315,7 +316,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -324,7 +325,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -533,7 +534,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Example – Pool Fire</h1>
+    <h1>Пример – Пожар пролива</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -543,16 +544,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-input-file">FDS Input File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv-visualisation">SMV Visualisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-i-basics">Task I – Basics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame">Extra Task: Simulation of a purely buoyant diffusion flame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-ii-plume-formulas">Task II - Plume Formulas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-iii-time-dependent-heat-release-rate">Task III – Time-dependent Heat Release Rate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-iv-grid-convergence-hpc-computing-benchmarking">Task IV – Grid Convergence / HPC computing / Benchmarking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Введение</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds">Входной файл FDS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv">Визуализация SMV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Анализ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i">Задание I – Основы</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-task">Дополнительная задача: Моделирование чисто плавучего диффузионного пламени</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">Задание II - Формулы шлейфа</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iii">Задача III – Скорость тепловыделения, зависящая от времени</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iv">Задача IV – Конвергенция сетки / высокопроизводительные вычисления / Сравнительный анализ</a></li>
 </ul>
             </nav>
         </div>
@@ -590,11 +591,11 @@ document.write(`
 <span class="n">svg_metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">}</span>
 
 <span class="c1"># plt.rcParams[&#39;text.latex.preamble&#39;] = [</span>
-<span class="c1">#        r&#39;\usepackage{siunitx}&#39;,   # i need upright \micro symbols, but you need...</span>
-<span class="c1">#        r&#39;\sisetup{detect-all}&#39;,   # ...this to force siunitx to actually use your fonts</span>
-<span class="c1">#        r&#39;\usepackage{helvet}&#39;,    # set the normal font here</span>
-<span class="c1">#        r&#39;\usepackage{sansmath}&#39;,  # load up the sansmath so that math -&gt; helvet</span>
-<span class="c1">#        r&#39;\sansmath&#39;               # &lt;- tricky! -- gotta actually tell tex to use!</span>
+<span class="c1">#        r&#39;\usepackage{siunitx}&#39;,   # Мне нужны вертикальные символы \микро, но это нужно,... </span>
+<span class="c1">#        r&#39;\sisetup{detect-all}&#39;,   # ...чтобы заставить siunitx действительно использовать ваши шрифты</span>
+<span class="c1">#        r&#39;\usepackage{helvet}&#39;,    # установите здесь обычный шрифт</span>
+<span class="c1">#        r&#39;\usepackage{sansmath}&#39;,  # загрузите sansmath так, чтобы математика -&gt; гельвет</span>
+<span class="c1">#        r&#39;\sansmath&#39;               # &lt;- сложно! -- Приходится указывать тексту, что использовать!</span>
 <span class="c1"># ]</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -617,28 +618,29 @@ document.write(`
 </div>
 </details>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="example-pool-fire">
-<h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Link to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Pool fires are interesting for studying fire development, because they are relatively easy to handle. One needs a fireproof pan, for example made out of steel sheets, and fill in a combustible liquid. Shortly after ignition, it reaches a quasi steady-state, due to the evaporation of the liquid. One of the shortcomings of pool fires is their limited fuel supply. This is one of the reasons why gas burners are often used in fire experiments. That, and the good reproducibility associated with gas burners as ignition source. Also in FDS, most pool fire simulations are modelled as gas burners (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">see Section “11.4 Simple Pyrolysis Models” in the FDS User’s Guide</a>).</p>
-<p>This example illustrates the setup and analysis of a minimalist FDS simulation. Starting from a simple pool fire with a fixed heat release rate, the model is extended by various parameters. The results are then validated by comparison with simple analytical methods.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">3.2. </span>Пример – Пожар пролива<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>Введение<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Пожары пролива интересны для изучения развития пожара, потому что с ними относительно легко обращаться. Нужен огнеупорный поддон, например, сделанный из стальных листов, и налейте в него горючую жидкость. Вскоре после воспламенения оно достигает квазистационарного состояния из-за испарения жидкости. Одним из недостатков пожара пролива является ограниченный запас топлива. Это одна из причин, по которой газовые горелки часто используются в экспериментах с огнем. Это, а также хорошая воспроизводимость, связанная с газовыми горелками в качестве источника воспламенения. Также в FDS большинство моделей пожара в бассейне моделируются в виде газовых горелок (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">см. Раздел “11.4 Простые модели пиролиза” в Руководстве пользователя FDS</a>).</p>
+<p>Этот пример иллюстрирует настройку и анализ минималистичного моделирования FDS. Начиная с простого пожара пролива с фиксированной скоростью тепловыделения, модель расширяется за счет различных параметров. Затем результаты проверяются путем сравнения с простыми аналитическими методами.</p>
 </section>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
-<p>A pool fire scenario is considered as an example of a FDS simulation. The pool surface area is <span class="math notranslate nohighlight">\(\mf 1~m^2\)</span> and it is located at <span class="math notranslate nohighlight">\(\mf z = 0\)</span>. The heat release rate of the fire is <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>. The lateral and top boundaries of the simulation domain are sealed and the extension of the computational domain is</p>
-<div class="math notranslate nohighlight">
-\[\mf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\]</div>
-<p>with a grid resolution of <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>.</p>
+<section id="id3">
+<h2>Настройка<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Сценарий пожара в бассейне рассматривается как пример моделирования FDS. Площадь поверхности бассейна равна <span class="math notranslate nohighlight">\(\mf 1~m^2\)</span> и он находится по адресу <span class="math notranslate nohighlight">\(\mf z = 0\)</span>. Скорость выделения тепла при пожаре равна   <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>.Боковые и верхние границы области моделирования закрыты, а расширение вычислительной области ограничено .
+s</p>
+<p>$<span class="math notranslate nohighlight">\(\mf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\)</span><span class="math notranslate nohighlight">\(с разрешением сетки of \)</span>\mf 0.2~m$.</p>
 </section>
-<section id="fds-input-file">
-<h2>FDS Input File<a class="headerlink" href="#fds-input-file" title="Link to this heading">#</a></h2>
-<p>Parameters in the FDS input file are specified by using namelist formatted records. Each namelist record begins with the ampersand character “&amp;”, followed by the name of the namelist group, then a comma-delimited list of the input parameters, and finally a forward slash “/”.</p>
+<section id="fds">
+<h2>Входной файл FDS<a class="headerlink" href="#fds" title="Link to this heading">#</a></h2>
+<p>Параметры во входном файле FDS задаются с помощью записей в формате списка имен. Каждая запись в списке имен начинается с символа амперсанда “&amp;”, за которым следует название группы списков имен, затем список входных параметров, разделенных запятыми, и, наконец, косая черта “/”.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Table 21.3 in the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> provides a summary of frequently used output quantities.</p>
+<p>В таблице 21.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">Руководства пользователя FDS</a> приведена сводка часто используемых выходных величин.</p>
+<div class="highlight-Простой notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
-<p>A simple and commented input file that can serve as a starting point for the following exercise looks like this:</p>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
 <span class="s2">&quot;Output files will be tagged with &#39;pool_fire&#39;, &#39;TITLE&#39; is just an description&quot;</span>
 <span class="s2">&quot;--------------------------------------------------------------------------------------------&quot;</span>
@@ -683,55 +685,42 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="smv-visualisation">
-<h2>SMV Visualisation<a class="headerlink" href="#smv-visualisation" title="Link to this heading">#</a></h2>
-<p>The computational domain including boundary conditions, obstructions and the results for the respective output variables of the FDS simulation can be displayed with the Smokeview post-processor.</p>
+<section id="smv">
+<h2>Визуализация SMV<a class="headerlink" href="#smv" title="Link to this heading">#</a></h2>
+<p>Область вычислений, включая граничные условия, препятствия и результаты для соответствующих выходных переменных моделирования FDS, может быть отображена с помощью постпроцессора Smokeview..</p>
 <figure class="align-default" id="fig-pool-fire-smv-plain">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_all.png"><img alt="../../../_images/pool_fire_all.png" src="../../../_images/pool_fire_all.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV visualization of the geometry / the mesh-grid in the y-z-plane / the temperature values in the y-z-slice at  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>). The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV-визуализация геометрии / сетки-grid в плоскости y-z / значений температуры в y-z-срезе при  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>).Участок поверхности,h <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>,который имеетa <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code>очертания, окрашен в красноватый цветh.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h2>
-<p>The following tasks are intended to provide a general understanding of how to use FDS and SmokeView. They cover the basic functions and the analysis of the simulation results. The FDS input case described above can serve as a starting point.</p>
+<section id="id4">
+<h2>Анализ<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Следующие задания предназначены для обеспечения общего понимания того, как использовать FDS и SmokeView. Они охватывают основные функции и анализ результатов моделирования. Пример ввода FDS, описанный выше, может служить отправной точкой.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Read the entire task before starting a simulation to capture multiple output parameters in a single run.</p>
+<p>Прочитайте всю задачу целиком перед началом моделирования, чтобы зафиксировать несколько выходных параметров за один запуск.</p>
 </div>
 </section>
-<section id="task-i-basics">
-<h2>Task I – Basics<a class="headerlink" href="#task-i-basics" title="Link to this heading">#</a></h2>
-<p>The goal of this task is to become familiar with basic functions. Use the above listed input file and extend it to your needs.</p>
+<section id="i">
+<h2>Задание I – Основы<a class="headerlink" href="#i" title="Link to this heading">#</a></h2>
+<p>Цель этого задания - ознакомиться с базовыми функциями. Используйте приведенный выше входной файл и расширяйте его в соответствии с вашими потребностями.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When adding new diagnostics or other elements, it is useful to reduce the computing time to allow for a fast turn-over-time. This way debugging or adjusting your setup will be more efficient. For pure geometrical checks, the simulation time can also be set to zero.</p>
+<p>При добавлении новых диагностических средств или других элементов полезно сократить время вычислений, чтобы обеспечить быстрый переход к работе. Таким образом, отладка или корректировка вашей настройки будут более эффективными. Для чисто геометрических проверок время моделирования также может быть установлено равным нулю.</p>
 </div>
-<p><strong>Task:</strong></p>
+<p><strong>Задание:</strong></p>
 <ol class="arabic simple">
-<li><p>Add a temperature slice at <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> and watch the output via smokeview. Change the output by varying the color scaling and crop the data at an upper and lower boundary. Create snapshots for three points in time, e.g. <span class="math notranslate nohighlight">\(\mf 5~s\)</span>, <span class="math notranslate nohighlight">\(\mf 10~s\)</span> and <span class="math notranslate nohighlight">\(\mf 20~s\)</span>. Add appropriate axes labels to the smokeview output to check the slice orientation. Refer to section 5.2 “Data Bounds” and 14.4 “TICKS and LABEL keywords” of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.6/SMV_User_Guide.pdf">Smokeview User’s Guide</a> for more information on how to change the output properties of slices.</p></li>
-<li><p>Visualize the velocity vector field in the plume axis at <span class="math notranslate nohighlight">\(\mf t \approx 20~s\)</span> for <span class="math notranslate nohighlight">\(\mf y=0~m\)</span>.</p>
+<li><p>Добавьте температурный срез в  <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> и просмотрите результат с помощью smokeview. Измените результат, изменив цветовое масштабирование, и обрежьте данные по верхней и нижней границе. Создайте снимки для трех моментов времени, например <span class="math notranslate nohighlight">\(\mf 5~s\)</span>, <span class="math notranslate nohighlight">\(\mf 10~s\)</span> и <span class="math notranslate nohighlight">\(\mf 20~s\)</span>. Добавьте соответствующие метки осей в выходные данные smokeview, чтобы проверить ориентацию среза. Обратитесь к разделу 5.2 “Границы данных” и 14.4 “МЕТКИ и ключевые слова для меток” <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.6/SMV_User_Guide.pdf">Руководства пользователя Smokeview</a> для получения дополнительной информации о том, как изменить выходные свойства срезов.</p></li>
+<li><p>Визуализируйте поле вектора скорости на оси струи в <span class="math notranslate nohighlight">\(\mf t \approx 20~s\)</span> для <span class="math notranslate nohighlight">\(\mf y=0~m\)</span>.</p>
 <ul class="simple">
-<li><p>Extra task: Open the sealed domain on at least one side and observe the change in the flow field.</p></li>
+<li><p>Дополнительная задача: Откройте запечатанную область по крайней мере с одной стороны и понаблюдайте за изменением поля потока.</p></li>
 </ul>
 </li>
-<li><p>Plot the computed heat release rate (HRR) from the pool_fire_hrr.csv file against the given input HRR of the FDS file. Discuss the differences and what these are related to. Run simulations for HRR of <span class="math notranslate nohighlight">\(\mf 100~kW\)</span>, <span class="math notranslate nohighlight">\(\mf 1~MW\)</span> and <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>.</p></li>
+<li><p>Сопоставьте вычисленную скорость тепловыделения (HRR) из файла pool_fire_hrr.csv с заданной входной HRR файла FDS. Обсудите различия и с чем они связаны. Запустите моделирование для HRR <span class="math notranslate nohighlight">\(\mf 100~kW\)</span>, <span class="math notranslate nohighlight">\(\mf 1~MW\)</span> and <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>.</p></li>
 </ol>
-<p><strong>1. Solution</strong></p>
-<figure class="align-default" id="fig-pool-fire-temp-timesteps">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_temp_timesteps.png"><img alt="../../../_images/pool_fire_temp_timesteps.png" src="../../../_images/pool_fire_temp_timesteps.png" style="width: 100%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\mf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\mf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\mf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="fig-pool-fire-temp-bounds-trunc">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_temp_bounds_trunc.png"><img alt="../../../_images/pool_fire_temp_bounds_trunc.png" src="../../../_images/pool_fire_temp_bounds_trunc.png" style="width: 100%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\mf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> can be analyzed with the <strong>fdsreader</strong>.</p>
+<p><strong>1. Решение</strong></p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -763,10 +752,10 @@ document.write(`
 <figure class="align-default" id="fig-pool-fire-temp-slice">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_temperatures_slice.svg"><img alt="../../../_images/pool_fire_1mw_temperatures_slice.svg" src="../../../_images/pool_fire_1mw_temperatures_slice.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Визуализация мгновенного (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> значения в y-z-срезе <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> помощью python / matplotlib. Данные были получены с помощью <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>2. Solution</strong></p>
+<p><strong>2. Решение</strong></p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -842,28 +831,28 @@ document.write(`
 </div>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-0">
-10 MW, sealed domain</label><div class="sd-tab-content docutils">
+<label class="sd-tab-label" for="sd-tab-item-0">
+10 МВт, закрытый домен</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-pool-fire-vector-sealed">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.12 </span><span class="caption-text">HRR of 10 MW, sealed compartment</span><a class="headerlink" href="#fig-pool-fire-vector-sealed" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">HRR мощностью 10 МВт, герметичный отсек</span><a class="headerlink" href="#fig-pool-fire-vector-sealed" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-1">
+<label class="sd-tab-label" for="sd-tab-item-1">
 10 MW, open domain</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-pool-fire-vector-open">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.13 </span><span class="caption-text">HRR of 10 MW, open compartment</span><a class="headerlink" href="#fig-pool-fire-vector-open" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Мощность 10 МВт, открытый отсек</span><a class="headerlink" href="#fig-pool-fire-vector-open" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </div>
-<p><strong>3. Solution</strong></p>
-<p>The fluctuation of the HRR curve increases at higher levels. A drop in the released energy with time indicates a lower oxygen level due to the sealed compartment.</p>
+<p><strong>3. Решение</strong></p>
+<p>Колебания кривой HRR увеличиваются при более высоких уровнях. Падение выделяемой энергии со временем указывает на более низкий уровень кислорода из-за герметичности отсека.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -938,161 +927,98 @@ document.write(`
 </div>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-2">
+<label class="sd-tab-label" for="sd-tab-item-2">
 100 kW</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-pool-fire-hrr-100kw">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.14 </span><span class="caption-text">HRR of 100 kW</span><a class="headerlink" href="#fig-pool-fire-hrr-100kw" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Мощность 100 kW</span><a class="headerlink" href="#fig-pool-fire-hrr-100kw" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-3">
+<label class="sd-tab-label" for="sd-tab-item-3">
 1 MW</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-pool-fire-hrr-1mw">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.15 </span><span class="caption-text">HRR of 1 MW</span><a class="headerlink" href="#fig-pool-fire-hrr-1mw" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Мощность 1 MW</span><a class="headerlink" href="#fig-pool-fire-hrr-1mw" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 <input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-4">
+<label class="sd-tab-label" for="sd-tab-item-4">
 10 MW</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-pool-fire-hrr-10mw">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.16 </span><span class="caption-text">HRR of 10 MW</span><a class="headerlink" href="#fig-pool-fire-hrr-10mw" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Мощность 10 MW</span><a class="headerlink" href="#fig-pool-fire-hrr-10mw" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
-<section id="extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
-<span id="extra-task"></span><h2>Extra Task: Simulation of a purely buoyant diffusion flame<a class="headerlink" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame" title="Link to this heading">#</a></h2>
-<p>In this task we propose as an extra exercise, the simulation of a diffusion flame, based on the experimental setup described in the report: <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">Purely Buoyant Diffusion Flames: Some Experimental Results</a>. Purely bouyant diffusion flames can be defined as those which take place over combustible gases leaving the surface of a solid or liquid fuel with negligible velocity. In such cases, the fire is said to be dominated by buoyancy. This is a common characteristic of fires that develop freely over a pool of liquid fuel, or over a solid polymeric material.</p>
-<p>The main purpose of the experiments described in the report is to measure the temperature and the velocity magnitude in the near field of the flame, with probes and thermocouples. Flames of five different heat release rates of <span class="math notranslate nohighlight">\(\small\sf 14.4~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 21.7~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 33.3~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 44.9~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 57.5~kW\)</span> are considered, and the measurements are taken at the central line of the flame. A burner of natural gas injects fuel at a controlled rate, so as to obtain the desired heat release. For a complete description of the experiment, please visit the reference in the paragraph above.</p>
-<p><em><strong>Building the setup</strong></em></p>
-<p>The simulation setup is built based on the dimensions presented in the report referenced above. A methane burner with a heat release rate of <span class="math notranslate nohighlight">\(\small\sf 14.4~kW\)</span> can be considered as a start. The burner dimensions are <span class="math notranslate nohighlight">\(\small\sf 0.30 \times 0.30~m\)</span> and its surface is positioned at <span class="math notranslate nohighlight">\(\small\sf 0.72~m\)</span> above the floor. The lateral and top boundaries of the simulation domain are open. The extension of the domain is</p>
-<div class="math notranslate nohighlight">
-\[\small\sf [-0.75~m, 0.75~m] \times [-0.75~m, 0.75~m] \times [-0.72~m, 3.48~m]\]</div>
-<p>with a grid resolution of <span class="math notranslate nohighlight">\(\small\sf 0.06~m\)</span>.</p>
-<p>A set of measuring devices of temperature and velocity are positioned along the central line of the flame. It is recommended that each device is located in the middle of the cell.</p>
-<figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="../../../_images/extra_task_diffusion_flame_01.png"><img alt="../../../_images/extra_task_diffusion_flame_01.png" src="../../../_images/extra_task_diffusion_flame_01.png" style="width: 55%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Visualization of the simulation setup in Smokeview.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>At total, five different simulations need to be run, one for each heat release rate indicated above.</p>
-<p><em><strong>Collecting and plotting the results</strong></em></p>
-<p>Once the simulations are finished, the data recorded by the devices (temperature and velocity) can be collected from the “devc.csv” output file. The goal is to present a log-log plot of the time-averaged output quantities against the hight above the burner, for the five values of heat release rates. Velocity and hight should be both normalised respectively by the scaling factors <span class="math notranslate nohighlight">\(\small\sf Q^{1/5}\)</span> and <span class="math notranslate nohighlight">\(\small\sf Q^{2/5}\)</span>. The results obtained in the report are presented:</p>
-<figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="../../../_images/extra_task_McCaffreyVelocity.png"><img alt="../../../_images/extra_task_McCaffreyVelocity.png" src="../../../_images/extra_task_McCaffreyVelocity.png" style="width: 55%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Normalised velocity plotted against normalised hights above burner.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="id4">
+<section id="extra-task">
+<span id="id5"></span><h2>Дополнительная задача: Моделирование чисто плавучего диффузионного пламени<a class="headerlink" href="#extra-task" title="Link to this heading">#</a></h2>
+<p>В этом задании мы предлагаем в качестве дополнительного упражнения моделирование диффузионного пламени на основе экспериментальной установки, описанной в отчете: <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">Чисто плавучее диффузионное пламя: некоторые экспериментальные результаты</a>. Чисто буйное диффузионное пламя можно определить как пламя, возникающее над горючими газами, покидающими поверхность твердого или жидкого топлива с незначительной скоростью. В таких случаях считается, что в возгорании преобладает плавучесть. Это общая характеристика пожаров, которые свободно развиваются над бассейном с жидким топливом или над твердым полимерным материалом.</p>
+<p>Основная цель экспериментов, описанных в отчете, заключается в измерении температуры и величины скорости в ближнем поле пламени с помощью зондов и термопар. Языки пламени с пятью различными скоростями тепловыделения <span class="math notranslate nohighlight">\(\small\sf 14.4~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 21.7~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 33.3~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 44.9~kW\)</span>, $\small\sf 57.5~kWрассматриваются, и измерения проводятся на центральной линии пламени. Горелка на природном газе впрыскивает топливо с регулируемой скоростью, чтобы получить желаемое тепловыделение. Для получения полного описания эксперимента, пожалуйста, посетите ссылку в параграфе выше.e.</p>
+<p><em>Построение установкиup</em>**Установка для моделирования построена на основе размеров, представленных в отчете, на который ссылались выше. Метановая горелка со скоростью тепловыделенияof <span class="math notranslate nohighlight">\(\small\sf 14.4~kWможно рассматривать как начало. Размеры горелки составляютre \)</span>\small\sf 0.30 \times 0.30~m<span class="math notranslate nohighlight">\( и его поверхность расположена на at \)</span>\small\sf 0.72~m$ над полом. Боковые и верхние границы области моделирования открыты. Расширение области составляет</p>
+<p>is</p>
+<p>$<span class="math notranslate nohighlight">\(\small\sf [-0.75~m, 0.75~m] \times [-0.75~m, 0.75~m] \times [-0.72~m, 3.48~m]\)</span><span class="math notranslate nohighlight">\( с разрешением сеткиion of \)</span>\small\sf 0.06~m$.</p>
+<p>A set of measuring devices of tВизуализация настройки моделирования в Smokeviewntral Всего необходимо выполнить пять различных симуляций, по одной для каждой скорости тепловыделения, указанной выше.ure-mСбор и нанесение результатов на графикusionПосле завершения моделирования данные, записанные устройствами (температура и скорость), могут быть собраны из выходного файла “devc.csv”. Цель состоит в том, чтобы представить логарифмический график усредненных по времени выходных величин в зависимости от высоты над горелкой для пяти значений скоростей тепловыделения. Скорость и высота должны быть нормированы соответственно масштабными коэффициентамиoal is to present a lиlog plot of the time-aРезультаты, полученные в докладе, представлены:</p>
+<p>the burner, for the five values of heat release rates. Velocity and hight shoulНормализованная скорость, построенная в зависимости от нормализованных максимумов над горелкой. Q^{1/5}<span class="math notranslate nohighlight">\( and \)</span>\small\sf Q^{2/5}$. The results obtained in the report are presented:</p>
+<div class="{График docutils">
+<p>g” width=”55%”&gt;</p>
+<p>Соответствующие идеи для решения этой задачи представлены вovпримере: эксперименты с плюмом МакКаффри](<a class="reference external" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/03_analysis/03_example_mccaffreyplumes.html#example-mccaffrey">https://firedynamics.github.io/LectureFireSimulation/content/tools/03_analysis/03_example_mccaffreyplumes.html#example-mccaffrey</a>)</p>
+</div>
+<figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../../../_images/extra_task_McCaffreyTemperature.png"><img alt="../../../_images/extra_task_McCaffreyTemperature.png" src="../../../_images/extra_task_McCaffreyTemperature.png" style="width: 55%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Temperature plotted against normalised hights above burner.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Temperature plotted against normalised hights above burner.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Relevant insights for the solution of this task are presented in the <a class="reference internal" href="../../tools/03_analysis/03_example_mccaffreyplumes.html#example-mccaffrey"><span class="std std-ref">Example: McCaffrey plume experiments</span></a>.</p>
 </section>
-<section id="task-ii-plume-formulas">
-<h2>Task II - Plume Formulas<a class="headerlink" href="#task-ii-plume-formulas" title="Link to this heading">#</a></h2>
-<p>This task targets the computation of the plume temperature with analytical methods in order to subsequently validate the results of an numerical simulation. For more detailed information on the theory and application of the plume formulas, please refer to the literature, e.g. Enclosure Fire Dynamics by B. Karlsson and J. Quintiere <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>.</p>
-<p><em><strong>Heskestad</strong></em></p>
-<p><span class="math notranslate nohighlight">\(\small\sf \Delta T \)</span> indicates the temperature rise in the plume centerline axis above ambient temperature:</p>
-<div class="math notranslate nohighlight">
-\[ \small\sf
+<section id="ii">
+<h2>Задание II - Формулы шлейфа<a class="headerlink" href="#ii" title="Link to this heading">#</a></h2>
+<p>Целью данной задачи является вычисление температуры факела с помощью аналитических методов для последующей проверки результатов численного моделирования. Для получения более подробной информации о теории и применении формул шлейфа, пожалуйста, обратитесь к литературе, например, к B. Karlsson и J. Quintiere <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>.</p>
+<p><em><strong>Хескестад</strong></em></p>
+<p><span class="math notranslate nohighlight">\(\small\sf \Delta T \)</span> указывает на повышение температуры по осевой оси струи выше температуры окружающей среды:
+:</p>
+<p>$<span class="math notranslate nohighlight">\( \small\sf
 \Delta T = 9.1 \left(\frac{T_\infty}{g \cdot c_p^2 \cdot \rho_\infty^2} \right)^{1/3} \cdot \dot{Q}_c^{2/3} \cdot (z -z_0)^{-5/3}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\sf \dot{Q}_c\)</span> is the convective heat release rate, <span class="math notranslate nohighlight">\(\small\sf T_\infty = 293~K\)</span> is the ambient temperature, <span class="math notranslate nohighlight">\(\small\sf g = 9.81~ms^{-1}\)</span> is the gravitational constant, <span class="math notranslate nohighlight">\(\small\sf \rho_\infty = 1.2 kg/m^3\)</span> is the
-density of air at ambient temperature, <span class="math notranslate nohighlight">\(\small\sf c_p = 1.0~kJ/(kg K)\)</span> is the specific heat capacity and z is the height above the fuel source in m.</p>
-<p>The virtual origin <span class="math notranslate nohighlight">\(\small\sf z_0\)</span> depends on the (equivalent) diameter D of the fire source and the total heat release rate and is given by:</p>
-<div class="math notranslate nohighlight">
-\[\small\sf
-z_0 = 0.083 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
-\]</div>
-<p>The calculation of the plume temperature according to Heskestad is defined exclusively for the area above the flame. The flame height is calculated by the following expression:</p>
-<div class="math notranslate nohighlight">
-\[\small\sf
+\)</span><span class="math notranslate nohighlight">\(гдеre \)</span>\sf \dot{Q}_c является ли скорость конвективного тепловыделения,te, <span class="math notranslate nohighlight">\(\small\sf T_\infty = 293~это температура окружающей средыure, \)</span>\small\sf g = 9.81~ms^{-1это гравитационная постояннаяant, <span class="math notranslate nohighlight">\(\small\sf \rho_\infty = 1.2 kg/m^это плотность воздуха при температуре окружающей средыure, \)</span>\small\sf c_p = 1.0~kJ/(kg Kудельная теплоемкость, а z - высота над источником топлива в метрах.
+Виртуальное происхождениеrigin $\small\sf зависит от (эквивалентного) диаметра D источника возгорания и общей скорости тепловыделения и определяется по формулеen by:</p>
+<p>$$\small\sf
+z_0 = 0.083 \cdot \dot{Q}^{2/5} - 1.02 \cdot DРасчет температуры факела в соответствии с Heskestad определяется исключительно для области над пламенем. Высота пламени рассчитывается по следующему выражению:ion:</p>
+<p>$<span class="math notranslate nohighlight">\(\small\sf
 L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
-\]</div>
-<p><em><strong>McCaffrey</strong></em></p>
-<p><span class="math notranslate nohighlight">\(\small\sf \Delta T \)</span> indicates the temperature rise in the plume centerline axis above ambient temperature:</p>
-<div class="math notranslate nohighlight">
-\[\small\sf
-\Delta T = \left(\frac{\kappa}{0.9 \cdot \sqrt{2g}}\right)^2 \cdot \left(\frac{z}{\dot{Q}^{2/5}}\right)^{2\eta-1} \cdot T_\infty
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\small\sf \dot{Q}\)</span> is the total heat release rate, <span class="math notranslate nohighlight">\(\small\sf T_\infty = 293~K\)</span> is the ambient temperature, <span class="math notranslate nohighlight">\(\small\sf g = 9.81~ms^{-1}\)</span> is the gravitational constant, z is the height above the fuel source in m. The constants <span class="math notranslate nohighlight">\(\small\sf \eta\)</span> and <span class="math notranslate nohighlight">\(\small\sf \kappa\)</span> vary depending on the plume regions and can be obtained from the following table.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Region</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\( \small\sf \frac{z}{\dot{Q}^{2/5}}\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\small\sf \eta\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\small\sf \kappa\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Continuous</p></td>
-<td><p>&lt; 0.08</p></td>
-<td><p>1/2</p></td>
-<td><p><span class="math notranslate nohighlight">\(\small\sf 6.8~[m^{1/2}/s]\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Intermittent</p></td>
-<td><p>0.08-0.2</p></td>
-<td><p>0</p></td>
-<td><p><span class="math notranslate nohighlight">\(\small\sf 1.9~[m/(kW^{1/5}s)]\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>Plume</p></td>
-<td><p>&gt; 0.2</p></td>
-<td><p>-1/3</p></td>
-<td><p><span class="math notranslate nohighlight">\(\small\sf 1.1~[m^{4/4}/(kW^{1/3}s)]\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Task:</strong></p>
-<ol class="arabic">
-<li><p>Calculate the temperatures of the plume within the respective application limits using the analytical approaches of the Heskestad and McCaffrey Plumes with a HRR of 1 MW at heights of <span class="math notranslate nohighlight">\(\small\sf  z = 1~m, 2~m, 3~m, 4~m, 5~m, 6~m\)</span>. Assume that the radiative fraction of the plume is 20 % and <span class="math notranslate nohighlight">\( \small\sf A_{fire}=1~m^2\)</span> . Compare the results and discuss the reasons for the deviations.</p></li>
-<li><p>Compare the results from the analytical calculations to the results of an FDS simulation using temperature devices. Smooth the output by a moving average to reduce noise. Refer to section 20.1 of the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> for further information on how to place Devices in the computational domain.</p>
-<p>Add the following lines to your FDS file to open the lateral and top boundaries of the sealed domain which provides a better depiction of the boundary conditions of the empirically determined plume formulas:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span> <span class="o">=</span> <span class="s1">&#39;XMIN&#39;</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
-<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span> <span class="o">=</span> <span class="s1">&#39;XMAX&#39;</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
-<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span> <span class="o">=</span> <span class="s1">&#39;YMIN&#39;</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
-<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span> <span class="o">=</span> <span class="s1">&#39;YMAX&#39;</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
-<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span> <span class="o">=</span> <span class="s1">&#39;ZMAX&#39;</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
-</pre></div>
-</div>
-</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To reduce noise, temperatures calculated with FDS can be smoothed using a simple moving average (SMA). The SMA of a time series <span class="math notranslate nohighlight">\(\small\sf x(t)\)</span> is the sequence of arithmetic averages of <span class="math notranslate nohighlight">\(\small\sf  n\)</span> consecutive data points.
-<span class="math notranslate nohighlight">\(\small\sf m_{SMA}(t) = \frac{1}{n}\sum_{i=0}^{n-1}x(t-i)\)</span></p>
-</div>
-<p><strong>1. Solution:</strong></p>
-<p><em><strong>Heskestad</strong></em></p>
+\)</span>$МакКаффриffrey***</p>
+<p>$\small\sf \Deltaуказывает на повышение температуры по осевой оси струи выше температуры окружающей средыature:</p>
+<p>$<span class="math notranslate nohighlight">\(\small\sf
+\Delta T = \left(\frac{\kappa}{0.9 \cdot \sqrt{2g}}\right)^2 \cdot \left(\frac{z}{\dot{Q}^{2/5}}\right)^{2\eta-1} \cdot T_\inftyгде where \)</span>\small\sf \dotэто общая скорость тепловыделения rate, <span class="math notranslate nohighlight">\(\small\sf T_\infty = 29это температура окружающей средыature, \)</span>\small\sf g = 9.81~ms^{гравитационная постоянная, z - высота над источником топлива в метрах. Константыtants <span class="math notranslate nohighlight">\(\small\sf \и\)</span> and $\small\sf \ka варьируются в зависимости от регионов распространения дыма и могут быть получены из следующей таблицы.</p>
+<p>abРегион Region       | <span class="math notranslate nohighlight">\( \small\sf \frac{z}{\dot{Q}^{2/5}}\)</span>    | <span class="math notranslate nohighlight">\(\small\sf \eta\)</span> | <span class="math notranslate nohighlight">\(\small\sf \kappa\)</span>           |
+|————–|———————|——–|————————–Непрерывныйtinuous   | &lt; 0.08           | 1/2  | <span class="math notranslate nohighlight">\(\small\sf 6.8~[m^{1/2}/s]\)</span>        Прерывистыйmittent | 0.08-0.2         |  0    | <span class="math notranslate nohighlight">\(\small\sf 1.9~[m/(kW^{1/5}s)]\)</span>    Шлейф| Plume        | &gt; 0.2            | -1/3 | <span class="math notranslate nohighlight">\(\small\sf 1.1~[m^{4/4}/(kW^{1/3}s)]Задание
+**Task:Рассчитайте температуры шлейфа в пределах соответствующих пределов применения, используя аналитические подходы для шлейфов Хескестада и МакКаффри с HRR 1 МВт на высотахghts of \)</span>\small\sf  z = 1~m, 2~m, 3~m, 4~m, 5~m,Предположим, что доля излучения в струе составляет 20 % и0 % and $ \small\sf A_{fire}=1~Сравните результаты и обсудите причины отклоненийiationСравните результаты аналитических расчетов с результатами моделирования FDS с использованием температурных приборов. Сгладьте выходные данные с помощью скользящего среднего для уменьшения шума. Обратитесь к разделу 20.1 oРуководства пользователя FDSs Guide](<a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guid%D0%B4%D0%BB%D1%8F">https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guidдля</a> получения дополнительной информации о том, как разместить устройства в вычислительной области domainДобавьте следующие строки в свой файл FDS, чтобы открыть боковые и верхние границы закрытой области, что обеспечивает лучшее отображение граничных условий эмпирически определенных формул шлейфа:rmulas:
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">&amp;VENT</span> <span class="pre">MB</span> <span class="pre">=</span> <span class="pre">'XMIN'</span> <span class="pre">SURF_ID</span> <span class="pre">=</span> <span class="pre">'OPEN'</span> <span class="pre">/</span>&#160;&#160;&#160;&#160; <span class="pre">&amp;VENT</span> <span class="pre">MB</span> <span class="pre">=</span> <span class="pre">'XMAX'</span> <span class="pre">SURF_ID</span> <span class="pre">=</span> <span class="pre">'OPEN'</span> <span class="pre">/</span>&#160;&#160;&#160;&#160; <span class="pre">&amp;VENT</span> <span class="pre">MB</span> <span class="pre">=</span> <span class="pre">'YMIN'</span> <span class="pre">SURF_ID</span> <span class="pre">=</span> <span class="pre">'OPEN'</span> <span class="pre">/</span>&#160;&#160;&#160;&#160; <span class="pre">&amp;VENT</span> <span class="pre">MB</span> <span class="pre">=</span> <span class="pre">'YMAX'</span> <span class="pre">SURF_ID</span> <span class="pre">=</span> <span class="pre">'OPEN'</span> <span class="pre">/</span>&#160;&#160;&#160;&#160; <span class="pre">&amp;VENT</span> <span class="pre">MB</span> <span class="pre">=</span> <span class="pre">'ZMAX'</span> <span class="pre">SURF_ID</span> <span class="pre">=</span> <span class="pre">'OPEN'</span> <span class="pre">/</span>&#160;&#160;&#160; </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Для</span> <span class="pre">уменьшения</span> <span class="pre">шума</span> <span class="pre">температуры,</span> <span class="pre">рассчитанные</span> <span class="pre">с</span> <span class="pre">помощью</span> <span class="pre">FDS,</span> <span class="pre">могут</span> <span class="pre">быть</span> <span class="pre">сглажены</span> <span class="pre">с</span> <span class="pre">использованием</span> <span class="pre">простого</span> <span class="pre">скользящего</span> <span class="pre">среднего</span> <span class="pre">(SMA).</span> <span class="pre">SMA</span> <span class="pre">временного</span> <span class="pre">ряда</span> <span class="pre">series</span> <span class="pre">$\small\sfпредставляет</span> <span class="pre">собой</span> <span class="pre">последовательность</span> <span class="pre">средних</span> <span class="pre">арифметических</span> <span class="pre">значенийages</span> <span class="pre">of</span> <span class="pre">$\small\последовательные</span> <span class="pre">точки</span> <span class="pre">данных</span> <span class="pre">points.</span> <span class="pre">$\small\sf</span> <span class="pre">m_{SMA}(t)</span> <span class="pre">=</span> <span class="pre">\frac{1}{n}\sum_{i=0}^{n-1}x(t-i)$</span> </code>Решениеolution:**</p>
+<p><em><strong>Хескестад</strong></em></p>
 <div class="toggle docutils container">
-<p>Simplifying the plume formula into:</p>
+<p>Упрощаем формулу струи до:</p>
 <p><span class="math notranslate nohighlight">\(\small\sf \Delta T = 9.1 \left(\frac{T_\infty}{g \cdot c_p^2 \cdot \rho_\infty^2} \right)^{1/3} \cdot \dot{Q}_c^{2/3} \cdot (z -z_0)^{-5/3} = 25 \left( \frac{\dot{Q}_c^{2/5}}{(z -z_0)}\right)^{5/3}\)</span></p>
-<p>The equivalent diameter:</p>
+<p>Эквивалентный диаметр:</p>
 <p><span class="math notranslate nohighlight">\(\small\sf D = \sqrt{\frac{4 \cdot A}{\pi}} = \sqrt{\frac{4 \cdot 1}{\pi}} \approx 1.13~m\)</span></p>
-<p>The virtual plume origin:</p>
+<p>Происхождение виртуального шлейфа:</p>
 <p><span class="math notranslate nohighlight">\(\small\sf z_0 = 0.083 \cdot 1000^{2/5} - 1.02 \cdot 1.13 \approx 0.163~m\)</span></p>
-<p>The flame height:</p>
+<p>Высота пламени:</p>
 <p><span class="math notranslate nohighlight">\(\small\sf L = 0.235 \cdot 1000^{2/5} - 1.02 \cdot 1.13 = 2.57~m\)</span></p>
-<p>The plume temperature at different heights:</p>
+<p>Температура струи на разной высоте:</p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 3.0 m:\)</span> <span class="math notranslate nohighlight">\(\small\sf  \Delta T = 25 \left( \frac{800^{2/5}}{(3 - 0.163)}\right)^{5/3} = 379~K\)</span></p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 4.0 m:\)</span> <span class="math notranslate nohighlight">\(\small\sf  \Delta T = 25 \left( \frac{800^{2/5}}{(4 - 0.163)}\right)^{5/3} = 229~K\)</span></p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 5.0 m:\)</span> <span class="math notranslate nohighlight">\(\small\sf  \Delta T = 25 \left( \frac{800^{2/5}}{(5 - 0.163)}\right)^{5/3} = 156~K\)</span></p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 6.0 m:\)</span> <span class="math notranslate nohighlight">\(\small\sf  \Delta T = 25 \left( \frac{800^{2/5}}{(6 - 0.163)}\right)^{5/3} = 114~K\)</span></p>
 </div>
-<p><em><strong>McCaffrey</strong></em></p>
+<p><em><strong>МакКаффри</strong></em></p>
 <div class="toggle docutils container">
 <p><span class="math notranslate nohighlight">\(\small\sf z = 1.0 m: \frac{z}{\dot{Q}^{2/5}} = \frac{1}{1000^{2/5}} = 0.063~|~0.063 &lt; 0.08\)</span> -&gt; Continuous</p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 2.0 m: \frac{z}{\dot{Q}^{2/5}} = \frac{2.0}{1000^{2/5}} = 0.126~|~0.2 &gt; 0.126 &gt; 0.08\)</span> -&gt; Intermediate</p>
@@ -1100,8 +1026,8 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <p><span class="math notranslate nohighlight">\(\small\sf z = 4.0 m: \frac{z}{\dot{Q}^{2/5}} = \frac{4.0}{1000^{2/5}} = 0.252~|~0.252 &gt; 0.2\)</span> -&gt; Plume</p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 5.0 m: \frac{z}{\dot{Q}^{2/5}} = \frac{5.0}{1000^{2/5}} = 0.315~|~0.315 &gt; 0.2\)</span> -&gt; Plume</p>
 <p><span class="math notranslate nohighlight">\(\small\sf z = 6.0 m: \frac{z}{\dot{Q}^{2/5}} = \frac{6.0}{1000^{2/5}} = 0.379~|~0.379 &gt; 0.2\)</span> -&gt; Plume</p>
-<p>The calculated temperatures and the respective auxiliary constants used can be found in the following table:</p>
-<table class="table">
+<p>Расчетные температуры и соответствующие использованные вспомогательные константы можно найти в следующей таблице:</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(\small\sf z [m]\)</span></p></th>
 <th class="head text-center"><p><span class="math notranslate nohighlight">\(\small\sf \frac{z}{\dot{Q}^{2/5}}[m/kW^{2/5}]\)</span></p></th>
@@ -1150,7 +1076,9 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 </tbody>
 </table>
 </div>
-<p><em><strong>FDS Devices</strong></em></p>
+</div>
+<p>***Устройства FDS</p>
+<hr class="docutils" />
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1200,78 +1128,73 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 </div>
 </details>
 </div>
-<p><strong>2. Solution</strong></p>
+<p><strong>2. Решение</strong></p>
 <figure class="align-default" id="fig-pool-fire-hrr">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_open_temperatures_devc.svg"><img alt="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" src="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Скользящее среднее для <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> устройств на высотах 1,0, 2,0, 3,0, 4,0, 5,0 и 6,0 м, сглаженное по 100 точкам данных.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="task-iii-time-dependent-heat-release-rate">
-<h2>Task III – Time-dependent Heat Release Rate<a class="headerlink" href="#task-iii-time-dependent-heat-release-rate" title="Link to this heading">#</a></h2>
-<p>This task deals with the different possibilities to define the heat release rate (HRR) of a design fire and to model it in FDS. The total heat release  <span class="math notranslate nohighlight">\(\small\sf \dot{Q}\)</span> of a burning area <span class="math notranslate nohighlight">\(\small\sf A_{fire}\)</span> depends on the heat release rate per unit area <span class="math notranslate nohighlight">\(\small\sf \dot{q}''\)</span>:</p>
+<section id="iii">
+<h2>Задача III – Скорость тепловыделения, зависящая от времени<a class="headerlink" href="#iii" title="Link to this heading">#</a></h2>
+<p>В этой задаче рассматриваются различные возможности определения скорости тепловыделения (HRR) расчетного пожара и его моделирования в FDS. Общее тепловыделение  <span class="math notranslate nohighlight">\(\small\sf \dot{Q}\)</span> о зоне горения <span class="math notranslate nohighlight">\(\small\sf A_{fire}\)</span> зависит от скорости тепловыделения на единицу площади <span class="math notranslate nohighlight">\(\small\sf \dot{q}''\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\small\sf \dot{Q} = {A_{Fire} \cdot \dot{q}''}\]</div>
-<p>In FDS a burning area is defined by a <code class="docutils literal notranslate"><span class="pre">VENT</span></code> with a certain surface property that can be assigned by a <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code>. A fixed heat release rate per unit area can be set to a <code class="docutils literal notranslate"><span class="pre">SURF</span></code> by the attribute <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code>. Please refer to section 10.2.1 “Basics” of the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> for further information.</p>
+<p>В FDS зона горения определяется с помощью a  <code class="docutils literal notranslate"><span class="pre">VENT</span></code> с определенным свойством поверхности, которое может быть присвоено с помощью a <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code>. Фиксированная скорость тепловыделения на единицу площади может быть установлена на a <code class="docutils literal notranslate"><span class="pre">SURF</span></code> с помощью атрибута <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code>. Пожалуйста, обратитесь к разделу 10.2.1 “Основы”  <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">Руководства пользователя FDS</a> для получения дополнительной информации.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Create an automation in Python or Excel that outputs the strings of the RAMP lines for the FDS input file.</p>
+<p>Создайте автоматизацию на Python или Excel, которая выводит строки RAMP lines для входного файла FDS.</p>
 </div>
-<p><strong>Task:</strong></p>
+<p><strong>Задание:</strong></p>
 <ol class="arabic">
-<li><p>Model the HRR progression for a radially spreading fire with a maximum power of 1 MW in FDS assuming a fixed burning area (task 1.1) and a radial propagation from the center of the burning area (task 1.2).</p>
-<ol class="arabic">
-<li><p>The HRR according to the ‘t-square’ model can be described by:</p>
-<div class="math notranslate nohighlight">
-\[\small\sf \dot Q = \alpha \cdot t^2\]</div>
-<p>where t is the  burning time after ignition and <span class="math notranslate nohighlight">\(\small\sf \alpha\)</span> is the fire growth factor.Assume a fast fire propagation by <span class="math notranslate nohighlight">\(\small\sf \alpha = 0.04689~kW/s^2\)</span> and a <strong>constant</strong> heat release rate per unit area of <span class="math notranslate nohighlight">\(\small\sf  \dot{q}'' = 0.25~MW/m^2\)</span>. The maximum burning area is <span class="math notranslate nohighlight">\(\small\sf  A_{fire} = 1~m^2\)</span>. First calculate the time until the fire has spread to the entire area. This corresponds to the time at which the maximum HRR is reached. For simplicity, assume a perfect radial fire spread and a round fire area. Then model the temporal evolution of the HRR in FDS via a <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> function (See section 20.6 “Controlling a Ramp” of the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> ).</p>
-</li>
-<li><p>Model the fire propagation directly in FDS by defining the spread rate. The <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute denotes a constant radial propagation speed from a specified point.</p>
-<figure class="align-default" id="fig-pool-fire-spread">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_spread.svg"><img alt="../../../_images/pool_fire_spread.svg" src="../../../_images/pool_fire_spread.svg" width="30%" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.21 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>For instructions on how to model a radial fire spread in FDS, please refer to the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> Section 11.4.2 “Special Topic: A Radially-Spreading Fire”. The radial propagation speed v can be obtained from the fire area <span class="math notranslate nohighlight">\(\small\sf A_{Fire}\)</span> and the corresponding burning period t.</p>
-<div class="math notranslate nohighlight">
-\[\small\sf v = \frac{\sqrt{A_{fire}/\pi}}{t}\]</div>
-</li>
-<li><p>Compare the HRR curves calculated by FDS with each other and discuss the limitations and inaccuracies associated with each approach.</p></li>
-</ol>
-</li>
-<li><p>Given is the fictional mass loss of a heptane fire. Calculate the heat release of the fire over the entire burning period with an assumed effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf  \Delta h_{c,eff} = 44,590~kJ / kg\)</span>. Model the HRR in FDS by using the RAMP function. Check if the simulated curve matches the prescribed HRR. The effective heat of combustion indicates the heat release per unit of weight of a material burned in combustion. For simplicity, assume that the averaged mass loss between two time steps applies to the end of each time interval.
-The mass loss caused by the burn-up can be described by the following time-dependent correlation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">275</span> <span class="p">]</span> <span class="c1"># [s]</span>
-<span class="n">total_mass</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">3040</span><span class="p">,</span> <span class="mi">2880</span><span class="p">,</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="mi">1120</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># [g]</span>
+<li><p>Смоделируйте прогрессию HRR для радиально распространяющегося пожара с максимальной мощностью 1 МВт в FDS, предполагая фиксированную площадь горения (задача 1.1) и радиальное распространение от центра зоны горения (задача 1.2).</p>
+<p>1HRR в соответствии с моделью ‘т-квадрат’ может быть описан следующим образом:
+y:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> $$\small\sf \dot Q = \alpha \cdot t^2$$
 </pre></div>
 </div>
+<p>где t - время горения после воспламенения и and <span class="math notranslate nohighlight">\(\small\sf \alpявляется фактором роста пожара.Предположим, что быстрое распространение пожараn by \)</span>\small\sf \alpha = 0.04689~kW/sиnd постояннаяtanскорость тепловыделения на единицу площади бассейнаa of <span class="math notranslate nohighlight">\(\small\sf  \dot{q}'' = 0.25~MW/m^Максимальная площадь горения равнаa is \)</span>\small\sf  A_{fire} = 1~m^Сначала рассчитайте время, пока огонь не распространится на всю площадь. Это соответствует времени, когда достигается максимальное значение HRR. Для простоты предположим идеальное радиальное распространение огня и круглую площадь пожара. Затем смоделируйте временную эволюцию HRR в FDS с помощьюia a `RAфункции (см. Раздел 20.6 “Управление рампой” tруководства пользователя FDSuide](<a class="github reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">firemodels/fds</a>) ).</p>
+<p>Моделируйте распространение пожара непосредственно в FDS, определяя скорость распространения The `SPREАтрибут обозначает постоянную радиальную скорость распространения от указанной точкиoint.
+:::{figure-md} fig-pool-fire-spread</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> &lt;img src=&quot;figs/pool_fire_spread.svg&quot; width=&quot;30%&quot;&gt;
+</pre></div>
+</div>
+<p>Распространение пожара с помощью FDS `SPREатрибута
+bute
+:::</p>
 </li>
 </ol>
-<p><strong>1. Solution</strong></p>
+<p>Для получения инструкций о том, как моделировать радиальное распространение пожара в FDS, пожалуйста, обратитесь кtoРуководству пользователя FDS Guide](<a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide%D0%A0%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB">https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_GuideРаздел</a> 11.4.2 “Специальная тема: радиально распространяющийся пожар”. Радиальная скорость распространения v может быть получена из области пожараe area $\small\sf A_{Fи соответствующий период горения t.iod t.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    $$\small\sf v = \frac{\sqrt{A_{fire}/\pi}}{t}$$4
+</pre></div>
+</div>
+<p>Сравните кривые HRR, рассчитанные FDS, друг с другом и обсудите ограничения и неточности, связанные с каждым подходом.
+roacПриведены вымышленные потери массы при возгорании гептана. Рассчитайте тепловыделение пожара за весь период горения с учетом предполагаемой эффективной теплоты сгоранияmbustion $\small\sf  \Delta h_{c,eff} = 44,590~kJСмоделируйте HRR в FDS с помощью функции RAMP. Проверьте, соответствует ли моделируемая кривая предписанному HRR. Эффективная теплота сгорания показывает тепловыделение на единицу веса материала, сгоревшего при горении. Для простоты предположим, что усредненная потеря массы между двумя временными этапами применяется к концу каждого временного интервала. Потеря массы, вызванная выгоранием, может быть описана следующей зависимой от времени корреляцией:
+elation:
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">time_index</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">25,</span> <span class="pre">50,</span> <span class="pre">75,</span> <span class="pre">100,</span> <span class="pre">125,</span> <span class="pre">150,</span> <span class="pre">175,</span> <span class="pre">200,</span> <span class="pre">225,</span> <span class="pre">250,</span> <span class="pre">275</span> <span class="pre">]</span> <span class="pre">#</span> <span class="pre">[s]</span>&#160;&#160;&#160;&#160; <span class="pre">total_mass</span> <span class="pre">=</span> <span class="pre">[4000,</span> <span class="pre">4000,</span> <span class="pre">3600,</span> <span class="pre">3040,</span> <span class="pre">2880,</span> <span class="pre">2400,</span> <span class="pre">1800,</span> <span class="pre">1120,</span> <span class="pre">600,</span> <span class="pre">160,</span> <span class="pre">0,</span> <span class="pre">0]</span> <span class="pre">#</span> <span class="pre">[g]</span>&#160;&#160;&#160;&#160; </code></p>
+<p><strong>1. Решение</strong></p>
 <div class="toggle docutils container">
-<p>The burning period for the fire to reach the maximum heat release is:</p>
+<p>Период горения, в течение которого огонь достигает максимального выделения тепла, составляет:</p>
 <div class="math notranslate nohighlight">
 \[
 t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \approx 73~s
 \]</div>
-<p>By setting the time and fraction parameters <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">F</span></code>, the <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> function is obtained as follows:</p>
+<p>Путем установки параметров времени и доли <code class="docutils literal notranslate"><span class="pre">T</span></code> и <code class="docutils literal notranslate"><span class="pre">F</span></code>, the <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> функция получается следующим образом:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;SURF ID = &#39;BURNER&#39;, HRRPUA = 250, RAMP_Q = &#39;fireramp&#39;, COLOR = &#39;RASPBERRY&#39; /
 &amp;VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID=&#39;BURNER&#39; /
 &amp;RAMP ID=&#39;fireramp&#39;, T=0, F=0.00
 .
 .
 .
-&amp;RAMP ID=&#39;fireramp&#39;, T=73, F=1.00
+&amp;RAMP ID=&#39;fireramp&#39;, T=73, F=1.00Скорость распространения соответствует скорости распространения в м /с:
 </pre></div>
 </div>
-<p>The spread rate corresponds to the propagation speed in m/s:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>s:</p>
+<p>$$
 \small\sf v = \frac{\sqrt{A_{fire}/\pi}}{t} = \frac{\sqrt{1/\pi}}{73} = 0.00773 m/s
-\]</div>
-<p>Starting from the center of the vent, the radial propagation of the fire in FDS can be described as follows:</p>
+Начиная с центра вентиляционного отверстия, радиальное распространение огня в FDS можно описать следующим образом:
+ows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;SURF ID = &#39;BURNER&#39;, HRRPUA = 250, COLOR = &#39;RASPBERRY&#39; /
 &amp;VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID=&#39;BURNER&#39;, SPREAD_RATE = 0.00773 /
 </pre></div>
@@ -1409,14 +1332,14 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 <figure class="align-default" id="fig-pool-fire-hrr-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" src="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.22 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Имитация  <code class="docutils literal notranslate"><span class="pre">HRR</span></code> генерируемая  <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> и <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> как функция времени.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>2. Solution</strong></p>
+<p><strong>2. Решение</strong></p>
 <div class="toggle docutils container">
-<p>The HRR can be obtained from the mass loss <span class="math notranslate nohighlight">\(\small\sf \dot{m_{fuel}}\)</span> by the following expression:
+<p>HRR может быть получен из потери массы <span class="math notranslate nohighlight">\(\small\sf \dot{m_{fuel}}\)</span> следующим выражением:
 $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,eff} \dot{m_{fuel}}\)</span>$</p>
-<p>The maximum</p>
+<p>Максимальный</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&amp;SURF ID = &#39;BURNER&#39;, HRRPUA = 1212.85, RAMP_Q = &#39;fireramp&#39;, COLOR = &#39;RASPBERRY&#39; /
 &amp;RAMP ID=&#39;fireramp&#39;, T=0, F=0.00 /
 &amp;RAMP ID=&#39;fireramp&#39;, T=25, F=0.15 /
@@ -1505,21 +1428,21 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 <figure class="align-default" id="fig-pool-fire-hrr-ramp">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_hrr_heptane_ramp.svg"><img alt="../../../_images/pool_fire_hrr_heptane_ramp.svg" src="../../../_images/pool_fire_hrr_heptane_ramp.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.23 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Предписанное и смоделированное <code class="docutils literal notranslate"><span class="pre">HRR</span></code> возгорание н-гептана в зависимости от времени. Тепловыделение может быть выведено из потери массы и эффективной теплоты сгорания <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="task-iv-grid-convergence-hpc-computing-benchmarking">
-<h2>Task IV – Grid Convergence / HPC computing / Benchmarking<a class="headerlink" href="#task-iv-grid-convergence-hpc-computing-benchmarking" title="Link to this heading">#</a></h2>
-<p>This task deals with the monitoring of simulation parameters such as computation time and the convergence of numerical solutions.</p>
-<p><strong>Task:</strong></p>
+<section id="iv">
+<h2>Задача IV – Конвергенция сетки / высокопроизводительные вычисления / Сравнительный анализ<a class="headerlink" href="#iv" title="Link to this heading">#</a></h2>
+<p>Эта задача связана с мониторингом параметров моделирования, таких как время вычисления и сходимость численных решений.</p>
+<p><strong>Задание:</strong></p>
 <ol class="arabic simple">
-<li><p>Increase / decrease the grid resolution by factors of 0.4 and 2. Monitor the computing time by evaluating the .out file.</p></li>
-<li><p>Extend the examination by refining the grid by a factor of 4 and 8, using resources of parallel computing. For this purpose subdivide the computational domain into several meshes.</p></li>
-<li><p>Analyze the computation time for assigning multiple cores to a single OpenMP process. Split the computational domain into different meshes and assign individual MPI processes to each of them. Try to combine MPI and OpenMP and evaluate the increase in performance.</p></li>
-<li><p>Check grid convergence for the respective resolutions of the domain based on temperature and velocity criteria</p></li>
+<li><p>Увеличьте / уменьшите разрешение сетки в 0,4 и 2 раза. Контролируйте время вычислений, оценивая файл .out.</p></li>
+<li><p>Расширьте исследование, уточнив сетку в 4 и 8 раз, используя ресурсы параллельных вычислений. Для этого разделите вычислительную область на несколько сеток.</p></li>
+<li><p>Проанализируйте время вычислений для назначения нескольких ядер одному OpenMP-процессу. Разделите вычислительную область на разные сетки и назначьте каждому из них отдельные MPI-процессы. Попробуйте объединить MPI и OpenMP и оцените увеличение производительности.</p></li>
+<li><p>Проверьте сходимость сетки для соответствующих разрешений предметной области на основе критериев температуры и скорости</p></li>
 </ol>
-<p><strong>Solution:</strong></p>
+<p><strong>Решение:</strong></p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1592,13 +1515,13 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 <figure class="align-default" id="fig-pool-fire-benchmarking">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_benchmarking.svg"><img alt="../../../_images/pool_fire_benchmarking.svg" src="../../../_images/pool_fire_benchmarking.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.24 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Общее время вычислений в зависимости от общего количества ячеек сетки в вычислительной области ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) для разного количества процессов OpenMP (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-pool-fire-grid-convergence">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_grid_convergence.svg"><img alt="../../../_images/pool_fire_grid_convergence.svg" src="../../../_images/pool_fire_grid_convergence.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.25 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Проверка сходимости сетки для устройства с количеством <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1).равным XYZ (0, 0, 1). Размер сетки 20 см и ниже, в результате чего получается общее количество ячеек 31250, не показывает каких-либо существенных изменений температуры.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1613,16 +1536,16 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "fire_sim_lecture_2023.05"
+            mode: "python"
         },
         kernelOptions: {
-            name: "fire_sim_lecture_2023.05",
+            name: "python3",
             path: "./content/modelling/03_compartments"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'fire_sim_lecture_2023.05'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1631,7 +1554,7 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1668,16 +1591,16 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-input-file">FDS Input File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv-visualisation">SMV Visualisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-i-basics">Task I – Basics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame">Extra Task: Simulation of a purely buoyant diffusion flame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-ii-plume-formulas">Task II - Plume Formulas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-iii-time-dependent-heat-release-rate">Task III – Time-dependent Heat Release Rate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-iv-grid-convergence-hpc-computing-benchmarking">Task IV – Grid Convergence / HPC computing / Benchmarking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Введение</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds">Входной файл FDS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smv">Визуализация SMV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Анализ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i">Задание I – Основы</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-task">Дополнительная задача: Моделирование чисто плавучего диффузионного пламени</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">Задание II - Формулы шлейфа</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iii">Задача III – Скорость тепловыделения, зависящая от времени</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iv">Задача IV – Конвергенция сетки / высокопроизводительные вычисления / Сравнительный анализ</a></li>
 </ul>
   </nav></div>
 
@@ -1723,8 +1646,8 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
